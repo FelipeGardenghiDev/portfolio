@@ -3,7 +3,7 @@
 :root {
     --cor-primaria: #000000;
     --cor-secundaria: #F6F6F6;
-    --cor-terciaria: #22D4FD;
+    --cor-terciaria: #E42D2E; /*cor anterior: #22D4FD */
     --cor-hover: #272727;
 
     --font-primaria: 'Krona One', sans-serif;
@@ -86,7 +86,7 @@ body {
     /* background-color: #22D4FD; */
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 8px;
     border: 2px solid var(--cor-terciaria);
     width: 50%;
     text-align: center;
@@ -99,7 +99,7 @@ body {
     font-family: var(--font-secundaria);
 }
 
-.apresentacao__links__link:hover {
+.apresentacao__links__navegacao:hover {
     background-color: var(--cor-hover);
 }
 
