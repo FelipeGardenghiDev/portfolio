@@ -1,6 +1,27 @@
 .img-fluid {
-  max-width:275px;
-  max-height:275px;
+  max-width:20rem;
+  max-height:20rem;
   width: auto;
   height: auto;
+}
+
+@media (max-width: 992px) {
+  .img-fluid {
+    max-width: 17rem;
+    max-height: 17rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-fluid {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .img-fluid {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
 }
