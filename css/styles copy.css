@@ -1,0 +1,39 @@
+/* Reset Básico (Melhora a consistência do layout) */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Garante que não haja rolagem horizontal */
+}
+
+html {
+  font-size: 18px;
+}
+
+.img-fluid {
+  max-width:18rem;
+  max-height:18rem;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 992px) {
+  .img-fluid {
+    max-width: 17rem;
+    max-height: 17rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-fluid {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .img-fluid {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+}

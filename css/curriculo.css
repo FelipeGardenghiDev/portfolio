@@ -1,0 +1,236 @@
+/* ==================================== */
+/* Reset Básico (Aplicado somente a esta página) */
+/* ==================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    font-family: 'Heebo', sans-serif; /* Define a fonte para todo o body */
+    color: #333; /* Cor de texto padrão */
+}
+
+/* ==================================== */
+/* Header e Botão Voltar                */
+/* ==================================== */
+header {
+    padding: 1rem;
+    background-color: #f8f9fa; /* Light background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left; /* Alinha o botão à esquerda */
+}
+
+.back-to-home-button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex; /* Para alinhar o ícone e o texto */
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o ícone e o texto */
+}
+.back-to-home-button:hover {
+    background-color: #e2e6ea; /* Lighten on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.back-to-home-button .bi {
+    font-size: 1.2rem; /* Tamanho do ícone de seta */
+}
+
+/* ==================================== */
+/* Main Content (Currículo)             */
+/* ==================================== */
+.curriculum-main {
+    padding-top: 1rem; /* Espaço para o header */
+    background-color: #f8f9fa; /* Fundo leve para a página de currículo */
+    min-height: calc(100vh - 80px); /* Ajusta para ocupar o resto da tela menos o footer */
+}
+
+.curriculum-section {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra mais destacada */
+    border-radius: 8px !important; /* Aumenta o arredondamento */
+    padding: 2rem !important; /* Aumenta o padding da seção */
+    margin-bottom: 2rem !important; /* Ajusta a margem inferior */
+}
+
+.curriculum-section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black; /* Cor de destaque para títulos de seção */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center; /* Centraliza o título da seção */
+}
+
+.curriculum-description p,
+.job-activities-list li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #495057;
+    margin-bottom: 0.8rem;
+    text-align: justify; /* Justifica o texto para um visual profissional */
+}
+
+.job-experience,
+.academic-experience {
+    margin-bottom: 2rem; /* Espaçamento entre experiências */
+    text-align: left;
+}
+
+.job-title, .academic-title {
+    font-size: 1.35rem;
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.job-company-location,
+.academic-institution-location {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 0.2rem;
+}
+
+.job-dates, .academic-dates {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.job-activities-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-activities-list {
+    list-style-type: disc; /* Marcadores de lista */
+    padding-left: 20px; /* Indentação da lista */
+    margin-bottom: 0;
+}
+.job-activities-list li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* Botão de Download PDF */
+.download-pdf-button {
+    background-color: #28a745; /* Verde Bootstrap */
+    border-color: #28a745;
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 3rem; /* Espaço abaixo do botão */
+}
+.download-pdf-button:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ==================================== */
+/* Footer Customizations                */
+/* ==================================== */
+footer {
+    background-color: #343a40; /* Cor de fundo escura */
+    color: white; /* Cor do texto do footer */
+    padding: 1.5rem 0;
+    text-align: center;
+}
+footer .social-icon-btn {
+    color: white; /* Ícones sociais brancos no footer */
+    font-size: 1.5rem; /* Tamanho maior para os ícones no footer */
+    margin: 0 0.5rem; /* Espaçamento entre os ícones */
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem; /* Aumentar área clicável */
+    border-radius: 50%;
+}
+footer .social-icon-btn:hover {
+    color: #007bff; /* Azul ao hover */
+    transform: translateY(-2px);
+}
+footer div {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+
+/* ==================================== */
+/* Responsividade                       */
+/* ==================================== */
+@media (max-width: 767.98px) { /* Small devices (md do bootstrap, mas aqui para ajustar mobile) */
+    .back-to-home-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+    h1.display-5 {
+        font-size: 2.2rem !important; /* Ajuste para mobile */
+    }
+    .curriculum-section-title {
+        font-size: 1.75rem;
+    }
+    .curriculum-description p,
+    .job-activities-list li {
+        font-size: 0.95rem;
+    }
+    .download-pdf-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+    .curriculum-section {
+        padding: 1.5rem; /* Reduz padding em mobile */
+        margin: 1rem !important; /* Reduz margens entre seções */
+    }
+    .job-title, .academic-title {
+        font-size: 1.2rem;
+    }
+    .job-activities-list {
+        padding-left: 15px;
+    }
+    footer .social-icon-btn {
+        font-size: 1.3rem;
+    }
+    footer div {
+        font-size: 0.8rem;
+    }
+}
+
+@media print {
+    body {
+        font-size: 12pt; /* Otimiza para impressão */
+        color: black;
+        -webkit-print-color-adjust: exact; /* Para cores de fundo em impressão */
+        print-color-adjust: exact;
+    }
+    header, footer, .download-pdf-button {
+        display: none; /* Oculta elementos não essenciais na impressão */
+    }
+    .curriculum-main {
+        padding-top: 0;
+        background-color: transparent;
+        min-height: auto;
+    }
+    .curriculum-section {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+        page-break-inside: avoid; /* Tenta evitar quebrar seções no meio da página */
+        margin-bottom: 0.5rem !important; /* Reduz margem para impressão */
+        padding: 1.5rem !important; /* Ajusta padding para impressão */
+    }
+    .curriculum-section-title {
+        color: #333 !important; /* Garante boa legibilidade */
+        border-bottom: 1px solid #ccc;
+    }
+    h1, h2, h3, h4, h5, h6, p, ul, li {
+        color: black !important;
+    }
+}
