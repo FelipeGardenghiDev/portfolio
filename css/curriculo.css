@@ -5,8 +5,9 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    
     font-family: 'Heebo', sans-serif; /* Define a fonte para todo o body */
+    background-color: #f8f9fa; /* Cor de fundo leve */
     color: #333; /* Cor de texto padrão */
 }
 
@@ -233,4 +234,72 @@ footer div {
     h1, h2, h3, h4, h5, h6, p, ul, li {
         color: black !important;
     }
+}
+
+/* No seu css/curriculo.css */
+
+.curriculum-description ul {
+    list-style-type: none; /* Remove bullets padrão do navegador */
+    padding-left: 0; /* Remove padding padrão da lista */
+    margin-top: 1.5rem; /* Espaçamento da lista com o parágrafo acima */
+}
+
+.curriculum-description li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 0.8rem; /* Espaçamento entre os itens da lista */
+    padding-left: 0.5rem; /* Um pequeno padding esquerdo para os itens */
+    border-left: 3px solid #e9ecef; /* Linha sutil à esquerda para destaque */
+    transition: border-left-color 0.3s ease; /* Transição para a linha */
+}
+
+.curriculum-description li:hover {
+    border-left-color: #007bff; /* Mudar a cor da linha ao passar o mouse */
+}
+
+/* No seu css/curriculo.css */
+
+.certificate-title {
+    font-weight: 600; /* Negrito para o nome do curso */
+    color: #212529; /* Cor mais escura */
+}
+
+.certificate-hours {
+    font-weight: normal; /* Garante que as horas não fiquem em negrito a menos que queira */
+    color: #6c757d; /* Cor mais suave para as horas */
+    font-size: 0.95rem; /* Um pouco menor */
+}
+
+/* No seu css/curriculo.css */
+
+.certificate-link {
+    color: #007bff; /* Cor azul de destaque */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-weight: 600; /* Negrito para o link */
+    margin-left: 0.75rem; /* Mais espaçamento com o texto anterior */
+    padding: 0.1rem 0.5rem; /* Um pequeno padding para área clicável */
+    border: 1px solid #007bff; /* Borda sutil */
+    border-radius: 4px; /* Cantos levemente arredondados */
+    transition: all 0.3s ease; /* Transição para todas as propriedades */
+    white-space: nowrap; /* Impede a quebra de linha */
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 0.25rem; /* Espaço entre texto e ícone de seta */
+}
+
+.certificate-link:hover {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px); /* Pequeno lift ao hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Ícone de link externo (se estiver usando no ::after) */
+.certificate-link::after {
+    content: " \2197"; /* Seta para cima e para a direita (↗) */
+    font-size: 0.8em;
+    vertical-align: middle; /* Alinha melhor o ícone */
+    margin-left: 0; /* Remove margem extra */
 }
