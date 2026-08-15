@@ -1,0 +1,59 @@
+/* ============================================
+   Layout — Container, sections, grid
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--content-padding);
+}
+
+/* ── Sections ── */
+
+.section {
+  padding-block: var(--space-4xl);
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.05em;
+}
+
+.section-title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+}
+
+.section-description {
+  margin-top: var(--space-sm);
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+/* ── Responsive adjustments ── */
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-5xl);
+  }
+
+  .section-title {
+    font-size: var(--fs-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --content-padding: var(--space-xl);
+  }
+}

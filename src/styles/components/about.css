@@ -1,0 +1,99 @@
+/* ============================================
+   About Section — Trajectory & Sidebar Facts
+   ============================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about-content p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-content strong {
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+/* ── Sidebar Fact Card ── */
+
+.about-sidebar {
+  width: 100%;
+}
+
+.fact-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.fact-card-title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.03em;
+}
+
+.fact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.fact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.fact-icon {
+  font-size: var(--fs-lg);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.fact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fact-label {
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fact-value {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  line-height: var(--lh-normal);
+}
+
+/* ── Desktop Layout (>= 992px) ── */
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 360px;
+    gap: var(--space-3xl);
+  }
+}

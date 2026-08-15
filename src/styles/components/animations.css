@@ -1,0 +1,51 @@
+/* ============================================
+   Animations & Polish — Scroll Reveal, Progress Bar
+   ============================================ */
+
+/* ── Scroll Progress Bar ── */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  z-index: calc(var(--z-navbar) + 10);
+  transition: width 100ms ease-out;
+  pointer-events: none;
+}
+
+/* ── Scroll Reveal ── */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays for Cards / Grids */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* ── Prefers Reduced Motion Override ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    display: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

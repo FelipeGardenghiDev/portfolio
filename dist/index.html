@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Felipe Gardenghi — Desenvolvedor Full-Stack</title>
+  <meta name="description" content="Portfólio de Felipe Gardenghi, desenvolvedor full-stack júnior. Projetos em PHP, JavaScript, TypeScript, React, Oracle PL/SQL e integração de sistemas." />
+  <meta name="author" content="Felipe Gardenghi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical & Open Graph URL -->
+  <link rel="canonical" href="https://felipegardenghidev.github.io/portfolio/" />
+  <meta property="og:title" content="Felipe Gardenghi — Desenvolvedor Full-Stack" />
+  <meta property="og:description" content="Portfólio de Felipe Gardenghi. Projetos em PHP, JavaScript, TypeScript, React, Oracle PL/SQL e integração de sistemas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://felipegardenghidev.github.io/portfolio/" />
+  <!-- <meta property="og:image" content="https://felipegardenghidev.github.io/portfolio/og-image.png" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Felipe Gardenghi — Desenvolvedor Full-Stack" />
+  <meta name="twitter:description" content="Portfólio de desenvolvedor full-stack júnior. PHP, JavaScript, TypeScript, React, Oracle PL/SQL." />
+  <!-- <meta name="twitter:image" content="/og-image.png" /> -->
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <meta name="theme-color" content="#0a0a0f" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Felipe Gardenghi",
+      "jobTitle": "Desenvolvedor Full-Stack",
+      "email": "felipegg.dev@gmail.com",
+      "url": "https://github.com/felipegardenghidev",
+      "sameAs": [
+        "https://github.com/felipegardenghidev",
+        "https://linkedin.com/in/felipegardenghi"
+      ],
+      "knowsAbout": ["PHP", "JavaScript", "TypeScript", "React", "Oracle PL/SQL", "MySQL", "Node.js"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "UNIVESP — Universidade Virtual do Estado de São Paulo"
+      }
+    }
+  </script>
+
+  <!-- Inline theme init to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('portfolio-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Main JS -->
+  <script type="module" crossorigin src="./assets/index-CZfxg5RB.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BTpeYPR8.css">
+</head>
+<body>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ════════════════════════════════════════
+       HEADER / NAVBAR
+       ════════════════════════════════════════ -->
+  <header id="navbar" class="navbar" role="banner">
+    <div class="container navbar-container">
+      <a href="#hero" class="nav-brand" aria-label="Felipe Gardenghi - Início">
+        <span class="brand-code">&lt;FG /&gt;</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li><a href="#stack" class="nav-link">Stack</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+          <li><a href="#formacao" class="nav-link">Formação</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Alternar tema">
+          <!-- Sun Icon (Dark Mode) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+          </svg>
+          <!-- Moon Icon (Light Mode) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12.3 2c.43 0 .77.35.73.78-.31 3.42.93 6.83 3.39 9.29 2.46 2.46 5.87 3.7 9.29 3.39.43-.04.78.3.78.73-.02 3.96-2.06 7.62-5.46 9.68-3.4 2.06-7.7 2.06-11.1 0-3.4-2.06-5.44-5.72-5.46-9.68 0-4.42 3.58-8 8.01-8.01.27 0 .54.01.82.03z"/>
+          </svg>
+        </button>
+
+        <button id="nav-toggle" class="nav-toggle-btn" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── Hero ── -->
+    <section id="hero" class="hero" aria-label="Apresentação">
+      <div class="container hero-container reveal-on-scroll">
+        <!-- Status Badge -->
+        <div class="hero-status-badge">
+          <span class="status-dot"></span>
+          <span>Disponível para oportunidades</span>
+        </div>
+
+        <!-- Main Title & Subtitle -->
+        <h1 class="hero-title">Felipe Gardenghi</h1>
+        <p class="hero-subtitle">// Desenvolvedor Full-Stack</p>
+
+        <!-- Positioning Statement -->
+        <p class="hero-description">
+          Construo aplicações web, automatizo processos e integro sistemas — do frontend ao banco de dados, com foco em entrega de valor e solução de problemas de negócio.
+        </p>
+
+        <!-- Action CTAs -->
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary">
+            <span>Ver Projetos</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+            </svg>
+          </a>
+          <a href="./resume/felipe-gardenghi-cv.pdf" download="felipe-gardenghi-cv.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Baixar currículo em formato PDF">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width: 18px; height: 18px; fill: currentColor;">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            <span>Baixar CV (PDF)</span>
+          </a>
+          <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+        </div>
+
+        <!-- Social & Contact Links -->
+        <div class="hero-social">
+          <a href="https://github.com/felipegardenghidev" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Felipe Gardenghi">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://linkedin.com/in/felipegardenghi" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Felipe Gardenghi">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="mailto:felipegg.dev@gmail.com" class="social-link" aria-label="Enviar e-mail para Felipe Gardenghi">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span>felipegg.dev@gmail.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sobre Mim ── -->
+    <section id="sobre" class="section" aria-label="Sobre mim">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// sobre mim</span>
+          <h2 class="section-title">Trajetória e visão de negócio</h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Main Narrative Column -->
+          <div class="about-content reveal-on-scroll">
+            <p>
+              Sou desenvolvedor full-stack e estudante de <strong>Bacharelado em Ciência de Dados</strong> pela UNIVESP. Atualmente atuo na <strong>Nova Smar S/A</strong>, onde desenvolvi um dashboard financeiro em produção que substituiu controles manuais por um sistema multiusuário com integração direta ao ERP TOTVS Protheus e automação em Oracle PL/SQL.
+            </p>
+            <p>
+              Minha atuação engloba desde a concepção de interfaces responsivas até a modelagem e otimização de banco de dados — trabalhando com <strong>PHP, JavaScript, TypeScript, React, Oracle PL/SQL e MySQL</strong>.
+            </p>
+            <p>
+              Antes da transição definitiva para a tecnologia, atuei por 5 anos como empreendedor no e-commerce. Essa experiência me proporcionou uma visão prática de sustentabilidade de produtos, gestão operacional, análise de dados de vendas e entendimento profundo dos problemas de negócio que o software visa resolver.
+            </p>
+          </div>
+
+          <!-- Quick Facts Sidebar Card -->
+          <aside class="about-sidebar reveal-on-scroll reveal-delay-1" aria-label="Informações técnicas e localização">
+            <div class="fact-card">
+              <h3 class="fact-card-title">// informações chave</h3>
+
+              <ul class="fact-list">
+                <li class="fact-item">
+                  <span class="fact-icon" aria-hidden="true">📍</span>
+                  <div class="fact-details">
+                    <span class="fact-label">Localização</span>
+                    <span class="fact-value">Sertãozinho, SP</span>
+                  </div>
+                </li>
+
+                <li class="fact-item">
+                  <span class="fact-icon" aria-hidden="true">🎓</span>
+                  <div class="fact-details">
+                    <span class="fact-label">Formação</span>
+                    <span class="fact-value">Ciência de Dados (UNIVESP)</span>
+                  </div>
+                </li>
+
+                <li class="fact-item">
+                  <span class="fact-icon" aria-hidden="true">💼</span>
+                  <div class="fact-details">
+                    <span class="fact-label">Atuação Atual</span>
+                    <span class="fact-value">Estagiário de T.I. — Nova Smar S/A</span>
+                  </div>
+                </li>
+
+                <li class="fact-item">
+                  <span class="fact-icon" aria-hidden="true">🌐</span>
+                  <div class="fact-details">
+                    <span class="fact-label">Idiomas</span>
+                    <span class="fact-value">Português (Nativo) · Inglês (B2) · Alemão (A1)</span>
+                  </div>
+                </li>
+
+                <li class="fact-item">
+                  <span class="fact-icon" aria-hidden="true">⚙️</span>
+                  <div class="fact-details">
+                    <span class="fact-label">Diferenciais</span>
+                    <span class="fact-value">Integração ERP, Oracle PL/SQL, Visão de Negócio</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Projetos ── -->
+    <section id="projetos" class="section" aria-label="Projetos em destaque">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// projetos</span>
+          <h2 class="section-title">Projetos em destaque</h2>
+          <p class="section-description">
+            Casos de uso reais e projetos desenvolvidos com foco em solução de problemas de negócio, automação e desenvolvimento de software.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- 01. Star Featured Project: Nova Smar Financial Dashboard -->
+          <article class="project-card project-card--featured reveal-on-scroll" aria-labelledby="proj-title-1">
+            <span class="project-badge">PROJETO EM PRODUÇÃO / CASE DE SUCESSO</span>
+            <h3 id="proj-title-1" class="project-title">Dashboard Financeiro & Automação ERP</h3>
+            <span class="project-type">Sistema Corporativo em Produção · Nova Smar S/A</span>
+            <p class="project-description">
+              Sistema web multiusuário auditável desenvolvido para substituir controles manuais na gestão financeira, integrado diretamente ao banco de dados do ERP TOTVS Protheus.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">PHP</span>
+              <span class="project-tag">Oracle PL/SQL</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">TOTVS Protheus</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-details" data-project-target="nova-smar-dashboard">
+                <span>Ver Case Completo</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <div class="project-external-links">
+                <span class="text-muted font-mono" style="font-size: 0.75rem;">🔒 Proprietário</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. Aggrandize Planner Frontend -->
+          <article class="project-card reveal-on-scroll reveal-delay-1" aria-labelledby="proj-title-2">
+            <span class="project-badge">FRONTEND APP</span>
+            <h3 id="proj-title-2" class="project-title">Aggrandize Planner</h3>
+            <span class="project-type">TypeScript · React / Vite · Vercel</span>
+            <p class="project-description">
+              Interface de aplicação de planejamento e produtividade construída com TypeScript e estruturada para alta manutenibilidade, implantada na Vercel.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">Vite</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-details" data-project-target="aggrandize-planner">
+                <span>Ver Detalhes</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <div class="project-external-links">
+                <a href="https://github.com/FelipeGardenghiDev/aggrandize-planner-frontend" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Aggrandize Planner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://aggrandize-planner-frontend.vercel.app" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="Demo do Aggrandize Planner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. Website Banda Revanche -->
+          <article class="project-card reveal-on-scroll reveal-delay-2" aria-labelledby="proj-title-3">
+            <span class="project-badge">PROJETO REAL / CLIENTE</span>
+            <h3 id="proj-title-3" class="project-title">Website Banda Revanche</h3>
+            <span class="project-type">Frontend · Client Delivery · MIT</span>
+            <p class="project-description">
+              Website institucional e promocional completo desenvolvido para a banda Revanche, com foco em identidade visual, agenda de eventos e responsividade.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">GitHub Pages</span>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-details" data-project-target="revanche-website">
+                <span>Ver Detalhes</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <div class="project-external-links">
+                <a href="https://github.com/FelipeGardenghiDev/revanche-website" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Banda Revanche">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04. Feeagro Dashboard -->
+          <article class="project-card reveal-on-scroll reveal-delay-3" aria-labelledby="proj-title-4">
+            <span class="project-badge">DADOS & ANALYTICS</span>
+            <h3 id="proj-title-4" class="project-title">Feeagro Data Dashboard</h3>
+            <span class="project-type">Data Visualization · Analytics</span>
+            <p class="project-description">
+              Dashboard para análise e visualização de indicadores do setor agrícola, integrando conceitos de Ciência de Dados à interface web.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Data Viz</span>
+              <span class="project-tag">HTML5/CSS3</span>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-details" data-project-target="feeagro-dashboard">
+                <span>Ver Detalhes</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <div class="project-external-links">
+                <a href="https://github.com/FelipeGardenghiDev/feeagro-dashboard" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Feeagro Dashboard">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stack ── -->
+    <section id="stack" class="section" aria-label="Stack técnica">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// stack</span>
+          <h2 class="section-title">Tecnologias e ferramentas</h2>
+          <p class="section-description">
+            Conjunto de tecnologias utilizadas no desenvolvimento de sistemas web, automação de banco de dados e integração corporativa.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <!-- 01. Frontend -->
+          <div class="stack-card reveal-on-scroll">
+            <div class="stack-card-header">
+              <span class="stack-num font-mono">// 01</span>
+              <h3 class="stack-card-title">Frontend</h3>
+            </div>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">JavaScript (ES6+)</span>
+              <span class="tech-tag tech-tag--featured">TypeScript</span>
+              <span class="tech-tag tech-tag--featured">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3 / SASS</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Bootstrap 5</span>
+            </div>
+          </div>
+
+          <!-- 02. Backend & APIs -->
+          <div class="stack-card reveal-on-scroll reveal-delay-1">
+            <div class="stack-card-header">
+              <span class="stack-num font-mono">// 02</span>
+              <h3 class="stack-card-title">Backend & APIs</h3>
+            </div>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">PHP</span>
+              <span class="tech-tag tech-tag--featured">Node.js</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">FastAPI / Flask</span>
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">Swagger / Postman</span>
+            </div>
+          </div>
+
+          <!-- 03. Banco de Dados -->
+          <div class="stack-card reveal-on-scroll reveal-delay-2">
+            <div class="stack-card-header">
+              <span class="stack-num font-mono">// 03</span>
+              <h3 class="stack-card-title">Banco de Dados</h3>
+            </div>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
+              <span class="tech-tag tech-tag--featured">MySQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Triggers & Procedures</span>
+              <span class="tech-tag">Otimização de Queries</span>
+            </div>
+          </div>
+
+          <!-- 04. DevOps & Cloud -->
+          <div class="stack-card reveal-on-scroll reveal-delay-3">
+            <div class="stack-card-header">
+              <span class="stack-num font-mono">// 04</span>
+              <h3 class="stack-card-title">DevOps & Cloud</h3>
+            </div>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Git / GitHub</span>
+              <span class="tech-tag">Linux (Ubuntu/Debian)</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">GCP</span>
+              <span class="tech-tag">CI/CD</span>
+            </div>
+          </div>
+
+          <!-- 05. Sistemas & Negócio -->
+          <div class="stack-card reveal-on-scroll reveal-delay-4">
+            <div class="stack-card-header">
+              <span class="stack-num font-mono">// 05</span>
+              <h3 class="stack-card-title">Sistemas & Negócio</h3>
+            </div>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">ERP TOTVS Protheus</span>
+              <span class="tech-tag">Power BI / DAX</span>
+              <span class="tech-tag">Scrum / Kanban</span>
+              <span class="tech-tag">Suporte Técnico & ERP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experiência ── -->
+    <section id="experiencia" class="section" aria-label="Experiência profissional">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// experiência</span>
+          <h2 class="section-title">Experiência profissional</h2>
+        </div>
+
+        <div class="timeline">
+          <!-- 01. Estagiário de T.I. — Nova Smar S/A -->
+          <div class="timeline-item timeline-item--current reveal-on-scroll">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="experience-header">
+                <div class="experience-title-group">
+                  <h3 class="experience-role">Estagiário de T.I.</h3>
+                  <span class="experience-company">@ Nova Smar S/A</span>
+                </div>
+                <div class="experience-meta">
+                  <span class="experience-period">12/2024 – Presente</span>
+                  <span class="experience-location">· Sertãozinho, SP</span>
+                </div>
+              </div>
+              <ul class="experience-bullets">
+                <li class="experience-bullet">
+                  Desenvolveu e implantou <strong>dashboard financeiro em intranet (PHP, JavaScript, Oracle PL/SQL)</strong> em produção, substituindo controles manuais por sistema multiusuário auditável integrado ao ERP TOTVS Protheus, com fluxo de caixa diário/mensal e relatórios em tempo real para tomada de decisão da diretoria e acionistas.
+                </li>
+                <li class="experience-bullet">
+                  Implementou <strong>triggers, procedures e funções PL/SQL em Oracle e MySQL</strong> para automação de rotinas corporativas de banco de dados, eliminando o retrabalho operacional.
+                </li>
+                <li class="experience-bullet">
+                  Desenvolveu relatórios de contabilidade e controle de estoque que viabilizaram a realização do <strong>inventário corporativo em tempo recorde em 2025</strong>.
+                </li>
+                <li class="experience-bullet">
+                  Prestou suporte técnico a usuários de forma local e remota, com diagnóstico de falhas sistêmicas e documentação de processos corporativos.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="tech-tag tech-tag--featured">PHP</span>
+                <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
+                <span class="tech-tag tech-tag--featured">JavaScript</span>
+                <span class="tech-tag tech-tag--featured">TOTVS Protheus</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Suporte Técnico</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02. Assistente de E-commerce — Limiar Games Store -->
+          <div class="timeline-item reveal-on-scroll reveal-delay-1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="experience-header">
+                <div class="experience-title-group">
+                  <h3 class="experience-role">Assistente de E-commerce</h3>
+                  <span class="experience-company">@ Limiar Games Store</span>
+                </div>
+                <div class="experience-meta">
+                  <span class="experience-period">09/2024 – 11/2024</span>
+                  <span class="experience-location">· Sertãozinho, SP</span>
+                </div>
+              </div>
+              <ul class="experience-bullets">
+                <li class="experience-bullet">
+                  Criou e otimizou anúncios em múltiplos marketplaces (Mercado Livre, Shopee, Magalu, Americanas, LigaMagic, LigaPokémon), aumentando a conversão de vendas.
+                </li>
+                <li class="experience-bullet">
+                  Gerenciou separação, conferência de pedidos, atendimento presencial e controle de estoque físico.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="tech-tag">E-commerce</span>
+                <span class="tech-tag">Marketplaces</span>
+                <span class="tech-tag">Gestão de Estoque</span>
+                <span class="tech-tag">Atendimento</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03. Autônomo em E-commerce — Canivete da Roça -->
+          <div class="timeline-item reveal-on-scroll reveal-delay-2">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="experience-header">
+                <div class="experience-title-group">
+                  <h3 class="experience-role">Empreendedor em E-commerce</h3>
+                  <span class="experience-company">@ Canivete da Roça</span>
+                </div>
+                <div class="experience-meta">
+                  <span class="experience-period">09/2019 – 08/2024</span>
+                  <span class="experience-location">· Sertãozinho, SP</span>
+                </div>
+              </div>
+              <ul class="experience-bullets">
+                <li class="experience-bullet">
+                  Gerenciou operação própria em múltiplos marketplaces, liderando campanhas de tráfego pago, mídias sociais, atendimento e pós-venda por 5 anos.
+                </li>
+                <li class="experience-bullet">
+                  Conquistou a reputação de <strong>Mercadolíder em menos de 1 ano de operação</strong>, demonstrando forte visão de negócio, gestão financeira e foco na satisfação do cliente.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="tech-tag">Visão de Negócio</span>
+                <span class="tech-tag">Gestão Operacional</span>
+                <span class="tech-tag">Tráfego Pago</span>
+                <span class="tech-tag">Análise de Vendas</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Formação ── -->
+    <section id="formacao" class="section" aria-label="Formação e certificações">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// formação</span>
+          <h2 class="section-title">Formação e certificações</h2>
+        </div>
+
+        <div class="education-grid">
+
+          <!-- Academic Degree -->
+          <div class="academic-card reveal-on-scroll">
+            <div class="academic-header">
+              <div>
+                <h3 class="academic-degree">Bacharelado em Ciência de Dados</h3>
+                <span class="academic-institution">UNIVESP — Universidade Virtual do Estado de São Paulo</span>
+              </div>
+              <div class="academic-meta">
+                <span class="experience-period">07/2024 – Presente</span>
+                <span>· Sertãozinho, SP</span>
+              </div>
+            </div>
+            <p class="academic-description">
+              Formação de nível superior com foco em algoritmos, estrutura de dados, modelagem estatística, banco de dados relacionais e não-relacionais, análise de dados e aprendizado de máquina.
+            </p>
+          </div>
+
+          <!-- Grouped Certifications Section -->
+          <div>
+            <div class="cert-title-group reveal-on-scroll">
+              <h3 class="section-title" style="font-size: var(--fs-xl);">Certificações & Cursos Técnicos</h3>
+            </div>
+
+            <div class="cert-grid">
+
+              <!-- 01. Front-End -->
+              <div class="cert-card reveal-on-scroll">
+                <div class="cert-card-header">
+                  <h4 class="cert-category-title">Front-End & UI/UX</h4>
+                  <span class="cert-hours-badge">~188h+</span>
+                </div>
+                <ul class="cert-list">
+                  <li class="cert-item"><strong>UI Design para Devs</strong> (Alura · 24h)</li>
+                  <li class="cert-item"><strong>React: JSX e Hooks</strong> (Alura · 57h)</li>
+                  <li class="cert-item"><strong>Acessibilidade & Web Inclusiva</strong> (Alura · 28h)</li>
+                  <li class="cert-item"><strong>Desenvolvimento Front-End</strong> (Alura · 60h)</li>
+                  <li class="cert-item"><strong>Front-End Trilha Digital</strong> (Santander / Ada · 19h)</li>
+                </ul>
+              </div>
+
+              <!-- 02. Back-End -->
+              <div class="cert-card reveal-on-scroll reveal-delay-1">
+                <div class="cert-card-header">
+                  <h4 class="cert-category-title">Back-End & APIs</h4>
+                  <span class="cert-hours-badge">~82h+</span>
+                </div>
+                <ul class="cert-list">
+                  <li class="cert-item"><strong>PHP Web Completo</strong> (Alura · 52h)</li>
+                  <li class="cert-item"><strong>Laravel MVC</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>Swagger: Documentando APIs</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>Quality Assurance & Testes</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>JavaScript & APIs REST</strong> (Alura · 6h)</li>
+                </ul>
+              </div>
+
+              <!-- 03. Banco de Dados -->
+              <div class="cert-card reveal-on-scroll reveal-delay-2">
+                <div class="cert-card-header">
+                  <h4 class="cert-category-title">Banco de Dados & BI</h4>
+                  <span class="cert-hours-badge">~128h+</span>
+                </div>
+                <ul class="cert-list">
+                  <li class="cert-item"><strong>Consultas Oracle Database</strong> (Alura · 82h)</li>
+                  <li class="cert-item"><strong>Power BI Avançado</strong> (SENAI · 32h)</li>
+                  <li class="cert-item"><strong>Admin Oracle DB & Otimização</strong> (Alura · 14h)</li>
+                </ul>
+              </div>
+
+              <!-- 04. DevOps, Gestão & IA -->
+              <div class="cert-card reveal-on-scroll reveal-delay-3">
+                <div class="cert-card-header">
+                  <h4 class="cert-category-title">DevOps, Gestão & IA</h4>
+                  <span class="cert-hours-badge">~36h+</span>
+                </div>
+                <ul class="cert-list">
+                  <li class="cert-item"><strong>Git & GitHub Otimizado</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>Entrega Contínua CI/CD</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>Microsserviços & Padrões</strong> (Alura · 6h)</li>
+                  <li class="cert-item"><strong>Equipes Ágeis & Scrum</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>Copilot & ChatGPT para Devs</strong> (Alura · 8h)</li>
+                  <li class="cert-item"><strong>White Belt Six Sigma</strong> (RL / UNIVESP · 2h)</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="cert-total-summary reveal-on-scroll">
+              <span aria-hidden="true">📜</span>
+              <span>Total de <strong>+400 horas</strong> em cursos técnicos certificados.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contato ── -->
+    <section id="contato" class="section" aria-label="Contato">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-label">// contato</span>
+          <h2 class="section-title">Vamos conversar</h2>
+        </div>
+
+        <div class="contact-wrapper">
+          <p class="contact-lead reveal-on-scroll">
+            Estou disponível para oportunidades profissionais como <strong>Desenvolvedor Full-Stack / Web / Backend Júnior</strong>, projetos de integração de sistemas e automação. Vamos conectar!
+          </p>
+
+          <div class="contact-grid">
+
+            <!-- Direct Email Card -->
+            <article class="contact-card reveal-on-scroll">
+              <div class="contact-card-header">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card-label">E-mail Direto</span>
+                  <h3 class="contact-card-title">Enviar Mensagem</h3>
+                </div>
+              </div>
+              <div class="contact-card-body">
+                <p class="contact-card-value font-mono">felipegg.dev@gmail.com</p>
+              </div>
+              <a href="mailto:felipegg.dev@gmail.com" class="contact-card-action" aria-label="Enviar e-mail para felipegg.dev@gmail.com">
+                <span>Enviar e-mail</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </a>
+            </article>
+
+            <!-- LinkedIn Direct Card -->
+            <article class="contact-card reveal-on-scroll reveal-delay-1">
+              <div class="contact-card-header">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card-label">Rede Profissional</span>
+                  <h3 class="contact-card-title">LinkedIn</h3>
+                </div>
+              </div>
+              <div class="contact-card-body">
+                <p class="contact-card-value font-mono">in/felipegardenghi</p>
+              </div>
+              <a href="https://linkedin.com/in/felipegardenghi" class="contact-card-action" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do LinkedIn de Felipe Gardenghi">
+                <span>Conectar no LinkedIn</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </a>
+            </article>
+
+            <!-- GitHub Direct Card -->
+            <article class="contact-card reveal-on-scroll reveal-delay-2">
+              <div class="contact-card-header">
+                <div class="contact-icon-box">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card-label">Código & Projetos</span>
+                  <h3 class="contact-card-title">GitHub</h3>
+                </div>
+              </div>
+              <div class="contact-card-body">
+                <p class="contact-card-value font-mono">github.com/felipegardenghidev</p>
+              </div>
+              <a href="https://github.com/felipegardenghidev" class="contact-card-action" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do GitHub de Felipe Gardenghi">
+                <span>Ver Repositórios</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </a>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       ACCESSIBLE MODAL CONTAINER (PROJECT DETAILS)
+       ════════════════════════════════════════ -->
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span id="modal-badge" class="modal-badge"></span>
+          <h3 id="modal-title" class="modal-title"></h3>
+          <span id="modal-subtitle" class="text-muted font-mono" style="font-size: 0.85rem;"></span>
+        </div>
+        <button id="modal-close-btn" class="modal-close-btn" type="button" aria-label="Fechar janela de detalhes">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Problem Section -->
+        <div class="modal-section">
+          <span class="modal-section-label">// o desafio / problema</span>
+          <p id="modal-problem" class="modal-text"></p>
+        </div>
+
+        <!-- Contribution Section -->
+        <div class="modal-section">
+          <span class="modal-section-label">// solução & contribuição técnica</span>
+          <ul id="modal-solution" class="modal-list"></ul>
+        </div>
+
+        <!-- Tech Stack Tags -->
+        <div class="modal-section">
+          <span class="modal-section-label">// tecnologias utilizadas</span>
+          <div id="modal-tags" class="stack-tags" style="margin-top: 0.25rem;"></div>
+        </div>
+      </div>
+
+      <div id="modal-links" class="modal-footer">
+        <!-- Dynamic Action Buttons / Diagram Placeholder -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-container">
+      <div>
+        <p class="footer-copyright">
+          &copy; 2026 <strong>Felipe Gardenghi</strong>. Todos os direitos reservados.
+        </p>
+        <p class="footer-tech">
+          Construído com HTML5, CSS3 Vanilla e JavaScript ES6+.
+        </p>
+      </div>
+      <a href="#hero" class="back-to-top" aria-label="Voltar ao topo da página">
+        <span>Voltar ao topo</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>

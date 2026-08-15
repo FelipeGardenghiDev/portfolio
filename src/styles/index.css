@@ -1,0 +1,24 @@
+/* ============================================
+   Portfolio — Main Stylesheet
+   Felipe Gardenghi — Desenvolvedor Full-Stack
+   ============================================ */
+
+/* ── Foundation ── */
+@import './variables.css';
+@import './reset.css';
+@import './base.css';
+@import './layout.css';
+@import './utilities.css';
+
+/* ── Components ── */
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/about.css';
+@import './components/stack.css';
+@import './components/projects.css';
+@import './components/modal.css';
+@import './components/experience.css';
+@import './components/education.css';
+@import './components/contact.css';
+@import './components/footer.css';
+@import './components/animations.css';

@@ -1,0 +1,34 @@
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* ── Visually Hidden (accessible to screen readers) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Text ── */
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* ── Font family ── */
+.font-mono {
+  font-family: var(--font-mono);
+}
