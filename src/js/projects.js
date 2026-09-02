@@ -70,22 +70,24 @@ export const PROJECTS_DATA = [
   },
   {
     id: 'feeagro-dashboard',
-    featured: false,
-    title: 'Feeagro Data Dashboard',
-    subtitle: 'Visualização de Dados & Analytics',
-    badge: 'DADOS & ANALYTICS',
-    type: 'Data Visualization · Analytics · Dashboard',
-    shortDescription: 'Dashboard para análise e visualização de indicadores do setor agrícola, integrando conceitos de Ciência de Dados à interface web.',
-    fullProblem: 'Necessidade de transformar dados operacionais agrícolas em painéis visuais interativos para facilitar a interpretação de métricas de desempenho.',
+    featured: true,
+    title: 'FeeAgro RWA Banking Dashboard',
+    subtitle: 'Internet Banking & Tokenização de Commodities',
+    badge: 'DESTAQUE / FINTECH RWA',
+    type: 'Next.js 16 · React 19 · TypeScript · Tailwind v4 · Vitest',
+    shortDescription: 'Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte com 24 testes automatizados.',
+    fullProblem: 'Necessidade de antecipação de receitas e crédito rural seguro para produtores agrícolas através de custódia e negociação de safras tokenizadas com governança e transparência.',
     fullSolution: [
-      '<strong>Visualização de Dados:</strong> Construção de gráficos e indicadores visuais focados no agronegócio.',
-      '<strong>Ciência de Dados Aplicada:</strong> Projeto alinhado aos estudos do Bacharelado em Ciência de Dados (UNIVESP).'
+      '<strong>Arquitetura Moderna:</strong> Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS v4.',
+      '<strong>Reatividade & Persistência:</strong> Gerenciamento de estado global com Zustand e persistência em localStorage, refletindo débitos de saldo e liquidações em tempo real.',
+      '<strong>Validação Tipada com Zod:</strong> Schemas dinâmicos que validam fundos disponíveis em conta e barram operações inválidas.',
+      '<strong>Qualidade & Testes:</strong> 24 testes automatizados com Vitest e React Testing Library, integrados a pipeline de CI no GitHub Actions.'
     ],
-    tags: ['JavaScript', 'HTML5', 'CSS3', 'Data Visualization', 'Analytics'],
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Zustand', 'Vitest', 'Zod', 'RWA / Agro', 'CI/CD'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/feeagro-dashboard',
-      demo: null
+      demo: 'https://feeagro-dashboard.vercel.app/dashboard'
     }
   }
 ];
