@@ -89,6 +89,28 @@ export const PROJECTS_DATA = [
       github: 'https://github.com/FelipeGardenghiDev/feeagro-dashboard',
       demo: 'https://feeagro-dashboard.vercel.app/dashboard'
     }
+  },
+  {
+    id: 'visuchord',
+    featured: true,
+    title: 'VisuChord — Instrumento por IA & Visão Computacional',
+    subtitle: 'Síntese Harmônica Controlada por Gestos via Webcam',
+    badge: 'VISÃO COMPUTACIONAL & IA',
+    type: 'React 19 · Vite 8 · Google MediaPipe Hands · Tone.js · WebGL',
+    shortDescription: 'Aplicação web que transforma a webcam em um instrumento musical polifônico em tempo real, rastreando 21 pontos anatômicos das mãos para modular e tocar qualquer acorde cromático.',
+    fullProblem: 'Exploração de interfaces homem-máquina inovadoras (NUI - Natural User Interfaces), sintetizando harmonia musical rica no ar sem necessidade de controladores físicos externos.',
+    fullSolution: [
+      '<strong>Visão Computacional na GPU:</strong> Processamento a 60 FPS com Google MediaPipe Hands Tasks Vision via WebAssembly e WebGL diretamente no navegador.',
+      '<strong>Teoria Musical Cromática:</strong> Suporte integral a todas as 12 tonalidades ocidentais com modulação por altura espacial (# / ♭) e tétrades/tríades avançadas (Maior, Menor, 7ª, 7M, Meio-Diminuto m7b5, Diminuto).',
+      '<strong>Motor de Áudio Tone.js:</strong> Síntese polifônica com modelagem de envelope ADSR, simulação de palhetada (strumming em cascata), Reverb espacial e Chorus analógico.',
+      '<strong>Teclado Virtual & HUD Sci-Fi:</strong> Canvas dinâmico com conexões anatômicas em neon e visualizador de piano em tempo real.'
+    ],
+    tags: ['React 19', 'Vite 8', 'Google MediaPipe', 'Tone.js', 'Visão Computacional', 'Web Audio API', 'TypeScript', 'Tailwind CSS v4'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/visuchord',
+      demo: null
+    }
   }
 ];
 
