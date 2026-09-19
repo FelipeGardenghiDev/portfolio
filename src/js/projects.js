@@ -52,21 +52,22 @@ export const PROJECTS_DATA = [
     id: 'revanche-website',
     featured: false,
     title: 'Website Banda Revanche',
-    subtitle: 'Website Oficial para Cliente Real',
-    badge: 'PROJETO REAL / CLIENTE',
-    type: 'Frontend · Web Design · Responsivo',
-    shortDescription: 'Website institucional e promocional completo desenvolvido para a banda Revanche, com foco em identidade visual, agenda de eventos e responsividade.',
-    fullProblem: 'A banda necessitava de um canal oficial centralizado para divulgação de trabalhos, agenda de shows, reprodução de mídias e contato para contratantes.',
+    subtitle: 'Aplicação Web em Produção · Cliente Real',
+    badge: 'CLIENTE REAL / PRODUÇÃO',
+    type: 'Next.js 16 · React 19 · TypeScript · Tailwind v4 · SEO',
+    shortDescription: 'Aplicação web oficial de alta performance desenvolvida para a banda Revanche, com agenda de shows, integração com Spotify e otimização para SEO.',
+    fullProblem: 'A banda necessitava de um canal oficial de alta performance para divulgação de shows, captação de contratantes via WhatsApp formatado, download de mídia kit em alta resolução e engajamento dos fãs.',
     fullSolution: [
-      '<strong>Design & Estrutura:</strong> Concepção de layout responsivo adaptado à identidade da banda.',
-      '<strong>Recursos:</strong> Integração de agenda de eventos, player de mídias e formulário de contato promocional.',
-      '<strong>Entrega:</strong> Projeto entregue ao cliente e disponibilizado sob licença código aberto (MIT).'
+      '<strong>Arquitetura Moderna:</strong> Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS v4.',
+      '<strong>SEO & Governança:</strong> Metadados estruturados Schema.org (MusicGroup) para indexação rápida no Google e OpenGraph para compartilhamento social.',
+      '<strong>Recursos & Integrações:</strong> Agenda de eventos dinâmica com links oficiais de ingressos, player de mídias e fluxo de contato direto para contratantes.',
+      '<strong>Entrega & Produção:</strong> Aplicação no ar e mantida em domínio próprio de alta performance (bandarevanche.com.br).'
     ],
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Design Responsivo', 'Git', 'GitHub Pages'],
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'SEO Schema.org', 'Produção'],
     isProprietary: false,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/revanche-website',
-      demo: null
+      github: 'https://github.com/FelipeGardenghiDev/revanche-website-v2',
+      demo: 'https://bandarevanche.com.br'
     }
   },
   {
