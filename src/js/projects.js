@@ -27,24 +27,25 @@ export const PROJECTS_DATA = [
     }
   },
   {
-    id: 'aggrandize-planner',
-    featured: false,
-    title: 'Aggrandize Planner',
-    subtitle: 'Aplicação Web de Planejamento',
-    badge: 'FRONTEND APP',
-    type: 'TypeScript · React / Vite · Vercel Deploy',
-    shortDescription: 'Interface de aplicação de planejamento e produtividade construída com TypeScript e estruturada para alta manutenibilidade, implantada na Vercel.',
-    fullProblem: 'Necessidade de uma ferramenta de planejamento de metas e tarefas leve, totalmente tipada e com navegação rápida sem dependência de backends pesados.',
+    id: 'agrofinance-dashboard',
+    featured: true,
+    title: 'AgroFinance RWA Banking Dashboard',
+    subtitle: 'Internet Banking & Tokenização de Commodities',
+    badge: 'DESTAQUE / FINTECH RWA',
+    type: 'Next.js 16 · React 19 · TypeScript · Tailwind v4 · Vitest',
+    shortDescription: 'Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte com testes automatizados.',
+    fullProblem: 'Necessidade de antecipação de receitas e crédito rural seguro para produtores agrícolas através de custódia e negociação de safras tokenizadas com governança e transparência.',
     fullSolution: [
-      '<strong>Arquitetura Frontend:</strong> Aplicação frontend construída com TypeScript, garantindo segurança de tipos.',
-      '<strong>Deploy Contínuo:</strong> Configuração de build otimizado e hospedagem contínua via Vercel.',
-      '<strong>Usabilidade:</strong> Interface limpa focada em experiência do usuário e produtividade.'
+      '<strong>Arquitetura Moderna:</strong> Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS v4.',
+      '<strong>Reatividade & Persistência:</strong> Gerenciamento de estado global com Zustand e persistência em localStorage, refletindo débitos de saldo e liquidações em tempo real.',
+      '<strong>Validação Tipada com Zod:</strong> Schemas dinâmicos que validam fundos disponíveis em conta e barram operações inválidas.',
+      '<strong>Qualidade & Testes:</strong> Suíte robusta de testes automatizados com Vitest e React Testing Library, integrados a pipeline de CI no GitHub Actions.'
     ],
-    tags: ['TypeScript', 'JavaScript', 'React', 'Vite', 'Vercel', 'CSS3'],
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Zustand', 'Vitest', 'Zod', 'RWA / Agro', 'CI/CD'],
     isProprietary: false,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/aggrandize-planner-frontend',
-      demo: 'https://aggrandize-planner-frontend.vercel.app'
+      github: 'https://github.com/FelipeGardenghiDev/agrofinance-dashboard',
+      demo: 'https://agrofinance-dashboard-dev.vercel.app/dashboard'
     }
   },
   {
@@ -66,28 +67,6 @@ export const PROJECTS_DATA = [
     links: {
       github: 'https://github.com/FelipeGardenghiDev/revanche-website',
       demo: null
-    }
-  },
-  {
-    id: 'feeagro-dashboard',
-    featured: true,
-    title: 'FeeAgro RWA Banking Dashboard',
-    subtitle: 'Internet Banking & Tokenização de Commodities',
-    badge: 'DESTAQUE / FINTECH RWA',
-    type: 'Next.js 16 · React 19 · TypeScript · Tailwind v4 · Vitest',
-    shortDescription: 'Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte com 24 testes automatizados.',
-    fullProblem: 'Necessidade de antecipação de receitas e crédito rural seguro para produtores agrícolas através de custódia e negociação de safras tokenizadas com governança e transparência.',
-    fullSolution: [
-      '<strong>Arquitetura Moderna:</strong> Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS v4.',
-      '<strong>Reatividade & Persistência:</strong> Gerenciamento de estado global com Zustand e persistência em localStorage, refletindo débitos de saldo e liquidações em tempo real.',
-      '<strong>Validação Tipada com Zod:</strong> Schemas dinâmicos que validam fundos disponíveis em conta e barram operações inválidas.',
-      '<strong>Qualidade & Testes:</strong> 24 testes automatizados com Vitest e React Testing Library, integrados a pipeline de CI no GitHub Actions.'
-    ],
-    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Zustand', 'Vitest', 'Zod', 'RWA / Agro', 'CI/CD'],
-    isProprietary: false,
-    links: {
-      github: 'https://github.com/FelipeGardenghiDev/feeagro-dashboard',
-      demo: 'https://feeagro-dashboard.vercel.app/dashboard'
     }
   },
   {
