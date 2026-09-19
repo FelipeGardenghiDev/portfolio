@@ -66,7 +66,7 @@ export const PROJECTS_DATA = [
     tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'SEO Schema.org', 'Produção'],
     isProprietary: false,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/revanche-website-v2',
+      github: 'https://github.com/FelipeGardenghiDev/revanche-website',
       demo: 'https://bandarevanche.com.br'
     }
   },
