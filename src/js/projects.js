@@ -175,8 +175,9 @@ export const PROJECTS_DATA = [
     ],
     tags: ['Python', 'FastAPI', 'Google Gemini 2.0', 'Supabase', 'PostgreSQL', 'Docker', 'FullCalendar', 'Automação'],
     isProprietary: false,
+    isPrivate: true,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/second-brain',
+      github: null,
       demo: null
     }
   }
@@ -254,6 +255,11 @@ export function initProjects() {
       if (project.isProprietary) {
         linksHTML = `
           <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 Código proprietário (Nova Smar S/A)</span>
+        `;
+      }
+      if (project.isPrivate) {
+        linksHTML = `
+          <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 Repositório Privado (Life OS Pessoal)</span>
         `;
       }
       modalLinks.innerHTML = linksHTML;
