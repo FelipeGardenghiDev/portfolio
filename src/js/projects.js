@@ -27,25 +27,91 @@ export const PROJECTS_DATA = [
     }
   },
   {
+    id: 'fraud-detection-api',
+    featured: true,
+    title: 'Fraud Detection & Risk Engine API',
+    subtitle: 'Prevenção de Fraudes & Análise de Risco em Tempo Real',
+    badge: 'FINTECH / MICROSSERVIÇOS',
+    type: 'Java 21 · Spring Boot 3 · RabbitMQ · Redis · Docker · OpenAPI 3',
+    shortDescription: 'API corporativa de alta performance para análise de risco em tempo real em transações PIX, Cartão e Boletos, com Rule Engine Pipeline, mensageria e Redis Sliding Window.',
+    fullProblem: 'Instituições financeiras e fintechs enfrentam perdas substanciais por fraudes transacionais, ataques de força bruta/burst e sequestros relâmpagos (golpes do PIX noturno), necessitando de análise com latência inferior a 100ms e auditoria completa.',
+    fullSolution: [
+      '<strong>Rule Engine Extensível:</strong> Pipeline modular avaliando Blacklist restritiva (CPF, IP, Device), High Amount Detection e Janela Noturna de Risco (22h às 06h).',
+      '<strong>Velocity Burst Check com Redis:</strong> Monitoramento de rajadas de tentativas consecutivas com Redis Sliding Window Cache e fallback resiliente.',
+      '<strong>Arquitetura Orientada a Eventos:</strong> Mensageria assíncrona com RabbitMQ disparando FraudAlertEvent para filas segregadas em transações suspeitas ou bloqueadas.',
+      '<strong>Idempotência & Conformidade:</strong> Deduplicação via transactionId, autenticação segura por X-API-KEY e documentação interativa Swagger OpenAPI 3.'
+    ],
+    tags: ['Java 21', 'Spring Boot 3', 'RabbitMQ', 'Redis', 'Docker', 'Spring Security', 'OpenAPI 3', 'Fintech', 'JUnit 5 / Mockito'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/fraud-detection-api',
+      demo: null
+    }
+  },
+  {
     id: 'agrofinance-dashboard',
     featured: true,
     title: 'AgroFinance RWA Banking Dashboard',
     subtitle: 'Internet Banking & Tokenização de Commodities',
     badge: 'DESTAQUE / FINTECH RWA',
     type: 'Next.js 16 · React 19 · TypeScript · Tailwind v4 · Vitest',
-    shortDescription: 'Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte com testes automatizados.',
+    shortDescription: 'Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte com 123 testes automatizados.',
     fullProblem: 'Necessidade de antecipação de receitas e crédito rural seguro para produtores agrícolas através de custódia e negociação de safras tokenizadas com governança e transparência.',
     fullSolution: [
       '<strong>Arquitetura Moderna:</strong> Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito e Tailwind CSS v4.',
       '<strong>Reatividade & Persistência:</strong> Gerenciamento de estado global com Zustand e persistência em localStorage, refletindo débitos de saldo e liquidações em tempo real.',
       '<strong>Validação Tipada com Zod:</strong> Schemas dinâmicos que validam fundos disponíveis em conta e barram operações inválidas.',
-      '<strong>Qualidade & Testes:</strong> Suíte robusta de testes automatizados com Vitest e React Testing Library, integrados a pipeline de CI no GitHub Actions.'
+      '<strong>Qualidade & Testes:</strong> Suíte robusta de 123 testes automatizados com Vitest e React Testing Library, integrados a pipeline de CI no GitHub Actions.'
     ],
     tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Zustand', 'Vitest', 'Zod', 'RWA / Agro', 'CI/CD'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/agrofinance-dashboard',
       demo: 'https://agrofinance-dashboard-dev.vercel.app/dashboard'
+    }
+  },
+  {
+    id: 'imoveis-pricing-ml',
+    featured: false,
+    title: 'Imóveis Pricing ML — Inteligência Imobiliária',
+    subtitle: 'Precificação Preditiva & Radar de Oportunidades',
+    badge: 'CIÊNCIA DE DADOS & ML',
+    type: 'Python 3.11 · LightGBM · SHAP · Scikit-Learn · Streamlit · Pandas',
+    shortDescription: 'Projeto End-to-End de Ciência de Dados e Machine Learning para a Região Metropolitana de Ribeirão Preto/SP, com web scraping, modelo LightGBM e Radar de Oportunidades.',
+    fullProblem: 'Forte heterogeneidade de preços e assimetria de informações no mercado imobiliário regional, dificultando a precificação correta de venda e a detecção de imóveis subprecificados (arbitragem).',
+    fullSolution: [
+      '<strong>Pipeline End-to-End:</strong> Web scraping automatizado de +1.100 anúncios reais, limpeza estruturada e engenharia de atributos espaciais.',
+      '<strong>Modelagem Preditiva com LightGBM:</strong> Algoritmo de gradient boosting com R² = 0.835 e redução de mais de 61% no erro absoluto médio frente à mediana.',
+      '<strong>Explicabilidade com SHAP (XAI):</strong> Auditoria transparente do impacto de cada feature em Reais (área privativa, banheiros, condomínio, distância ao polo econômico).',
+      '<strong>Radar de Oportunidades:</strong> Dashboard interativo em Streamlit com simulador preditivo de valor e detecção visual de barganhas de investimento.'
+    ],
+    tags: ['Python 3.11', 'LightGBM', 'SHAP (XAI)', 'Scikit-Learn', 'Streamlit', 'Pandas', 'Web Scraping', 'Ciência de Dados'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/imoveis-pricing-ml',
+      demo: null
+    }
+  },
+  {
+    id: 'visuchord',
+    featured: true,
+    title: 'VisuChord — Instrumento por IA & Visão Computacional',
+    subtitle: 'Síntese Harmônica Controlada por Gestos via Webcam',
+    badge: 'VISÃO COMPUTACIONAL & IA',
+    type: 'React 19 · Vite 8 · Google MediaPipe Hands · Tone.js · WebGL',
+    shortDescription: 'Aplicação web que transforma a webcam em um instrumento musical polifônico em tempo real, rastreando 21 pontos anatômicos das mãos para modular e tocar qualquer acorde cromático.',
+    fullProblem: 'Exploração de interfaces homem-máquina inovadoras (NUI - Natural User Interfaces), sintetizando harmonia musical rica no ar sem necessidade de controladores físicos externos.',
+    fullSolution: [
+      '<strong>Visão Computacional na GPU:</strong> Processamento a 60 FPS com Google MediaPipe Hands Tasks Vision via WebAssembly e WebGL diretamente no navegador.',
+      '<strong>Teoria Musical Cromática:</strong> Suporte integral a todas as 12 tonalidades ocidentais com modulação por altura espacial (# / ♭) e tétrades/tríades avançadas (Maior, Menor, 7ª, 7M, Meio-Diminuto m7b5, Diminuto).',
+      '<strong>Motor de Áudio Tone.js:</strong> Síntese polifônica com modelagem de envelope ADSR, simulação de palhetada (strumming em cascata), Reverb espacial e Chorus analógico.',
+      '<strong>Teclado Virtual & HUD Sci-Fi:</strong> Canvas dinâmico com conexões anatômicas em neon e visualizador de piano em tempo real.'
+    ],
+    tags: ['React 19', 'Vite 8', 'Google MediaPipe', 'Tone.js', 'Visão Computacional', 'Web Audio API', 'TypeScript', 'Tailwind CSS v4'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/visuchord',
+      demo: null
     }
   },
   {
@@ -71,24 +137,46 @@ export const PROJECTS_DATA = [
     }
   },
   {
-    id: 'visuchord',
-    featured: true,
-    title: 'VisuChord — Instrumento por IA & Visão Computacional',
-    subtitle: 'Síntese Harmônica Controlada por Gestos via Webcam',
-    badge: 'VISÃO COMPUTACIONAL & IA',
-    type: 'React 19 · Vite 8 · Google MediaPipe Hands · Tone.js · WebGL',
-    shortDescription: 'Aplicação web que transforma a webcam em um instrumento musical polifônico em tempo real, rastreando 21 pontos anatômicos das mãos para modular e tocar qualquer acorde cromático.',
-    fullProblem: 'Exploração de interfaces homem-máquina inovadoras (NUI - Natural User Interfaces), sintetizando harmonia musical rica no ar sem necessidade de controladores físicos externos.',
+    id: 'rpg-companion-android',
+    featured: false,
+    title: 'Grimório RPG — Companion Android',
+    subtitle: 'Assistente Nativo Offline-First com P2P',
+    badge: 'MOBILE NATIVO / CLEAN ARCH',
+    type: 'Kotlin 2.0 · Jetpack Compose · Material 3 · Room · Nearby Connections',
+    shortDescription: 'Assistente nativo Android para RPG de mesa com foco em privacidade total, arquitetura Clean + MVVM, 100% offline-first e comunicação P2P sem servidores.',
+    fullProblem: 'Partidas presenciais de RPG em locais sem conexão estável com a internet, em que apps convencionais sofrem com lentidão, consumo excessivo de bateria ou falta de sincronização em tempo real entre mestre e jogadores.',
     fullSolution: [
-      '<strong>Visão Computacional na GPU:</strong> Processamento a 60 FPS com Google MediaPipe Hands Tasks Vision via WebAssembly e WebGL diretamente no navegador.',
-      '<strong>Teoria Musical Cromática:</strong> Suporte integral a todas as 12 tonalidades ocidentais com modulação por altura espacial (# / ♭) e tétrades/tríades avançadas (Maior, Menor, 7ª, 7M, Meio-Diminuto m7b5, Diminuto).',
-      '<strong>Motor de Áudio Tone.js:</strong> Síntese polifônica com modelagem de envelope ADSR, simulação de palhetada (strumming em cascata), Reverb espacial e Chorus analógico.',
-      '<strong>Teclado Virtual & HUD Sci-Fi:</strong> Canvas dinâmico com conexões anatômicas em neon e visualizador de piano em tempo real.'
+      '<strong>Arquitetura Moderna & Jetpack Compose:</strong> Estruturado em Clean Architecture + MVVM com Kotlin 2.0, Material 3 e Unidirectional Data Flow (UDF) via StateFlow.',
+      '<strong>Parser Léxico Matemático:</strong> Interpretador em Kotlin puro para fórmulas complexas de dados (vantagens, desvantagens, dados explosivos e descarte de menores).',
+      '<strong>Mesa Local P2P sem Servidor:</strong> Sincronização direta de rolagens entre mestre e jogadores via Google Nearby Connections (Bluetooth / Wi-Fi Direct) com custo zero de nuvem.',
+      '<strong>Resiliência & QR Code:</strong> Persistência local em Room SQLite e exportação/importação instantânea de fichas e encontros via CameraX e ZXing.'
     ],
-    tags: ['React 19', 'Vite 8', 'Google MediaPipe', 'Tone.js', 'Visão Computacional', 'Web Audio API', 'TypeScript', 'Tailwind CSS v4'],
+    tags: ['Kotlin 2.0', 'Jetpack Compose', 'Material 3', 'Clean Architecture', 'Room SQLite', 'Google Nearby P2P', 'CameraX', 'Android Nativo'],
     isProprietary: false,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/visuchord',
+      github: 'https://github.com/FelipeGardenghiDev/rpg-companion-android',
+      demo: null
+    }
+  },
+  {
+    id: 'second-brain',
+    featured: false,
+    title: 'Segundo Cérebro (Life OS)',
+    subtitle: 'Assistente Multimodal via WhatsApp & Painel Web',
+    badge: 'IA GENERATIVA / FASTAPI',
+    type: 'Python · FastAPI · Google Gemini 2.0 · Supabase PostgreSQL · FullCalendar',
+    shortDescription: 'Assistente inteligente integrado com WhatsApp e Painel Web para gestão pessoal, financeira e estúdio musical, unindo IA generativa com Google Gemini 2.0 e Supabase.',
+    fullProblem: 'Dispersão de diários de aula de música, divisão de cachês da banda, finanças diárias e calendário em múltiplos aplicativos sem automação ou inteligência de contexto.',
+    fullSolution: [
+      '<strong>IA Multimodal com Gemini 2.0:</strong> Interpretação de mensagens de voz e texto no WhatsApp para categorização automática de diários de aula, tarefas e gastos.',
+      '<strong>Rateio Inteligente de Cachês:</strong> Cálculo instantâneo deduzindo custos de transporte e alimentação, formatando mensagem de prestação de contas para grupos.',
+      '<strong>Integração de Calendário:</strong> Painel web com FullCalendar e sincronização iCal (.ics) direta com Google Calendar e Samsung Calendar.',
+      '<strong>Arquitetura Custo Zero:</strong> Projetado em Python com FastAPI, Supabase PostgreSQL e contêineres Docker para execução resiliente e econômica.'
+    ],
+    tags: ['Python', 'FastAPI', 'Google Gemini 2.0', 'Supabase', 'PostgreSQL', 'Docker', 'FullCalendar', 'Automação'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/second-brain',
       demo: null
     }
   }
@@ -193,6 +281,31 @@ export function initProjects() {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-project-target');
       openModal(targetId);
+    });
+  });
+
+  // Category Filtering
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterButtons.forEach((b) => {
+        b.classList.remove('filter-btn--active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('filter-btn--active');
+      btn.setAttribute('aria-selected', 'true');
+
+      projectCards.forEach((card) => {
+        const categories = (card.getAttribute('data-category') || '').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
   });
 

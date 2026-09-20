@@ -2,6 +2,41 @@
    Projects Section — Cards Grid & Destaque
    ============================================ */
 
+/* ── Filter Bar ── */
+.projects-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  justify-content: flex-start;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.filter-btn--active {
+  background-color: var(--accent-dim);
+  border-color: var(--accent-border);
+  color: var(--accent-hover);
+  font-weight: var(--fw-semibold);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -176,7 +211,7 @@
   }
 
   /* Make featured star project span full width on desktop grid */
-  .project-card--featured {
+  .project-card--full {
     grid-column: 1 / -1;
   }
 }
