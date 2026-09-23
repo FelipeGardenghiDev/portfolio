@@ -32,12 +32,11 @@
 }
 
 .marquee-content {
-  --base-duration: 34s;
-  --scroll-boost: 0;
+  --base-duration: 42s;
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marqueeSlide calc(var(--base-duration) / (1 + var(--scroll-boost, 0))) linear infinite;
+  animation: marqueeSlide var(--base-duration) linear infinite;
 }
 
 .tech-marquee-section:hover .marquee-content {
