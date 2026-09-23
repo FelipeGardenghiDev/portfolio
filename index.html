@@ -137,13 +137,17 @@
           <span>Disponível para oportunidades</span>
         </div>
 
-        <!-- Main Title & Subtitle -->
+        <!-- Main Title & Dynamic Typewriter Subtitle -->
         <h1 class="hero-title">Felipe Gardenghi</h1>
-        <p class="hero-subtitle">// Full-Stack · Engenharia de Software · Ciência de Dados</p>
+        <div class="hero-typewriter-container" aria-label="Especialidades profissionais">
+          <span class="typewriter-prefix">//</span>
+          <span class="typewriter-text" id="typewriter-text" aria-live="polite">Desenvolvedor Full-Stack</span>
+          <span class="typewriter-cursor" aria-hidden="true">|</span>
+        </div>
 
         <!-- Positioning Statement -->
         <p class="hero-description">
-          Construo microsserviços de alto desempenho, aplicações web escaláveis e soluções em Ciência de Dados — integrando regras de negócio, bancos de dados corporativos e interfaces modernas com entrega de valor comprovada.
+          Construo microsserviços de alto desempenho, arquiteturas corporativas resilientes (DDD, Outbox Pattern, Terraform AWS), aplicações web modernas e soluções em Ciência de Dados — integrando regras de negócio e infraestrutura escalável com entrega de valor comprovada.
         </p>
 
         <!-- Action CTAs -->
@@ -185,6 +189,245 @@
             </svg>
             <span>felipegg.dev@gmail.com</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Tech Marquee Ribbon (Infinite Horizontal Ticker) ── -->
+    <section class="tech-marquee-section" aria-label="Tecnologias principais">
+      <div class="marquee-track-wrapper">
+        <div class="marquee-content" id="tech-marquee">
+          <!-- Track 1 -->
+          <div class="marquee-track" aria-hidden="false">
+            <!-- 01. Java -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 19h16v1H4v-1zm14-7v-1c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v5c0 2.21 1.79 4 4 4h4c2.21 0 4-1.79 4-4v-1h2c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2zm0 2h2v1h-2v-1zM9 3c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4H9zm4 0c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4h-2z"/></svg>
+              </span>
+              <span class="marquee-label">Java 21</span>
+            </div>
+            <!-- 02. Spring Boot -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21.84 10.42c-.5-5.88-5.32-10.42-11.23-10.42a11.3 11.3 0 0 0-8.08 3.42c-.44.45-.44 1.18 0 1.63.44.44 1.16.44 1.6 0A9.07 9.07 0 0 1 10.6 2.25c4.72 0 8.58 3.63 8.98 8.33.04.49.45.86.94.86.03 0 .07 0 .1-.01.52-.04.9-.5.86-1.02l-.64.01zM11.97 4.14c-4.4 0-7.97 3.57-7.97 7.97 0 2.21.9 4.21 2.34 5.65.44.44 1.16.44 1.6 0 .44-.44.44-1.16 0-1.6a5.71 5.71 0 0 1-1.69-4.05c0-3.16 2.56-5.72 5.72-5.72 3.16 0 5.72 2.56 5.72 5.72 0 1.57-.63 3-1.69 4.05-.44.44-.44 1.16 0 1.6.44.44 1.16.44 1.6 0 1.44-1.44 2.34-3.44 2.34-5.65 0-4.4-3.57-7.97-7.96-7.97zM11.97 9.77c-1.28 0-2.33 1.05-2.33 2.34 0 .91.53 1.7 1.29 2.08v4.83a1.03 1.03 0 0 0 2.07 0v-4.83c.76-.38 1.29-1.17 1.29-2.08 0-1.29-1.04-2.34-2.32-2.34z"/></svg>
+              </span>
+              <span class="marquee-label">Spring Boot 3</span>
+            </div>
+            <!-- 03. AWS Terraform -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14.67 8.35v6.52l-5.65-3.26V5.09l5.65 3.26zm1.33 0l5.65-3.26v6.52l-5.65 3.26V8.35zm0 7.82l5.65-3.26v6.52l-5.65 3.26v-6.52zM2.35 6.48l5.65 3.26v6.52L2.35 13V6.48z"/></svg>
+              </span>
+              <span class="marquee-label">Terraform IaC</span>
+            </div>
+            <!-- 04. TypeScript -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm10.5 7.5h5V9h-12v1.5h5v9h2v-9zm3 2.25c-.75-.45-1.5-.75-2.25-.75-1.5 0-2.25.75-2.25 1.8 0 1.2 1.05 1.65 2.55 2.1 1.8.6 2.7 1.35 2.7 2.85 0 1.8-1.5 2.85-3.45 2.85-1.2 0-2.4-.45-3.3-1.2l.9-1.35c.75.6 1.65 1.05 2.4 1.05 1.05 0 1.65-.6 1.65-1.35 0-.9-1.05-1.35-2.4-1.8-1.8-.6-2.85-1.35-2.85-3 0-1.65 1.35-2.7 3.15-2.7 1.05 0 2.1.45 2.85 1.05l-.75 1.2z"/></svg>
+              </span>
+              <span class="marquee-label">TypeScript</span>
+            </div>
+            <!-- 05. Next.js -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.32 14.28L9.5 8.7v7.58H8V6.8h1.8l6.1 8.04V6.8h1.5v9.48h-2.08z"/></svg>
+              </span>
+              <span class="marquee-label">Next.js 16</span>
+            </div>
+            <!-- 06. React -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-7c-5.5 0-10 2.24-10 5 0 1.77 1.88 3.32 4.79 4.18C6.3 10.4 6 9.68 6 9c0-3.31 2.69-6 6-6s6 2.69 6 6c0 .68-.3 1.4-.79 2.18C20.12 10.32 22 8.77 22 7c0-2.76-4.5-5-10-5zm0 14c-3.31 0-6-2.69-6-6 0-.68.3-1.4.79-2.18C3.88 13.68 2 15.23 2 17c0 2.76 4.5 5 10 5s10-2.24 10-5c0-1.77-1.88-3.32-4.79-4.18.49.78.79 1.5.79 2.18 0 3.31-2.69 6-6 6z"/></svg>
+              </span>
+              <span class="marquee-label">React 19</span>
+            </div>
+            <!-- 07. RabbitMQ -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12.5 3c-.8 0-1.5.7-1.5 1.5v3.2c-1.3.5-2.4 1.3-3.2 2.4-.8-1.5-2.2-2.6-3.8-2.9v-.2c0-.8-.7-1.5-1.5-1.5S1 6.2 1 7v5c0 4.4 3.6 8 8 8h6c4.4 0 8-3.6 8-8 0-3.3-2-6.1-4.9-7.3V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v.7c-.5-.1-1.1-.2-1.6-.2h-1V4.5c0-.8-.7-1.5-1.5-1.5zM7 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+              </span>
+              <span class="marquee-label">RabbitMQ</span>
+            </div>
+            <!-- 08. Redis -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9.25L4.5 7.5 12 3.75l7.5 3.75L12 11.25zM2 12l10 5 10-5-2.25-1.13L12 14.75 4.25 10.87 2 12zm0 5l10 5 10-5-2.25-1.13L12 19.75 4.25 15.87 2 17z"/></svg>
+              </span>
+              <span class="marquee-label">Redis</span>
+            </div>
+            <!-- 09. Docker -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M13.98 11.08h1.85v1.85h-1.85zm-2.77 0h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm-2.77 0h1.85v1.85H5.67zm5.54-2.77h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm5.54 0h1.85v1.85h-1.85zm-2.77-2.77h1.85v1.85h-1.85zm12.38 6.45c-.47-.36-1.53-.44-2.37-.15-.17-.79-.62-1.46-1.22-1.92l-.58-.39-.36.6c-.39.66-.46 1.48-.27 2.22-.57.34-1.32.44-2.18.36H1.54c-.23.95-.27 2.05.02 3.12.83 3.03 3.73 5.4 7.64 5.4 5.86 0 10.34-3.57 11.51-8.52.92.05 2.14-.14 2.87-1.12l.34-.47-.4-.33z"/></svg>
+              </span>
+              <span class="marquee-label">Docker</span>
+            </div>
+            <!-- 10. PostgreSQL -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M19.9 8.6c-.4-1.5-1.5-2.8-3-3.5-1.5-.7-3.3-.8-4.9-.3-1.6.5-2.9 1.6-3.7 3.1-.8 1.5-.9 3.3-.4 4.9.4 1.2 1.2 2.3 2.2 3.1v4.1h2v-3.3c.6.2 1.3.3 2 .3 1.7 0 3.3-.6 4.6-1.7 1.3-1.1 2.1-2.6 2.3-4.3.1-.8 0-1.6-.3-2.4h-1.8c.2.5.2 1.1.2 1.6 0 1.2-.5 2.3-1.4 3.1-.9.8-2 1.2-3.2 1.2-.6 0-1.1-.1-1.7-.3v-4.9c0-.6-.4-1-1-1s-1 .4-1 1v4.2c-.7-.7-1.2-1.6-1.4-2.5-.3-1.3-.1-2.6.5-3.8.6-1.2 1.7-2 3-2.4 1.3-.4 2.7-.3 3.9.3 1.2.6 2 1.6 2.3 2.9h1.9z"/></svg>
+              </span>
+              <span class="marquee-label">PostgreSQL</span>
+            </div>
+            <!-- 11. Oracle DB -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm8 14c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V18zm0-4.5c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V13.5z"/></svg>
+              </span>
+              <span class="marquee-label">Oracle PL/SQL</span>
+            </div>
+            <!-- 12. Python -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M11.91 2c-5.26 0-4.93 2.28-4.93 2.28l.01 2.36h5.02v.71H4.97S2 7.02 2 12.28c0 5.25 2.59 5.09 2.59 5.09h1.54v-2.17s-.08-2.59 2.55-2.59h5.01s2.47.04 2.47-2.43V4.43S16.63 2 11.91 2zm-1.39 1.53a.93.93 0 1 1 0 1.86.93.93 0 0 1 0-1.86zm1.57 18.47c5.26 0 4.93-2.28 4.93-2.28l-.01-2.36h-5.02v-.71h7.04s2.97.33 2.97-4.93c0-5.25-2.59-5.09-2.59-5.09h-1.54v2.17s.08 2.59-2.55 2.59h-5.01s-2.47-.04-2.47 2.43v5.75s-.45 2.43 4.27 2.43zm1.39-1.53a.93.93 0 1 1 0-1.86.93.93 0 0 1 0 1.86z"/></svg>
+              </span>
+              <span class="marquee-label">Python & ML</span>
+            </div>
+            <!-- 13. Tailwind CSS -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
+              </span>
+              <span class="marquee-label">Tailwind CSS v4</span>
+            </div>
+            <!-- 14. Vitest -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M19.64 3.12l-6.88 11.95L10.3 9.4l1.9-3.28a.75.75 0 0 0-.65-1.12H5.45a.75.75 0 0 0-.65.37L.1 13.5a.75.75 0 0 0 .65 1.13h4.63l-2.4 4.16a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.37l7.85-13.63 2.94 5.1-4.85 8.4a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.38l6.05-10.49a.75.75 0 0 0-.65-1.12h-4.63l2.4-4.16a.75.75 0 0 0-.65-1.12h-3.34z"/></svg>
+              </span>
+              <span class="marquee-label">Vitest (98 Tests)</span>
+            </div>
+            <!-- 15. Playwright -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17.05 4.54a6.76 6.76 0 0 0-4.87-2.04c-3.76 0-6.8 3.07-6.8 6.86 0 1.24.33 2.4.92 3.4L4.1 16.4a2.26 2.26 0 0 0 0 3.2 2.26 2.26 0 0 0 3.2 0l3.65-3.65a6.8 6.8 0 0 0 8.04-1.07 6.8 6.8 0 0 0 1.95-4.83c0-2.12-.9-4.04-2.39-5.51h-.5zm-4.87 8.16a2.86 2.86 0 1 1 0-5.72 2.86 2.86 0 0 1 0 5.72z"/></svg>
+              </span>
+              <span class="marquee-label">Playwright (25 E2E)</span>
+            </div>
+            <!-- 16. Git -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21.62 10.66l-8.28-8.28a1.86 1.86 0 0 0-2.63 0L8.76 4.33l3.29 3.29a2.21 2.21 0 0 1 2.78 2.78l3.17 3.17a2.21 2.21 0 1 1-1.32 1.32l-2.93-2.93v4.29a2.21 2.21 0 1 1-1.86 0v-4.66a2.21 2.21 0 0 1-1.19-2.9l-3.23-3.23L2.38 10.66a1.86 1.86 0 0 0 0 2.63l8.28 8.28a1.86 1.86 0 0 0 2.63 0l8.33-8.28a1.86 1.86 0 0 0 0-2.63z"/></svg>
+              </span>
+              <span class="marquee-label">Git & CI/CD</span>
+            </div>
+          </div>
+
+          <!-- Track 2 (Clone for infinite seamless loop) -->
+          <div class="marquee-track" aria-hidden="true">
+            <!-- 01. Java -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 19h16v1H4v-1zm14-7v-1c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v5c0 2.21 1.79 4 4 4h4c2.21 0 4-1.79 4-4v-1h2c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2zm0 2h2v1h-2v-1zM9 3c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4H9zm4 0c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4h-2z"/></svg>
+              </span>
+              <span class="marquee-label">Java 21</span>
+            </div>
+            <!-- 02. Spring Boot -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21.84 10.42c-.5-5.88-5.32-10.42-11.23-10.42a11.3 11.3 0 0 0-8.08 3.42c-.44.45-.44 1.18 0 1.63.44.44 1.16.44 1.6 0A9.07 9.07 0 0 1 10.6 2.25c4.72 0 8.58 3.63 8.98 8.33.04.49.45.86.94.86.03 0 .07 0 .1-.01.52-.04.9-.5.86-1.02l-.64.01zM11.97 4.14c-4.4 0-7.97 3.57-7.97 7.97 0 2.21.9 4.21 2.34 5.65.44.44 1.16.44 1.6 0 .44-.44.44-1.16 0-1.6a5.71 5.71 0 0 1-1.69-4.05c0-3.16 2.56-5.72 5.72-5.72 3.16 0 5.72 2.56 5.72 5.72 0 1.57-.63 3-1.69 4.05-.44.44-.44 1.16 0 1.6.44.44 1.16.44 1.6 0 1.44-1.44 2.34-3.44 2.34-5.65 0-4.4-3.57-7.97-7.96-7.97zM11.97 9.77c-1.28 0-2.33 1.05-2.33 2.34 0 .91.53 1.7 1.29 2.08v4.83a1.03 1.03 0 0 0 2.07 0v-4.83c.76-.38 1.29-1.17 1.29-2.08 0-1.29-1.04-2.34-2.32-2.34z"/></svg>
+              </span>
+              <span class="marquee-label">Spring Boot 3</span>
+            </div>
+            <!-- 03. AWS Terraform -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14.67 8.35v6.52l-5.65-3.26V5.09l5.65 3.26zm1.33 0l5.65-3.26v6.52l-5.65 3.26V8.35zm0 7.82l5.65-3.26v6.52l-5.65 3.26v-6.52zM2.35 6.48l5.65 3.26v6.52L2.35 13V6.48z"/></svg>
+              </span>
+              <span class="marquee-label">Terraform IaC</span>
+            </div>
+            <!-- 04. TypeScript -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm10.5 7.5h5V9h-12v1.5h5v9h2v-9zm3 2.25c-.75-.45-1.5-.75-2.25-.75-1.5 0-2.25.75-2.25 1.8 0 1.2 1.05 1.65 2.55 2.1 1.8.6 2.7 1.35 2.7 2.85 0 1.8-1.5 2.85-3.45 2.85-1.2 0-2.4-.45-3.3-1.2l.9-1.35c.75.6 1.65 1.05 2.4 1.05 1.05 0 1.65-.6 1.65-1.35 0-.9-1.05-1.35-2.4-1.8-1.8-.6-2.85-1.35-2.85-3 0-1.65 1.35-2.7 3.15-2.7 1.05 0 2.1.45 2.85 1.05l-.75 1.2z"/></svg>
+              </span>
+              <span class="marquee-label">TypeScript</span>
+            </div>
+            <!-- 05. Next.js -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.32 14.28L9.5 8.7v7.58H8V6.8h1.8l6.1 8.04V6.8h1.5v9.48h-2.08z"/></svg>
+              </span>
+              <span class="marquee-label">Next.js 16</span>
+            </div>
+            <!-- 06. React -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-7c-5.5 0-10 2.24-10 5 0 1.77 1.88 3.32 4.79 4.18C6.3 10.4 6 9.68 6 9c0-3.31 2.69-6 6-6s6 2.69 6 6c0 .68-.3 1.4-.79 2.18C20.12 10.32 22 8.77 22 7c0-2.76-4.5-5-10-5zm0 14c-3.31 0-6-2.69-6-6 0-.68.3-1.4.79-2.18C3.88 13.68 2 15.23 2 17c0 2.76 4.5 5 10 5s10-2.24 10-5c0-1.77-1.88-3.32-4.79-4.18.49.78.79 1.5.79 2.18 0 3.31-2.69 6-6 6z"/></svg>
+              </span>
+              <span class="marquee-label">React 19</span>
+            </div>
+            <!-- 07. RabbitMQ -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12.5 3c-.8 0-1.5.7-1.5 1.5v3.2c-1.3.5-2.4 1.3-3.2 2.4-.8-1.5-2.2-2.6-3.8-2.9v-.2c0-.8-.7-1.5-1.5-1.5S1 6.2 1 7v5c0 4.4 3.6 8 8 8h6c4.4 0 8-3.6 8-8 0-3.3-2-6.1-4.9-7.3V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v.7c-.5-.1-1.1-.2-1.6-.2h-1V4.5c0-.8-.7-1.5-1.5-1.5zM7 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+              </span>
+              <span class="marquee-label">RabbitMQ</span>
+            </div>
+            <!-- 08. Redis -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9.25L4.5 7.5 12 3.75l7.5 3.75L12 11.25zM2 12l10 5 10-5-2.25-1.13L12 14.75 4.25 10.87 2 12zm0 5l10 5 10-5-2.25-1.13L12 19.75 4.25 15.87 2 17z"/></svg>
+              </span>
+              <span class="marquee-label">Redis</span>
+            </div>
+            <!-- 09. Docker -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M13.98 11.08h1.85v1.85h-1.85zm-2.77 0h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm-2.77 0h1.85v1.85H5.67zm5.54-2.77h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm5.54 0h1.85v1.85h-1.85zm-2.77-2.77h1.85v1.85h-1.85zm12.38 6.45c-.47-.36-1.53-.44-2.37-.15-.17-.79-.62-1.46-1.22-1.92l-.58-.39-.36.6c-.39.66-.46 1.48-.27 2.22-.57.34-1.32.44-2.18.36H1.54c-.23.95-.27 2.05.02 3.12.83 3.03 3.73 5.4 7.64 5.4 5.86 0 10.34-3.57 11.51-8.52.92.05 2.14-.14 2.87-1.12l.34-.47-.4-.33z"/></svg>
+              </span>
+              <span class="marquee-label">Docker</span>
+            </div>
+            <!-- 10. PostgreSQL -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M19.9 8.6c-.4-1.5-1.5-2.8-3-3.5-1.5-.7-3.3-.8-4.9-.3-1.6.5-2.9 1.6-3.7 3.1-.8 1.5-.9 3.3-.4 4.9.4 1.2 1.2 2.3 2.2 3.1v4.1h2v-3.3c.6.2 1.3.3 2 .3 1.7 0 3.3-.6 4.6-1.7 1.3-1.1 2.1-2.6 2.3-4.3.1-.8 0-1.6-.3-2.4h-1.8c.2.5.2 1.1.2 1.6 0 1.2-.5 2.3-1.4 3.1-.9.8-2 1.2-3.2 1.2-.6 0-1.1-.1-1.7-.3v-4.9c0-.6-.4-1-1-1s-1 .4-1 1v4.2c-.7-.7-1.2-1.6-1.4-2.5-.3-1.3-.1-2.6.5-3.8.6-1.2 1.7-2 3-2.4 1.3-.4 2.7-.3 3.9.3 1.2.6 2 1.6 2.3 2.9h1.9z"/></svg>
+              </span>
+              <span class="marquee-label">PostgreSQL</span>
+            </div>
+            <!-- 11. Oracle DB -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm8 14c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V18zm0-4.5c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V13.5z"/></svg>
+              </span>
+              <span class="marquee-label">Oracle PL/SQL</span>
+            </div>
+            <!-- 12. Python -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M11.91 2c-5.26 0-4.93 2.28-4.93 2.28l.01 2.36h5.02v.71H4.97S2 7.02 2 12.28c0 5.25 2.59 5.09 2.59 5.09h1.54v-2.17s-.08-2.59 2.55-2.59h5.01s2.47.04 2.47-2.43V4.43S16.63 2 11.91 2zm-1.39 1.53a.93.93 0 1 1 0 1.86.93.93 0 0 1 0-1.86zm1.57 18.47c5.26 0 4.93-2.28 4.93-2.28l-.01-2.36h-5.02v-.71h7.04s2.97.33 2.97-4.93c0-5.25-2.59-5.09-2.59-5.09h-1.54v2.17s.08 2.59-2.55 2.59h-5.01s-2.47-.04-2.47 2.43v5.75s-.45 2.43 4.27 2.43zm1.39-1.53a.93.93 0 1 1 0-1.86.93.93 0 0 1 0 1.86z"/></svg>
+              </span>
+              <span class="marquee-label">Python & ML</span>
+            </div>
+            <!-- 13. Tailwind CSS -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
+              </span>
+              <span class="marquee-label">Tailwind CSS v4</span>
+            </div>
+            <!-- 14. Vitest -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M19.64 3.12l-6.88 11.95L10.3 9.4l1.9-3.28a.75.75 0 0 0-.65-1.12H5.45a.75.75 0 0 0-.65.37L.1 13.5a.75.75 0 0 0 .65 1.13h4.63l-2.4 4.16a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.37l7.85-13.63 2.94 5.1-4.85 8.4a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.38l6.05-10.49a.75.75 0 0 0-.65-1.12h-4.63l2.4-4.16a.75.75 0 0 0-.65-1.12h-3.34z"/></svg>
+              </span>
+              <span class="marquee-label">Vitest (98 Tests)</span>
+            </div>
+            <!-- 15. Playwright -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17.05 4.54a6.76 6.76 0 0 0-4.87-2.04c-3.76 0-6.8 3.07-6.8 6.86 0 1.24.33 2.4.92 3.4L4.1 16.4a2.26 2.26 0 0 0 0 3.2 2.26 2.26 0 0 0 3.2 0l3.65-3.65a6.8 6.8 0 0 0 8.04-1.07 6.8 6.8 0 0 0 1.95-4.83c0-2.12-.9-4.04-2.39-5.51h-.5zm-4.87 8.16a2.86 2.86 0 1 1 0-5.72 2.86 2.86 0 0 1 0 5.72z"/></svg>
+              </span>
+              <span class="marquee-label">Playwright (25 E2E)</span>
+            </div>
+            <!-- 16. Git -->
+            <div class="marquee-item">
+              <span class="marquee-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21.62 10.66l-8.28-8.28a1.86 1.86 0 0 0-2.63 0L8.76 4.33l3.29 3.29a2.21 2.21 0 0 1 2.78 2.78l3.17 3.17a2.21 2.21 0 1 1-1.32 1.32l-2.93-2.93v4.29a2.21 2.21 0 1 1-1.86 0v-4.66a2.21 2.21 0 0 1-1.19-2.9l-3.23-3.23L2.38 10.66a1.86 1.86 0 0 0 0 2.63l8.28 8.28a1.86 1.86 0 0 0 2.63 0l8.33-8.28a1.86 1.86 0 0 0 0-2.63z"/></svg>
+              </span>
+              <span class="marquee-label">Git & CI/CD</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -314,20 +557,22 @@
 
           <!-- 02. Fraud Detection & Risk Engine API -->
           <article class="project-card project-card--featured reveal-on-scroll reveal-delay-1" data-category="backend" aria-labelledby="proj-title-2">
-            <span class="project-badge">FINTECH / MICROSSERVIÇOS</span>
+            <span class="project-badge">FINTECH / MICROSSERVIÇOS & IaC</span>
             <h3 id="proj-title-2" class="project-title">Fraud Detection & Risk Engine API</h3>
-            <span class="project-type">Java 21 · Spring Boot 3 · RabbitMQ · Redis · Docker</span>
+            <span class="project-type">Java 21 · Spring Boot 3 · AWS Terraform · DDD · Outbox · RabbitMQ · Redis · JaCoCo</span>
             <p class="project-description">
-              API corporativa de alta performance para análise de risco em tempo real em transações PIX, Cartão e Boletos, com Rule Engine Pipeline modular, mensageria e Redis Sliding Window.
+              API corporativa de alta performance para análise de risco em tempo real em transações PIX, Cartão e Boletos. Arquitetura Hexagonal com DDD, Transactional Outbox Pattern, mensageria com RabbitMQ, Redis Sliding Window, cobertura JaCoCo (>80%) e IaC modular em AWS Terraform.
             </p>
             <div class="project-tags">
               <span class="project-tag">Java 21</span>
               <span class="project-tag">Spring Boot 3</span>
+              <span class="project-tag">Terraform AWS</span>
+              <span class="project-tag">Outbox Pattern</span>
+              <span class="project-tag">DDD</span>
               <span class="project-tag">RabbitMQ</span>
               <span class="project-tag">Redis</span>
+              <span class="project-tag">JaCoCo (>80%)</span>
               <span class="project-tag">Docker</span>
-              <span class="project-tag">OpenAPI 3</span>
-              <span class="project-tag">JUnit 5</span>
             </div>
             <div class="project-actions">
               <button type="button" class="btn-details" data-project-target="fraud-detection-api">
@@ -344,20 +589,22 @@
 
           <!-- 03. AgroFinance RWA Dashboard -->
           <article class="project-card project-card--featured reveal-on-scroll reveal-delay-2" data-category="fullstack backend" aria-labelledby="proj-title-3">
-            <span class="project-badge">DESTAQUE / FINTECH RWA</span>
+            <span class="project-badge">DESTAQUE / FINTECH RWA · 123 TESTES</span>
             <h3 id="proj-title-3" class="project-title">AgroFinance RWA Dashboard</h3>
-            <span class="project-type">Next.js 16 · React 19 · TypeScript · Tailwind v4 · Vitest</span>
+            <span class="project-type">Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Vitest & Playwright</span>
             <p class="project-description">
-              Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte robusta com 123 testes automatizados (100% passing).
+              Plataforma bancária digital e custódia de Real World Assets (RWA) para o agronegócio, com liquidação de PIX em tempo real e suíte robusta com 123 testes automatizados (98 Vitest + 25 Playwright E2E com 85.8% de cobertura) e ADRs documentadas.
             </p>
             <div class="project-tags">
               <span class="project-tag">Next.js 16</span>
               <span class="project-tag">React 19</span>
               <span class="project-tag">TypeScript</span>
               <span class="project-tag">Tailwind CSS v4</span>
-              <span class="project-tag">Vitest</span>
+              <span class="project-tag">Vitest (98 tests)</span>
+              <span class="project-tag">Playwright (25 E2E)</span>
               <span class="project-tag">Zustand</span>
               <span class="project-tag">Zod</span>
+              <span class="project-tag">ADRs</span>
             </div>
             <div class="project-actions">
               <button type="button" class="btn-details" data-project-target="agrofinance-dashboard">
@@ -377,16 +624,17 @@
 
           <!-- 04. Imóveis Pricing ML -->
           <article class="project-card reveal-on-scroll reveal-delay-3" data-category="data-ai" aria-labelledby="proj-title-4">
-            <span class="project-badge">CIÊNCIA DE DADOS & ML</span>
+            <span class="project-badge">CIÊNCIA DE DADOS & MLOps</span>
             <h3 id="proj-title-4" class="project-title">Imóveis Pricing ML — Inteligência Imobiliária</h3>
-            <span class="project-type">Python 3.11 · LightGBM · SHAP · Scikit-Learn · Streamlit</span>
+            <span class="project-type">Python 3.11 · LightGBM · SHAP · MLOps · Scikit-Learn · Streamlit</span>
             <p class="project-description">
-              Projeto End-to-End de Ciência de Dados e Machine Learning para a Região Metropolitana de Ribeirão Preto/SP, com web scraping de anúncios, modelo LightGBM ($R^2 = 0.835$) e Radar de Oportunidades.
+              Projeto End-to-End de Ciência de Dados e Machine Learning para a Região Metropolitana de Ribeirão Preto/SP, com web scraping de anúncios, modelo LightGBM ($R^2 = 0.835$), Radar de Oportunidades e arquitetura MLOps modular.
             </p>
             <div class="project-tags">
               <span class="project-tag">Python 3.11</span>
               <span class="project-tag">LightGBM</span>
               <span class="project-tag">SHAP (XAI)</span>
+              <span class="project-tag">MLOps</span>
               <span class="project-tag">Scikit-Learn</span>
               <span class="project-tag">Streamlit</span>
               <span class="project-tag">Pandas</span>
@@ -564,9 +812,10 @@
             <div class="stack-tags">
               <span class="tech-tag tech-tag--featured">Java 21</span>
               <span class="tech-tag tech-tag--featured">Spring Boot 3</span>
+              <span class="tech-tag tech-tag--featured">Domain-Driven Design (DDD)</span>
+              <span class="tech-tag">Transactional Outbox</span>
               <span class="tech-tag tech-tag--featured">PHP</span>
               <span class="tech-tag">Python (FastAPI)</span>
-              <span class="tech-tag">Node.js</span>
               <span class="tech-tag">RabbitMQ (Event-Driven)</span>
               <span class="tech-tag">REST APIs & Spring Security</span>
               <span class="tech-tag">Swagger / OpenAPI 3</span>
@@ -615,8 +864,11 @@
               <h3 class="stack-card-title">Testes, DevOps & Cloud</h3>
             </div>
             <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Terraform (IaC AWS)</span>
               <span class="tech-tag tech-tag--featured">Vitest</span>
               <span class="tech-tag tech-tag--featured">JUnit 5 & Mockito</span>
+              <span class="tech-tag">JaCoCo Cobertura</span>
+              <span class="tech-tag">Playwright (E2E)</span>
               <span class="tech-tag tech-tag--featured">GitHub Actions (CI/CD)</span>
               <span class="tech-tag">Docker & Compose</span>
               <span class="tech-tag">Git / GitHub</span>

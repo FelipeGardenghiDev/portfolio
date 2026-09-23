@@ -80,6 +80,56 @@
   margin-bottom: var(--space-lg);
 }
 
+.hero-typewriter-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: var(--fw-semibold);
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+  min-height: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.typewriter-prefix {
+  color: var(--accent);
+  opacity: 0.85;
+  user-select: none;
+}
+
+.typewriter-text {
+  color: var(--accent-hover);
+  background: linear-gradient(135deg, var(--accent) 0%, #a855f7 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--fw-bold);
+  display: inline-block;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  font-weight: var(--fw-regular);
+  color: var(--accent-hover);
+  animation: typewriterBlink 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-left: 1px;
+  line-height: 1;
+}
+
+@keyframes typewriterBlink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
 .hero-description {
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: var(--lh-relaxed);
