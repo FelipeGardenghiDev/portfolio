@@ -145,17 +145,19 @@ export const PROJECTS_DATA = [
     title: 'Grimório RPG — Companion Android',
     subtitle: 'Assistente Nativo Offline-First com Mesa P2P & QR Code',
     badge: 'MOBILE NATIVO / CLEAN ARCH & P2P',
-    type: 'Kotlin 2.0 · Jetpack Compose · Material 3 · Room SQLite · Nearby Connections · CameraX',
-    shortDescription: 'Assistente nativo Android para RPG de mesa com foco em privacidade total, arquitetura Clean + MVVM, 100% offline-first ($0 custo de servidores), sincronização P2P local sem internet, feedback tátil e sonoro e temas visuais dinâmicos.',
+    type: 'Kotlin 2.0 · Jetpack Compose · Google Hilt · Material 3 · Room SQLite · DataStore · Nearby P2P · CameraX',
+    shortDescription: 'Assistente nativo Android para RPG de mesa com arquitetura Clean + MVVM e injeção de dependências via Google Hilt. 100% offline-first com persistência híbrida (Room + DataStore Preferences), sincronização P2P Star Relay via Bluetooth LE/Wi-Fi, feedback sensorial, regras ProGuard/R8 e pronto para distribuição na Google Play Store.',
     fullProblem: 'Partidas presenciais de RPG em locais sem conexão estável com a internet, em que apps convencionais sofrem com lentidão, consumo excessivo de bateria ou falta de sincronização em tempo real entre mestre e jogadores sem pagar planos caros de nuvem.',
     fullSolution: [
-      '<strong>Arquitetura Clean + MVVM:</strong> Desenvolvido com Kotlin 2.0, Jetpack Compose, Material 3 e Unidirectional Data Flow (UDF) via StateFlow, com desacoplamento total da camada de domínio.',
+      '<strong>Arquitetura Clean + MVVM & Injeção de Dependências (Hilt):</strong> Desenvolvido com Kotlin 2.0, Jetpack Compose, Material 3 e Google Hilt para DI de ciclo de vida completo (@AndroidEntryPoint, @HiltViewModel), garantindo desacoplamento estrito e facilidade de testes unitários.',
       '<strong>Parser Léxico & DSL de Dados:</strong> Avaliador matemático em Kotlin puro para fórmulas complexas (vantagens/desvantagens 2d20kh1/kl1, dados explosivos 3d6!, descarte de menores 4d6kh3 e macros persistentes).',
-      '<strong>Mesa Local P2P sem Servidor:</strong> Sincronização direta de rolagens e chat entre mestre e jogadores via Google Nearby Connections (Bluetooth LE / Wi-Fi Direct) com custo zero de nuvem.',
-      '<strong>Compartilhamento Offline via QR Code:</strong> Exportação e importação instantânea de fichas, encontros e macros usando CameraX, ZXing e compactação binária de alta densidade (GZIP + Base64).',
-      '<strong>Feedback Sensorial & Temas Dinâmicos:</strong> Síntese de áudio de baixa latência com SoundPool, vibrações hápticas personalizadas para críticos (VibrationEffect) e 3 temas Material 3 (Pergaminho Medieval, Cyberpunk Neon e Horror Cósmico AMOLED).'
+      '<strong>Mesa Local P2P em Topologia Estrela (Star Relay):</strong> Sincronização em tempo real de rolagens, fichas e chat entre mestre e jogadores via Google Nearby Connections (Bluetooth LE / Wi-Fi Direct) com retransmissão centralizada no host e permissões runtime granulares do Android 12/13+.',
+      '<strong>Persistência Reativa Híbrida & Preferências:</strong> Banco relacional local com Room SQLite para fichas e histórico, somado ao Jetpack DataStore Preferences para preferências de usuário (tema ativo, identidade do jogador) via StateFlow.',
+      '<strong>Compartilhamento Offline via QR Code:</strong> Exportação e importação instantânea de fichas e macros usando CameraX, ZXing e compactação binária de alta densidade (GZIP + Base64).',
+      '<strong>Feedback Sensorial & Temas Dinâmicos:</strong> Síntese de áudio de baixa latência com SoundPool, vibrações hápticas personalizadas para críticos (VibrationEffect) e 3 temas Material 3 (Pergaminho Medieval, Cyberpunk Neon e Horror Cósmico AMOLED).',
+      '<strong>Play Store Readiness & Build de Release:</strong> Configuração de ProGuard/R8 com regras de keep para Gson e serializáveis, isolamento seguro de credenciais via keystore.properties, política de privacidade conforme diretrizes do Google Play e documentação completa de publicação.'
     ],
-    tags: ['Kotlin 2.0', 'Jetpack Compose', 'Material 3', 'Clean Architecture', 'Room SQLite', 'Google Nearby P2P', 'CameraX', 'SoundPool', 'VibrationEffect', 'Android Nativo'],
+    tags: ['Kotlin 2.0', 'Jetpack Compose', 'Google Hilt', 'Material 3', 'Clean Architecture', 'Room SQLite', 'DataStore Preferences', 'Google Nearby P2P', 'CameraX', 'ProGuard / R8', 'Android Nativo'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/rpg-companion-android',
