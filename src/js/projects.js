@@ -50,6 +50,28 @@ export const PROJECTS_DATA = [
     }
   },
   {
+    id: 'order-processing-api',
+    featured: true,
+    title: 'Order Processing API (.NET 8 & CQRS)',
+    subtitle: 'Clean Architecture, EF Core, Dapper & Background Worker',
+    badge: '.NET 8 / CLEAN ARCHITECTURE & CQRS',
+    type: 'C# 12 · .NET 8 · EF Core · Dapper · System.Threading.Channels · SQLite · xUnit · NSubstitute',
+    shortDescription: 'API corporativa desenvolvida em .NET 8 com Clean Architecture e CQRS híbrido: Entity Framework Core para escrita consistente com invariantes de domínio e Dapper (Micro-ORM) para leitura de altíssima performance, com fila assíncrona desacoplada em BackgroundService.',
+    fullProblem: 'Sistemas de e-commerce e processamento de pedidos enfrentam gargalos de concorrência e alto tempo de resposta quando operações analíticas e de leitura competem com transações críticas de escrita no mesmo modelo de dados ORM.',
+    fullSolution: [
+      '<strong>Clean Architecture & DDD:</strong> Camadas estritamente desacopladas (Domain, Application, Infrastructure, Api) com encapsulamento de invariantes de negócio na entidade Order via backing fields.',
+      '<strong>Abordagem Híbrida CQRS (EF Core + Dapper):</strong> Entity Framework Core gerenciando transações atômicas de escrita e Dapper executando queries brutas otimizadas com multi-mapping e agregações sem tracking overhead.',
+      '<strong>Processamento Assíncrono com BackgroundService:</strong> Criação de pedidos com resposta imediata HTTP 201 Created e enfileiramento thread-safe desacoplado via System.Threading.Channels consumido por um Worker.',
+      '<strong>Testes Unitários & Integração:</strong> 26 testes automatizados com xUnit, FluentAssertions e NSubstitute cobrindo regras de domínio, orquestração e persistência SQLite.'
+    ],
+    tags: ['C# 12', '.NET 8', 'ASP.NET Core', 'EF Core', 'Dapper', 'Clean Architecture', 'CQRS', 'Channels', 'BackgroundService', 'xUnit', 'NSubstitute'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/order-processing-api',
+      demo: null
+    }
+  },
+  {
     id: 'agrofinance-dashboard',
     featured: true,
     title: 'AgroFinance RWA Banking Dashboard',
