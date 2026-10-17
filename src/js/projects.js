@@ -30,19 +30,19 @@ export const PROJECTS_DATA = [
     id: 'fraud-detection-api',
     featured: true,
     title: 'Fraud Detection & Risk Engine API',
-    subtitle: 'Arquitetura Hexagonal, 7-Rule Engine & Resiliência Distribuída',
+    subtitle: 'Arquitetura Hexagonal, 7-Rule Engine & Resiliência Distribuída (9 ADRs)',
     badge: 'FINTECH / ARQUITETURA HEXAGONAL & IaC',
-    type: 'Java 21 · Spring Boot 3 · Arquitetura Hexagonal · Virtual Threads (Loom) · AWS Terraform · Redis Lua · Outbox Pattern · RabbitMQ · Prometheus · JaCoCo',
-    shortDescription: 'Plataforma corporativa de alta performance para análise preditiva de risco em tempo real (<10ms). Arquitetura Hexagonal com Ports & Adapters, Java 21 Virtual Threads, esteira determinística com 7 regras (incluindo Impossible Travel via Haversine, Z-Score comportamental e Smurfing/Structuring), Redis ZSET com script Lua atômico, Transactional Outbox Pattern, telemetria Micrometer/Prometheus, IaC AWS Terraform e 44 testes automatizados (100% passing).',
+    type: 'Java 21 · Spring Boot 3 · Arquitetura Hexagonal · Virtual Threads (Loom) · Resilience4j · Flyway · Testcontainers · AWS Terraform · Redis Lua · Outbox Pattern · RabbitMQ · Prometheus · JaCoCo',
+    shortDescription: 'Plataforma corporativa de alta performance para análise preditiva de risco em tempo real (<10ms) sob Arquitetura Hexagonal e 9 ADRs formais. Java 21 Virtual Threads, esteira determinística com 7 regras de produção (incluindo Impossible Travel via Haversine, Z-Score comportamental e Smurfing/Structuring), Redis ZSET com script Lua atômico protegido por Resilience4j Circuit Breaker, Flyway SQL Migrations, Transactional Outbox Pattern, Testcontainers para paridade com PostgreSQL, telemetria Micrometer/Prometheus, IaC AWS Terraform e 46+ testes automatizados (100% passing).',
     fullProblem: 'Instituições financeiras e fintechs enfrentam perdas vultosas por fraudes transacionais automatizadas, account takeover (deslocamentos impossíveis), transações fracionadas (smurfing/structuring) e rajadas concorrentes em janela curta, exigindo decisões sub-10ms, consistência transacional ACID estrita e observabilidade em tempo real.',
     fullSolution: [
-      '<strong>Arquitetura Hexagonal & DDD Estrito:</strong> Inbound Ports (Use Cases) e Outbound Ports desacoplando completamente o domínio de frameworks, com Value Objects ricos (Cpf com validação de dígitos e mascaramento LGPD, RiskScore, Coordinates).',
+      '<strong>Arquitetura Hexagonal & DDD Estrito:</strong> Inbound Ports (Use Cases) e Outbound Ports desacoplando completamente o domínio de frameworks, com Value Objects ricos (Cpf com validação de dígitos e mascaramento LGPD, RiskScore, Coordinates) e 9 ADRs formais.',
       '<strong>Esteira Determinística de 7 Regras:</strong> Blacklist Restritiva, Detecção de Alto Valor, Janela Noturna PIX, Burst de Velocidade, Deslocamento Impossível (Impossible Travel via Haversine > 800 km/h), Anomalia Comportamental via Z-Score estatístico (3 desvios padrão) e Smurfing/Structuring Detection.',
-      '<strong>Sliding Window Atômico via Redis ZSET & Lua Scripting:</strong> Eliminação de Border Bursts e race conditions sob concorrência maciça sem a lentidão de locks distribuídos.',
+      '<strong>Sliding Window Atômico via Redis ZSET & Resilience4j:</strong> Janela deslizante em Lua eliminando border bursts sob concorrência maciça, protegida por Circuit Breaker (Resilience4j) com fallback graceful em caso de degradação do cluster.',
       '<strong>Java 21 Virtual Threads & Transactional Outbox:</strong> I/O não-bloqueante via Project Loom para alto throughput e entrega garantida de alertas (At-Least-Once) via Outbox ACID com worker de retry resiliente.',
-      '<strong>Observabilidade, IaC & Cobertura de Testes:</strong> Métricas de negócio em tempo real para Prometheus via Micrometer, IaC modular via Terraform na AWS (VPC, ECS Fargate, RDS Multi-AZ, ElastiCache, Amazon MQ) e 44 testes automatizados (100% passing) validados no CI/CD com JaCoCo.'
+      '<strong>Observabilidade, IaC, Migrações & Testcontainers:</strong> Telemetria para Prometheus via Micrometer, Health Indicator customizado no Actuator, migrações versionadas com Flyway (ddl-auto: validate), IaC modular via Terraform na AWS, Testcontainers para testes de integração no PostgreSQL e 46+ testes automatizados (100% passing) com JaCoCo.'
     ],
-    tags: ['Java 21', 'Spring Boot 3', 'Arquitetura Hexagonal', 'Virtual Threads', 'Terraform AWS', 'Redis Lua', 'Outbox Pattern', 'RabbitMQ', 'Prometheus', 'JaCoCo (44 testes)', 'Docker', 'OpenAPI 3', 'PostgreSQL'],
+    tags: ['Java 21', 'Spring Boot 3', 'Arquitetura Hexagonal', 'Virtual Threads', 'Resilience4j', 'Flyway', 'Testcontainers', 'Terraform AWS', 'Redis Lua', 'Outbox Pattern', 'RabbitMQ', 'Prometheus', 'JaCoCo (46+ testes)', 'Docker', 'OpenAPI 3', 'PostgreSQL'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/fraud-detection-api',
