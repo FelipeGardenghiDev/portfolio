@@ -135,7 +135,7 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
 <div class="skills-list">
   <p><span class="skills-label">Linguagens:</span> C#, Java 21, TypeScript, JavaScript (ES6+), Python 3.11, PHP, SQL, Kotlin 2.0, C/C++, DAX.</p>
   <p><span class="skills-label">Backend &amp; Microsservi&ccedil;os:</span> ASP.NET Core (.NET 8), Entity Framework Core, Dapper (Micro-ORM), LINQ, Spring Boot 3, Domain-Driven Design (DDD), Clean Architecture, Transactional Outbox Pattern, RabbitMQ (Event-Driven), Redis, REST APIs, Spring Security, Swagger / OpenAPI 3, FastAPI, Laravel.</p>
-  <p><span class="skills-label">Frontend &amp; Web:</span> Angular, React 19, Next.js 16 (App Router), TypeScript, Tailwind CSS v4, HTML5, CSS3, Vite, Zustand, Zod, WebGL.</p>
+  <p><span class="skills-label">Frontend &amp; Web:</span> Angular, React 19, Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Decimal.js, TradingView Canvas, Web Workers, HTML5, CSS3, Vite, Zustand, Zod, WebGL.</p>
   <p><span class="skills-label">Cloud, DevOps &amp; Testes:</span> AWS (Terraform IaC, VPC, ECS Fargate, RDS PostgreSQL, ElastiCache, Amazon MQ), Docker &amp; Compose, GitHub Actions (CI/CD), Vitest, Playwright (E2E), JUnit 5, JaCoCo (&gt;80% Cobertura), Linux, Windows.</p>
   <p><span class="skills-label">Banco de Dados:</span> Oracle Database (PL/SQL, OCI8, Parametriza&ccedil;&atilde;o Anti-SQL Injection, Triggers, Procedures, Otimiza&ccedil;&atilde;o), PostgreSQL, MySQL, SQL Server, Supabase, Redis.</p>
   <p><span class="skills-label">Ci&ecirc;ncia de Dados &amp; IA:</span> Machine Learning, LightGBM, SHAP (Explainable AI), Scikit-Learn, Pandas, NumPy, Streamlit, MLOps, Google MediaPipe, Google Gemini API.</p>
@@ -190,11 +190,12 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
 </div>
 
 <div class="job">
-  <div class="job-header">AgroFinance RWA Banking Dashboard | Next.js 16 &middot; React 19 &middot; TypeScript &middot; Tailwind v4 &middot; Vitest &middot; Playwright</div>
+  <div class="job-header">AgroFinance RWA Banking Dashboard | Next.js 16 &middot; React 19 &middot; TypeScript &middot; Decimal.js &middot; TradingView &middot; Monte Carlo &middot; Vitest &middot; Playwright</div>
   <ul>
-    <li>Plataforma banc&aacute;ria digital e cust&oacute;dia de Real World Assets (RWA) para o agroneg&oacute;cio com liquida&ccedil;&atilde;o de PIX em tempo real.</li>
-    <li>Desenvolvido com Next.js 16 (App Router), React 19, TypeScript estrito, estado global com Zustand e valida&ccedil;&otilde;es din&acirc;micas com Zod. Decis&otilde;es arquiteturais documentadas via <strong>Architecture Decision Records (ADRs)</strong>.</li>
-    <li>Su&iacute;te robusta de <strong>123 testes automatizados (98 testes unit&aacute;rios no Vitest + 25 testes End-to-End no Playwright)</strong> com 85.8% de cobertura de c&oacute;digo, integrada ao GitHub Actions e hospedada com alta disponibilidade na Vercel ($0 custo).</li>
+    <li>Plataforma banc&aacute;ria corporativa e cust&oacute;dia de Real World Assets (RWA) e CPR Digital para o agroneg&oacute;cio, orientada por 9 <strong>Architecture Decision Records (ADRs)</strong>.</li>
+    <li>Aritm&eacute;tica de precis&atilde;o arbitr&aacute;ria com <strong>Decimal.js</strong> (eliminando falhas de float IEEE-754 em amortiza&ccedil;&atilde;o Price e LTV 70%), gr&aacute;ficos <strong>TradingView em Canvas GPU a 60 FPS</strong> e streaming <strong>Server-Sent Events (SSE)</strong> em Edge Runtime.</li>
+    <li>Motor quantitativo estoc&aacute;stico <strong>Monte Carlo (1.000 itera&ccedil;&otilde;es)</strong> em <strong>Web Worker</strong> (0ms Jank de UI), simulador What-If de estresse macroecon&ocirc;mico, exporta&ccedil;&atilde;o cont&aacute;bil para ERPs agr&iacute;colas (TOTVS Agro / Siagri) e <strong>Dossi&ecirc; Banc&aacute;rio com hash SHA-256</strong>.</li>
+    <li>Su&iacute;te com <strong>130 testes unit&aacute;rios/integra&ccedil;&atilde;o no Vitest + 8 su&iacute;tes E2E no Playwright (100% passing)</strong> com auditoria WCAG 2.1 AA (Axe-Core) e CI/CD.</li>
   </ul>
 </div>
 
