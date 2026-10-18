@@ -53,18 +53,18 @@ export const PROJECTS_DATA = [
     id: 'order-processing-api',
     featured: true,
     title: 'Order Processing API (.NET 8 & CQRS)',
-    subtitle: 'Clean Architecture, EF Core, Dapper & Background Worker',
+    subtitle: 'Clean Architecture, CQRS Híbrido, Channels & Fraud Engine (5 ADRs)',
     badge: '.NET 8 / CLEAN ARCHITECTURE & CQRS',
-    type: 'C# 12 · .NET 8 · EF Core · Dapper · System.Threading.Channels · SQLite · xUnit · NSubstitute',
-    shortDescription: 'API corporativa desenvolvida em .NET 8 com Clean Architecture e CQRS híbrido: Entity Framework Core para escrita consistente com invariantes de domínio e Dapper (Micro-ORM) para leitura de altíssima performance, com fila assíncrona desacoplada em BackgroundService.',
+    type: 'C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · xUnit (28 tests)',
+    shortDescription: 'API corporativa em .NET 8 (C# 12) sob Clean Architecture, CQRS híbrido (EF Core + Dapper) e 5 ADRs formais. Enfileiramento assíncrono thread-safe via System.Threading.Channels, Background Worker com integração distribuída ao motor antifraude em Java 21 (fraud-detection-api) com degradação graciosa e 28 testes automatizados no xUnit.',
     fullProblem: 'Sistemas de e-commerce e processamento de pedidos enfrentam gargalos de concorrência e alto tempo de resposta quando operações analíticas e de leitura competem com transações críticas de escrita no mesmo modelo de dados ORM.',
     fullSolution: [
       '<strong>Clean Architecture & DDD:</strong> Camadas estritamente desacopladas (Domain, Application, Infrastructure, Api) com encapsulamento de invariantes de negócio na entidade Order via backing fields.',
       '<strong>Abordagem Híbrida CQRS (EF Core + Dapper):</strong> Entity Framework Core gerenciando transações atômicas de escrita e Dapper executando queries brutas otimizadas com multi-mapping e agregações sem tracking overhead.',
       '<strong>Processamento Assíncrono com BackgroundService:</strong> Criação de pedidos com resposta imediata HTTP 201 Created e enfileiramento thread-safe desacoplado via System.Threading.Channels consumido por um Worker.',
-      '<strong>Testes Unitários & Integração:</strong> 26 testes automatizados com xUnit, FluentAssertions e NSubstitute cobrindo regras de domínio, orquestração e persistência SQLite.'
+      '<strong>Integração Antifraude & 28 Testes no xUnit:</strong> Validação em tempo real integrada ao motor em Java 21 (fraud-detection-api) com política de fallback resiliente, 5 Architecture Decision Records (ADRs) documentadas e 28 testes automatizados com xUnit, FluentAssertions e NSubstitute.'
     ],
-    tags: ['C# 12', '.NET 8', 'ASP.NET Core', 'EF Core', 'Dapper', 'Clean Architecture', 'CQRS', 'Channels', 'BackgroundService', 'xUnit', 'NSubstitute'],
+    tags: ['C# 12', '.NET 8', 'ASP.NET Core', 'EF Core', 'Dapper', 'Clean Architecture', 'CQRS', 'Channels', 'BackgroundService', 'Fraud Engine', '5 ADRs', 'xUnit (28 tests)', 'NSubstitute'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/order-processing-api',
