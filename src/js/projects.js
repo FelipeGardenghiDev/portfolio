@@ -72,6 +72,29 @@ export const PROJECTS_DATA = [
     }
   },
   {
+    id: 'finrisk-operations-hub',
+    featured: true,
+    title: 'FinRisk Operations Hub',
+    subtitle: 'Cockpit de Risco, Angular 19 Signals & Web Workers (5 ADRs)',
+    badge: 'ANGULAR 19 / SIGNALS & WEB WORKERS',
+    type: 'Angular 19 · TypeScript · Signals · Web Workers (60 FPS) · Vitest (24 tests) · Docker Nginx · 5 ADRs · REST APIs',
+    shortDescription: 'Cockpit corporativo e portal unificado de gestão e operações integrando os microsserviços Order Processing API (.NET 8) e Fraud Detection Engine (Java 21). Arquitetura reativa baseada em Signals, simulação paralela de risco Monte Carlo via Web Worker a 60 FPS (zero jank na UI thread), 5 ADRs formais, Docker multi-stage com Nginx Alpine e suíte de 24 testes automatizados no Vitest.',
+    fullProblem: 'Em operações financeiras de alta frequência, operadores de risco e compliance precisam monitorar a esteira de pedidos e fraudes em tempo real sem travar a interface do navegador durante simulações analíticas pesadas de projeção estatística.',
+    fullSolution: [
+      '<strong>Reatividade Fina com Angular Signals:</strong> Arquitetura 100% Standalone Components e Signals (signal, computed, effect), eliminando o overhead de dirty-checking global e permitindo re-render cirúrgico nos nós do DOM.',
+      '<strong>Multi-Threading com Web Workers a 60 FPS:</strong> Desacoplamento da simulação estatística de estresse Monte Carlo em thread secundária do sistema operacional, garantindo renderização fluida a 60 FPS contínuos mesmo sob lotes de 10.000 cenários.',
+      '<strong>Estratégia de Duplo-Modo Resiliente:</strong> Switch operacional entre consumo das APIs reais (.NET 8 na porta 5000 e Java 21 na porta 8080) e pipeline determinístico em memória com fallback automático e zero indisponibilidade em demos.',
+      '<strong>Containerização & Cache Nginx SPA:</strong> Dockerfile multi-stage com Nginx Alpine, regras de cache com immutable nos chunks versionados e fallback de rotas SPA.',
+      '<strong>Qualidade & 5 ADRs Formais:</strong> Documentação arquitetural formal com 5 ADRs, suíte com 24 testes unitários no Vitest com Angular TestBed e pipeline de CI/CD automatizado no GitHub Actions.'
+    ],
+    tags: ['Angular 19', 'TypeScript', 'Signals', 'Web Workers (60 FPS)', 'Vitest (24 tests)', 'Docker Nginx', '5 ADRs', 'Tailwind CSS v4', 'REST APIs', 'CI/CD Actions'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/finrisk-operations-hub',
+      demo: null
+    }
+  },
+  {
     id: 'agrofinance-dashboard',
     featured: true,
     title: 'AgroFinance RWA Banking Dashboard',
