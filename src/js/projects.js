@@ -55,7 +55,7 @@ export const PROJECTS_DATA = [
     title: 'Order Processing API (.NET 8 & CQRS)',
     subtitle: 'Clean Architecture, CQRS Híbrido, Channels & Fraud Engine (5 ADRs)',
     badge: '.NET 8 / CLEAN ARCHITECTURE & CQRS',
-    type: 'C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · xUnit (28 tests)',
+    type: 'C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · CI/CD GitHub Actions · xUnit (28 tests)',
     shortDescription: 'API corporativa em .NET 8 (C# 12) sob Clean Architecture, CQRS híbrido (EF Core + Dapper) e 5 ADRs formais. Enfileiramento assíncrono thread-safe via System.Threading.Channels, Background Worker com integração distribuída ao motor antifraude em Java 21 (fraud-detection-api) com degradação graciosa e 28 testes automatizados no xUnit.',
     fullProblem: 'Sistemas de e-commerce e processamento de pedidos enfrentam gargalos de concorrência e alto tempo de resposta quando operações analíticas e de leitura competem com transações críticas de escrita no mesmo modelo de dados ORM.',
     fullSolution: [
@@ -64,7 +64,7 @@ export const PROJECTS_DATA = [
       '<strong>Processamento Assíncrono com BackgroundService:</strong> Criação de pedidos com resposta imediata HTTP 201 Created e enfileiramento thread-safe desacoplado via System.Threading.Channels consumido por um Worker.',
       '<strong>Integração Antifraude & 28 Testes no xUnit:</strong> Validação em tempo real integrada ao motor em Java 21 (fraud-detection-api) com política de fallback resiliente, 5 Architecture Decision Records (ADRs) documentadas e 28 testes automatizados com xUnit, FluentAssertions e NSubstitute.'
     ],
-    tags: ['C# 12', '.NET 8', 'ASP.NET Core', 'EF Core', 'Dapper', 'Clean Architecture', 'CQRS', 'Channels', 'BackgroundService', 'Fraud Engine', '5 ADRs', 'xUnit (28 tests)', 'NSubstitute'],
+    tags: ['C# 12', '.NET 8', 'ASP.NET Core', 'EF Core', 'Dapper', 'Clean Architecture', 'CQRS', 'Channels', 'BackgroundService', 'Fraud Engine', '5 ADRs', 'CI/CD GitHub Actions', 'xUnit (28 tests)', 'NSubstitute'],
     isProprietary: false,
     links: {
       github: 'https://github.com/FelipeGardenghiDev/order-processing-api',
@@ -186,27 +186,46 @@ export const PROJECTS_DATA = [
     }
   },
   {
-    id: 'rpg-companion-android',
-    featured: false,
-    title: 'Grimório RPG — Companion Android',
-    subtitle: 'Assistente Nativo Offline-First com Mesa P2P & QR Code',
-    badge: 'MOBILE NATIVO / CLEAN ARCH & P2P',
-    type: 'Kotlin 2.0 · Jetpack Compose · Google Hilt · Material 3 · Room SQLite · DataStore · Nearby P2P · CameraX',
-    shortDescription: 'Assistente nativo Android para RPG de mesa com arquitetura Clean + MVVM e injeção de dependências via Google Hilt. 100% offline-first com persistência híbrida (Room + DataStore Preferences), sincronização P2P Star Relay via Bluetooth LE/Wi-Fi, feedback sensorial, regras ProGuard/R8 e pronto para distribuição na Google Play Store.',
-    fullProblem: 'Partidas presenciais de RPG em locais sem conexão estável com a internet, em que apps convencionais sofrem com lentidão, consumo excessivo de bateria ou falta de sincronização em tempo real entre mestre e jogadores sem pagar planos caros de nuvem.',
+    id: 'underground-tools',
+    featured: true,
+    title: 'Underground Tools (C++17 Audio DSP Plugins)',
+    subtitle: 'DSP em Tempo Real, Filtros Bi-Quad, Saturação Não-Linear & Arquitetura JUCE',
+    badge: 'C++17 / REAL-TIME DSP AUDIO',
+    type: 'C++17 · JUCE Framework · VST3 / AU · Real-Time Audio DSP · Bi-Quad Filters · SIMD · Zero-Allocation Audio Thread',
+    shortDescription: 'Ecossistema profissional de plugins de áudio VST3/AU em C++17 e JUCE Framework para produção musical, mixagem e palcos. Processamento de sinal em tempo real (DSP) com zero alocação dinâmica no audio thread crítico, filtros bi-quad passa-baixa/alta, saturação analógica não-linear e medição RMS/Peak com renderização vetorial a 60 FPS.',
+    fullProblem: 'Aplicações de áudio profissional e plugins VST exigem execução estritamente determinística sem garbage collection, bloqueio de mutex ou alocação dinâmica no callback de áudio, sob risco de buffer underruns, clicks e latência perceptível no palco e estúdio.',
     fullSolution: [
-      '<strong>Arquitetura Clean + MVVM & Injeção de Dependências (Hilt):</strong> Desenvolvido com Kotlin 2.0, Jetpack Compose, Material 3 e Google Hilt para DI de ciclo de vida completo (@AndroidEntryPoint, @HiltViewModel), garantindo desacoplamento estrito e facilidade de testes unitários.',
-      '<strong>Parser Léxico & DSL de Dados:</strong> Avaliador matemático em Kotlin puro para fórmulas complexas (vantagens/desvantagens 2d20kh1/kl1, dados explosivos 3d6!, descarte de menores 4d6kh3 e macros persistentes).',
-      '<strong>Mesa Local P2P em Topologia Estrela (Star Relay):</strong> Sincronização em tempo real de rolagens, fichas e chat entre mestre e jogadores via Google Nearby Connections (Bluetooth LE / Wi-Fi Direct) com retransmissão centralizada no host e permissões runtime granulares do Android 12/13+.',
-      '<strong>Persistência Reativa Híbrida & Preferências:</strong> Banco relacional local com Room SQLite para fichas e histórico, somado ao Jetpack DataStore Preferences para preferências de usuário (tema ativo, identidade do jogador) via StateFlow.',
-      '<strong>Compartilhamento Offline via QR Code:</strong> Exportação e importação instantânea de fichas e macros usando CameraX, ZXing e compactação binária de alta densidade (GZIP + Base64).',
-      '<strong>Feedback Sensorial & Temas Dinâmicos:</strong> Síntese de áudio de baixa latência com SoundPool, vibrações hápticas personalizadas para críticos (VibrationEffect) e 3 temas Material 3 (Pergaminho Medieval, Cyberpunk Neon e Horror Cósmico AMOLED).',
-      '<strong>Play Store Readiness & Build de Release:</strong> Configuração de ProGuard/R8 com regras de keep para Gson e serializáveis, isolamento seguro de credenciais via keystore.properties, política de privacidade conforme diretrizes do Google Play e documentação completa de publicação.'
+      '<strong>C++17 & JUCE Framework:</strong> Arquitetura modular de processamento digital de sinais para Windows, macOS e Linux nos formatos VST3 e Standalone.',
+      '<strong>Zero-Allocation no Audio Thread:</strong> Algoritmos DSP estritamente determinísticos com buffers estáticos pré-alocados para garantir latência inferior a 1ms.',
+      '<strong>DSP de Filtros & Saturação:</strong> Implementação de curvas de saturação analógica com modelagem matemática não-linear (hiperbólica tanh) e filtros equalizadores IIR Bi-Quad.',
+      '<strong>Interface Vetorial Responsiva:</strong> Componentes de UI desenhados em tempo real com taxa de atualização de 60 FPS e desacoplamento assíncrono entre a interface gráfica e o motor de áudio.'
     ],
-    tags: ['Kotlin 2.0', 'Jetpack Compose', 'Google Hilt', 'Material 3', 'Clean Architecture', 'Room SQLite', 'DataStore Preferences', 'Google Nearby P2P', 'CameraX', 'ProGuard / R8', 'Android Nativo'],
+    tags: ['C++17', 'JUCE Framework', 'Audio DSP', 'VST3 / AU', 'Real-Time Audio', 'Zero-Allocation', 'Bi-Quad Filters', 'Saturação Analógica', 'CMake'],
     isProprietary: false,
     links: {
-      github: 'https://github.com/FelipeGardenghiDev/rpg-companion-android',
+      github: 'https://github.com/FelipeGardenghiDev/underground-tools',
+      demo: null
+    }
+  },
+  {
+    id: 'garden-creative-suite',
+    featured: true,
+    title: 'Garden Creative Suite (Multiplatform Media Tools)',
+    subtitle: 'WebCodecs, Whisper AI Wasm, Autotiling Wang-47 & NLE Exporters',
+    badge: 'WEBMEDIA / MULTIPLATFORM (WEB, DESKTOP, ANDROID)',
+    type: 'React 19 · TypeScript · Vite · Capacitor · Tauri (Rust) · WebCodecs · Web Audio API · Whisper Wasm · IndexedDB',
+    shortDescription: 'Tríade de ferramentas profissionais de criação multimídia de alto desempenho operando 100% no cliente: GardenCut (editor de vídeo não-linear multitrack com detecção de silêncio por RMS), GardenPixel (editor pixel-art com blend modes e autotiling Wang-47 para Godot 4/Tiled) e GardenSubtitle (gerador de legendas cinéticas com Whisper AI e exportadores para W3C TTML, DaVinci FCPXML e After Effects JSX). Disponíveis como Web Apps, Desktop (Tauri/Rust) e APKs Android (Capacitor).',
+    fullProblem: 'Criadores de conteúdo e desenvolvedores de jogos dependem de softwares pesados, caros e baseados em assinaturas de nuvem que enviam seus vídeos e assets confidenciais para servidores de terceiros, criando gargalos de upload e riscos de privacidade.',
+    fullSolution: [
+      '<strong>Processamento 100% Client-Side & Zero-Cost Cloud:</strong> Transcrição acústica local via Whisper ONNX Wasm e síntese de vídeo/áudio acelerada por hardware no navegador.',
+      '<strong>Engenharia de Mídia Industrial:</strong> Exportação para padrões mundiais de broadcast e pós-produção (W3C TTML, Final Cut Pro XML, Adobe Premiere .prproj, After Effects .jsx e CMX 3600 EDL).',
+      '<strong>Arquitetura Tri-Platform:</strong> O mesmo codebase em React 19 / TypeScript compila e roda nativamente na Web, no Desktop via Rust/Tauri e no Android via Capacitor.',
+      '<strong>Algoritmos Gráficos & Acústicos:</strong> Detecção inteligente de pausas via RMS/LUFS com auto jump-cut, modos de mesclagem de camadas (Multiply, Screen, Overlay) e autotiling canônico de 47 tiles.'
+    ],
+    tags: ['React 19', 'TypeScript', 'WebCodecs', 'Capacitor Android', 'Tauri (Rust)', 'Whisper AI', 'Web Audio API', 'IndexedDB', 'Godot 4', 'W3C TTML', 'FCPXML'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/garden-cut',
       demo: null
     }
   },

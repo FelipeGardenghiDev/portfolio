@@ -11,13 +11,13 @@
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical & Open Graph URL -->
-  <link rel="canonical" href="https://felipegardenghidev.github.io/portfolio/" />
+  <link rel="canonical" href="https://felipegardenghi.com.br/" />
   <meta property="og:title" content="Felipe Gardenghi — Desenvolvedor Full-Stack | Engenharia de Software & Ciência de Dados" />
   <meta property="og:description" content="Engenharia de software, microsserviços de alto desempenho, aplicações web modernas e machine learning. Java 21, Spring Boot, Next.js 16, React 19, Python, Oracle PL/SQL." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
-  <meta property="og:url" content="https://felipegardenghidev.github.io/portfolio/" />
-  <!-- <meta property="og:image" content="https://felipegardenghidev.github.io/portfolio/og-image.png" /> -->
+  <meta property="og:url" content="https://felipegardenghi.com.br/" />
+  <!-- <meta property="og:image" content="https://felipegardenghi.com.br/og-image.png" /> -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +46,7 @@
       "name": "Felipe Gardenghi",
       "jobTitle": "Desenvolvedor Full-Stack | Engenharia de Software & Ciência de Dados",
       "email": "felipegg.dev@gmail.com",
-      "url": "https://github.com/felipegardenghidev",
+      "url": "https://felipegardenghi.com.br",
       "sameAs": [
         "https://github.com/felipegardenghidev",
         "https://linkedin.com/in/felipegardenghi"
@@ -107,6 +107,11 @@
       </nav>
 
       <div class="nav-controls">
+        <button id="lang-toggle" class="lang-toggle-btn" type="button" aria-label="Alternar idioma">
+          <span class="lang-code active" id="lang-pt">PT</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-code" id="lang-en">EN</span>
+        </button>
         <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Alternar tema">
           <!-- Sun Icon (Dark Mode) -->
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -614,7 +619,7 @@
           <article class="project-card project-card--featured reveal-on-scroll reveal-delay-2" data-category="backend fullstack" aria-labelledby="proj-title-dotnet">
             <span class="project-badge">.NET 8 / CLEAN ARCHITECTURE & CQRS</span>
             <h3 id="proj-title-dotnet" class="project-title">Order Processing API (.NET 8 & CQRS)</h3>
-            <span class="project-type">C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · xUnit (28 tests)</span>
+            <span class="project-type">C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · CI/CD GitHub Actions · xUnit (28 tests)</span>
             <p class="project-description">
               API corporativa em .NET 8 (C# 12) sob Clean Architecture, CQRS híbrido (EF Core + Dapper) e 5 ADRs formais. Enfileiramento assíncrono via System.Threading.Channels, Background Worker com integração distribuída ao motor antifraude em Java 21 (fraud-detection-api) com degradação graciosa e 28 testes automatizados no xUnit.
             </p>
@@ -628,6 +633,7 @@
               <span class="project-tag">BackgroundService</span>
               <span class="project-tag">Fraud Engine</span>
               <span class="project-tag">5 ADRs</span>
+              <span class="project-tag">CI/CD GitHub Actions</span>
               <span class="project-tag">xUnit (28 tests)</span>
               <span class="project-tag">NSubstitute</span>
               <span class="project-tag">Docker</span>
@@ -806,34 +812,63 @@
             </div>
           </article>
 
-          <!-- 07. Grimório RPG Android -->
-          <article class="project-card reveal-on-scroll reveal-delay-2" data-category="mobile" aria-labelledby="proj-title-7">
-            <span class="project-badge">MOBILE NATIVO / CLEAN ARCH & P2P</span>
-            <h3 id="proj-title-7" class="project-title">Grimório RPG — Companion Android</h3>
-            <span class="project-type">Kotlin 2.0 · Jetpack Compose · Google Hilt · Material 3 · Room SQLite · DataStore · Nearby P2P · CameraX</span>
+          <!-- 07. Underground Tools (C++17 Audio DSP Plugins) -->
+          <article class="project-card reveal-on-scroll reveal-delay-2" data-category="backend" aria-labelledby="proj-title-7">
+            <span class="project-badge">C++17 / REAL-TIME DSP AUDIO</span>
+            <h3 id="proj-title-7" class="project-title">Underground Tools (C++17 Audio DSP Plugins)</h3>
+            <span class="project-type">C++17 · JUCE Framework · VST3 / AU · Real-Time Audio DSP · Bi-Quad Filters · SIMD · Zero-Allocation Audio Thread</span>
             <p class="project-description">
-              Assistente nativo offline-first com Clean + MVVM e DI via Google Hilt. Mesa local P2P Star Relay (Bluetooth LE/Wi-Fi), persistência reativa (Room + DataStore), parser léxico Kotlin, QR Code (GZIP+Base64), feedback háptico/áudio e release pronto para Google Play Store com ProGuard/R8.
+              Ecossistema profissional de plugins de áudio VST3/AU em C++17 e JUCE Framework para produção musical e palcos. Processamento de sinal em tempo real (DSP) com zero alocação dinâmica no audio thread crítico, filtros bi-quad passa-baixa/alta, saturação analógica não-linear e renderização vetorial a 60 FPS.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Kotlin 2.0</span>
-              <span class="project-tag">Jetpack Compose</span>
-              <span class="project-tag">Google Hilt</span>
-              <span class="project-tag">Clean Arch</span>
-              <span class="project-tag">Room SQLite</span>
-              <span class="project-tag">DataStore</span>
-              <span class="project-tag">Google Nearby P2P</span>
-              <span class="project-tag">CameraX / ZXing</span>
-              <span class="project-tag">SoundPool / Haptics</span>
-              <span class="project-tag">ProGuard / R8</span>
-              <span class="project-tag">Material 3</span>
+              <span class="project-tag">C++17</span>
+              <span class="project-tag">JUCE Framework</span>
+              <span class="project-tag">Audio DSP</span>
+              <span class="project-tag">VST3 / AU</span>
+              <span class="project-tag">Real-Time Audio</span>
+              <span class="project-tag">Zero-Allocation</span>
+              <span class="project-tag">Bi-Quad Filters</span>
+              <span class="project-tag">Saturação Analógica</span>
             </div>
             <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="rpg-companion-android">
+              <button type="button" class="btn-details" data-project-target="underground-tools">
                 <span>Ver Detalhes</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
               </button>
               <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/rpg-companion-android" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Grimório RPG Android">
+                <a href="https://github.com/FelipeGardenghiDev/underground-tools" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Underground Tools">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07.5. Garden Creative Suite -->
+          <article class="project-card reveal-on-scroll reveal-delay-2" data-category="fullstack" aria-labelledby="proj-title-garden">
+            <span class="project-badge">WEBMEDIA / MULTIPLATFORM (WEB, DESKTOP, ANDROID)</span>
+            <h3 id="proj-title-garden" class="project-title">Garden Creative Suite (Multiplatform Media Tools)</h3>
+            <span class="project-type">React 19 · TypeScript · Vite · Capacitor · Tauri (Rust) · WebCodecs · Web Audio API · Whisper Wasm · IndexedDB</span>
+            <p class="project-description">
+              Tríade de ferramentas profissionais de criação multimídia 100% client-side: GardenCut (editor de vídeo não-linear multitrack com detecção de silêncio por RMS), GardenPixel (editor pixel-art com blend modes e autotiling Wang-47 para Godot 4/Tiled) e GardenSubtitle (gerador de legendas cinéticas com Whisper AI e exportadores para W3C TTML, DaVinci FCPXML e After Effects JSX). Disponíveis na Web, Desktop (Tauri/Rust) e APKs Android (Capacitor).
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">React 19</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">WebCodecs</span>
+              <span class="project-tag">Capacitor Android</span>
+              <span class="project-tag">Tauri (Rust)</span>
+              <span class="project-tag">Whisper AI</span>
+              <span class="project-tag">Web Audio API</span>
+              <span class="project-tag">IndexedDB</span>
+              <span class="project-tag">W3C TTML</span>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-details" data-project-target="garden-creative-suite">
+                <span>Ver Detalhes</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </button>
+              <div class="project-external-links">
+                <a href="https://github.com/FelipeGardenghiDev/garden-cut" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do GardenCut">
                   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
               </div>
@@ -868,6 +903,32 @@
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Laboratório de Engenharia & Sandbox Interativo ── -->
+    <section id="engineering-lab" class="lab-section reveal-on-scroll" aria-label="Laboratório Interativo de Engenharia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label section-tag">// LIVE SYSTEM ARCHITECTURE &amp; DSP PLAYGROUND</span>
+          <h2 class="section-title">Laboratório de Engenharia &amp; Simulação Interativa</h2>
+          <p class="section-description">
+            Explore a topologia arquitetural, métricas de vazão (throughput) e execute simulações em tempo real de DSP de áudio e consistência transacional diretamente no navegador.
+          </p>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-tabs" role="tablist">
+            <button class="lab-tab active" data-tab="dotnet-order">.NET 8 Order Engine (CQRS + Channels)</button>
+            <button class="lab-tab" data-tab="java-fraud">Java 21 Fraud Engine (Sliding Window)</button>
+            <button class="lab-tab" data-tab="audio-dsp">C++17 Audio DSP (Interactive Synth)</button>
+            <button class="lab-tab" data-tab="garden-media">Garden Suite (WebCodecs &amp; Tri-Platform)</button>
+          </div>
+
+          <div class="lab-viewport" id="lab-viewport">
+            <!-- Renderizado dinamicamente por src/js/engineering-lab.js -->
+          </div>
         </div>
       </div>
     </section>
