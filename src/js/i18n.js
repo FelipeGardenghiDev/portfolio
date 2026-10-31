@@ -15,9 +15,9 @@ export const TRANSLATIONS = {
       contact: 'Contato'
     },
     hero: {
-      badge: 'Disponível para oportunidades sênior',
+      badge: 'Disponível para oportunidades imediatas',
       subtitlePrefix: '//',
-      description: 'Engenheiro de Software Full-Stack & Cientista de Dados. Construo microsserviços de alto desempenho em .NET 8 e Java 21, arquiteturas corporativas resilientes (DDD, Outbox Pattern, Terraform AWS), aplicações multimídia modernas e sistemas distribuídos de alta escala.',
+      description: 'Desenvolvedor Full-Stack com 2 anos de experiência corporativa (Nova Smar S/A / ERP TOTVS Protheus / Oracle PL/SQL) & Bacharelado em Ciência de Dados (UNIVESP). Construo microsserviços distribuídos de alto desempenho (.NET 8 & Java 21), arquiteturas resilientes (Hexagonal, Clean Arch, CQRS, Outbox), interfaces reativas modernas e esteiras de dados orientadas a testes automatizados.',
       viewProjects: 'Ver Projetos',
       downloadCv: 'Baixar CV (PDF)',
       contact: 'Entrar em Contato'
@@ -48,9 +48,9 @@ export const TRANSLATIONS = {
       contact: 'Contact'
     },
     hero: {
-      badge: 'Available for senior engineering opportunities',
+      badge: 'Available for immediate opportunities',
       subtitlePrefix: '//',
-      description: 'Senior Full-Stack Software Engineer & Data Scientist. Designing high-throughput .NET 8 & Java 21 microservices, resilient distributed systems (DDD, Outbox Pattern, Terraform AWS), client-side multimedia engines and data platforms with proven business ROI.',
+      description: 'Full-Stack Software Engineer with 2 years of enterprise experience (Nova Smar S/A / TOTVS Protheus ERP / Oracle PL/SQL) & Data Scientist (UNIVESP). Designing high-throughput .NET 8 & Java 21 microservices, resilient distributed architectures (Hexagonal, Clean Arch, CQRS, Outbox), modern reactive interfaces and automated test pipelines.',
       viewProjects: 'Explore Projects',
       downloadCv: 'Download CV (PDF)',
       contact: 'Get in Touch'

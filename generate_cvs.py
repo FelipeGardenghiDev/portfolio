@@ -119,7 +119,7 @@ def generate_dev_html():
 
 <div class="header">
   <div class="name">FELIPE GARDENGHI</div>
-  <div class="role">DESENVOLVEDOR FULL-STACK | ENGENHARIA DE SOFTWARE &amp; MICROSSERVI&Ccedil;OS</div>
+  <div class="role">DESENVOLVEDOR FULL-STACK | ENGENHARIA DE SOFTWARE &amp; DADOS</div>
   <div class="contact-info">
     Sert&atilde;ozinho, S&atilde;o Paulo | (16) 99373-3667 | <a href="mailto:felipegg.dev@gmail.com">felipegg.dev@gmail.com</a><br>
     <a href="https://linkedin.com/in/felipegardenghi">linkedin.com/in/felipegardenghi</a> | <a href="https://github.com/felipegardenghidev">github.com/felipegardenghidev</a> | <a href="https://felipegardenghidev.github.io/portfolio/">felipegardenghidev.github.io/portfolio</a>
@@ -128,31 +128,30 @@ def generate_dev_html():
 
 <div class="section-title">RESUMO PROFISSIONAL</div>
 <p>
-Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de Dados (UNIVESP)</strong> com experi&ecirc;ncia s&oacute;lida em engenharia de software corporativa, arquitetura de microsservi&ccedil;os distribu&iacute;dos e solu&ccedil;&otilde;es de dados. Atua nos ecossistemas <strong>C# / .NET 8</strong> (ASP.NET Core, EF Core, Dapper, Clean Architecture) e <strong>Java 21 / Spring Boot 3</strong> aplicando <strong>Arquitetura Hexagonal</strong>, <strong>Virtual Threads (Loom)</strong>, <strong>Domain-Driven Design (DDD)</strong>, <strong>Transactional Outbox Pattern</strong>, <strong>Resilience4j Circuit Breaker</strong>, <strong>Flyway Database Migrations</strong>, mensageria ass&iacute;ncrona com <strong>RabbitMQ</strong>, cache deslizante com <strong>Redis Lua</strong> e infraestrutura como c&oacute;digo via <strong>AWS Terraform IaC</strong>. Na camada frontend, projeta interfaces modernas em <strong>Angular (Signals &amp; Web Workers), React 19 / Next.js 16, TypeScript e Tailwind CSS v4</strong> com testes automatizados (<strong>Vitest, Playwright E2E, xUnit, JUnit 5, JaCoCo</strong>). Atua na <strong>Nova Smar S/A</strong> com desenvolvimento de sistemas intranet (PHP, Oracle Database 12c, OCI8 com parametriza&ccedil;&atilde;o segura) integrados ao ERP TOTVS Protheus, Triggers corporativas e concilia&ccedil;&atilde;o de estoque e fluxo de caixa. Bagagem pr&eacute;via de 5 anos como empreendedor em e-commerce (Mercadol&iacute;der), agregando vis&atilde;o estrat&eacute;gica de neg&oacute;cio.
+Desenvolvedor com <strong>2 anos de experi&ecirc;ncia corporativa</strong> e graduando em <strong>Bacharelado em Ci&ecirc;ncia de Dados (UNIVESP)</strong> com atua&ccedil;&atilde;o s&oacute;lida em engenharia de software, microsservi&ccedil;os, banco de dados corporativo e solu&ccedil;&otilde;es anal&iacute;ticas. Atua nos ecossistemas <strong>C# / .NET 8</strong> (ASP.NET Core, EF Core, Dapper, Clean Architecture, CQRS) e <strong>Java 21 / Spring Boot 3</strong> aplicando <strong>Arquitetura Hexagonal</strong>, <strong>Virtual Threads (Loom)</strong>, <strong>Transactional Outbox</strong>, <strong>Circuit Breaker (Resilience4j)</strong>, mensageria ass&iacute;ncrona com <strong>RabbitMQ</strong> e cache com <strong>Redis Lua</strong>. Na camada frontend, desenvolve com <strong>React 19, Next.js 16, Angular 19 (Signals &amp; Web Workers), TypeScript e Tailwind CSS</strong> com ampla cobertura de testes automatizados (<strong>Vitest, Playwright E2E, xUnit, JUnit 5</strong>). Na <strong>Nova Smar S/A</strong>, desenvolveu dashboards corporativos em intranet (PHP, Oracle PL/SQL, OCI8) integrados ao ERP TOTVS Protheus, triggers transacionais e concilia&ccedil;&atilde;o de estoque e invent&aacute;rio corporativo. Bagagem pr&eacute;via de 5 anos como empreendedor no e-commerce (Mercadol&iacute;der), agregando vis&atilde;o estrat&eacute;gica de neg&oacute;cio e processos.
 </p>
 
 <div class="section-title">HABILIDADES T&Eacute;CNICAS</div>
 <div class="skills-list">
-  <p><span class="skills-label">Linguagens:</span> C#, Java 21, TypeScript, JavaScript (ES6+), Python 3.11, PHP, SQL, Kotlin 2.0, C/C++, DAX.</p>
-  <p><span class="skills-label">Backend &amp; Microsservi&ccedil;os:</span> ASP.NET Core (.NET 8), Entity Framework Core, Dapper (Micro-ORM), LINQ, Spring Boot 3, Domain-Driven Design (DDD), Clean Architecture, Transactional Outbox Pattern, Resilience4j Circuit Breaker, Flyway Migrations, RabbitMQ (Event-Driven), Redis, REST APIs, Spring Security, Swagger / OpenAPI 3, FastAPI, Laravel.</p>
-  <p><span class="skills-label">Frontend &amp; Web:</span> Angular (Signals &amp; Web Workers), React 19, Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Decimal.js, TradingView Canvas, HTML5, CSS3, Vite, Zustand, Zod, WebGL.</p>
-  <p><span class="skills-label">Cloud, DevOps &amp; Testes:</span> AWS (Terraform IaC, VPC, ECS Fargate, RDS PostgreSQL, ElastiCache, Amazon MQ), Docker &amp; Compose, Testcontainers, GitHub Actions (CI/CD), Vitest, Playwright (E2E), xUnit, JUnit 5, JaCoCo (&gt;80% Cobertura), Linux, Windows.</p>
-  <p><span class="skills-label">Banco de Dados:</span> Oracle Database (PL/SQL, OCI8, Parametriza&ccedil;&atilde;o Anti-SQL Injection, Triggers, Procedures, Otimiza&ccedil;&atilde;o), PostgreSQL, MySQL, SQL Server, Supabase, Redis.</p>
-  <p><span class="skills-label">Ci&ecirc;ncia de Dados &amp; IA:</span> Machine Learning, LightGBM, SHAP (Explainable AI), Scikit-Learn, Pandas, NumPy, Streamlit, MLOps, Google MediaPipe, Google Gemini API.</p>
-  <p><span class="skills-label">Ferramentas &amp; Metodologias:</span> Postman, HTTPie, JIRA, Confluence, Zendesk, Git, GitHub, Power BI, Figma, Clean Architecture, ERP TOTVS Protheus.</p>
+  <p><span class="skills-label">Linguagens:</span> C#, Java 21, TypeScript, JavaScript (ES6+), Python 3.11, PHP, SQL, Kotlin, C/C++, DAX.</p>
+  <p><span class="skills-label">Backend &amp; Microsservi&ccedil;os:</span> ASP.NET Core (.NET 8), Entity Framework Core, Dapper, Spring Boot 3, Domain-Driven Design (DDD), Clean Architecture, Hexagonal, RabbitMQ, Redis, REST APIs, Swagger / OpenAPI 3, FastAPI, Laravel.</p>
+  <p><span class="skills-label">Frontend &amp; Mobile:</span> React 19, Next.js 16, Angular 19, TypeScript, Capacitor (Android Nativo), Tailwind CSS, Decimal.js, TradingView Canvas, Web Workers, Vite, Zustand.</p>
+  <p><span class="skills-label">Cloud, DevOps &amp; Testes:</span> Docker &amp; Compose, GitHub Actions (CI/CD Automatizado), Vitest, Playwright (E2E), xUnit, JUnit 5, JaCoCo, Testcontainers, Linux, Windows.</p>
+  <p><span class="skills-label">Banco de Dados:</span> Oracle Database (PL/SQL, Triggers, Procedures, Otimiza&ccedil;&atilde;o, Parametriza&ccedil;&atilde;o Segura), PostgreSQL, MySQL, SQL Server, Redis.</p>
+  <p><span class="skills-label">Ci&ecirc;ncia de Dados &amp; IA:</span> Machine Learning, LightGBM, SHAP (Explainable AI), Scikit-Learn, Pandas, NumPy, Streamlit, Web Scraping.</p>
   <p><span class="skills-label">Idiomas:</span> Portugu&ecirc;s (Nativo), Ingl&ecirc;s (B2 &ndash; Intermedi&aacute;rio Avan&ccedil;ado), Alem&atilde;o (A1 &ndash; B&aacute;sico).</p>
 </div>
 
 <div class="section-title">EXPERI&Ecirc;NCIA PROFISSIONAL</div>
 
 <div class="job">
-  <div class="job-header">Estagi&aacute;rio de T.I. | Nova Smar S/A | Sert&atilde;ozinho, SP</div>
-  <div class="job-period">12/2024 &ndash; Presente</div>
+  <div class="job-header">Estagi&aacute;rio de T.I. / Desenvolvimento | Nova Smar S/A | Sert&atilde;ozinho, SP</div>
+  <div class="job-period">12/2024 &ndash; 12/2026 (2 anos completos)</div>
   <ul>
-    <li>Desenvolveu e implantou em produ&ccedil;&atilde;o dashboard financeiro em intranet (PHP, JavaScript, Oracle PL/SQL), substituindo controles manuais por sistema multiusu&aacute;rio audit&aacute;vel integrado ao ERP TOTVS Protheus, com fluxo de caixa di&aacute;rio/mensal e relat&oacute;rios em tempo real para tomada de decis&atilde;o da diretoria e acionistas.</li>
+    <li>Desenvolveu e implantou em produ&ccedil;&atilde;o dashboard financeiro em intranet (PHP, JavaScript, Oracle PL/SQL), substituindo controles manuais por sistema multiusu&aacute;rio audit&aacute;vel integrado ao ERP TOTVS Protheus, com fluxo de caixa di&aacute;rio/mensal e relat&oacute;rios em tempo real para tomada de decis&atilde;o executiva.</li>
     <li>Implementou triggers, procedures e fun&ccedil;&otilde;es PL/SQL em Oracle DB e MySQL para automa&ccedil;&atilde;o de rotinas de banco de dados, eliminando retrabalho operacional e garantindo integridade transacional.</li>
     <li>Desenvolveu relat&oacute;rios de contabilidade e controle de estoque que viabilizaram a conclus&atilde;o do invent&aacute;rio corporativo da empresa em tempo recorde em 2025.</li>
-    <li>Prestou suporte t&eacute;cnico sist&ecirc;mico a usu&aacute;rios (local e remoto), realizando diagn&oacute;stico de falhas, documenta&ccedil;&atilde;o de processos corporativos e treinamento t&eacute;cnico.</li>
+    <li>Prestou suporte t&eacute;cnico sist&ecirc;mico a usu&aacute;rios (local e remoto), diagn&oacute;stico de falhas, documenta&ccedil;&atilde;o de processos corporativos e treinamento t&eacute;cnico.</li>
   </ul>
 </div>
 
@@ -160,8 +159,7 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
   <div class="job-header">Assistente de E-commerce | Limiar Games Store | Sert&atilde;ozinho, SP</div>
   <div class="job-period">09/2024 &ndash; 11/2024</div>
   <ul>
-    <li>Criou e otimizou an&uacute;ncios em m&uacute;ltiplos marketplaces (Mercado Livre, Shopee, Magalu, Americanas), aumentando a visibilidade e convers&atilde;o de produtos.</li>
-    <li>Gerenciou separa&ccedil;&atilde;o, confer&ecirc;ncia de pedidos, atendimento presencial e controle rigoroso de estoque f&iacute;sico.</li>
+    <li>Criou e otimizou an&uacute;ncios em m&uacute;ltiplos marketplaces (Mercado Livre, Shopee, Magalu), gerenciando expedi&ccedil;&atilde;o e integra&ccedil;&atilde;o de estoque f&iacute;sico.</li>
   </ul>
 </div>
 
@@ -171,46 +169,50 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
   <div class="job-header">Aut&ocirc;nomo em E-commerce | Canivete da Ro&ccedil;a | Sert&atilde;ozinho, SP</div>
   <div class="job-period">09/2019 &ndash; 08/2024</div>
   <ul>
-    <li>Gerenciou opera&ccedil;&atilde;o pr&oacute;pria em m&uacute;ltiplos marketplaces, liderando estrat&eacute;gias de tr&aacute;fego pago, an&aacute;lise de m&eacute;tricas financeiras e atendimento ao cliente por 5 anos.</li>
-    <li>Conquistou a qualifica&ccedil;&atilde;o de <strong>Mercadol&iacute;der em menos de 1 ano de opera&ccedil;&atilde;o</strong>, comprovando forte vis&atilde;o de neg&oacute;cio, efici&ecirc;ncia de processos e foco em resultados.</li>
+    <li>Gerenciou opera&ccedil;&atilde;o pr&oacute;pria em m&uacute;ltiplos marketplaces por 5 anos, conquistando a qualifica&ccedil;&atilde;o de <strong>Mercadol&iacute;der em menos de 1 ano</strong>, atuando em estrat&eacute;gias de tr&aacute;fego pago, an&aacute;lise de margem e atendimento.</li>
   </ul>
 </div>
 
-<div class="section-title">PROJETOS EM DESTAQUE (PORTF&Oacute;LIO &amp; ENGENHARIA DE SOFTWARE)</div>
+<div class="section-title">PROJETOS P&Uacute;BLICOS EM DESTAQUE (GITHUB P&Uacute;BLICO)</div>
 
 <div class="job">
-  <div class="job-header">Ecossistema FinRisk: Fraud Engine (Java 21), Order API (.NET 8) &amp; Cockpit (Angular 19) | 19 ADRs</div>
+  <div class="job-header">Ecossistema FinRisk: Fraud API (Java 21), Order API (.NET 8) &amp; Cockpit (Angular 19) | 19 ADRs</div>
   <ul>
-    <li>Tr&iacute;ade corporativa distribu&iacute;da orquestrando microsservi&ccedil;os em <strong>Java 21</strong>, <strong>.NET 8</strong> e frontend <strong>Angular 19</strong> (19 ADRs formais e 98+ testes automatizados).</li>
-    <li><strong>Fraud Detection API (Java 21):</strong> Arquitetura Hexagonal, Virtual Threads, 7 regras de produ&ccedil;&atilde;o (Haversine, Z-Score, Smurfing), Redis ZSET Lua com Resilience4j, Transactional Outbox, RabbitMQ, Testcontainers e 46+ testes JaCoCo.</li>
-    <li><strong>Order Processing API (.NET 8):</strong> Clean Architecture, CQRS h&iacute;brido (EF Core + Dapper), enfileiramento via System.Threading.Channels, Background Worker e 28 testes xUnit.</li>
-    <li><strong>FinRisk Operations Hub (Angular 19):</strong> Reatividade com Signals, c&aacute;lculo de risco Monte Carlo em Web Worker a 60 FPS, Docker Nginx e 24 testes Vitest.</li>
-  </ul>
-</div>
-
-<div class="job">
-  <div class="job-header">AgroFinance RWA Banking Dashboard | Next.js 16 &middot; React 19 &middot; TypeScript &middot; Decimal.js &middot; TradingView &middot; Monte Carlo &middot; Vitest &middot; Playwright</div>
-  <ul>
-    <li>Plataforma banc&aacute;ria corporativa e cust&oacute;dia de Real World Assets (RWA) e CPR Digital para o agroneg&oacute;cio, orientada por 9 <strong>Architecture Decision Records (ADRs)</strong>.</li>
-    <li>Aritm&eacute;tica de precis&atilde;o arbitr&aacute;ria com <strong>Decimal.js</strong> (eliminando falhas de float IEEE-754 em amortiza&ccedil;&atilde;o Price e LTV 70%), gr&aacute;ficos <strong>TradingView em Canvas GPU a 60 FPS</strong> e streaming <strong>Server-Sent Events (SSE)</strong> em Edge Runtime.</li>
-    <li>Motor quantitativo estoc&aacute;stico <strong>Monte Carlo (1.000 itera&ccedil;&otilde;es)</strong> em <strong>Web Worker</strong> (0ms Jank de UI), simulador What-If de estresse macroecon&ocirc;mico, exporta&ccedil;&atilde;o cont&aacute;bil para ERPs agr&iacute;colas (TOTVS Agro / Siagri) e <strong>Dossi&ecirc; Banc&aacute;rio com hash SHA-256</strong>.</li>
-    <li>Su&iacute;te com <strong>130 testes unit&aacute;rios/integra&ccedil;&atilde;o no Vitest + 8 su&iacute;tes E2E no Playwright (100% passing)</strong> com auditoria WCAG 2.1 AA (Axe-Core) e CI/CD.</li>
+    <li>Tr&iacute;ade corporativa distribu&iacute;da orquestrando microsservi&ccedil;os em <strong>Java 21</strong> e <strong>.NET 8</strong> com frontend <strong>Angular 19</strong> (19 ADRs formais e 98+ testes automatizados).</li>
+    <li><strong>Fraud Detection API (Java 21):</strong> Arquitetura Hexagonal, Virtual Threads, 7 regras antifraude em tempo real (Haversine, Z-Score), Redis Lua com Resilience4j, Transactional Outbox, RabbitMQ, Testcontainers e 46+ testes JaCoCo.</li>
+    <li><strong>Order Processing API (.NET 8):</strong> Clean Architecture, CQRS h&iacute;brido (EF Core + Dapper), enfileiramento com System.Threading.Channels e 28 testes xUnit.</li>
+    <li><strong>FinRisk Operations Hub (Angular 19):</strong> Reatividade com Signals, c&aacute;lculo de risco Monte Carlo em Web Worker a 60 FPS e Docker Nginx.</li>
   </ul>
 </div>
 
 <div class="job">
-  <div class="job-header">Im&oacute;veis Pricing ML &ndash; Intelig&ecirc;ncia Imobili&aacute;ria | Python 3.11 &middot; LightGBM &middot; SHAP &middot; MLOps &middot; Streamlit</div>
+  <div class="job-header">AgroFinance RWA Banking Dashboard | Next.js 16 &middot; React 19 &middot; TypeScript &middot; TradingView &middot; 138 Testes</div>
   <ul>
-    <li>Pipeline End-to-End de Ci&ecirc;ncia de Dados e Machine Learning: web scraping de +1.100 an&uacute;ncios reais, engenharia de atributos espaciais, modelo LightGBM (R&sup2; = 0.835 e redu&ccedil;&atilde;o de 61% no MAE) e explicabilidade de vari&aacute;veis via SHAP (XAI) em Reais.</li>
-    <li>Dashboard interativo em Streamlit com simulador preditivo de pre&ccedil;o, detec&ccedil;&atilde;o visual de barganhas e arquitetura limpa de infer&ecirc;ncia.</li>
+    <li>Plataforma banc&aacute;ria de cust&oacute;dia de Real World Assets (RWA) e CPR Digital para o agroneg&oacute;cio, orientada por 9 Architecture Decision Records (ADRs).</li>
+    <li>Aritm&eacute;tica de precis&atilde;o arbitr&aacute;ria com <strong>Decimal.js</strong>, gr&aacute;ficos TradingView Canvas a 60 FPS, simula&ccedil;&atilde;o estoc&aacute;stica Monte Carlo em Web Worker e <strong>130 testes Vitest + 8 su&iacute;tes E2E no Playwright (100% passing)</strong>.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">Sert&atilde;ozinho Digital | React 19 &middot; TypeScript &middot; Capacitor 8 (Android Nativo) &middot; CI/CD GitHub Actions</div>
+  <ul>
+    <li>Portal c&iacute;vico municipal com web scraping din&acirc;mico em tempo real do portal da prefeitura de Sert&atilde;ozinho, mapa interativo de utilidade p&uacute;blica com rotas GPS (UPAs, Ecopontos) e canal colaborativo cidad&atilde;o.</li>
+    <li>Pipeline de CI/CD automatizado no GitHub Actions com testes automatizados, linters e compila&ccedil;&atilde;o de APK Android nativo via Gradle.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">Im&oacute;veis Pricing ML &ndash; Intelig&ecirc;ncia Imobili&aacute;ria | Python 3.11 &middot; LightGBM &middot; SHAP &middot; Streamlit</div>
+  <ul>
+    <li>Pipeline End-to-End de Ci&ecirc;ncia de Dados: web scraping de +1.100 an&uacute;ncios reais, engenharia de atributos espaciais, modelo LightGBM (R&sup2; = 0.835) e explicabilidade de vari&aacute;veis via SHAP (XAI) em Reais com simulador Streamlit.</li>
   </ul>
 </div>
 
 <div class="section-title">FORMA&Ccedil;&Atilde;O ACAD&Ecirc;MICA</div>
 <div class="job">
   <div class="job-header">Bacharelado em Ci&ecirc;ncia de Dados | UNIVESP &ndash; Universidade Virtual do Estado de S&atilde;o Paulo</div>
-  <div class="job-period">07/2024 &ndash; Presente | Sert&atilde;ozinho, SP</div>
-  <p>Forma&ccedil;&atilde;o de n&iacute;vel superior abrangendo algoritmos, estruturas de dados, modelagem estat&iacute;stica, bancos de dados relacionais e n&atilde;o-relacionais, an&aacute;lise preditiva e aprendizado de m&aacute;quina.</p>
+  <div class="job-period">07/2024 &ndash; Conclus&atilde;o Prevista: 2027 | Sert&atilde;ozinho, SP</div>
+  <p>Forma&ccedil;&atilde;o superior abrangendo algoritmos, estruturas de dados, modelagem estat&iacute;stica, bancos de dados, an&aacute;lise preditiva e aprendizado de m&aacute;quina.</p>
 </div>
 
 <div class="section-title">CERTIFICA&Ccedil;&Otilde;ES T&Eacute;CNICAS (+400H CERTIFICADAS)</div>
@@ -220,21 +222,13 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
     <ul>
       <li>Trilha | UI Design para Devs (24h) &ndash; Alura, 2025</li>
       <li>Trilha | React: JSX e Hooks (57h) &ndash; Alura, 2025</li>
-      <li>Trilha | Acessibilidade e Web Inclusiva (28h) &ndash; Alura, 2025</li>
       <li>Trilha | Desenvolvimento Front-end (60h) &ndash; Alura, 2025</li>
-      <li>Trilha Digital | Front-End (19h) &ndash; Santander / Ada, 2024</li>
     </ul>
     <div class="cert-category">Back-End &amp; APIs</div>
     <ul>
       <li>Trilha | PHP Web Completo (52h) &ndash; Alura, 2025</li>
-      <li>Curso | Laravel: Aplica&ccedil;&atilde;o com MVC (8h) &ndash; Alura, 2025</li>
-      <li>Curso | Swagger: Documentando APIs (8h) &ndash; Alura, 2025</li>
-      <li>Curso | Quality Assurance: Testes e Bugs (8h) &ndash; Alura, 2025</li>
-    </ul>
-    <div class="cert-category">Gest&atilde;o &amp; Metodologias</div>
-    <ul>
-      <li>White Belt Six Sigma (2h) &ndash; RL &amp; Associados / UNIVESP, 2026</li>
-      <li>Curso | Equipes &Aacute;geis e Scrum (8h) &ndash; Alura, 2025</li>
+      <li>Curso | Laravel: MVC e APIs (8h) &ndash; Alura, 2025</li>
+      <li>Curso | QA: Testes e Gest&atilde;o de Bugs (8h) &ndash; Alura, 2025</li>
     </ul>
   </div>
   <div>
@@ -242,25 +236,19 @@ Desenvolvedor full-stack e graduando em <strong>Bacharelado em Ci&ecirc;ncia de 
     <ul>
       <li>Curso | Git e GitHub: Controle de Vers&atilde;o (8h) &ndash; Alura, 2025</li>
       <li>Curso | Entrega Cont&iacute;nua e CI/CD (8h) &ndash; Alura, 2025</li>
-      <li>Curso | Integra&ccedil;&atilde;o Cont&iacute;nua: Menos Risco (6h) &ndash; Alura, 2025</li>
       <li>Curso | Microsservi&ccedil;os: Padr&otilde;es de Projeto (6h) &ndash; Alura, 2025</li>
     </ul>
     <div class="cert-category">Banco de Dados &amp; BI</div>
     <ul>
       <li>Trilha | Consultas com Oracle Database (82h) &ndash; Alura, 2025</li>
       <li>Curso | Power BI Avan&ccedil;ado (32h) &ndash; SENAI, 2025</li>
-      <li>Curso | Admin Oracle DB: Seguran&ccedil;a e Otimiza&ccedil;&atilde;o (14h) &ndash; Alura, 2025</li>
-    </ul>
-    <div class="cert-category">Intelig&ecirc;ncia Artificial</div>
-    <ul>
-      <li>Curso | GitHub Copilot e ChatGPT para Devs (8h) &ndash; Alura, 2025</li>
+      <li>White Belt Six Sigma (2h) &ndash; RL &amp; Associados / UNIVESP, 2026</li>
     </ul>
   </div>
 </div>
 
 </body>
 </html>"""
-
 
 def generate_suporte_html():
     return f"""<!DOCTYPE html>

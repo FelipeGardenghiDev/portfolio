@@ -16,11 +16,11 @@ export function initTypewriter() {
 
   const phrases = [
     'Desenvolvedor Full-Stack',
-    'Engenheiro de Software',
-    'Especialista Backend Java & Spring',
-    'Cloud & Microsserviços Resilientes',
-    'Ciência de Dados & Machine Learning',
-    'Soluções Corporativas de Alta Performance'
+    'Engenharia de Software & Dados',
+    'Backend .NET 8 & Java 21',
+    'Microsserviços & Arquitetura Hexagonal',
+    'React 19, Next.js 16 & Angular 19',
+    'Ciência de Dados & Machine Learning'
   ];
 
   let phraseIndex = 0;

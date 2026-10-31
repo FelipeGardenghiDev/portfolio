@@ -186,6 +186,28 @@ export const PROJECTS_DATA = [
     }
   },
   {
+    id: 'sertaozinho-digital',
+    featured: false,
+    title: 'Sertãozinho Digital',
+    subtitle: 'Portal Cívico Municipal, Rotas GPS & PWA Android Nativo',
+    badge: 'CIVIC TECH / REACT 19 & CAPACITOR 8',
+    type: 'React 19 · TypeScript · Capacitor 8 (Android Nativo) · Leaflet GPS · Web Scraping · GitHub Actions CI/CD',
+    shortDescription: 'Portal cívico municipal e aplicativo PWA/Android nativo para centralização de serviços públicos de Sertãozinho/SP. Web scraping dinâmico para ofertas de emprego do PAT e editais, mapa interativo geolocalizado com rotas GPS (UPAs, UBSs e Ecopontos), canal cidadão colaborativo e esteira de CI/CD no GitHub Actions com compilação de APK nativo.',
+    fullProblem: 'Cidadãos e comerciantes do município de Sertãozinho enfrentavam dispersão e lentidão no acesso a serviços públicos essenciais (vagas de emprego no PAT, rotas para descarte em ecopontos, unidades de pronto atendimento de saúde e notícias oficiais), distribuídos em portais desatualizados sem aplicativo unificado ou mapa interativo offline-first.',
+    fullSolution: [
+      '<strong>Interface Cívica Reativa & PWA Nativo:</strong> Desenvolvida em React 19, TypeScript e Tailwind CSS v4, empacotada com Capacitor 8 para Android nativo e PWA instalável com suporte offline.',
+      '<strong>Web Scraping Dinâmico & Atualização Diária:</strong> Automação diária via GitHub Actions que coleta e atualiza oportunidades de emprego do PAT e comunicados da prefeitura com zero intervenção manual.',
+      '<strong>Mapa Interativo com Rotas GPS:</strong> Integração com Leaflet e OpenStreetMap mapeando serviços de emergência (UPAs, Bombeiros, SAMU) e pontos de descarte sustentável (Ecopontos) com cálculo de rota direta via GPS do dispositivo.',
+      '<strong>Esteira CI/CD Automatizada:</strong> Pipeline completo no GitHub Actions executando linters, testes automatizados e compilação de APK Android release via Gradle.'
+    ],
+    tags: ['React 19', 'TypeScript', 'Capacitor 8', 'Android', 'Leaflet', 'OpenStreetMap', 'Web Scraping', 'Tailwind CSS v4', 'GitHub Actions', 'CI/CD'],
+    isProprietary: false,
+    links: {
+      github: 'https://github.com/FelipeGardenghiDev/sertaozinho-digital',
+      demo: null
+    }
+  },
+  {
     id: 'underground-tools',
     featured: true,
     title: 'Underground Tools (C++17 Audio DSP Plugins)',
