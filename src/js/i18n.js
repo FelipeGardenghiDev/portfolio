@@ -26,7 +26,7 @@ export const I18N_DATA = {
     },
     hero: {
       badge: 'Disponível para oportunidades',
-      description: 'Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário corporativo recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces reativas modernas (React 19, Next.js 16, Angular 19).',
+      description: 'Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário corporativo recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>Java 21 / Spring Boot 3</strong> e <strong>C# .NET 8</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces reativas modernas (React 19, Next.js 16, Angular 19).',
       viewProjects: 'Ver Projetos',
       viewCv: 'Visualizar CV',
       downloadCv: 'Baixar CV (PDF)',
@@ -45,7 +45,7 @@ export const I18N_DATA = {
       p3: 'Antes da transição definitiva para tecnologia, liderei por 5 anos uma operação própria de e-commerce, conquistando a qualificação de <strong>Mercadolíder em menos de 1 ano</strong>. Essa experiência prática de negócio me confere sensibilidade apurada para custos de infraestrutura, integridade de transações financeiras e resolução de problemas reais de produto.',
       factsTitle: '// informações chave',
       locLabel: 'Localização',
-      locValue: 'Sertãozinho, SP (Híbrido / Remoto)',
+      locValue: 'Sertãozinho / Ribeirão Preto, SP (Híbrido / Remoto)',
       eduLabel: 'Formação Principal',
       eduValue: 'Ciência de Dados (UNIVESP · 06/2027)',
       roleLabel: 'Atuação Atual',
@@ -53,7 +53,7 @@ export const I18N_DATA = {
       langLabel: 'Idiomas',
       langValue: 'Português (Nativo) · Inglês (B2) · Alemão (A1)',
       diffLabel: 'Diferenciais Técnicos',
-      diffValue: 'Microsserviços .NET 8 & Java 21, Oracle PL/SQL & ERP, Machine Learning, Angular & React/Next.js'
+      diffValue: 'Microsserviços Java 21 & .NET 8, Oracle PL/SQL & ERP, Machine Learning, Angular & React/Next.js'
     },
     projects: {
       label: '// projetos em destaque',
@@ -61,8 +61,8 @@ export const I18N_DATA = {
       desc: 'Casos de uso corporativos em produção, microsserviços distribuídos de alto rendimento, machine learning e aplicações web de alta performance.',
       filters: {
         all: 'Todos (12)',
-        fullstack: 'Full-Stack & Web',
         backend: 'Backend & Fintech',
+        fullstack: 'Full-Stack & Web',
         dataAi: 'Dados & IA',
         mobile: 'Mobile & Mídia'
       },
@@ -77,15 +77,22 @@ export const I18N_DATA = {
       desc: 'Explore a topologia arquitetural, métricas de vazão (throughput) e execute simulações em tempo real de DSP de áudio e consistência transacional diretamente no navegador.'
     },
     stack: {
-      label: '// stack',
-      title: 'Tecnologias e ferramentas',
-      desc: 'Conjunto de tecnologias utilizadas no desenvolvimento de sistemas web, microsserviços, inteligência artificial e integração corporativa.',
-      cat1: 'Frontend & Interfaces',
-      cat2: 'Backend & Microsserviços',
-      cat3: 'Ciência de Dados & IA',
-      cat4: 'Bancos de Dados & Caching',
-      cat5: 'Testes, DevOps & Cloud',
-      cat6: 'Mobile & Sistemas Corporativos'
+      label: '// stack técnica',
+      title: 'Pilares de Engenharia & Tecnologias Centrais',
+      desc: 'Conjunto de tecnologias estruturado por prioridade técnica: ecossistemas robustos de backend, bancos relacionais corporativos, esteiras de dados/IA, interfaces modernas e infraestrutura.',
+      topLabel: 'Top 5 Tecnologias Centrais:',
+      cat1: 'Backend & Microsserviços Corporativos',
+      cat1Desc: 'Arquiteturas resilientes para alto throughput, desacoplamento transacional e microsserviços orientados a eventos.',
+      cat2: 'Bancos de Dados Corporativos & Caching',
+      cat2Desc: 'Integridade referencial estrita, procedures e triggers de alta performance e cache de baixa latência.',
+      cat3: 'Ciência de Dados & Machine Learning',
+      cat3Desc: 'Pipelines preditivos end-to-end, explicabilidade de modelos (XAI) e esteiras analíticas em produção.',
+      cat4: 'Frontend Moderno & Interfaces Reativas',
+      cat4Desc: 'Aplicações web ultra-rápidas com renderização a 60 FPS, Web Workers e arquitetura reativa por Signals.',
+      cat5: 'DevOps, Cloud & Automação de Testes',
+      cat5Desc: 'Containers imutáveis, infraestrutura como código (IaC), esteiras de CI/CD e pirâmide de testes completa.',
+      cat6: 'Arquitetura de Software & ERP',
+      cat6Desc: 'Domínio de regras de negócio industriais, conciliação contábil, modelagem DDD e governança por ADRs.'
     },
     experience: {
       label: '// experiência',
@@ -118,10 +125,10 @@ export const I18N_DATA = {
       },
       volunteeringTitle: 'Experiências Complementares & Voluntariado',
       ifsp: {
-        role: 'Professor Voluntário de Informática Básica',
+        role: 'Professor Voluntário de História da Arte',
         org: '@ IFSP Sertãozinho',
         period: '03/2016 – 08/2016',
-        desc: 'Ensino de conceitos fundamentais de computação, navegação segura, processadores de texto e planilhas eletrônicas para a comunidade local.'
+        desc: 'Ministrou aulas voluntárias de História da Arte e manifestações estéticas para turmas e comunidade escolar.'
       },
       picovid: {
         role: 'Analista de Dados Voluntário',
@@ -137,7 +144,7 @@ export const I18N_DATA = {
       }
     },
     education: {
-      label: '// formação',
+      label: '// formação acadêmica',
       title: 'Formação acadêmica e certificações',
       univesp: {
         degree: 'Bacharelado em Ciência de Dados',
@@ -151,18 +158,18 @@ export const I18N_DATA = {
         pi3: '<strong>PI III:</strong> Plataforma Web de Vendas Acessível, focada em padrões WCAG 2.1 AA e inclusão digital.',
         pi4: '<strong>PI IV:</strong> Plataforma Web com Machine Learning integrado para previsão de demanda e recomendação.'
       },
-      academicHistoryTitle: 'Histórico Acadêmico Anterior',
+      priorTitle: 'Histórico Acadêmico Anterior',
+      unaerp: {
+        degree: 'Licenciatura Plena em Música',
+        institution: 'UNAERP — Universidade de Ribeirão Preto',
+        period: '01/2017 – 09/2019 (Graduação interrompida em Set/2019)',
+        desc: 'Domínio de harmonia, acústica física e percepção rítmica — base para os projetos de DSP de áudio em tempo real (C++17/JUCE) e visão computacional (VisuChord).'
+      },
       ufscar: {
         degree: 'Bacharelado em Ciência da Computação (Início)',
         institution: 'UFSCar — Universidade Federal de São Carlos',
-        period: '01/2015 – 07/2015',
-        desc: 'Formação de base sólida em lógica matemática, algoritmos em C e participação como Trainee na Cati Jr.'
-      },
-      musica: {
-        degree: 'Licenciatura Plena em Música',
-        institution: 'Graduação Universitária',
-        period: '01/2017 – 09/2019',
-        desc: 'Domínio de harmonia, acústica física e percepção rítmica — base para os projetos de DSP de áudio (C++17/JUCE) e visão computacional (VisuChord).'
+        period: '01/2015 – 07/2015 (Graduação interrompida em Jul/2015)',
+        desc: 'Formação de base sólida em lógica matemática, algoritmos em C e participação como Trainee na Empresa Júnior Cati Jr.'
       },
       certsTitle: 'Certificações & Cursos Técnicos',
       certSummary: 'Total de <strong>+400 horas</strong> em cursos técnicos certificados.'
@@ -197,7 +204,7 @@ export const I18N_DATA = {
     },
     hero: {
       badge: 'Available for immediate opportunities',
-      description: 'Backend / Full-Stack Developer with <strong>2 years of enterprise engineering experience</strong> at multinational <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus ERP, PHP, transactional triggers and 2025 record-time corporate inventory) & B.S. candidate in <strong>Data Science (UNIVESP)</strong>. Designing high-throughput distributed microservices (<strong>C# .NET 8</strong> & <strong>Java 21 / Spring Boot 3</strong> with Virtual Threads, Hexagonal Architecture, CQRS and Resilience), Machine Learning pipelines (Python, LightGBM, SHAP), and modern reactive interfaces (React 19, Next.js 16, Angular 19).',
+      description: 'Backend / Full-Stack Developer with <strong>2 years of enterprise engineering experience</strong> at multinational <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus ERP, PHP, transactional triggers and 2025 record-time corporate inventory) & B.S. candidate in <strong>Data Science (UNIVESP)</strong>. Designing high-throughput distributed microservices (<strong>Java 21 / Spring Boot 3</strong> & <strong>C# .NET 8</strong> with Virtual Threads, Hexagonal Architecture, CQRS and Resilience), Machine Learning pipelines (Python, LightGBM, SHAP), and modern reactive interfaces (React 19, Next.js 16, Angular 19).',
       viewProjects: 'Explore Projects',
       viewCv: 'View Resume',
       downloadCv: 'Download CV (PDF)',
@@ -216,7 +223,7 @@ export const I18N_DATA = {
       p3: 'Prior to my full-time technology career, I founded and scaled an e-commerce business for 5 years, achieving top-tier <strong>MercadoLíder qualification in under 1 year</strong>. This real-world business acumen gives me a sharp focus on infrastructure costs, transaction consistency, and solving high-impact product challenges.',
       factsTitle: '// key metrics',
       locLabel: 'Location',
-      locValue: 'Sertãozinho, SP — Brazil (Hybrid / Remote)',
+      locValue: 'Sertãozinho / Ribeirão Preto, SP — Brazil (Hybrid / Remote)',
       eduLabel: 'Academic Degree',
       eduValue: 'Data Science (UNIVESP · Jun/2027)',
       roleLabel: 'Current Role',
@@ -224,7 +231,7 @@ export const I18N_DATA = {
       langLabel: 'Languages',
       langValue: 'Portuguese (Native) · English (B2) · German (A1)',
       diffLabel: 'Core Differentiators',
-      diffValue: '.NET 8 & Java 21 Microservices, Oracle PL/SQL & ERP, Machine Learning, Angular & React/Next.js'
+      diffValue: 'Java 21 & .NET 8 Microservices, Oracle PL/SQL & ERP, Machine Learning, Angular & React/Next.js'
     },
     projects: {
       label: '// featured engineering works',
@@ -232,8 +239,8 @@ export const I18N_DATA = {
       desc: 'Enterprise production use-cases, high-throughput distributed microservices, machine learning, and high-performance web applications.',
       filters: {
         all: 'All (12)',
-        fullstack: 'Full-Stack & Web',
         backend: 'Backend & Fintech',
+        fullstack: 'Full-Stack & Web',
         dataAi: 'Data & AI',
         mobile: 'Mobile & Media'
       },
@@ -249,14 +256,21 @@ export const I18N_DATA = {
     },
     stack: {
       label: '// tech stack',
-      title: 'Technologies & Core Tools',
-      desc: 'Core toolchain for distributed systems, microservices, cloud infrastructure, data science, and modern enterprise integration.',
-      cat1: 'Frontend & Interfaces',
-      cat2: 'Backend & Microservices',
-      cat3: 'Data Science & AI',
-      cat4: 'Databases & Caching',
-      cat5: 'Testing, DevOps & Cloud',
-      cat6: 'Mobile & Enterprise Systems'
+      title: 'Core Engineering Pillars & Technologies',
+      desc: 'Structured by engineering priority: enterprise backend ecosystems, relational database engines, machine learning pipelines, modern web and cloud infrastructure.',
+      topLabel: 'Top 5 Core Technologies:',
+      cat1: 'Enterprise Backend & Microservices',
+      cat1Desc: 'Resilient architectures for high throughput, transactional decoupling, and event-driven microservices.',
+      cat2: 'Relational Databases & In-Memory Caching',
+      cat2Desc: 'Strict ACID referential integrity, high-performance triggers, procedures, and sub-millisecond Redis caching.',
+      cat3: 'Data Science & Machine Learning',
+      cat3Desc: 'End-to-end predictive pipelines, Explainable AI (XAI) auditing, and production analytical serving.',
+      cat4: 'Modern Frontend & Reactive Web',
+      cat4Desc: 'High-speed web platforms with 60 FPS Canvas rendering, Web Workers, and Signal-based reactive state.',
+      cat5: 'DevOps, Cloud & Automated Testing',
+      cat5Desc: 'Immutable containers, Infrastructure as Code (AWS Terraform), CI/CD pipelines, and multi-tier test suites.',
+      cat6: 'Software Architecture & Enterprise Systems',
+      cat6Desc: 'Industrial domain modeling, corporate financial reconciliation, DDD invariants, and formal ADR governance.'
     },
     experience: {
       label: '// professional experience',
@@ -289,10 +303,10 @@ export const I18N_DATA = {
       },
       volunteeringTitle: 'Complementary Experiences & Volunteering',
       ifsp: {
-        role: 'Volunteer Computer Science Instructor',
+        role: 'Volunteer Art History Instructor',
         org: '@ IFSP Sertãozinho',
         period: '03/2016 – 08/2016',
-        desc: 'Taught computing fundamentals, secure internet navigation, text editors, and electronic spreadsheets to the local community.'
+        desc: 'Conducted volunteer Art History and aesthetic theory lectures for academic classes and the local community.'
       },
       picovid: {
         role: 'Volunteer Data Analyst',
@@ -308,7 +322,7 @@ export const I18N_DATA = {
       }
     },
     education: {
-      label: '// education & research',
+      label: '// academic degrees',
       title: 'Academic Degrees & Certifications',
       univesp: {
         degree: 'Bachelor of Science in Data Science',
@@ -322,18 +336,18 @@ export const I18N_DATA = {
         pi3: '<strong>PI III:</strong> Accessible Web Sales Platform complying with WCAG 2.1 AA accessibility standards.',
         pi4: '<strong>PI IV:</strong> Web Sales Platform integrating Machine Learning for demand forecasting and smart recommendations.'
       },
-      academicHistoryTitle: 'Prior Academic Background',
+      priorTitle: 'Prior Academic Background',
+      unaerp: {
+        degree: 'B.A. in Music Education',
+        institution: 'UNAERP — University of Ribeirão Preto',
+        period: '01/2017 – 09/2019 (Interrupted 09/2019)',
+        desc: 'Rigorous foundation in acoustic physics, harmonic theory, and auditory perception — foundational for real-time DSP audio algorithms (C++17) and VisuChord.'
+      },
       ufscar: {
         degree: 'B.S. in Computer Science (Initial Studies)',
         institution: 'UFSCar — Federal University of São Carlos',
-        period: '01/2015 – 07/2015',
+        period: '01/2015 – 07/2015 (Interrupted 07/2015)',
         desc: 'Rigorous foundation in discrete mathematics, algorithms in C, and trainee at Cati Jr. Software Enterprise.'
-      },
-      musica: {
-        degree: 'B.A. in Music Education',
-        institution: 'University Degree',
-        period: '01/2017 – 09/2019',
-        desc: 'Acoustics, harmonic structure, and rhythm perception — core foundational domain for audio DSP engineering (C++17/JUCE) and VisuChord.'
       },
       certsTitle: 'Technical Certifications & Training',
       certSummary: 'Total of <strong>+400 hours</strong> in certified technical engineering courses.'
@@ -453,8 +467,8 @@ export function setLanguage(lang) {
   const filterBtns = document.querySelectorAll('.filter-btn');
   if (filterBtns.length >= 5) {
     filterBtns[0].textContent = t.projects.filters.all;
-    filterBtns[1].textContent = t.projects.filters.fullstack;
-    filterBtns[2].textContent = t.projects.filters.backend;
+    filterBtns[1].textContent = t.projects.filters.backend;
+    filterBtns[2].textContent = t.projects.filters.fullstack;
     filterBtns[3].textContent = t.projects.filters.dataAi;
     filterBtns[4].textContent = t.projects.filters.mobile;
   }
@@ -479,6 +493,9 @@ export function setLanguage(lang) {
   const stackDesc = document.querySelector('#stack .section-description');
   if (stackDesc) stackDesc.textContent = t.stack.desc;
 
+  const stackTopLabel = document.getElementById('stack-top-label');
+  if (stackTopLabel) stackTopLabel.textContent = t.stack.topLabel;
+
   const stackTitles = document.querySelectorAll('.stack-card-title');
   if (stackTitles.length >= 6) {
     stackTitles[0].textContent = t.stack.cat1;
@@ -487,6 +504,16 @@ export function setLanguage(lang) {
     stackTitles[3].textContent = t.stack.cat4;
     stackTitles[4].textContent = t.stack.cat5;
     stackTitles[5].textContent = t.stack.cat6;
+  }
+
+  const stackCardDescs = document.querySelectorAll('.stack-card-desc');
+  if (stackCardDescs.length >= 6) {
+    stackCardDescs[0].textContent = t.stack.cat1Desc;
+    stackCardDescs[1].textContent = t.stack.cat2Desc;
+    stackCardDescs[2].textContent = t.stack.cat3Desc;
+    stackCardDescs[3].textContent = t.stack.cat4Desc;
+    stackCardDescs[4].textContent = t.stack.cat5Desc;
+    stackCardDescs[5].textContent = t.stack.cat6Desc;
   }
 
   // 8. Experience Section
@@ -531,7 +558,7 @@ export function setLanguage(lang) {
     }
   }
 
-  // Volunteering & Complementary block if present
+  // Volunteering block
   const volTitle = document.getElementById('volunteering-title');
   if (volTitle) volTitle.textContent = t.experience.volunteeringTitle;
 
@@ -580,6 +607,27 @@ export function setLanguage(lang) {
   if (pi3) pi3.innerHTML = t.education.univesp.pi3;
   const pi4 = document.getElementById('pi-4-desc');
   if (pi4) pi4.innerHTML = t.education.univesp.pi4;
+
+  const priorTitle = document.getElementById('prior-degrees-title');
+  if (priorTitle) priorTitle.textContent = t.education.priorTitle;
+
+  const unaerpDegree = document.getElementById('unaerp-degree');
+  if (unaerpDegree) unaerpDegree.textContent = t.education.unaerp.degree;
+  const unaerpInst = document.getElementById('unaerp-inst');
+  if (unaerpInst) unaerpInst.textContent = t.education.unaerp.institution;
+  const unaerpPeriod = document.getElementById('unaerp-period');
+  if (unaerpPeriod) unaerpPeriod.textContent = t.education.unaerp.period;
+  const unaerpDesc = document.getElementById('unaerp-desc');
+  if (unaerpDesc) unaerpDesc.textContent = t.education.unaerp.desc;
+
+  const ufscarDegree = document.getElementById('ufscar-degree');
+  if (ufscarDegree) ufscarDegree.textContent = t.education.ufscar.degree;
+  const ufscarInst = document.getElementById('ufscar-inst');
+  if (ufscarInst) ufscarInst.textContent = t.education.ufscar.institution;
+  const ufscarPeriod = document.getElementById('ufscar-period');
+  if (ufscarPeriod) ufscarPeriod.textContent = t.education.ufscar.period;
+  const ufscarDesc = document.getElementById('ufscar-desc');
+  if (ufscarDesc) ufscarDesc.textContent = t.education.ufscar.desc;
 
   const certTitle = document.querySelector('.cert-title-group .section-title');
   if (certTitle) certTitle.textContent = t.education.certsTitle;
@@ -638,7 +686,6 @@ export function initI18n() {
     if (saved === 'en' || saved === 'pt') {
       currentLang = saved;
     } else {
-      // Auto-detect browser language
       const userLang = navigator.language || navigator.userLanguage || '';
       if (!userLang.startsWith('pt')) {
         currentLang = 'en';
@@ -653,6 +700,5 @@ export function initI18n() {
     });
   }
 
-  // Initial set
   setLanguage(currentLang);
 }

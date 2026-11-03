@@ -227,6 +227,7 @@
               <button type="button" class="terminal-pill" data-cmd="skills">skills</button>
               <button type="button" class="terminal-pill" data-cmd="projects">projects</button>
               <button type="button" class="terminal-pill" data-cmd="experience">experience</button>
+              <button type="button" class="terminal-pill" data-cmd="education">education</button>
               <button type="button" class="terminal-pill" data-cmd="cv">cv</button>
               <button type="button" class="terminal-pill" data-cmd="contact">contact</button>
               <button type="button" class="terminal-pill" data-cmd="clear">clear</button>
@@ -1022,133 +1023,163 @@
     <section id="stack" class="section" aria-label="Stack técnica">
       <div class="container">
         <div class="section-header reveal-on-scroll">
-          <span class="section-label">// stack</span>
-          <h2 class="section-title">Tecnologias e ferramentas</h2>
+          <span class="section-label">// stack técnica</span>
+          <h2 class="section-title">Pilares de Engenharia &amp; Tecnologias Centrais</h2>
           <p class="section-description">
-            Conjunto de tecnologias utilizadas no desenvolvimento de sistemas web, microsserviços, inteligência artificial e integração corporativa.
+            Conjunto de tecnologias estruturado por prioridade técnica: ecossistemas robustos de backend, bancos relacionais corporativos, esteiras de dados/IA, interfaces modernas e infraestrutura.
           </p>
         </div>
 
-        <div class="stack-grid">
-          <!-- 01. Frontend & Interfaces -->
-          <div class="stack-card reveal-on-scroll">
-            <div class="stack-card-header">
-              <span class="stack-num font-mono">// 01</span>
-              <h3 class="stack-card-title">Frontend & Interfaces</h3>
-            </div>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Angular</span>
-              <span class="tech-tag tech-tag--featured">TypeScript</span>
-              <span class="tech-tag tech-tag--featured">JavaScript (ES6+)</span>
-              <span class="tech-tag tech-tag--featured">React 19</span>
-              <span class="tech-tag tech-tag--featured">Next.js 16</span>
-              <span class="tech-tag">Tailwind CSS v4</span>
-              <span class="tech-tag">HTML5 / CSS3</span>
-              <span class="tech-tag">Vite</span>
-              <span class="tech-tag">Zod & Zustand</span>
-            </div>
-          </div>
+        <!-- Top 5 Core Engineering Technologies Bar -->
+        <div class="stack-top-bar reveal-on-scroll">
+          <span class="stack-top-label">Top 5 Tecnologias Centrais:</span>
+          <span class="stack-core-pill"><span class="stack-core-dot"></span> Java 21 / Spring Boot 3</span>
+          <span class="stack-core-pill"><span class="stack-core-dot"></span> C# 12 / .NET 8</span>
+          <span class="stack-core-pill"><span class="stack-core-dot"></span> Oracle PL/SQL &amp; TOTVS Protheus</span>
+          <span class="stack-core-pill"><span class="stack-core-dot"></span> Python / Machine Learning</span>
+          <span class="stack-core-pill"><span class="stack-core-dot"></span> TypeScript / React 19 &amp; Angular 19</span>
+        </div>
 
-          <!-- 02. Backend & Microsserviços -->
-          <div class="stack-card reveal-on-scroll reveal-delay-1">
+        <div class="stack-grid">
+          <!-- 01. Backend & Microsserviços Corporativos (CORE HIGHLIGHT) -->
+          <div class="stack-card stack-card--core spotlight-card reveal-on-scroll">
             <div class="stack-card-header">
-              <span class="stack-num font-mono">// 02</span>
-              <h3 class="stack-card-title">Backend & Microsserviços</h3>
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 01</span>
+                <h3 class="stack-card-title">Backend &amp; Microsserviços Corporativos</h3>
+              </div>
+              <span class="stack-core-badge">CORE</span>
             </div>
+            <p class="stack-card-desc">Arquiteturas resilientes para alto throughput, desacoplamento transacional e microsserviços orientados a eventos.</p>
             <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">C# / .NET 8</span>
-              <span class="tech-tag tech-tag--featured">ASP.NET Core</span>
-              <span class="tech-tag">Entity Framework Core & Dapper</span>
               <span class="tech-tag tech-tag--featured">Java 21</span>
               <span class="tech-tag tech-tag--featured">Spring Boot 3</span>
-              <span class="tech-tag tech-tag--featured">Clean Architecture & DDD</span>
+              <span class="tech-tag tech-tag--featured">C# 12 / .NET 8</span>
+              <span class="tech-tag tech-tag--featured">ASP.NET Core</span>
+              <span class="tech-tag tech-tag--featured">RabbitMQ (Event-Driven)</span>
               <span class="tech-tag">Transactional Outbox</span>
-              <span class="tech-tag tech-tag--featured">PHP & Oracle PL/SQL</span>
+              <span class="tech-tag">Clean Architecture &amp; DDD</span>
+              <span class="tech-tag">Hexagonal Architecture</span>
+              <span class="tech-tag">Entity Framework Core &amp; Dapper</span>
+              <span class="tech-tag">PHP (Legado &amp; Intranet)</span>
               <span class="tech-tag">Python (FastAPI)</span>
-              <span class="tech-tag">RabbitMQ (Event-Driven)</span>
-              <span class="tech-tag">REST APIs & Spring Security</span>
-              <span class="tech-tag">Swagger / OpenAPI 3</span>
-              <span class="tech-tag">Postman & HTTPie</span>
+              <span class="tech-tag">REST APIs &amp; Spring Security</span>
+              <span class="tech-tag">OpenAPI 3 / Swagger</span>
             </div>
           </div>
 
-          <!-- 03. Ciência de Dados & IA -->
-          <div class="stack-card reveal-on-scroll reveal-delay-2">
+          <!-- 02. Bancos de Dados Corporativos & Caching (CORE HIGHLIGHT) -->
+          <div class="stack-card stack-card--core spotlight-card reveal-on-scroll reveal-delay-1">
             <div class="stack-card-header">
-              <span class="stack-num font-mono">// 03</span>
-              <h3 class="stack-card-title">Ciência de Dados & IA</h3>
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 02</span>
+                <h3 class="stack-card-title">Bancos de Dados Corporativos &amp; Caching</h3>
+              </div>
+              <span class="stack-core-badge">CORE</span>
             </div>
+            <p class="stack-card-desc">Integridade referencial estrita, procedures e triggers de alta performance e cache de baixa latência.</p>
             <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
+              <span class="tech-tag tech-tag--featured">ERP TOTVS Protheus</span>
+              <span class="tech-tag tech-tag--featured">Triggers &amp; Stored Procedures</span>
+              <span class="tech-tag tech-tag--featured">PostgreSQL</span>
+              <span class="tech-tag tech-tag--featured">MySQL</span>
+              <span class="tech-tag">Redis (Sliding Window &amp; ZSET)</span>
+              <span class="tech-tag">Otimização de Índices &amp; Queries</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Transações ACID</span>
+              <span class="tech-tag">Modelagem Relacional</span>
+            </div>
+          </div>
+
+          <!-- 03. Ciência de Dados & Machine Learning -->
+          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-2">
+            <div class="stack-card-header">
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 03</span>
+                <h3 class="stack-card-title">Ciência de Dados &amp; Machine Learning</h3>
+              </div>
+            </div>
+            <p class="stack-card-desc">Pipelines preditivos end-to-end, explicabilidade de modelos (XAI) e esteiras analíticas em produção.</p>
+            <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Python 3.11</span>
               <span class="tech-tag tech-tag--featured">Machine Learning</span>
               <span class="tech-tag tech-tag--featured">LightGBM</span>
               <span class="tech-tag tech-tag--featured">SHAP (Explainable AI)</span>
               <span class="tech-tag">Scikit-Learn</span>
-              <span class="tech-tag">Pandas & NumPy</span>
+              <span class="tech-tag">Pandas &amp; NumPy</span>
               <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">FastAPI</span>
               <span class="tech-tag">Google MediaPipe</span>
               <span class="tech-tag">Google Gemini API</span>
             </div>
           </div>
 
-          <!-- 04. Bancos de Dados & Caching -->
-          <div class="stack-card reveal-on-scroll reveal-delay-3">
+          <!-- 04. Frontend Moderno & Interfaces Reativas -->
+          <div class="stack-card spotlight-card reveal-on-scroll">
             <div class="stack-card-header">
-              <span class="stack-num font-mono">// 04</span>
-              <h3 class="stack-card-title">Bancos de Dados & Caching</h3>
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 04</span>
+                <h3 class="stack-card-title">Frontend Moderno &amp; Interfaces Reativas</h3>
+              </div>
             </div>
+            <p class="stack-card-desc">Aplicações web ultra-rápidas com renderização a 60 FPS, Web Workers e arquitetura reativa por Signals.</p>
             <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
-              <span class="tech-tag tech-tag--featured">MySQL</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Supabase</span>
-              <span class="tech-tag">Redis (Sliding Window)</span>
-              <span class="tech-tag">Triggers & Procedures</span>
-              <span class="tech-tag">Otimização de Queries</span>
+              <span class="tech-tag tech-tag--featured">TypeScript</span>
+              <span class="tech-tag tech-tag--featured">React 19</span>
+              <span class="tech-tag tech-tag--featured">Next.js 16</span>
+              <span class="tech-tag tech-tag--featured">Angular 19 (Signals)</span>
+              <span class="tech-tag">JavaScript (ES6+)</span>
+              <span class="tech-tag">Tailwind CSS v4</span>
+              <span class="tech-tag">Vite &amp; Web Workers</span>
+              <span class="tech-tag">HTML5 Canvas &amp; AudioContext</span>
+              <span class="tech-tag">Zod &amp; Zustand</span>
             </div>
           </div>
 
-          <!-- 05. Testes, DevOps & Cloud -->
-          <div class="stack-card reveal-on-scroll reveal-delay-4">
+          <!-- 05. DevOps, Cloud & Automação de Testes -->
+          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-1">
             <div class="stack-card-header">
-              <span class="stack-num font-mono">// 05</span>
-              <h3 class="stack-card-title">Testes, DevOps & Cloud</h3>
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 05</span>
+                <h3 class="stack-card-title">DevOps, Cloud &amp; Automação de Testes</h3>
+              </div>
             </div>
+            <p class="stack-card-desc">Containers imutáveis, infraestrutura como código (IaC), esteiras de CI/CD e pirâmide de testes completa.</p>
             <div class="stack-tags">
+              <span class="tech-tag tech-tag--featured">Docker &amp; Compose</span>
               <span class="tech-tag tech-tag--featured">Terraform (IaC AWS)</span>
-              <span class="tech-tag tech-tag--featured">Vitest</span>
-              <span class="tech-tag tech-tag--featured">JUnit 5 & Mockito</span>
-              <span class="tech-tag">JaCoCo Cobertura</span>
-              <span class="tech-tag">Playwright (E2E)</span>
               <span class="tech-tag tech-tag--featured">GitHub Actions (CI/CD)</span>
-              <span class="tech-tag">Docker & Compose</span>
-              <span class="tech-tag">Git / GitHub</span>
+              <span class="tech-tag tech-tag--featured">Vitest</span>
+              <span class="tech-tag tech-tag--featured">Playwright (E2E)</span>
+              <span class="tech-tag">JUnit 5 &amp; Mockito</span>
+              <span class="tech-tag">JaCoCo Cobertura</span>
+              <span class="tech-tag">xUnit &amp; FluentAssertions</span>
               <span class="tech-tag">Linux (Ubuntu/Debian)</span>
-              <span class="tech-tag">VPN & Redes TCP/IP</span>
-              <span class="tech-tag">Vercel & Render</span>
+              <span class="tech-tag">Vercel &amp; Render</span>
             </div>
           </div>
 
-          <!-- 06. Mobile & Sistemas Corporativos -->
-          <div class="stack-card reveal-on-scroll">
+          <!-- 06. Arquitetura de Software & ERP -->
+          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-2">
             <div class="stack-card-header">
-              <span class="stack-num font-mono">// 06</span>
-              <h3 class="stack-card-title">Mobile & Sistemas Corporativos</h3>
+              <div class="stack-header-left">
+                <span class="stack-num font-mono">// 06</span>
+                <h3 class="stack-card-title">Arquitetura de Software &amp; ERP</h3>
+              </div>
             </div>
+            <p class="stack-card-desc">Domínio de regras de negócio industriais, conciliação contábil, modelagem DDD e governança por ADRs.</p>
             <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Kotlin 2.0</span>
-              <span class="tech-tag tech-tag--featured">Android Jetpack Compose</span>
-              <span class="tech-tag tech-tag--featured">Clean Architecture</span>
-              <span class="tech-tag tech-tag--featured">Google Hilt (DI)</span>
+              <span class="tech-tag tech-tag--featured">Domain-Driven Design (DDD)</span>
+              <span class="tech-tag tech-tag--featured">19 ADRs Formais</span>
               <span class="tech-tag tech-tag--featured">ERP TOTVS Protheus</span>
-              <span class="tech-tag">DataStore Preferences</span>
-              <span class="tech-tag">Room SQLite</span>
-              <span class="tech-tag">Google Nearby P2P</span>
-              <span class="tech-tag">JIRA & Confluence</span>
-              <span class="tech-tag">Zendesk / Suporte N1/N2</span>
-              <span class="tech-tag">SLA & Gestão de Incidentes</span>
-              <span class="tech-tag">Power BI / DAX</span>
-              <span class="tech-tag">Metodologias Ágeis</span>
-              <span class="tech-tag">Visão de E-commerce</span>
+              <span class="tech-tag tech-tag--featured">Resiliência &amp; Circuit Breaker</span>
+              <span class="tech-tag">Kotlin 2.0 &amp; Jetpack Compose</span>
+              <span class="tech-tag">C++17 (JUCE / Audio DSP)</span>
+              <span class="tech-tag">Governança &amp; Auditoria</span>
+              <span class="tech-tag">Fluxo de Caixa &amp; Conciliação</span>
+              <span class="tech-tag">Unit Economics &amp; E-commerce</span>
+              <span class="tech-tag">JIRA / Confluence / SLA</span>
             </div>
           </div>
         </div>
@@ -1277,7 +1308,7 @@
               </div>
               <ul class="experience-bullets">
                 <li class="experience-bullet">
-                  <strong>IFSP Sertãozinho</strong> (<span id="ifsp-role">Professor Voluntário de Informática Básica</span> · 03/2016 – 08/2016): <span id="ifsp-desc">Ensino de conceitos fundamentais de computação, navegação segura e planilhas eletrônicas para a comunidade local.</span>
+                  <strong>IFSP Sertãozinho</strong> (<span id="ifsp-role">Professor Voluntário de História da Arte</span> · 03/2016 – 08/2016): <span id="ifsp-desc">Ministrou aulas voluntárias de História da Arte e manifestações estéticas para turmas e comunidade escolar.</span>
                 </li>
                 <li class="experience-bullet">
                   <strong>Iniciativa PICOVID</strong> (<span id="picovid-role">Analista de Dados Voluntário</span> · 03/2020 – 07/2020): <span id="picovid-desc">Modelagem estatística, consolidação de dados epidemiológicos públicos e elaboração de visualizações analíticas de impacto durante a pandemia.</span>
@@ -1326,29 +1357,34 @@
             </p>
 
             <!-- Projetos Integradores (UNIVESP) -->
-            <div class="academic-pi-box" style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--border-subtle);">
-              <h4 id="pi-container-title" style="font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--accent); margin-bottom: 0.6rem;">
+            <div class="academic-pi-box">
+              <h4 id="pi-container-title" class="pi-title">
                 Projetos Integradores em Destaque (UNIVESP):
               </h4>
-              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; font-size: var(--fs-xs); color: var(--text-secondary); line-height: 1.5;">
-                <li id="pi-1-desc"><strong>PI I:</strong> Plataforma Web de Vendas com front-end Lovable, backend em Python e banco PostgreSQL.</li>
-                <li id="pi-2-desc"><strong>PI II:</strong> Pipeline de Dados e análise estatística para visualização corporativa.</li>
-                <li id="pi-3-desc"><strong>PI III:</strong> Plataforma Web de Vendas Acessível, focada em padrões WCAG 2.1 AA e inclusão digital.</li>
-                <li id="pi-4-desc"><strong>PI IV:</strong> Plataforma Web com Machine Learning integrado para previsão de demanda e recomendação.</li>
+              <ul class="pi-list">
+                <li class="pi-item" id="pi-1-desc"><strong>PI I:</strong> Plataforma Web de Vendas com front-end Lovable, backend em Python e banco PostgreSQL.</li>
+                <li class="pi-item" id="pi-2-desc"><strong>PI II:</strong> Pipeline de Dados e análise estatística para visualização corporativa.</li>
+                <li class="pi-item" id="pi-3-desc"><strong>PI III:</strong> Plataforma Web de Vendas Acessível, focada em padrões WCAG 2.1 AA e inclusão digital.</li>
+                <li class="pi-item" id="pi-4-desc"><strong>PI IV:</strong> Plataforma Web com Machine Learning integrado para previsão de demanda e recomendação.</li>
               </ul>
             </div>
 
             <!-- Histórico Acadêmico Anterior -->
-            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-subtle); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
-              <div>
-                <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); display: block;">UFSCar · 01/2015 – 07/2015</span>
-                <strong style="font-size: var(--fs-xs); color: var(--text-primary); display: block; margin-top: 2px;">Bacharelado em Ciência da Computação (Início)</strong>
-                <span style="font-size: 0.75rem; color: var(--text-secondary);">Fundamentos de matemática discreta, lógica, C e Trainee na Cati Jr.</span>
+            <div class="prior-degrees-grid">
+              <h4 id="prior-degrees-title" class="pi-title" style="grid-column: 1 / -1; margin-bottom: 0;">
+                Histórico Acadêmico Anterior
+              </h4>
+              <div class="prior-degree-card">
+                <span class="prior-degree-meta" id="unaerp-period">01/2017 – 09/2019 (Graduação interrompida em Set/2019)</span>
+                <strong class="prior-degree-name" id="unaerp-degree">Licenciatura Plena em Música</strong>
+                <span class="prior-degree-inst" id="unaerp-inst">UNAERP — Universidade de Ribeirão Preto</span>
+                <p class="prior-degree-desc" id="unaerp-desc">Domínio de harmonia, acústica física e percepção rítmica — base para os projetos de DSP de áudio em tempo real (C++17/JUCE) e visão computacional (VisuChord).</p>
               </div>
-              <div>
-                <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); display: block;">GRADUAÇÃO UNIVERSITÁRIA · 01/2017 – 09/2019</span>
-                <strong style="font-size: var(--fs-xs); color: var(--text-primary); display: block; margin-top: 2px;">Licenciatura Plena em Música</strong>
-                <span style="font-size: 0.75rem; color: var(--text-secondary);">Harmonia, percepção e acústica física — base conceitual para DSP de áudio (C++17) e VisuChord.</span>
+              <div class="prior-degree-card">
+                <span class="prior-degree-meta" id="ufscar-period">01/2015 – 07/2015 (Graduação interrompida em Jul/2015)</span>
+                <strong class="prior-degree-name" id="ufscar-degree">Bacharelado em Ciência da Computação (Início)</strong>
+                <span class="prior-degree-inst" id="ufscar-inst">UFSCar — Universidade Federal de São Carlos</span>
+                <p class="prior-degree-desc" id="ufscar-desc">Formação de base sólida em lógica matemática, algoritmos em C e participação como Trainee na Empresa Júnior Cati Jr.</p>
               </div>
             </div>
           </div>
