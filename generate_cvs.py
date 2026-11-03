@@ -37,10 +37,10 @@ CSS_STYLES = """
     color: #000000;
   }
   .role {
-    font-size: 10pt;
+    font-size: 9.4pt;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.3pt;
+    letter-spacing: 0.15pt;
     margin-bottom: 3pt;
     color: #222222;
   }
@@ -215,7 +215,7 @@ Desenvolvedor com <strong>2 anos de experi&ecirc;ncia corporativa</strong> e gra
 <div class="section-title">FORMA&Ccedil;&Atilde;O ACAD&Ecirc;MICA</div>
 <div class="job">
   <div class="job-header">Bacharelado em Ci&ecirc;ncia de Dados | UNIVESP &ndash; Universidade Virtual do Estado de S&atilde;o Paulo</div>
-  <div class="job-period">07/2024 &ndash; Conclus&atilde;o Prevista: 2027 | Sert&atilde;ozinho, SP</div>
+  <div class="job-period">07/2024 &ndash; Previs&atilde;o de Conclus&atilde;o: Junho/2027 (1&ordm; Semestre) | Sert&atilde;ozinho, SP</div>
   <p>Forma&ccedil;&atilde;o superior abrangendo algoritmos, estruturas de dados, modelagem estat&iacute;stica, bancos de dados, an&aacute;lise preditiva e aprendizado de m&aacute;quina.</p>
 </div>
 
@@ -327,7 +327,7 @@ Analista de suporte t&eacute;cnico e graduando em <strong>Bacharelado em Ci&ecir
 <div class="section-title">FORMA&Ccedil;&Atilde;O ACAD&Ecirc;MICA</div>
 <div class="job">
   <div class="job-header">Bacharelado em Ci&ecirc;ncia de Dados | UNIVESP &ndash; Universidade Virtual do Estado de S&atilde;o Paulo</div>
-  <div class="job-period">07/2024 &ndash; Presente | Sert&atilde;ozinho, SP</div>
+  <div class="job-period">07/2024 &ndash; Previs&atilde;o de Conclus&atilde;o: Junho/2027 (1&ordm; Semestre) | Sert&atilde;ozinho, SP</div>
   <p>Forma&ccedil;&atilde;o superior com foco em algoritmos, modelagem de dados, infraestrutura de banco de dados, seguran&ccedil;a da informa&ccedil;&atilde;o e resolu&ccedil;&atilde;o l&oacute;gica de problemas complexos.</p>
 </div>
 
