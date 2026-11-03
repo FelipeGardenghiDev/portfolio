@@ -1,8 +1,10 @@
 /**
  * Interactive Developer Terminal CLI
- * Provides an authentic, reactive command line experience for technical visitors.
+ * Authentic Shell Experience: Command History (Up/Down), Tab Autocomplete, Theme & Lang controls.
  */
-import { getLang } from './i18n.js';
+import { getLang, setLanguage } from './i18n.js';
+import { setTheme, toggleTheme, getCurrentTheme } from './theme.js';
+import { getGitHubStats } from './github-activity.js';
 
 export function initTerminal() {
   const terminal = document.getElementById('interactive-terminal');
@@ -14,23 +16,55 @@ export function initTerminal() {
 
   if (!input || !outputContainer) return;
 
-  function executeCommand(rawCmd) {
-    const cmd = rawCmd.trim().toLowerCase();
-    if (!cmd) return;
+  const commandHistory = [];
+  let historyIndex = -1;
 
+  const AVAILABLE_COMMANDS = [
+    'help',
+    'skills',
+    'projects',
+    'experience',
+    'education',
+    'cv',
+    'contact',
+    'clear',
+    'theme',
+    'lang',
+    'github',
+    'activity',
+    'palette',
+    'sudo',
+    'matrix'
+  ];
+
+  function executeCommand(rawCmd) {
+    const trimmed = rawCmd.trim();
+    if (!trimmed) return;
+
+    // Save to history
+    if (commandHistory.length === 0 || commandHistory[commandHistory.length - 1] !== trimmed) {
+      commandHistory.push(trimmed);
+    }
+    historyIndex = -1;
+
+    const cmd = trimmed.toLowerCase();
     const isEn = getLang() === 'en';
 
     // Print command line
     const cmdEntry = document.createElement('div');
     cmdEntry.className = 'terminal-line terminal-user-cmd';
-    cmdEntry.innerHTML = `<span class="terminal-prompt">felipe@fedora:~$</span> <span class="cmd-text">${escapeHtml(rawCmd)}</span>`;
+    cmdEntry.innerHTML = `<span class="terminal-prompt">felipe@fedora:~$</span> <span class="cmd-text">${escapeHtml(trimmed)}</span>`;
     outputContainer.appendChild(cmdEntry);
 
     // Process output
     const responseEl = document.createElement('div');
     responseEl.className = 'terminal-line terminal-response';
 
-    switch (cmd) {
+    const args = cmd.split(/\s+/);
+    const mainCmd = args[0];
+    const subCmd = args[1];
+
+    switch (mainCmd) {
       case 'help':
         responseEl.innerHTML = isEn
           ? `<div class="term-help">
@@ -41,6 +75,10 @@ export function initTerminal() {
   <div><span class="term-cmd">education</span>  - Show degrees at UNIVESP, UNAERP & UFSCar</div>
   <div><span class="term-cmd">cv</span>         - Open interactive 2-page curriculum vitae modal</div>
   <div><span class="term-cmd">contact</span>    - Show direct email, LinkedIn & GitHub profiles</div>
+  <div><span class="term-cmd">theme</span>      - Switch visual theme (usage: 'theme dark' | 'theme light' | 'theme')</div>
+  <div><span class="term-cmd">lang</span>       - Switch site language (usage: 'lang en' | 'lang pt')</div>
+  <div><span class="term-cmd">github</span>     - Query live GitHub API stats (repos, stars, activity)</div>
+  <div><span class="term-cmd">palette</span>    - Open Command Palette spotlight search (Ctrl+K)</div>
   <div><span class="term-cmd">clear</span>      - Clean up the terminal console</div>
 </div>`
           : `<div class="term-help">
@@ -51,6 +89,10 @@ export function initTerminal() {
   <div><span class="term-cmd">education</span>  - Exibir formação acadêmica na UNIVESP, UNAERP e UFSCar</div>
   <div><span class="term-cmd">cv</span>         - Abrir o visualizador do currículo de 2 páginas</div>
   <div><span class="term-cmd">contact</span>    - Exibir e-mail direto, LinkedIn e GitHub</div>
+  <div><span class="term-cmd">theme</span>      - Alternar tema visual (uso: 'theme dark' | 'theme light' | 'theme')</div>
+  <div><span class="term-cmd">lang</span>       - Alternar idioma da página (uso: 'lang pt' | 'lang en')</div>
+  <div><span class="term-cmd">github</span>     - Consultar métricas em tempo real da API pública do GitHub</div>
+  <div><span class="term-cmd">palette</span>    - Abrir a Paleta de Comandos rápida (Ctrl+K)</div>
   <div><span class="term-cmd">clear</span>      - Limpar a tela do console</div>
 </div>`;
         break;
@@ -159,6 +201,60 @@ export function initTerminal() {
 <div>📍 <strong>Location:</strong> Sertãozinho / Ribeirão Preto, SP — Brazil (Available for Hybrid / Remote worldwide)</div>`;
         break;
 
+      case 'theme':
+        if (subCmd === 'dark' || subCmd === 'light') {
+          setTheme(subCmd);
+          responseEl.innerHTML = `<span class="text-success">[OK]</span> ${isEn ? `Theme changed to: ${subCmd}` : `Tema alterado para: ${subCmd}`}`;
+        } else {
+          toggleTheme();
+          const current = getCurrentTheme();
+          responseEl.innerHTML = `<span class="text-success">[OK]</span> ${isEn ? `Theme toggled to: ${current}` : `Tema alternado para: ${current}`}`;
+        }
+        break;
+
+      case 'lang':
+        if (subCmd === 'pt' || subCmd === 'en') {
+          setLanguage(subCmd);
+          responseEl.innerHTML = `<span class="text-success">[OK]</span> ${subCmd === 'en' ? 'Language switched to: English (en)' : 'Idioma alterado para: Português (pt-BR)'}`;
+        } else {
+          const next = getLang() === 'pt' ? 'en' : 'pt';
+          setLanguage(next);
+          responseEl.innerHTML = `<span class="text-success">[OK]</span> ${next === 'en' ? 'Language toggled to: English (en)' : 'Idioma alternado para: Português (pt-BR)'}`;
+        }
+        break;
+
+      case 'github':
+      case 'activity':
+        responseEl.innerHTML = `<span class="text-accent">[FETCH]</span> ${isEn ? 'Querying GitHub API (api.github.com)...' : 'Consultando GitHub API pública (api.github.com)...'}`;
+        getGitHubStats().then((stats) => {
+          responseEl.innerHTML = `
+<div class="term-table">
+  <div class="term-row"><span class="term-key">🐙 GitHub Profile:</span> <span class="term-val"><a href="${stats.url}" target="_blank" class="term-link">${stats.login}</a></span></div>
+  <div class="term-row"><span class="term-key">📦 Public Repositories:</span> <span class="term-val text-success">${stats.publicRepos} repos</span></div>
+  <div class="term-row"><span class="term-key">⭐ Followers:</span> <span class="term-val">${stats.followers}</span></div>
+  <div class="term-row"><span class="term-key">🕒 Profile Updated:</span> <span class="term-val">${new Date(stats.updatedAt).toLocaleDateString()}</span></div>
+</div>`;
+        });
+        break;
+
+      case 'palette':
+      case 'find':
+      case 'search':
+        responseEl.innerHTML = `<span class="text-success">[OK]</span> ${isEn ? 'Opening Command Palette (Ctrl+K)...' : 'Abrindo Paleta de Comandos (Ctrl+K)...'}`;
+        setTimeout(() => {
+          const pb = document.getElementById('command-palette');
+          if (pb) {
+            pb.classList.add('palette--open');
+            document.body.style.overflow = 'hidden';
+            const psi = document.getElementById('palette-search');
+            if (psi) {
+              psi.value = '';
+              psi.focus();
+            }
+          }
+        }, 150);
+        break;
+
       case 'clear':
         outputContainer.innerHTML = '';
         input.value = '';
@@ -188,10 +284,39 @@ export function initTerminal() {
     }
   }
 
-  // Handle Enter key on input
+  // Handle keyboard interaction (Enter, ArrowUp, ArrowDown, Tab)
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       executeCommand(input.value);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0) {
+        if (historyIndex === -1) {
+          historyIndex = commandHistory.length - 1;
+        } else if (historyIndex > 0) {
+          historyIndex--;
+        }
+        input.value = commandHistory[historyIndex];
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex !== -1) {
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          input.value = commandHistory[historyIndex];
+        } else {
+          historyIndex = -1;
+          input.value = '';
+        }
+      }
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const current = input.value.trim().toLowerCase();
+      if (!current) return;
+      const matches = AVAILABLE_COMMANDS.filter((c) => c.startsWith(current));
+      if (matches.length === 1) {
+        input.value = matches[0];
+      }
     }
   });
 

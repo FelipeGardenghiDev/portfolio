@@ -162,38 +162,134 @@
   color: var(--text-primary);
 }
 
-/* ── Architecture Diagram Placeholder (Nova Smar Case) ── */
+/* ── Visual Architecture Topology (Nova Smar Case) ── */
 
-.architecture-diagram-box {
-  margin-top: var(--space-sm);
-  padding: var(--space-2xl) var(--space-xl);
-  border: 2px dashed var(--accent-border);
+.architecture-topology-card {
+  margin-top: var(--space-md);
+  padding: 1.25rem;
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-lg);
-  background-color: var(--bg-tertiary);
+  background: linear-gradient(135deg, rgba(20, 20, 30, 0.95), rgba(15, 15, 22, 0.95));
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .architecture-topology-card {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.topology-header {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: var(--space-sm);
-}
-
-.diagram-icon {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.diagram-title {
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.5rem;
   font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  color: var(--accent);
 }
 
-.diagram-desc {
-  font-size: var(--fs-xs);
-  color: var(--text-muted);
-  max-width: 480px;
+[data-theme="light"] .topology-header {
+  border-bottom-color: #e2e8f0;
+}
+
+.topology-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.topology-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+}
+
+.topology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.topology-node {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.topology-node:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+[data-theme="light"] .topology-node {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.node-icon {
+  font-size: 1.25rem;
+}
+
+.node-name {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.node-role {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.node-tech {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #38bdf8;
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.topology-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  justify-content: space-between;
+}
+
+[data-theme="light"] .topology-metrics {
+  background: #f1f5f9;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+}
+
+.metric-item strong {
+  color: #10b981;
 }
 
 /* ── Modal Footer ── */

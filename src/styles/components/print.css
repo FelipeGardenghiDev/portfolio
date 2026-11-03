@@ -1,0 +1,241 @@
+/* ============================================
+   Print Stylesheet — Print-Friendly Executive CV
+   Optimized for A4 paper and PDF export (Ctrl+P)
+   ============================================ */
+
+@media print {
+  /* ── 1. Page Configuration & Resets ── */
+  @page {
+    margin: 12mm 14mm;
+    size: A4 portrait;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ── 2. Hide Non-Printable Interactive Elements ── */
+  #navbar,
+  .navbar,
+  .skip-link,
+  #scroll-progress,
+  .scroll-progress,
+  .theme-toggle,
+  .lang-toggle,
+  #theme-toggle,
+  #lang-toggle,
+  #terminal,
+  .terminal-container,
+  #lab,
+  .engineering-lab,
+  #project-modal,
+  #cv-modal,
+  #command-palette,
+  .palette-backdrop,
+  .nav-shortcut-pill,
+  .back-to-top,
+  .copy-toast,
+  .hero-actions,
+  .filter-bar,
+  .filter-btn,
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .recruiter-copy-btn,
+  .marquee-wrapper,
+  .marquee-track,
+  .bg-gradient,
+  .status-dot::after,
+  .contact-card-action svg,
+  .project-card-arrow {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* ── 3. Layout Adjustments ── */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .section {
+    padding: 10pt 0 !important;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+
+  .section-header {
+    margin-bottom: 8pt !important;
+  }
+
+  .section-label {
+    font-size: 9pt !important;
+    font-weight: 700 !important;
+    color: #4b5563 !important;
+  }
+
+  .section-title {
+    font-size: 16pt !important;
+    margin-bottom: 6pt !important;
+    color: #111827 !important;
+    border-bottom: 1.5pt solid #e5e7eb;
+    padding-bottom: 4pt;
+  }
+
+  /* ── 4. Hero Section as Header ── */
+  #hero {
+    min-height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 12pt !important;
+    border-bottom: 2pt solid #111827;
+    margin-bottom: 12pt !important;
+  }
+
+  .hero-content {
+    max-width: 100% !important;
+  }
+
+  .hero-title {
+    font-size: 22pt !important;
+    line-height: 1.1 !important;
+    margin-bottom: 4pt !important;
+    color: #111827 !important;
+  }
+
+  .hero-title-accent {
+    color: #111827 !important;
+    text-decoration: underline;
+  }
+
+  .hero-typewriter-container {
+    min-height: auto !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .hero-typewriter {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+  }
+
+  .hero-cursor {
+    display: none !important;
+  }
+
+  .hero-description {
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+    color: #374151 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ── 5. Experience & Education Formatting ── */
+  .experience-card,
+  .education-card,
+  .cert-category-card,
+  .project-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 1pt solid #d1d5db !important;
+    border-radius: 4pt !important;
+    padding: 10pt !important;
+    margin-bottom: 8pt !important;
+    background-color: #fafafa !important;
+  }
+
+  .experience-timeline {
+    gap: 8pt !important;
+  }
+
+  .experience-role {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+  }
+
+  .experience-company {
+    font-size: 10pt !important;
+    color: #4b5563 !important;
+  }
+
+  .experience-responsibilities li {
+    font-size: 9.5pt !important;
+    line-height: 1.35 !important;
+  }
+
+  /* ── 6. Tech Stack as Compact Tags ── */
+  .stack-category-grid,
+  .tech-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4pt !important;
+  }
+
+  .tech-pill,
+  .project-tag {
+    font-size: 8pt !important;
+    border: 0.5pt solid #9ca3af !important;
+    padding: 2pt 5pt !important;
+    border-radius: 3pt !important;
+  }
+
+  /* ── 7. Contact Section as Footer Bar ── */
+  .contact-wrapper {
+    gap: 8pt !important;
+  }
+
+  .contact-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8pt !important;
+  }
+
+  .contact-card {
+    border: 1pt solid #d1d5db !important;
+    padding: 8pt !important;
+    border-radius: 4pt !important;
+  }
+
+  .contact-card-title {
+    font-size: 10pt !important;
+  }
+
+  .contact-card-value {
+    font-size: 9pt !important;
+    font-family: monospace !important;
+  }
+
+  .contact-card-action {
+    display: none !important;
+  }
+
+  .recruiter-quick-card {
+    display: none !important;
+  }
+
+  .footer {
+    padding: 10pt 0 !important;
+    border-top: 1pt solid #e5e7eb !important;
+    margin-top: 10pt !important;
+  }
+
+  .footer-content {
+    font-size: 8.5pt !important;
+    color: #6b7280 !important;
+  }
+}

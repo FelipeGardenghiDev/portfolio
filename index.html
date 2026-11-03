@@ -17,11 +17,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:url" content="https://felipegardenghi.com.br/" />
+  <meta property="og:image" content="https://felipegardenghi.com.br/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Felipe Gardenghi — Desenvolvedor Backend / Full-Stack" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Felipe Gardenghi — Desenvolvedor Backend / Full-Stack | Engenharia de Software, Ciência de Dados & IA" />
   <meta name="twitter:description" content="Portfólio profissional de Felipe Gardenghi. C# .NET 8, Java 21, Spring Boot 3, Oracle PL/SQL, TOTVS Protheus, Python, Machine Learning." />
+  <meta name="twitter:image" content="https://felipegardenghi.com.br/og-image.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -105,6 +110,12 @@
       </nav>
 
       <div class="nav-controls">
+        <button id="palette-open-btn" class="palette-trigger-btn" type="button" aria-label="Abrir busca rápida (Ctrl+K)" title="Busca rápida (Ctrl+K)">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <span class="palette-kbd-badge font-mono" aria-hidden="true">Ctrl K</span>
+        </button>
         <button id="lang-toggle" class="lang-toggle-btn" type="button" aria-label="Alternar idioma">
           <span class="lang-code active" id="lang-pt">PT</span>
           <span class="lang-divider">/</span>
@@ -147,8 +158,9 @@
         <!-- Main Title & Dynamic Typewriter Subtitle -->
         <h1 class="hero-title">Felipe Gardenghi</h1>
         <div class="hero-typewriter-container" aria-label="Especialidades profissionais">
-          <span class="typewriter-prefix">//</span>
-          <span class="typewriter-text" id="typewriter-text" aria-live="polite">Desenvolvedor Full-Stack</span>
+          <span class="typewriter-prefix" aria-hidden="true">//</span>
+          <span class="sr-only">Desenvolvedor Backend / Full-Stack | Engenharia de Software &amp; Arquitetura</span>
+          <span class="typewriter-text" id="typewriter-text" aria-hidden="true">Desenvolvedor Full-Stack</span>
           <span class="typewriter-cursor" aria-hidden="true">|</span>
         </div>
 
@@ -1544,6 +1556,27 @@
             </article>
 
           </div>
+
+          <!-- Recruiter Quick Outreach Card -->
+          <div class="recruiter-quick-card reveal-on-scroll">
+            <div class="recruiter-card-content">
+              <div class="recruiter-badge font-mono">
+                <span class="status-dot"></span>
+                <span>Recrutadores & Gestores de TI</span>
+              </div>
+              <h3 class="recruiter-heading">Mensagem Rápida de Apresentação</h3>
+              <p class="recruiter-desc">Copie um template pré-formatado com um clique para abrir contato por e-mail ou LinkedIn:</p>
+              <div class="recruiter-template-box">
+                <code id="recruiter-template-text" class="font-mono">"Olá Felipe, vi seu portfólio em felipegardenghi.com.br e gostaria de conversar sobre uma oportunidade para Desenvolvedor Backend / Full-Stack."</code>
+                <button type="button" class="btn btn-secondary recruiter-copy-btn" id="btn-copy-recruiter" data-copy="Olá Felipe, vi seu portfólio em felipegardenghi.com.br e gostaria de conversar sobre uma oportunidade para Desenvolvedor Backend / Full-Stack." aria-label="Copiar mensagem pré-formatada">
+                  <svg viewBox="0 0 24 24" class="btn-icon" aria-hidden="true" focusable="false">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                  <span>Copiar Mensagem</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1618,17 +1651,58 @@
         </div>
       </div>
 
+      <!-- CV Profile Switcher (Dev vs Support) -->
+      <div class="cv-profile-tabs" role="tablist" aria-label="Perfis de currículo">
+        <button type="button" class="cv-tab-btn cv-tab-btn--active" data-cv-profile="dev" role="tab" aria-selected="true" id="cv-tab-dev">
+          🚀 Desenvolvedor Backend / Full-Stack
+        </button>
+        <button type="button" class="cv-tab-btn" data-cv-profile="suporte" role="tab" aria-selected="false" id="cv-tab-suporte">
+          🛠️ Suporte Técnico / Sustentação N2 &amp; ERP
+        </button>
+      </div>
+
       <div class="cv-modal-body">
         <div class="cv-pages-grid">
           <div class="cv-page-wrapper">
-            <span class="cv-page-label">// PÁGINA 1 — PERFIL, HABILIDADES &amp; EXPERIÊNCIA</span>
-            <img src="./resume/page-1.png" alt="Página 1 do Currículo de Felipe Gardenghi" class="cv-page-img" loading="lazy" />
+            <span class="cv-page-label" id="cv-page-1-label">// PÁGINA 1 — PERFIL, HABILIDADES &amp; EXPERIÊNCIA</span>
+            <picture>
+              <source id="cv-page-1-webp" srcset="./resume/page-1.webp" type="image/webp" />
+              <img id="cv-page-1-img" src="./resume/page-1.png" alt="Página 1 do Currículo de Felipe Gardenghi" class="cv-page-img" loading="lazy" />
+            </picture>
           </div>
           <div class="cv-page-wrapper">
-            <span class="cv-page-label">// PÁGINA 2 — PROJETOS, FORMAÇÃO &amp; CURSOS</span>
-            <img src="./resume/page-2.png" alt="Página 2 do Currículo de Felipe Gardenghi" class="cv-page-img" loading="lazy" />
+            <span class="cv-page-label" id="cv-page-2-label">// PÁGINA 2 — PROJETOS, FORMAÇÃO &amp; CURSOS</span>
+            <picture>
+              <source id="cv-page-2-webp" srcset="./resume/page-2.webp" type="image/webp" />
+              <img id="cv-page-2-img" src="./resume/page-2.png" alt="Página 2 do Currículo de Felipe Gardenghi" class="cv-page-img" loading="lazy" />
+            </picture>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       COMMAND PALETTE (CTRL + K SPOTLIGHT)
+       ════════════════════════════════════════ -->
+  <div id="command-palette" class="palette-backdrop" role="dialog" aria-modal="true" aria-label="Paleta de Comandos">
+    <div class="palette-container">
+      <div class="palette-header">
+        <svg class="palette-search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input id="palette-search" class="palette-search-input" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Buscar projetos, seções ou comandos... (Ctrl+K)" aria-autocomplete="list" aria-controls="palette-results" />
+        <kbd class="palette-kbd-esc">Esc</kbd>
+      </div>
+      <div class="palette-body">
+        <ul id="palette-results" class="palette-list" role="listbox">
+          <!-- Dynamic Items -->
+        </ul>
+      </div>
+      <div class="palette-footer">
+        <div class="palette-hint"><kbd>↑</kbd><kbd>↓</kbd> Navegar</div>
+        <div class="palette-hint"><kbd>↵</kbd> Selecionar</div>
+        <div class="palette-hint"><kbd>Esc</kbd> Fechar</div>
       </div>
     </div>
   </div>
@@ -1644,6 +1718,10 @@
         </p>
         <p class="footer-tech">
           Construído com HTML5, CSS3 Vanilla e JavaScript ES6+.
+        </p>
+        <p class="footer-github" id="github-status-ticker">
+          <span class="status-dot"></span>
+          <span>Ativo no GitHub · <strong>24</strong> repositórios públicos</span>
         </p>
       </div>
       <a href="#hero" class="back-to-top" aria-label="Voltar ao topo da página">

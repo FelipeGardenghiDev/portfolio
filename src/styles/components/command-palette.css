@@ -1,0 +1,269 @@
+/* ============================================
+   Command Palette Component (Ctrl + K / Cmd + K)
+   Accessible Spotlight Search & Quick Actions
+   ============================================ */
+
+/* ── Navbar Trigger Button ── */
+.palette-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  height: 2.5rem;
+  padding: 0 var(--space-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  background-color: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.palette-trigger-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--accent-dim);
+}
+
+.palette-trigger-btn svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.palette-kbd-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .palette-kbd-badge {
+    display: none;
+  }
+  .palette-trigger-btn {
+    width: 2.5rem;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* ── Palette Modal Backdrop ── */
+.palette-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh var(--space-md) var(--space-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.palette-backdrop.palette--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Palette Container ── */
+.palette-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 600px;
+  max-height: 75vh;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transition: transform var(--transition-fast);
+}
+
+.palette-backdrop.palette--open .palette-container {
+  transform: translateY(0) scale(1);
+}
+
+/* ── Palette Header / Search Input ── */
+.palette-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.palette-search-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.palette-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  padding: 0;
+}
+
+.palette-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.palette-kbd-esc {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  color: var(--text-muted);
+}
+
+/* ── Palette Results List ── */
+.palette-body {
+  overflow-y: auto;
+  padding: var(--space-xs) 0;
+  flex: 1;
+  max-height: 50vh;
+}
+
+.palette-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.palette-group-title {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  padding: var(--space-sm) var(--space-lg) var(--space-2xs);
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.palette-item--active,
+.palette-item:hover {
+  background-color: var(--accent-dim);
+  border-left-color: var(--accent);
+}
+
+.palette-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.palette-item-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-muted);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palette-item--active .palette-item-icon,
+.palette-item:hover .palette-item-icon {
+  fill: var(--accent);
+}
+
+.palette-item-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.palette-item-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.palette-item-subtitle {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.palette-item-badge {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  background-color: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+}
+
+.palette-empty {
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ── Palette Footer ── */
+.palette-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  padding: var(--space-xs) var(--space-lg);
+  border-top: 1px solid var(--border-primary);
+  background-color: var(--bg-primary);
+}
+
+.palette-hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.palette-hint kbd {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  padding: 1px 4px;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}

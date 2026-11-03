@@ -4,6 +4,8 @@
  */
 import { resetTypewriter } from './typewriter.js';
 import { updateModalLang } from './cv-modal.js';
+import { updateProjectsLang } from './projects.js';
+import { updateLabLang } from './engineering-lab.js';
 
 let currentLang = 'pt';
 
@@ -26,7 +28,7 @@ export const I18N_DATA = {
     },
     hero: {
       badge: 'Disponível para oportunidades',
-      description: 'Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário corporativo recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>Java 21 / Spring Boot 3</strong> e <strong>C# .NET 8</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces reativas modernas (React 19, Next.js 16, Angular 19).',
+      description: 'Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário corporativo recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces reativas modernas (React 19, Next.js 16, Angular 19).',
       viewProjects: 'Ver Projetos',
       viewCv: 'Visualizar CV',
       downloadCv: 'Baixar CV (PDF)',
@@ -65,11 +67,7 @@ export const I18N_DATA = {
         fullstack: 'Full-Stack & Web',
         dataAi: 'Dados & IA',
         mobile: 'Mobile & Mídia'
-      },
-      btnDetails: 'Ver Detalhes',
-      btnCase: 'Ver Case Completo',
-      proprietary: '🔒 Proprietário (Nova Smar)',
-      private: '🔒 Privado (Uso Pessoal)'
+      }
     },
     lab: {
       tag: '// LIVE SYSTEM ARCHITECTURE & DSP PLAYGROUND',
@@ -174,19 +172,81 @@ export const I18N_DATA = {
       certsTitle: 'Certificações & Cursos Técnicos',
       certSummary: 'Total de <strong>+400 horas</strong> em cursos técnicos certificados.'
     },
+    certifications: {
+      cat1: 'Front-End & UI/UX',
+      cat2: 'Back-End & APIs',
+      cat3: 'Banco de Dados & BI',
+      cat4: 'DevOps, Gestão & IA',
+      items: [
+        '<strong>UI Design para Devs</strong> (Alura · 24h)',
+        '<strong>React: JSX e Hooks</strong> (Alura · 57h)',
+        '<strong>Acessibilidade & Web Inclusiva</strong> (Alura · 28h)',
+        '<strong>Desenvolvimento Front-End</strong> (Alura · 60h)',
+        '<strong>Front-End Trilha Digital</strong> (Santander / Ada · 19h)',
+        '<strong>PHP Web Completo</strong> (Alura · 52h)',
+        '<strong>Laravel MVC</strong> (Alura · 8h)',
+        '<strong>Swagger: Documentando APIs</strong> (Alura · 8h)',
+        '<strong>Quality Assurance & Testes</strong> (Alura · 8h)',
+        '<strong>JavaScript & APIs REST</strong> (Alura · 6h)',
+        '<strong>Consultas Oracle Database</strong> (Alura · 82h)',
+        '<strong>Power BI Avançado</strong> (SENAI · 32h)',
+        '<strong>Admin Oracle DB & Otimização</strong> (Alura · 14h)',
+        '<strong>Git & GitHub Otimizado</strong> (Alura · 8h)',
+        '<strong>Entrega Contínua CI/CD</strong> (Alura · 8h)',
+        '<strong>Microsserviços & Padrões</strong> (Alura · 6h)',
+        '<strong>Equipes Ágeis & Scrum</strong> (Alura · 8h)',
+        '<strong>Copilot & ChatGPT para Devs</strong> (Alura · 8h)',
+        '<strong>White Belt Six Sigma</strong> (RL / UNIVESP · 2h)'
+      ]
+    },
     contact: {
       label: '// contato',
       title: 'Vamos conversar',
       lead: 'Estou disponível para oportunidades como <strong>Desenvolvedor Backend / Full-Stack / Engenheiro de Software</strong>, microsserviços distribuídos, arquitetura de sistemas e Ciência de Dados. Vamos conectar!',
+      emailCardLabel: 'E-mail Direto',
       emailCardTitle: 'Enviar Mensagem',
       emailAction: 'Enviar e-mail',
+      linkedinCardLabel: 'Rede Profissional',
+      linkedinCardTitle: 'LinkedIn',
       linkedinAction: 'Conectar no LinkedIn',
-      githubAction: 'Ver Repositórios'
+      githubCardLabel: 'Código & Projetos',
+      githubCardTitle: 'GitHub',
+      githubAction: 'Ver Repositórios',
+      recruiterBadge: 'Recrutadores & Gestores de TI',
+      recruiterTitle: 'Mensagem Rápida de Apresentação',
+      recruiterDesc: 'Copie um template pré-formatado com um clique para abrir contato por e-mail ou LinkedIn:',
+      recruiterTemplate: 'Olá Felipe, vi seu portfólio em felipegardenghi.com.br e gostaria de conversar sobre uma oportunidade para Desenvolvedor Backend / Full-Stack.',
+      recruiterCopyBtn: 'Copiar Mensagem'
     },
     footer: {
       copyright: '&copy; 2026 <strong>Felipe Gardenghi</strong>. Todos os direitos reservados.',
       tech: 'Construído com HTML5, CSS3 Vanilla, JavaScript ES6+ e Vite.',
       backToTop: 'Voltar ao topo'
+    },
+    palette: {
+      placeholder: 'Buscar projetos, seções ou comandos... (Ctrl+K)',
+      openBtn: 'Abrir busca rápida (Ctrl+K)'
+    },
+    a11y: {
+      skipLink: 'Pular para o conteúdo principal',
+      navMain: 'Navegação principal',
+      brand: 'Felipe Gardenghi — Início',
+      langToggle: 'Alternar idioma (PT/EN)',
+      themeToggle: 'Alternar tema (Claro/Escuro)',
+      navToggle: 'Abrir menu de navegação',
+      hero: 'Apresentação',
+      typewriter: 'Especialidades profissionais',
+      viewCv: 'Visualizar currículo na tela',
+      downloadCv: 'Baixar currículo em formato PDF',
+      terminal: 'Comando do terminal interativo',
+      backToTop: 'Voltar ao topo da página',
+      secSobre: 'Sobre mim',
+      secProjetos: 'Projetos em destaque',
+      secLab: 'Laboratório Interativo de Engenharia',
+      secStack: 'Stack técnica',
+      secExp: 'Experiência profissional',
+      secForm: 'Formação e certificações',
+      secContato: 'Contato'
     }
   },
 
@@ -204,7 +264,7 @@ export const I18N_DATA = {
     },
     hero: {
       badge: 'Available for immediate opportunities',
-      description: 'Backend / Full-Stack Developer with <strong>2 years of enterprise engineering experience</strong> at multinational <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus ERP, PHP, transactional triggers and 2025 record-time corporate inventory) & B.S. candidate in <strong>Data Science (UNIVESP)</strong>. Designing high-throughput distributed microservices (<strong>Java 21 / Spring Boot 3</strong> & <strong>C# .NET 8</strong> with Virtual Threads, Hexagonal Architecture, CQRS and Resilience), Machine Learning pipelines (Python, LightGBM, SHAP), and modern reactive interfaces (React 19, Next.js 16, Angular 19).',
+      description: 'Backend / Full-Stack Developer with <strong>2 years of enterprise engineering experience</strong> at multinational <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus ERP, PHP, transactional triggers and 2025 record-time corporate inventory) & B.S. candidate in <strong>Data Science (UNIVESP)</strong>. Designing high-throughput distributed microservices (<strong>C# .NET 8</strong> & <strong>Java 21 / Spring Boot 3</strong> with Virtual Threads, Hexagonal Architecture, CQRS and Resilience), Machine Learning pipelines (Python, LightGBM, SHAP), and modern reactive interfaces (React 19, Next.js 16, Angular 19).',
       viewProjects: 'Explore Projects',
       viewCv: 'View Resume',
       downloadCv: 'Download CV (PDF)',
@@ -243,11 +303,7 @@ export const I18N_DATA = {
         fullstack: 'Full-Stack & Web',
         dataAi: 'Data & AI',
         mobile: 'Mobile & Media'
-      },
-      btnDetails: 'View Details',
-      btnCase: 'View Full Case',
-      proprietary: '🔒 Proprietary (Nova Smar)',
-      private: '🔒 Private (Personal Life OS)'
+      }
     },
     lab: {
       tag: '// LIVE SYSTEM ARCHITECTURE & DSP PLAYGROUND',
@@ -352,19 +408,81 @@ export const I18N_DATA = {
       certsTitle: 'Technical Certifications & Training',
       certSummary: 'Total of <strong>+400 hours</strong> in certified technical engineering courses.'
     },
+    certifications: {
+      cat1: 'Front-End & UI/UX',
+      cat2: 'Back-End & APIs',
+      cat3: 'Databases & BI',
+      cat4: 'DevOps, Management & AI',
+      items: [
+        '<strong>UI Design for Developers</strong> (Alura · 24h)',
+        '<strong>React: JSX and Hooks</strong> (Alura · 57h)',
+        '<strong>Accessibility & Inclusive Web</strong> (Alura · 28h)',
+        '<strong>Front-End Web Development</strong> (Alura · 60h)',
+        '<strong>Digital Front-End Track</strong> (Santander / Ada · 19h)',
+        '<strong>Complete Modern PHP Web</strong> (Alura · 52h)',
+        '<strong>Laravel MVC & APIs</strong> (Alura · 8h)',
+        '<strong>Swagger: Documenting APIs</strong> (Alura · 8h)',
+        '<strong>QA: Test Plans & Bug Hunting</strong> (Alura · 8h)',
+        '<strong>JavaScript & RESTful APIs</strong> (Alura · 6h)',
+        '<strong>Oracle Database Queries & PL/SQL</strong> (Alura · 82h)',
+        '<strong>Advanced Power BI & DAX</strong> (SENAI · 32h)',
+        '<strong>Oracle DB Administration & Tuning</strong> (Alura · 14h)',
+        '<strong>Optimized Git & GitHub</strong> (Alura · 8h)',
+        '<strong>Continuous Delivery & CI/CD</strong> (Alura · 8h)',
+        '<strong>Microservices Design Patterns</strong> (Alura · 6h)',
+        '<strong>Agile Engineering & Scrum</strong> (Alura · 8h)',
+        '<strong>Copilot & ChatGPT for Engineers</strong> (Alura · 8h)',
+        '<strong>White Belt Six Sigma</strong> (RL / UNIVESP · 2h)'
+      ]
+    },
     contact: {
       label: '// get in touch',
       title: "Let's Connect",
       lead: 'Available for immediate opportunities as a <strong>Backend / Full-Stack Software Engineer</strong>, distributed systems, architecture and Data Science. Let’s build something remarkable together!',
+      emailCardLabel: 'Direct Email',
       emailCardTitle: 'Send a Message',
       emailAction: 'Send Email',
+      linkedinCardLabel: 'Professional Network',
+      linkedinCardTitle: 'LinkedIn',
       linkedinAction: 'Connect on LinkedIn',
-      githubAction: 'View Repositories'
+      githubCardLabel: 'Code & Repositories',
+      githubCardTitle: 'GitHub',
+      githubAction: 'View Repositories',
+      recruiterBadge: 'Recruiters & Engineering Leads',
+      recruiterTitle: 'Quick Outreach Template',
+      recruiterDesc: 'One-click copyable intro message ready to paste directly on LinkedIn or Email:',
+      recruiterTemplate: 'Hi Felipe, I came across your portfolio at felipegardenghi.com.br and would like to connect regarding a Backend / Full-Stack Developer opportunity.',
+      recruiterCopyBtn: 'Copy Message'
     },
     footer: {
       copyright: '&copy; 2026 <strong>Felipe Gardenghi</strong>. All rights reserved.',
       tech: 'Engineered with Vanilla HTML5, CSS3, ES6+ JavaScript, and Vite.',
       backToTop: 'Back to top'
+    },
+    palette: {
+      placeholder: 'Search projects, sections or commands... (Ctrl+K)',
+      openBtn: 'Open quick spotlight search (Ctrl+K)'
+    },
+    a11y: {
+      skipLink: 'Skip to main content',
+      navMain: 'Main navigation',
+      brand: 'Felipe Gardenghi — Home',
+      langToggle: 'Switch language (PT/EN)',
+      themeToggle: 'Toggle theme (Light/Dark)',
+      navToggle: 'Open navigation menu',
+      hero: 'Hero introduction',
+      typewriter: 'Professional specialties',
+      viewCv: 'Inspect resume on-screen',
+      downloadCv: 'Download resume in PDF format',
+      terminal: 'Interactive terminal command',
+      backToTop: 'Back to top of page',
+      secSobre: 'About me',
+      secProjetos: 'Featured engineering works',
+      secLab: 'Interactive Engineering Lab',
+      secStack: 'Core Tech Stack',
+      secExp: 'Professional Experience',
+      secForm: 'Academic degrees & certifications',
+      secContato: 'Get in touch'
     }
   }
 };
@@ -373,13 +491,18 @@ export function setLanguage(lang) {
   currentLang = lang;
   try {
     localStorage.setItem('portfolio-lang', lang);
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('lang')) {
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url.toString());
+    }
   } catch {}
 
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
   const t = I18N_DATA[lang];
 
-  // 1. Nav Links
+  // 1. Nav Links & Accessibility
   const navLinks = document.querySelectorAll('.nav-link');
   if (navLinks.length >= 6) {
     navLinks[0].textContent = t.nav.about;
@@ -454,7 +577,7 @@ export function setLanguage(lang) {
     factItems[4].querySelector('.fact-value').textContent = t.about.diffValue;
   }
 
-  // 5. Projects Section
+  // 5. Projects Section Header & Filters
   const projLabel = document.querySelector('#projetos .section-label');
   if (projLabel) projLabel.textContent = t.projects.label;
 
@@ -473,7 +596,7 @@ export function setLanguage(lang) {
     filterBtns[4].textContent = t.projects.filters.mobile;
   }
 
-  // 6. Lab Section
+  // 6. Lab Section Header
   const labTag = document.querySelector('.lab-section .section-tag');
   if (labTag) labTag.textContent = t.lab.tag;
 
@@ -635,6 +758,22 @@ export function setLanguage(lang) {
   const certSummary = document.querySelector('.cert-total-summary span:last-child');
   if (certSummary) certSummary.innerHTML = t.education.certSummary;
 
+  // Certifications categories and course items
+  const certCategories = document.querySelectorAll('.cert-category-title');
+  if (certCategories.length >= 4) {
+    certCategories[0].textContent = t.certifications.cat1;
+    certCategories[1].textContent = t.certifications.cat2;
+    certCategories[2].textContent = t.certifications.cat3;
+    certCategories[3].textContent = t.certifications.cat4;
+  }
+
+  const certItems = document.querySelectorAll('.cert-item');
+  if (certItems.length === t.certifications.items.length) {
+    certItems.forEach((el, i) => {
+      el.innerHTML = t.certifications.items[i];
+    });
+  }
+
   // 10. Contact Section
   const contactLabel = document.querySelector('#contato .section-label');
   if (contactLabel) contactLabel.textContent = t.contact.label;
@@ -645,11 +784,44 @@ export function setLanguage(lang) {
   const contactLead = document.querySelector('.contact-lead');
   if (contactLead) contactLead.innerHTML = t.contact.lead;
 
+  const contactCardLabels = document.querySelectorAll('.contact-card-label');
+  if (contactCardLabels.length >= 3) {
+    contactCardLabels[0].textContent = t.contact.emailCardLabel;
+    contactCardLabels[1].textContent = t.contact.linkedinCardLabel;
+    contactCardLabels[2].textContent = t.contact.githubCardLabel;
+  }
+
+  const contactCardTitles = document.querySelectorAll('.contact-card-title');
+  if (contactCardTitles.length >= 3) {
+    contactCardTitles[0].textContent = t.contact.emailCardTitle;
+    contactCardTitles[1].textContent = t.contact.linkedinCardTitle;
+    contactCardTitles[2].textContent = t.contact.githubCardTitle;
+  }
+
   const contactActions = document.querySelectorAll('.contact-card-action span');
   if (contactActions.length >= 3) {
     contactActions[0].textContent = t.contact.emailAction;
     contactActions[1].textContent = t.contact.linkedinAction;
     contactActions[2].textContent = t.contact.githubAction;
+  }
+
+  const recruiterBadge = document.querySelector('.recruiter-badge span:last-child');
+  if (recruiterBadge) recruiterBadge.textContent = t.contact.recruiterBadge;
+
+  const recruiterTitle = document.querySelector('.recruiter-heading');
+  if (recruiterTitle) recruiterTitle.textContent = t.contact.recruiterTitle;
+
+  const recruiterDesc = document.querySelector('.recruiter-desc');
+  if (recruiterDesc) recruiterDesc.textContent = t.contact.recruiterDesc;
+
+  const recruiterCode = document.getElementById('recruiter-template-text');
+  if (recruiterCode) recruiterCode.textContent = `"${t.contact.recruiterTemplate}"`;
+
+  const recruiterCopyBtn = document.getElementById('btn-copy-recruiter');
+  if (recruiterCopyBtn) {
+    recruiterCopyBtn.setAttribute('data-copy', t.contact.recruiterTemplate);
+    const btnSpan = recruiterCopyBtn.querySelector('span');
+    if (btnSpan) btnSpan.textContent = t.contact.recruiterCopyBtn;
   }
 
   // 11. Footer
@@ -662,7 +834,76 @@ export function setLanguage(lang) {
   const backToTop = document.querySelector('.back-to-top span');
   if (backToTop) backToTop.textContent = t.footer.backToTop;
 
-  // 12. Switch active button style
+  // Command Palette & Global Ticker
+  const paletteSearch = document.getElementById('palette-search');
+  if (paletteSearch && t.palette) {
+    paletteSearch.setAttribute('placeholder', t.palette.placeholder);
+  }
+  const paletteBtn = document.getElementById('palette-open-btn');
+  if (paletteBtn && t.palette) {
+    paletteBtn.setAttribute('aria-label', t.palette.openBtn);
+    paletteBtn.setAttribute('title', t.palette.openBtn);
+  }
+
+  // 12. Accessibility Attributes
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) skipLink.textContent = t.a11y.skipLink;
+
+  const navMenu = document.getElementById('nav-menu');
+  if (navMenu) navMenu.setAttribute('aria-label', t.a11y.navMain);
+
+  const navBrand = document.querySelector('.nav-brand');
+  if (navBrand) navBrand.setAttribute('aria-label', t.a11y.brand);
+
+  const langToggleBtn = document.getElementById('lang-toggle');
+  if (langToggleBtn) langToggleBtn.setAttribute('aria-label', t.a11y.langToggle);
+
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', t.a11y.themeToggle);
+
+  const navToggleBtn = document.getElementById('nav-toggle');
+  if (navToggleBtn) navToggleBtn.setAttribute('aria-label', t.a11y.navToggle);
+
+  const heroSec = document.getElementById('hero');
+  if (heroSec) heroSec.setAttribute('aria-label', t.a11y.hero);
+
+  const typewriterContainer = document.querySelector('.hero-typewriter-container');
+  if (typewriterContainer) typewriterContainer.setAttribute('aria-label', t.a11y.typewriter);
+
+  const btnOpenCv = document.querySelector('[data-open-cv]');
+  if (btnOpenCv) btnOpenCv.setAttribute('aria-label', t.a11y.viewCv);
+
+  const btnDlCv = document.querySelector('[data-download-cv]');
+  if (btnDlCv) btnDlCv.setAttribute('aria-label', t.a11y.downloadCv);
+
+  const termInput = document.getElementById('terminal-input');
+  if (termInput) termInput.setAttribute('aria-label', t.a11y.terminal);
+
+  const backToTopBtn = document.querySelector('.back-to-top');
+  if (backToTopBtn) backToTopBtn.setAttribute('aria-label', t.a11y.backToTop);
+
+  const secSobre = document.getElementById('sobre');
+  if (secSobre) secSobre.setAttribute('aria-label', t.a11y.secSobre);
+
+  const secProj = document.getElementById('projetos');
+  if (secProj) secProj.setAttribute('aria-label', t.a11y.secProjetos);
+
+  const secLab = document.getElementById('engineering-lab');
+  if (secLab) secLab.setAttribute('aria-label', t.a11y.secLab);
+
+  const secStack = document.getElementById('stack');
+  if (secStack) secStack.setAttribute('aria-label', t.a11y.secStack);
+
+  const secExp = document.getElementById('experiencia');
+  if (secExp) secExp.setAttribute('aria-label', t.a11y.secExp);
+
+  const secForm = document.getElementById('formacao');
+  if (secForm) secForm.setAttribute('aria-label', t.a11y.secForm);
+
+  const secCont = document.getElementById('contato');
+  if (secCont) secCont.setAttribute('aria-label', t.a11y.secContato);
+
+  // 13. Switch active button style
   const ptSpan = document.getElementById('lang-pt');
   const enSpan = document.getElementById('lang-en');
   if (ptSpan && enSpan) {
@@ -675,29 +916,36 @@ export function setLanguage(lang) {
     }
   }
 
-  // 13. Sync modal and typewriter
+  // 14. Sync components
+  updateProjectsLang();
+  updateLabLang();
   updateModalLang();
   resetTypewriter();
 }
 
+export function toggleLanguage() {
+  setLanguage(currentLang === 'pt' ? 'en' : 'pt');
+}
+
 export function initI18n() {
+  currentLang = 'pt'; // Default is always PT-BR for native market
   try {
-    const saved = localStorage.getItem('portfolio-lang');
-    if (saved === 'en' || saved === 'pt') {
-      currentLang = saved;
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get('lang')?.toLowerCase();
+    if (urlLang === 'en' || urlLang === 'pt') {
+      currentLang = urlLang;
+      localStorage.setItem('portfolio-lang', urlLang);
     } else {
-      const userLang = navigator.language || navigator.userLanguage || '';
-      if (!userLang.startsWith('pt')) {
-        currentLang = 'en';
+      const saved = localStorage.getItem('portfolio-lang');
+      if (saved === 'en' || saved === 'pt') {
+        currentLang = saved;
       }
     }
   } catch {}
 
   const toggleBtn = document.getElementById('lang-toggle');
   if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      setLanguage(currentLang === 'pt' ? 'en' : 'pt');
-    });
+    toggleBtn.addEventListener('click', toggleLanguage);
   }
 
   setLanguage(currentLang);

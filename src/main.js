@@ -12,6 +12,8 @@ import { initSpotlight } from './js/spotlight.js';
 import { initClipboard } from './js/clipboard.js';
 import { initTerminal } from './js/terminal.js';
 import { initCvModal } from './js/cv-modal.js';
+import { initCommandPalette } from './js/command-palette.js';
+import { initGitHubActivity } from './js/github-activity.js';
 
 // Initialize core systems in order
 initTheme();
@@ -23,6 +25,8 @@ initEngineeringLab();
 initProjects();
 initTerminal();
 initCvModal();
+initCommandPalette();
+initGitHubActivity();
 initClipboard();
 initSpotlight();
 initScrollProgress();

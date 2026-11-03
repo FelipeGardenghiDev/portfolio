@@ -81,22 +81,36 @@
 }
 
 .hero-typewriter-container {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: clamp(1.125rem, 3vw, 1.5rem);
   font-weight: var(--fw-semibold);
   color: var(--accent);
   margin-bottom: var(--space-lg);
-  min-height: 2.25rem;
+  min-height: 2.5rem;
+  line-height: 1.35;
   flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .hero-typewriter-container {
+    min-height: 4.5rem; /* Reserves space for 2 lines on mobile, preventing vertical layout shift */
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-typewriter-container {
+    min-height: 5.5rem; /* Safety reservation for narrow viewports */
+  }
 }
 
 .typewriter-prefix {
   color: var(--accent);
   opacity: 0.85;
   user-select: none;
+  line-height: 1.35;
 }
 
 .typewriter-text {
@@ -106,7 +120,9 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: var(--fw-bold);
-  display: inline-block;
+  display: inline;
+  line-height: 1.35;
+  min-height: 1.35em;
 }
 
 .typewriter-cursor {
@@ -115,7 +131,7 @@
   color: var(--accent-hover);
   animation: typewriterBlink 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   margin-left: 1px;
-  line-height: 1;
+  line-height: 1.35;
 }
 
 @keyframes typewriterBlink {

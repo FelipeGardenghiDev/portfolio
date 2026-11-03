@@ -39,8 +39,19 @@ function saveTheme(theme) {
   }
 }
 
+export function getCurrentTheme() {
+  return document.documentElement.getAttribute('data-theme') || DARK;
+}
+
+export function setTheme(theme) {
+  if (theme === DARK || theme === LIGHT) {
+    applyTheme(theme);
+    saveTheme(theme);
+  }
+}
+
 export function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
+  const current = getCurrentTheme();
   const next = current === DARK ? LIGHT : DARK;
   applyTheme(next);
   saveTheme(next);
@@ -58,10 +69,14 @@ export function initTheme() {
     toggleBtn.dataset.bound = 'true';
   }
 
-  // Listen for system preference changes (only if no saved preference)
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!getSavedTheme()) {
-      applyTheme(e.matches ? DARK : LIGHT);
-    }
-  });
+  // Listen to OS theme changes dynamically if user has not explicitly set a manual preference
+  try {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (e) => {
+      const explicitSaved = getSavedTheme();
+      if (!explicitSaved) {
+        applyTheme(e.matches ? DARK : LIGHT);
+      }
+    });
+  } catch {}
 }

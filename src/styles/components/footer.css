@@ -30,6 +30,16 @@
   color: var(--accent);
 }
 
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-2xs);
+}
+
 .back-to-top {
   display: inline-flex;
   align-items: center;
