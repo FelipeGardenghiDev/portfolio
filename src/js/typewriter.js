@@ -1,40 +1,51 @@
 /**
- * Typewriter Effect with Rotating Erasable Words
- * Matches the interactive visual style of modern engineering portfolios.
+ * Dynamic Typewriter Effect with Multi-Language Support
  */
+import { getLang } from './i18n.js';
+
+const PHRASES_BY_LANG = {
+  pt: [
+    'Desenvolvedor Backend / Full-Stack',
+    'Engenharia de Software & Arquitetura',
+    'Microsserviços C# .NET 8 & Java 21',
+    'Oracle PL/SQL & PostgreSQL',
+    'Ciência de Dados & Machine Learning',
+    'React 19, Next.js 16 & Angular 19'
+  ],
+  en: [
+    'Backend / Full-Stack Developer',
+    'Software Engineering & Architecture',
+    'C# .NET 8 & Java 21 Microservices',
+    'Oracle PL/SQL & PostgreSQL',
+    'Data Science & Machine Learning',
+    'React 19, Next.js 16 & Angular 19'
+  ]
+};
+
+let timeoutId = null;
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
 export function initTypewriter() {
   const target = document.getElementById('typewriter-text');
   if (!target) return;
 
-  // Respect user preference for reduced motion
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
-    target.textContent = 'Engenheiro de Software & Full-Stack';
+    target.textContent = getLang() === 'en' ? 'Backend / Full-Stack Software Engineer' : 'Desenvolvedor Backend / Full-Stack';
     return;
   }
 
-  const phrases = [
-    'Desenvolvedor Full-Stack',
-    'Engenharia de Software & Dados',
-    'Backend .NET 8 & Java 21',
-    'Microsserviços & Arquitetura Hexagonal',
-    'React 19, Next.js 16 & Angular 19',
-    'Ciência de Dados & Machine Learning'
-  ];
-
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let timeoutId = null;
-
-  const TYPE_SPEED = 75;      // ms per char typing
-  const DELETE_SPEED = 40;    // ms per char deleting
-  const HOLD_AFTER_TYPE = 2200; // ms to pause after word is typed
-  const HOLD_AFTER_DELETE = 450; // ms to pause before typing next word
+  const TYPE_SPEED = 70;
+  const DELETE_SPEED = 35;
+  const HOLD_AFTER_TYPE = 2400;
+  const HOLD_AFTER_DELETE = 400;
 
   function tick() {
-    const currentPhrase = phrases[phraseIndex];
+    const lang = getLang();
+    const phrases = PHRASES_BY_LANG[lang] || PHRASES_BY_LANG.pt;
+    const currentPhrase = phrases[phraseIndex % phrases.length];
 
     if (isDeleting) {
       charIndex--;
@@ -45,16 +56,12 @@ export function initTypewriter() {
     }
 
     let delay = isDeleting ? DELETE_SPEED : TYPE_SPEED;
-
-    // Add subtle humanized timing variation
-    delay += Math.floor(Math.random() * 20);
+    delay += Math.floor(Math.random() * 15);
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-      // Completed typing phrase -> pause, then start deleting
       delay = HOLD_AFTER_TYPE;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
-      // Completed deleting -> move to next phrase
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
       delay = HOLD_AFTER_DELETE;
@@ -63,11 +70,16 @@ export function initTypewriter() {
     timeoutId = setTimeout(tick, delay);
   }
 
-  // Start initial typing
+  if (timeoutId) clearTimeout(timeoutId);
   tick();
+}
 
-  // Cleanup handler if needed
-  return () => {
-    if (timeoutId) clearTimeout(timeoutId);
-  };
+export function resetTypewriter() {
+  const target = document.getElementById('typewriter-text');
+  if (!target) return;
+
+  if (timeoutId) clearTimeout(timeoutId);
+  charIndex = 0;
+  isDeleting = false;
+  initTypewriter();
 }

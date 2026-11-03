@@ -1,0 +1,43 @@
+/* ============================================
+   Spotlight Card Component (Linear / Vercel style)
+   ============================================ */
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base, 250ms ease), border-color var(--transition-base, 250ms ease), box-shadow var(--transition-base, 250ms ease);
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    550px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(99, 102, 241, 0.14),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="light"] .spotlight-card::before {
+  background: radial-gradient(
+    550px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(99, 102, 241, 0.08),
+    transparent 50%
+  );
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure children are above the spotlight glow */
+.spotlight-card > * {
+  position: relative;
+  z-index: 2;
+}

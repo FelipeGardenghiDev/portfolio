@@ -8,8 +8,12 @@ import { initTypewriter } from './js/typewriter.js';
 import { initMarquee } from './js/marquee.js';
 import { initI18n } from './js/i18n.js';
 import { initEngineeringLab } from './js/engineering-lab.js';
+import { initSpotlight } from './js/spotlight.js';
+import { initClipboard } from './js/clipboard.js';
+import { initTerminal } from './js/terminal.js';
+import { initCvModal } from './js/cv-modal.js';
 
-// Initialize core systems
+// Initialize core systems in order
 initTheme();
 initNavbar();
 initI18n();
@@ -17,5 +21,9 @@ initTypewriter();
 initMarquee();
 initEngineeringLab();
 initProjects();
+initTerminal();
+initCvModal();
+initClipboard();
+initSpotlight();
 initScrollProgress();
 initScrollReveal();

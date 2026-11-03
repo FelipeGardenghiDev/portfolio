@@ -1,6 +1,7 @@
 /**
  * Projects Section & Accessible Modal Controller
  */
+import { getLang } from './i18n.js';
 
 export const PROJECTS_DATA = [
   {
@@ -288,7 +289,16 @@ export function initProjects() {
     const project = PROJECTS_DATA.find((p) => p.id === projectId);
     if (!project) return;
 
+    const isEn = getLang() === 'en';
     lastActiveElement = document.activeElement;
+
+    // Update section labels
+    const sectionLabels = document.querySelectorAll('.modal-section-label');
+    if (sectionLabels.length >= 3) {
+      sectionLabels[0].textContent = isEn ? '// the challenge / problem' : '// o desafio / problema';
+      sectionLabels[1].textContent = isEn ? '// solution & technical implementation' : '// solução & contribuição técnica';
+      sectionLabels[2].textContent = isEn ? '// technologies used' : '// tecnologias utilizadas';
+    }
 
     // Populate modal content
     const modalBadge = document.getElementById('modal-badge');
@@ -314,8 +324,8 @@ export function initProjects() {
         modalSolution.innerHTML += `
           <div class="architecture-diagram-box" role="img" aria-label="Espaço reservado para diagrama de arquitetura">
             <span class="diagram-icon">🏗️</span>
-            <span class="diagram-title">[ Diagrama de Arquitetura — Em breve ]</span>
-            <span class="diagram-desc">Diagrama visual ilustrando a integração entre PHP, Oracle PL/SQL e ERP TOTVS Protheus será disponibilizado em breve.</span>
+            <span class="diagram-title">${isEn ? '[ Architecture Diagram — Coming Soon ]' : '[ Diagrama de Arquitetura — Em breve ]'}</span>
+            <span class="diagram-desc">${isEn ? 'Visual topology diagram illustrating the high-throughput bridge between PHP, Oracle PL/SQL triggers and TOTVS Protheus ERP will be published soon.' : 'Diagrama visual ilustrando a integração entre PHP, Oracle PL/SQL e ERP TOTVS Protheus será disponibilizado em breve.'}</span>
           </div>
         `;
       }
@@ -333,26 +343,26 @@ export function initProjects() {
         linksHTML += `
           <a href="${project.links.github}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            <span>Ver no GitHub</span>
+            <span>${isEn ? 'View on GitHub' : 'Ver no GitHub'}</span>
           </a>
         `;
       }
       if (project.links.demo) {
         linksHTML += `
           <a href="${project.links.demo}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <span>Acessar Demo</span>
+            <span>${isEn ? 'Live Demo' : 'Acessar Demo'}</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
           </a>
         `;
       }
       if (project.isProprietary) {
         linksHTML = `
-          <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 Código proprietário (Nova Smar S/A)</span>
+          <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 ${isEn ? 'Proprietary enterprise codebase (Nova Smar S/A)' : 'Código proprietário (Nova Smar S/A)'}</span>
         `;
       }
       if (project.isPrivate) {
         linksHTML = `
-          <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 Repositório Privado (Life OS Pessoal)</span>
+          <span class="text-muted font-mono" style="font-size: 0.8rem;">🔒 ${isEn ? 'Private repository (Personal Life OS)' : 'Repositório Privado (Life OS Pessoal)'}</span>
         `;
       }
       modalLinks.innerHTML = linksHTML;
