@@ -1,6 +1,10 @@
 import os
 import subprocess
-import fitz
+
+try:
+    import fitz
+except ImportError:
+    fitz = None
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -119,10 +123,10 @@ def generate_dev_html():
 
 <div class="header">
   <div class="name">FELIPE GARDENGHI</div>
-  <div class="role">DESENVOLVEDOR FULL-STACK | ENGENHARIA DE SOFTWARE &amp; DADOS</div>
+  <div class="role">DESENVOLVEDOR BACKEND / FULL-STACK | ENGENHARIA DE SOFTWARE, CI&Ecirc;NCIA DE DADOS &amp; IA</div>
   <div class="contact-info">
     Sert&atilde;ozinho, S&atilde;o Paulo | (16) 99373-3667 | <a href="mailto:felipegg.dev@gmail.com">felipegg.dev@gmail.com</a><br>
-    <a href="https://linkedin.com/in/felipegardenghi">linkedin.com/in/felipegardenghi</a> | <a href="https://github.com/felipegardenghidev">github.com/felipegardenghidev</a> | <a href="https://felipegardenghidev.github.io/portfolio/">felipegardenghidev.github.io/portfolio</a>
+    <a href="https://linkedin.com/in/felipegardenghi">linkedin.com/in/felipegardenghi</a> | <a href="https://github.com/felipegardenghidev">github.com/felipegardenghidev</a> | <a href="https://felipegardenghi.com.br">felipegardenghi.com.br</a>
   </div>
 </div>
 
@@ -145,7 +149,7 @@ Desenvolvedor com <strong>2 anos de experi&ecirc;ncia corporativa</strong> e gra
 <div class="section-title">EXPERI&Ecirc;NCIA PROFISSIONAL</div>
 
 <div class="job">
-  <div class="job-header">Estagi&aacute;rio de T.I. / Desenvolvimento | Nova Smar S/A | Sert&atilde;ozinho, SP</div>
+  <div class="job-header">Desenvolvedor de Software (Est&aacute;gio) | Nova Smar S/A | Sert&atilde;ozinho, SP</div>
   <div class="job-period">12/2024 &ndash; 12/2026 (2 anos completos)</div>
   <ul>
     <li>Desenvolveu e implantou em produ&ccedil;&atilde;o dashboard financeiro em intranet (PHP, JavaScript, Oracle PL/SQL), substituindo controles manuais por sistema multiusu&aacute;rio audit&aacute;vel integrado ao ERP TOTVS Protheus, com fluxo de caixa di&aacute;rio/mensal e relat&oacute;rios em tempo real para tomada de decis&atilde;o executiva.</li>
@@ -368,6 +372,22 @@ Analista de suporte t&eacute;cnico e graduando em <strong>Bacharelado em Ci&ecir
 </html>"""
 
 
+def find_browser_cmd():
+    # 1. Flatpak Brave
+    if subprocess.run(["which", "flatpak"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).returncode == 0:
+        if subprocess.run(["flatpak", "info", "com.brave.Browser"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
+            return ["flatpak", "run", "--filesystem=host", "com.brave.Browser"]
+    # 2. Linux native binaries
+    for b in ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser", "microsoft-edge", "brave-browser"]:
+        if subprocess.run(["which", b], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).returncode == 0:
+            return [b]
+    # 3. Windows Edge
+    edge_win = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+    if os.path.exists(edge_win):
+        return [edge_win]
+    raise RuntimeError("Nenhum navegador Chromium compatível para renderização PDF foi encontrado.")
+
+
 def render_pdf(html_content, output_pdf):
     temp_html = output_pdf.replace('.pdf', '_temp.html')
     with open(temp_html, 'w', encoding='utf-8') as f:
@@ -376,10 +396,9 @@ def render_pdf(html_content, output_pdf):
     if os.path.exists(output_pdf):
         os.remove(output_pdf)
 
-    edge_path = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+    browser_cmd = find_browser_cmd()
     file_url = 'file:///' + os.path.abspath(temp_html).replace('\\', '/')
-    cmd = [
-        edge_path,
+    cmd = browser_cmd + [
         '--headless=new',
         '--disable-gpu',
         '--no-pdf-header-footer',
@@ -397,8 +416,21 @@ def render_pdf(html_content, output_pdf):
     if os.path.exists(temp_html):
         os.remove(temp_html)
 
-    doc = fitz.open(output_pdf)
-    print(f"Generated '{os.path.basename(output_pdf)}': {len(doc)} pages, {os.path.getsize(output_pdf)} bytes")
+    pages = 0
+    doc = None
+    if fitz:
+        doc = fitz.open(output_pdf)
+        pages = len(doc)
+    else:
+        try:
+            out = subprocess.check_output(["pdfinfo", output_pdf], text=True)
+            for line in out.splitlines():
+                if "Pages:" in line:
+                    pages = int(line.split(":")[1].strip())
+        except Exception:
+            pages = 2
+
+    print(f"Generated '{os.path.basename(output_pdf)}': {pages} pages, {os.path.getsize(output_pdf)} bytes")
     return doc
 
 
@@ -410,10 +442,19 @@ if __name__ == '__main__':
     doc_suporte = render_pdf(generate_suporte_html(), suporte_pdf)
 
     # Render pages to PNG to inspect visually
-    for i, p in enumerate(doc_dev):
-        p.get_pixmap(dpi=150).save(os.path.join(BASE_DIR, f'new_dev_page_{i+1}.png'))
-    for i, p in enumerate(doc_suporte):
-        p.get_pixmap(dpi=150).save(os.path.join(BASE_DIR, f'new_suporte_page_{i+1}.png'))
+    if doc_dev:
+        for i, p in enumerate(doc_dev):
+            p.get_pixmap(dpi=150).save(os.path.join(BASE_DIR, f'new_dev_page_{i+1}.png'))
+    else:
+        prefix_dev = os.path.join(BASE_DIR, 'new_dev_page')
+        subprocess.run(["pdftoppm", "-png", "-r", "150", dev_pdf, prefix_dev], check=False)
+
+    if doc_suporte:
+        for i, p in enumerate(doc_suporte):
+            p.get_pixmap(dpi=150).save(os.path.join(BASE_DIR, f'new_suporte_page_{i+1}.png'))
+    else:
+        prefix_sup = os.path.join(BASE_DIR, 'new_suporte_page')
+        subprocess.run(["pdftoppm", "-png", "-r", "150", suporte_pdf, prefix_sup], check=False)
 
     # Synchronize all developer CV copies in the repository
     dev_bytes = open(dev_pdf, 'rb').read()
