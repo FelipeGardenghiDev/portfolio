@@ -1,5 +1,6 @@
 import './styles/index.css';
 import { initTheme } from './js/theme.js';
+import { initPersona } from './js/persona.js';
 import { initNavbar } from './js/navbar.js';
 import { initProjects } from './js/projects.js';
 import { initScrollReveal } from './js/scroll-reveal.js';
@@ -14,9 +15,11 @@ import { initTerminal } from './js/terminal.js';
 import { initCvModal } from './js/cv-modal.js';
 import { initCommandPalette } from './js/command-palette.js';
 import { initGitHubActivity } from './js/github-activity.js';
+import { initMusicPlayer } from './js/music-player.js';
 
 // Initialize core systems in order
 initTheme();
+initPersona();
 initNavbar();
 initI18n();
 initTypewriter();
@@ -27,6 +30,7 @@ initTerminal();
 initCvModal();
 initCommandPalette();
 initGitHubActivity();
+initMusicPlayer();
 initClipboard();
 initSpotlight();
 initScrollProgress();

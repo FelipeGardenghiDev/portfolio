@@ -1,0 +1,668 @@
+/* ============================================
+   Dual Persona Switcher & Music Styles
+   Portfolio Felipe Gardenghi (Tech + Musician)
+   ============================================ */
+
+/* ── Persona Switcher Controls ── */
+.persona-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+  position: relative;
+  transition: all var(--transition-base);
+  user-select: none;
+}
+
+.persona-switcher:hover {
+  border-color: var(--accent-border);
+}
+
+.persona-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.persona-tab:hover {
+  color: var(--text-primary);
+}
+
+.persona-tab.active {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+[data-persona="tech"] .persona-tab[data-persona-btn="tech"].active {
+  background: rgba(99, 102, 241, 0.18);
+  color: #a5b4fc;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.35);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+[data-persona="music"] .persona-tab[data-persona-btn="music"].active {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fde68a;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+.persona-tab-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Hero Persona Banner Pill */
+.hero-persona-switch-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.hero-persona-switch-bar .persona-switcher {
+  padding: 4px;
+}
+
+.hero-persona-switch-bar .persona-tab {
+  padding: 8px 18px;
+  font-size: var(--fs-sm);
+}
+
+.persona-hint-text {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Content Visibility Toggle ── */
+[data-persona="tech"] .persona-content--music,
+[data-persona="tech"] .nav-list--music,
+[data-persona="tech"] .brand-code--music {
+  display: none !important;
+}
+
+[data-persona="music"] .persona-content--tech,
+[data-persona="music"] .nav-list--tech,
+[data-persona="music"] .brand-code--tech {
+  display: none !important;
+}
+
+/* ── Music Persona Theme Variables & Ambient Glow ── */
+[data-persona="music"] {
+  --accent: #f59e0b;
+  --accent-hover: #fbbf24;
+  --accent-dim: rgba(245, 158, 11, 0.12);
+  --accent-border: rgba(245, 158, 11, 0.35);
+}
+
+[data-persona="music"][data-theme="dark"] {
+  --bg-primary: #0a0807;
+  --bg-secondary: #14100d;
+  --bg-tertiary: #1c1613;
+  --bg-elevated: #241d18;
+  --border-primary: #342720;
+  --border-subtle: #221914;
+}
+
+/* Ambient glow in music mode */
+[data-persona="music"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.03) 50%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Music Hero ── */
+.music-hero {
+  padding: calc(var(--space-5xl) + 20px) 0 var(--space-4xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-badge-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-full);
+  color: #fbbf24;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-md);
+}
+
+.music-badge-amber .status-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.music-title-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #fcd34d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.music-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: var(--space-lg) 0;
+}
+
+.music-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.music-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* ── Bio & Stage Photography Section ── */
+.music-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.music-portrait-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.music-portrait-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.music-portrait-card:hover .music-portrait-img {
+  transform: scale(1.03);
+}
+
+.music-portrait-badge {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+  background: rgba(15, 12, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music-portrait-badge strong {
+  font-size: var(--fs-sm);
+  color: #fef3c7;
+}
+
+.music-portrait-badge span {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.music-bio-text h3 {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.music-bio-text p {
+  color: var(--text-secondary);
+  line-height: var(--lh-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Audio Player Widget ── */
+.music-player-widget {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg);
+  margin-top: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.music-player-title-group h3 {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.music-player-visualizer-box {
+  width: 100%;
+  height: 90px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#music-visualizer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.music-player-track-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-sm);
+}
+
+.music-current-title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.music-current-artist {
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.music-progress-wrapper {
+  margin-bottom: var(--space-lg);
+}
+
+.music-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.music-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  border-radius: var(--radius-full);
+  transition: width 100ms linear;
+}
+
+.music-time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-top: 4px;
+}
+
+.music-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.music-ctrl-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.music-ctrl-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.music-ctrl-btn.music-play-btn {
+  width: 52px;
+  height: 52px;
+  background: var(--accent);
+  color: #18181b;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+}
+
+.music-ctrl-btn.music-play-btn:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.music-playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.music-track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.music-track-item:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-primary);
+}
+
+.music-track-item.active {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.music-track-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.music-track-num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  width: 20px;
+}
+
+.music-track-name {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+}
+
+.music-track-genre {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.music-track-duration {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ── Live Rig & Stage Engineering ── */
+.music-rig-diagram-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.music-rig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.music-rig-item {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-fast);
+}
+
+.music-rig-item:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.music-rig-icon {
+  font-size: 28px;
+  margin-bottom: var(--space-sm);
+  display: inline-block;
+}
+
+.music-rig-item h4 {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.music-rig-item .rig-tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.music-rig-item p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+/* Input list table */
+.music-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+  margin-top: var(--space-lg);
+}
+
+.music-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  text-align: left;
+}
+
+.music-table th {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.music-table td {
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.music-table tr:last-child td {
+  border-bottom: none;
+}
+
+.music-table tr:hover td {
+  background: var(--bg-elevated);
+}
+
+/* ── Music Band Cards & Projects ── */
+.music-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-xl);
+}
+
+.music-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.music-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.music-card-banner {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  background: var(--bg-tertiary);
+  display: block;
+}
+
+.music-card-body {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.music-card-role {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.music-card-title {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.music-card-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+  margin-bottom: var(--space-lg);
+  flex: 1;
+}
+
+.music-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-lg);
+}
+
+.music-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.music-card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ── Mobile responsiveness for Switcher ── */
+@media (max-width: 768px) {
+  .music-bio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .music-portrait-img {
+    height: 360px;
+  }
+
+  .persona-tab {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .persona-tab-label {
+    display: inline;
+  }
+
+  .music-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

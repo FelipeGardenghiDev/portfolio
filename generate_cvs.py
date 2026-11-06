@@ -140,7 +140,7 @@ Desenvolvedor com <strong>2 anos de experi&ecirc;ncia corporativa</strong> e gra
   <p><span class="skills-label">Linguagens:</span> C#, Java 21, TypeScript, JavaScript (ES6+), Python 3.11, PHP, SQL, Kotlin, C/C++, DAX.</p>
   <p><span class="skills-label">Backend &amp; Microsservi&ccedil;os:</span> ASP.NET Core (.NET 8), Entity Framework Core, Dapper, Spring Boot 3, Domain-Driven Design (DDD), Clean Architecture, Hexagonal, RabbitMQ, Redis, REST APIs, Swagger / OpenAPI 3, FastAPI, Laravel.</p>
   <p><span class="skills-label">Frontend &amp; Mobile:</span> React 19, Next.js 16, Angular 19, TypeScript, Capacitor (Android Nativo), Tailwind CSS, Decimal.js, TradingView Canvas, Web Workers, Vite, Zustand.</p>
-  <p><span class="skills-label">Cloud, DevOps &amp; Testes:</span> Docker &amp; Compose, GitHub Actions (CI/CD Automatizado), Vitest, Playwright (E2E), xUnit, JUnit 5, JaCoCo, Testcontainers, Linux, Windows.</p>
+  <p><span class="skills-label">Cloud, DevOps &amp; Testes:</span> Docker &amp; Compose, Terraform (IaC / AWS), GitHub Actions (CI/CD Automatizado), Vitest, Playwright (E2E), xUnit, JUnit 5, JaCoCo, Testcontainers, Linux, Windows.</p>
   <p><span class="skills-label">Banco de Dados:</span> Oracle Database (PL/SQL, Triggers, Procedures, Otimiza&ccedil;&atilde;o, Parametriza&ccedil;&atilde;o Segura), PostgreSQL, MySQL, SQL Server, Redis.</p>
   <p><span class="skills-label">Ci&ecirc;ncia de Dados &amp; IA:</span> Machine Learning, LightGBM, SHAP (Explainable AI), Scikit-Learn, Pandas, NumPy, Streamlit, Web Scraping.</p>
   <p><span class="skills-label">Idiomas:</span> Portugu&ecirc;s (Nativo), Ingl&ecirc;s (B2 &ndash; Intermedi&aacute;rio Avan&ccedil;ado), Alem&atilde;o (A1 &ndash; B&aacute;sico).</p>
@@ -373,19 +373,25 @@ Analista de suporte t&eacute;cnico e graduando em <strong>Bacharelado em Ci&ecir
 
 
 def find_browser_cmd():
-    # 1. Flatpak Brave
-    if subprocess.run(["which", "flatpak"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).returncode == 0:
-        if subprocess.run(["flatpak", "info", "com.brave.Browser"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
-            return ["flatpak", "run", "--filesystem=host", "com.brave.Browser"]
-    # 2. Linux native binaries
-    for b in ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser", "microsoft-edge", "brave-browser"]:
-        if subprocess.run(["which", b], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).returncode == 0:
+    import shutil
+    # 1. Windows paths
+    for path in [
+        r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
+        r'C:\Program Files\Microsoft\Edge\Application\msedge.exe',
+        r'C:\Program Files\Google\Chrome\Application\chrome.exe',
+        r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+    ]:
+        if os.path.exists(path):
+            return [path]
+    # 2. Flatpak Brave
+    if shutil.which('flatpak'):
+        if subprocess.run(['flatpak', 'info', 'com.brave.Browser'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0:
+            return ['flatpak', 'run', '--filesystem=host', 'com.brave.Browser']
+    # 3. Linux native binaries
+    for b in ['google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser', 'microsoft-edge', 'brave-browser']:
+        if shutil.which(b):
             return [b]
-    # 3. Windows Edge
-    edge_win = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
-    if os.path.exists(edge_win):
-        return [edge_win]
-    raise RuntimeError("Nenhum navegador Chromium compatível para renderização PDF foi encontrado.")
+    raise RuntimeError('Nenhum navegador Chromium compatível para renderização PDF foi encontrado.')
 
 
 def render_pdf(html_content, output_pdf):

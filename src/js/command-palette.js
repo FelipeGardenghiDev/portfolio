@@ -6,6 +6,7 @@ import { getLang, toggleLanguage } from './i18n.js';
 import { toggleTheme } from './theme.js';
 import { PROJECTS_DATA, openProjectModal } from './projects.js';
 import { openCvModal } from './cv-modal.js';
+import { setPersona } from './persona.js';
 
 let paletteBackdrop = null;
 let searchInput = null;
@@ -99,6 +100,25 @@ function getItems() {
   const isEn = getLang() === 'en';
 
   const actions = [
+    {
+      group: isEn ? 'Dual Persona' : 'Portfólio Duplo',
+      title: isEn ? 'Switch to Music & Audio Persona' : 'Alternar para Música & Áudio (Guitarrista / Produtor)',
+      subtitle: isEn ? 'Banda Revanche, DSP Plugins, Live Stage Rig' : 'Banda Revanche, C++ DSP, Rig de Palco',
+      badge: 'Music',
+      icon: '🎸',
+      keywords: 'musica audio som guitarrista guitarra revanche dsp rig banda show',
+      run: () => setPersona('music', true)
+    },
+    {
+      group: isEn ? 'Dual Persona' : 'Portfólio Duplo',
+      title: isEn ? 'Switch to Tech & Software Persona' : 'Alternar para Engenharia & TI (Software Engineer)',
+      subtitle: isEn ? '.NET 8, Java 21, React 19, Data Science' : '.NET 8, Java 21, React 19, Ciência de Dados',
+      badge: 'Tech',
+      icon: '💻',
+      keywords: 'ti tech software backend fullstack dotnet java react python',
+      run: () => setPersona('tech', true)
+    },
+
     {
       group: isEn ? 'System Actions' : 'Ações Rápidas',
       title: isEn ? 'Toggle Theme (Light / Dark)' : 'Alternar Tema (Claro / Escuro)',

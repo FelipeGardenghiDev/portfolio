@@ -11,6 +11,7 @@
 @import './utilities.css';
 
 /* ── Components ── */
+@import './components/persona.css';
 @import './components/navbar.css';
 @import './components/hero.css';
 @import './components/marquee.css';

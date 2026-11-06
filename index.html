@@ -67,13 +67,19 @@
     }
   </script>
 
-  <!-- Inline theme init to prevent flash of wrong theme -->
+  <!-- Inline theme & dual persona init to prevent layout flash -->
   <script>
     (function () {
       try {
         var saved = localStorage.getItem('portfolio-theme');
         var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
+
+        var params = new URLSearchParams(window.location.search);
+        var hash = window.location.hash.toLowerCase();
+        var mode = params.get('mode') || (hash.startsWith('#music') ? 'music' : 'tech');
+        var persona = (mode === 'music') ? 'music' : 'tech';
+        document.documentElement.setAttribute('data-persona', persona);
       } catch (e) {}
     })();
   </script>
@@ -95,17 +101,37 @@
   <header id="navbar" class="navbar" role="banner">
     <div class="container navbar-container">
       <a href="#hero" class="nav-brand" aria-label="Felipe Gardenghi - Início">
-        <span class="brand-code">&lt;FG /&gt;</span>
+        <span class="brand-code brand-code--tech">&lt;FG /&gt;</span>
+        <span class="brand-code brand-code--music">&lt;FG /&gt; 🎸</span>
       </a>
 
+      <!-- Persona Switcher (Tech vs Music) -->
+      <div class="persona-switcher nav-persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
+        <button type="button" class="persona-tab active" data-persona-btn="tech" role="radio" aria-checked="true" title="Perfil Engenharia de Software &amp; TI">
+          <span class="persona-tab-icon">💻</span>
+          <span class="persona-tab-label">Engenharia &amp; TI</span>
+        </button>
+        <button type="button" class="persona-tab" data-persona-btn="music" role="radio" aria-checked="false" title="Perfil Música, Produção &amp; Áudio">
+          <span class="persona-tab-icon">🎸</span>
+          <span class="persona-tab-label">Música &amp; Áudio</span>
+        </button>
+      </div>
+
       <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
-        <ul class="nav-list">
+        <ul class="nav-list nav-list--tech">
           <li><a href="#sobre" class="nav-link">Sobre</a></li>
           <li><a href="#projetos" class="nav-link">Projetos</a></li>
           <li><a href="#stack" class="nav-link">Stack</a></li>
           <li><a href="#experiencia" class="nav-link">Experiência</a></li>
           <li><a href="#formacao" class="nav-link">Formação</a></li>
           <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <ul class="nav-list nav-list--music">
+          <li><a href="#music-bio" class="nav-link">Trajetória</a></li>
+          <li><a href="#music-player-section" class="nav-link">Músicas</a></li>
+          <li><a href="#music-projects" class="nav-link">Bandas &amp; Projetos</a></li>
+          <li><a href="#music-rig" class="nav-link">Setup &amp; Rider</a></li>
+          <li><a href="#music-contact" class="nav-link">Contato &amp; Booking</a></li>
         </ul>
       </nav>
 
@@ -146,9 +172,29 @@
        ════════════════════════════════════════ -->
   <main id="main-content">
 
+    <!-- ════════════════════════════════════════
+         PERSONA: ENGENHARIA DE SOFTWARE & TI
+         ════════════════════════════════════════ -->
+    <div class="persona-content persona-content--tech">
+
     <!-- ── Hero ── -->
     <section id="hero" class="hero" aria-label="Apresentação">
       <div class="container hero-container reveal-on-scroll">
+        <!-- Persona Switcher Hero Banner -->
+        <div class="hero-persona-switch-bar">
+          <div class="persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
+            <button type="button" class="persona-tab active" data-persona-btn="tech" role="radio" aria-checked="true">
+              <span class="persona-tab-icon">💻</span>
+              <span class="persona-tab-label">Engenharia de Software &amp; TI</span>
+            </button>
+            <button type="button" class="persona-tab" data-persona-btn="music" role="radio" aria-checked="false">
+              <span class="persona-tab-icon">🎸</span>
+              <span class="persona-tab-label">Música &amp; Engenharia de Áudio</span>
+            </button>
+          </div>
+          <span class="persona-hint-text">// Portfólio Duplo: Alterne o perfil a qualquer momento</span>
+        </div>
+
         <!-- Status Badge -->
         <div class="hero-status-badge">
           <span class="status-dot"></span>
@@ -1580,6 +1626,684 @@
         </div>
       </div>
     </section>
+
+    </div><!-- /.persona-content--tech -->
+
+    <!-- ════════════════════════════════════════
+         PERSONA: MÚSICA & ENGENHARIA DE ÁUDIO
+         ════════════════════════════════════════ -->
+    <div class="persona-content persona-content--music">
+
+      <!-- ── Music Hero ── -->
+      <section id="music-hero" class="music-hero" aria-label="Apresentação Musical">
+        <div class="container hero-container reveal-on-scroll">
+
+          <!-- Persona Switcher Hero Banner -->
+          <div class="hero-persona-switch-bar">
+            <div class="persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
+              <button type="button" class="persona-tab" data-persona-btn="tech" role="radio" aria-checked="false">
+                <span class="persona-tab-icon">💻</span>
+                <span class="persona-tab-label">Engenharia de Software &amp; TI</span>
+              </button>
+              <button type="button" class="persona-tab active" data-persona-btn="music" role="radio" aria-checked="true">
+                <span class="persona-tab-icon">🎸</span>
+                <span class="persona-tab-label">Música &amp; Engenharia de Áudio</span>
+              </button>
+            </div>
+            <span class="persona-hint-text">// Portfólio Duplo: Alterne o perfil a qualquer momento</span>
+          </div>
+
+          <!-- Status Badge -->
+          <div class="music-badge-amber">
+            <span class="status-dot"></span>
+            <span>Disponível para Shows, Produção Musical &amp; Gravações</span>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <h1 class="hero-title music-title-gradient">Felipe Gardenghi</h1>
+          <div class="hero-typewriter-container" aria-label="Especialidades Musicais">
+            <span class="typewriter-prefix" aria-hidden="true">//</span>
+            <span class="typewriter-text" style="color: #fbbf24;">Guitarrista, Vocalista &amp; Engenheiro de Áudio / DSP</span>
+          </div>
+
+          <!-- Positioning Statement -->
+          <p class="hero-description">
+            Músico com <strong>14+ anos de estrada</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e aos hinos do emo dos anos 2000 em casas de show e festivais do estado de SP), baixista em projetos autorais (<strong>Patrulha 7</strong> — álbum lançado em estúdio, e <strong>Hellboys</strong>). Atuação de ponta na intersecção entre arte e engenharia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura open-source de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
+          </p>
+
+          <!-- Skills & Gear Pills -->
+          <div class="music-pills-row">
+            <span class="music-pill">🎸 Guitarra &amp; Voz Principal</span>
+            <span class="music-pill">🎛️ DAW Reaper + Linux Mint (Live Rig)</span>
+            <span class="music-pill">🎧 Retorno In-Ear Sem Fio (M-Vave)</span>
+            <span class="music-pill">⚡ C++17 DSP Audio Plugins (MidwestAmp)</span>
+            <span class="music-pill">🎹 Tone.js &amp; Web MIDI API</span>
+            <span class="music-pill">🌐 Next.js 16 &amp; Schema.org MusicGroup</span>
+          </div>
+
+          <!-- Action CTAs -->
+          <div class="hero-actions">
+            <a href="#music-player-section" class="btn btn-primary" style="background: #f59e0b; color: #18181b; border-color: #f59e0b;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <span>Ouvir Faixas &amp; Player</span>
+            </a>
+            <a href="#music-rig" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+              </svg>
+              <span>Setup de Palco &amp; Rider</span>
+            </a>
+            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Vi%20seu%20portf%C3%B3lio%20musical%20e%20gostaria%20de%20conversar%20sobre%20shows%20e%20projetos." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>Contratar Show (WhatsApp)</span>
+            </a>
+            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>Site da Revanche ↗</span>
+            </a>
+          </div>
+
+          <!-- Socials -->
+          <div class="hero-social">
+            <a href="https://instagram.com/felipegardenghi" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Felipe Gardenghi">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@felipegardenghi</span>
+            </a>
+            <a href="https://instagram.com/bandarevanche" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Banda Revanche">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>@bandarevanche</span>
+            </a>
+            <a href="https://open.spotify.com/artist/fresno" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Repertório Fresno no Spotify">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+              <span>Repertório &amp; Streaming</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Music Marquee ── -->
+      <section class="marquee-section" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-item">🎸 BANDA REVANCHE</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">FENDER STRATOCASTER</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">UNDERGROUND TOOLS</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">MIDWESTAMP (C++17 DSP)</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">DAW REAPER ON LINUX MINT</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">CRYTUNE CLAP PLUGIN</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">PRESONUS AUDIOBOX 22VSL</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">LINE 6 POD HD 500</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">M-VAVE IN-EAR WIRELESS</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">VISUCHORD (WEB MIDI &amp; AI)</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">TRIBUTO FRESNO &amp; EMO 2000S</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">PATRULHA 7 (ÁLBUM GRAVADO)</span>
+            <span class="marquee-separator">✦</span>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="marquee-item">🎸 BANDA REVANCHE</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">FENDER STRATOCASTER</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">UNDERGROUND TOOLS</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">MIDWESTAMP (C++17 DSP)</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">DAW REAPER ON LINUX MINT</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">CRYTUNE CLAP PLUGIN</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">PRESONUS AUDIOBOX 22VSL</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">LINE 6 POD HD 500</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">M-VAVE IN-EAR WIRELESS</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">VISUCHORD (WEB MIDI &amp; AI)</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">TRIBUTO FRESNO &amp; EMO 2000S</span>
+            <span class="marquee-separator">✦</span>
+            <span class="marquee-item">PATRULHA 7 (ÁLBUM GRAVADO)</span>
+            <span class="marquee-separator">✦</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Music Bio / Trajetória ── -->
+      <section id="music-bio" class="about section" aria-label="Trajetória Musical">
+        <div class="container reveal-on-scroll">
+          <div class="section-header">
+            <span class="section-tag">// TRAJETÓRIA &amp; IDENTIDADE</span>
+            <h2 class="section-title">14+ Anos de Estrada, Palcos e Engenharia de Áudio</h2>
+            <p class="section-description">
+              Da energia visceral das casas de show de rock ao rigor técnico do processamento digital de sinais (DSP em C++17).
+            </p>
+          </div>
+
+          <div class="music-bio-grid">
+            <div class="music-portrait-card">
+              <picture>
+                <source srcset="./images/music/felipe-stage.webp" type="image/webp" />
+                <img src="./images/music/felipe-stage.jpg" alt="Felipe Gardenghi ao vivo cantando e tocando guitarra" class="music-portrait-img" loading="lazy" />
+              </picture>
+              <div class="music-portrait-badge">
+                <div>
+                  <strong>Felipe Gardenghi</strong>
+                  <span style="display: block;">Vocalista, Guitarrista &amp; Engenheiro DSP</span>
+                </div>
+                <span>Fender Stratocaster</span>
+              </div>
+            </div>
+
+            <div class="music-bio-text">
+              <h3>Da Paixão pelo Emo 2000s à Alta Tecnologia de Palco</h3>
+              <p>
+                Músico desde os 13 anos, iniciei minha caminhada musical fascinado pela intensidade expressiva do rock alternativo, emo e pós-hardcore. Ao longo de mais de uma década, atuei como baixista, violonista, guitarrista e vocalista em diversas formações, gravando em estúdio e circulando pelo circuito autoral e de tributos do estado de São Paulo.
+              </p>
+              <p>
+                Integrei projetos como a <strong>Patrulha 7</strong> (lançando álbum de estúdio autoral no baixo elétrico), <strong>Hellboys</strong> (com lançamentos de singles), <strong>Blue Drive</strong>, <strong>Emopala</strong> e <strong>Rafael Puga Trio</strong>. Nesses anos, tive a honra de abrir shows para ícones nacionais e internacionais como <strong>Fresno</strong> e <strong>McFly</strong>, além de conexões e participações com <strong>Linkin Park Cover Ribeirão</strong>, <strong>Kilotones</strong>, <strong>Ciça Moreira</strong>, <strong>Soberba</strong> e <strong>Green Day Cover Ribeirão</strong>.
+              </p>
+              <p>
+                Em 2023, fundei a <strong>Banda Revanche</strong>, trazendo para os palcos uma homenagem profunda e potente à história da Fresno e aos clássicos do emo dos anos 2000, com apresentações memoráveis para centenas de fãs.
+              </p>
+              <p>
+                Hoje, minha vivência artística caminha de mãos dadas com a Ciência de Dados e Engenharia de Software: opero um rig de palco moderno baseado em <strong>Reaper no Linux Mint</strong> com processamento de guitarra e voz em tempo real, desenvolvo meus próprios simuladores de amplificador e afinação em C++17 (<strong>MidwestAmp</strong> e <strong>CryTune</strong>), e construo instrumentos musicais inovadores por visão computacional (<strong>VisuChord</strong>).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Music Player & Web Audio Demo ── -->
+      <section id="music-player-section" class="section" aria-label="Player de Música Interativo">
+        <div class="container reveal-on-scroll">
+          <div class="section-header">
+            <span class="section-tag">// OUÇA AGORA</span>
+            <h2 class="section-title">Player Interativo &amp; Mostruário Sonoro</h2>
+            <p class="section-description">
+              Experimente as gravações ao vivo da Banda Revanche, stems autorais e demos dos plugins de áudio com visualizador de espectro em tempo real.
+            </p>
+          </div>
+
+          <div class="music-player-widget">
+            <div class="music-player-header">
+              <div class="music-player-title-group">
+                <h3>
+                  <span style="color: #f59e0b;">▶</span>
+                  <span>Audio Showcase &amp; DSP Engine</span>
+                </h3>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent);">
+                ● MOTOR WEB AUDIO ATIVO
+              </div>
+            </div>
+
+            <!-- Waveform Canvas -->
+            <div class="music-player-visualizer-box">
+              <canvas id="music-visualizer-canvas"></canvas>
+            </div>
+
+            <!-- Track Metadata -->
+            <div class="music-player-track-info">
+              <span class="music-current-title" id="music-current-title">Quebre As Correntes (Ao Vivo)</span>
+              <span class="music-current-artist" id="music-current-artist">Banda Revanche (Tributo Fresno) · Emo Rock / Live</span>
+            </div>
+
+            <!-- Scrub Bar -->
+            <div class="music-progress-wrapper">
+              <div class="music-progress-bar" id="music-progress-bar" role="progressbar" aria-label="Progresso da música">
+                <div class="music-progress-fill" id="music-progress-fill"></div>
+              </div>
+              <div class="music-time-display">
+                <span id="music-current-time">0:00</span>
+                <span id="music-total-time">3:42</span>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="music-controls-row">
+              <button type="button" class="music-ctrl-btn" id="music-prev-btn" aria-label="Faixa anterior">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                </svg>
+              </button>
+              <button type="button" class="music-ctrl-btn music-play-btn" id="music-play-btn" aria-label="Reproduzir áudio">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+              <button type="button" class="music-ctrl-btn" id="music-next-btn" aria-label="Próxima faixa">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Playlist -->
+            <ul class="music-playlist" role="list">
+              <li class="music-track-item active" data-track="0">
+                <div class="music-track-left">
+                  <span class="music-track-num">01</span>
+                  <div>
+                    <div class="music-track-name">Quebre As Correntes (Ao Vivo)</div>
+                    <div class="music-track-genre">Banda Revanche · Tributo Fresno &amp; Emo 2000s</div>
+                  </div>
+                </div>
+                <span class="music-track-duration">3:42</span>
+              </li>
+              <li class="music-track-item" data-track="1">
+                <div class="music-track-left">
+                  <span class="music-track-num">02</span>
+                  <div>
+                    <div class="music-track-name">Revanche (Ao Vivo)</div>
+                    <div class="music-track-genre">Banda Revanche · Voz &amp; Guitarra ao Vivo</div>
+                  </div>
+                </div>
+                <span class="music-track-duration">4:15</span>
+              </li>
+              <li class="music-track-item" data-track="2">
+                <div class="music-track-left">
+                  <span class="music-track-num">03</span>
+                  <div>
+                    <div class="music-track-name">Linha de Frente</div>
+                    <div class="music-track-genre">Patrulha 7 · Álbum Autoral Gravado em Estúdio (Baixo)</div>
+                  </div>
+                </div>
+                <span class="music-track-duration">3:18</span>
+              </li>
+              <li class="music-track-item" data-track="3">
+                <div class="music-track-left">
+                  <span class="music-track-num">04</span>
+                  <div>
+                    <div class="music-track-name">MidwestAmp DSP Demo</div>
+                    <div class="music-track-genre">Felipe Gardenghi · C++17 Tube Amp Simulator (Clean &amp; Crunch)</div>
+                  </div>
+                </div>
+                <span class="music-track-duration">2:50</span>
+              </li>
+              <li class="music-track-item" data-track="4">
+                <div class="music-track-left">
+                  <span class="music-track-num">05</span>
+                  <div>
+                    <div class="music-track-name">VisuChord Vision Synth Jam</div>
+                    <div class="music-track-genre">Felipe Gardenghi · Tone.js + Web MIDI + MediaPipe Vision</div>
+                  </div>
+                </div>
+                <span class="music-track-duration">2:14</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Music Projects & Bands ── -->
+      <section id="music-projects" class="projects section" aria-label="Bandas e Projetos Musicais">
+        <div class="container reveal-on-scroll">
+          <div class="section-header">
+            <span class="section-tag">// PROJETOS &amp; ATUAÇÃO</span>
+            <h2 class="section-title">Bandas, Produções &amp; Engenharia Sonora</h2>
+            <p class="section-description">
+              Iniciativas onde a performance no palco se funde com a arquitetura de software e tecnologia de áudio.
+            </p>
+          </div>
+
+          <div class="music-projects-grid">
+            <!-- Card 1: Banda Revanche -->
+            <article class="music-card">
+              <img src="./images/music/revanche-band.webp" alt="Banda Revanche reunida" class="music-card-banner" loading="lazy" />
+              <div class="music-card-body">
+                <span class="music-card-role">// BANDA EM ATIVIDADE · PALCOS SP</span>
+                <h3 class="music-card-title">Banda Revanche</h3>
+                <p class="music-card-desc">
+                  Homenagem visceral e potente à trajetória da Fresno e aos maiores clássicos do emo dos anos 2000. Liderando voz e guitarra, com agenda ativa de shows em casas de espetáculo do interior paulista, abertura de grandes eventos e site oficial construído em <strong>Next.js 16 + ISR</strong> com SEO Schema.org MusicGroup.
+                </p>
+                <div class="music-card-tags">
+                  <span class="music-tag">Vocal &amp; Guitarra</span>
+                  <span class="music-tag">Shows ao Vivo</span>
+                  <span class="music-tag">Emo 2000s</span>
+                  <span class="music-tag">Next.js 16</span>
+                </div>
+                <div class="music-card-actions">
+                  <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: var(--fs-xs); padding: 8px 16px;">
+                    Site Oficial ↗
+                  </a>
+                  <a href="https://instagram.com/bandarevanche" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
+                    Instagram ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Underground Tools & MidwestAmp -->
+            <article class="music-card">
+              <div style="height: 200px; background: linear-gradient(135deg, #181412, #2c1e14); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
+                <div style="text-align: center; padding: 20px;">
+                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">⚡</span>
+                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #fbbf24; letter-spacing: 0.05em;">UNDERGROUND TOOLS</strong>
+                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">MidwestAmp C++17 CLAP/VST3</span>
+                </div>
+              </div>
+              <div class="music-card-body">
+                <span class="music-card-role">// C++17 DSP · AUDIO ENGINEERING</span>
+                <h3 class="music-card-title">Underground Tools &amp; MidwestAmp</h3>
+                <p class="music-card-desc">
+                  Plataforma comunitária open-source para bandas independentes. Inclui o <strong>MidwestAmp</strong>, plugin de simulação de amplificador valvulado e resposta de impulso (IR) em C++17 para timbres Kinsella Clean e 90s Crunch, além de gerador de Mapa de Palco (Stage Plot) e Input List exportáveis para PDF A4 de prancheta de técnico de som.
+                </p>
+                <div class="music-card-tags">
+                  <span class="music-tag">C++17 DSP</span>
+                  <span class="music-tag">CLAP / VST3</span>
+                  <span class="music-tag">Stage Plot A4</span>
+                  <span class="music-tag">Open-Source</span>
+                </div>
+                <div class="music-card-actions">
+                  <a href="https://github.com/felipegardenghidev" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
+                    Ver no GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: VisuChord -->
+            <article class="music-card">
+              <div style="height: 200px; background: linear-gradient(135deg, #121820, #142232); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
+                <div style="text-align: center; padding: 20px;">
+                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">🎹</span>
+                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #60a5fa; letter-spacing: 0.05em;">VisuChord</strong>
+                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">MediaPipe Vision + Tone.js + Web MIDI</span>
+                </div>
+              </div>
+              <div class="music-card-body">
+                <span class="music-card-role">// COMPUTER VISION &amp; WEB MIDI</span>
+                <h3 class="music-card-title">VisuChord</h3>
+                <p class="music-card-desc">
+                  Instrumento musical polifônico e controlador MIDI sem fio para DAWs operado pela webcam por rastreamento gestual bimanual em tempo real (Google MediaPipe Tasks-Vision acelerado por WebGL/Wasm). Mão esquerda comanda tônicas cromáticas e mão direita controla qualidades harmônicas com estabilização temporal anti-jitter.
+                </p>
+                <div class="music-card-tags">
+                  <span class="music-tag">Tone.js</span>
+                  <span class="music-tag">Web MIDI API</span>
+                  <span class="music-tag">MediaPipe Vision</span>
+                  <span class="music-tag">React 19</span>
+                </div>
+                <div class="music-card-actions">
+                  <a href="https://github.com/felipegardenghidev/visuchord" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
+                    Repositório ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Patrulha 7 -->
+            <article class="music-card">
+              <div style="height: 200px; background: linear-gradient(135deg, #1b1612, #291c10); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
+                <div style="text-align: center; padding: 20px;">
+                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">📻</span>
+                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #fbbf24; letter-spacing: 0.05em;">PATRULHA 7</strong>
+                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">Álbum Autoral de Estúdio</span>
+                </div>
+              </div>
+              <div class="music-card-body">
+                <span class="music-card-role">// BAIXO ELÉTRICO &amp; COMPOSIÇÃO</span>
+                <h3 class="music-card-title">Patrulha 7 (Álbum Autoral)</h3>
+                <p class="music-card-desc">
+                  Atuação como baixista na gravação completa de álbum de estúdio autoral. Linhas de baixo melódicas e enérgicas, arranjos de rock nacional e apresentações ao vivo que consolidaram minha experiência com monitoração, dinâmica de estúdio e estridência de palco.
+                </p>
+                <div class="music-card-tags">
+                  <span class="music-tag">Baixo Elétrico</span>
+                  <span class="music-tag">Álbum de Estúdio</span>
+                  <span class="music-tag">Rock Autoral</span>
+                  <span class="music-tag">Arranjos</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5: Instantune Web Player -->
+            <article class="music-card">
+              <div style="height: 200px; background: linear-gradient(135deg, #101824, #18283c); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
+                <div style="text-align: center; padding: 20px;">
+                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">🎧</span>
+                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #38bdf8; letter-spacing: 0.05em;">Instantune</strong>
+                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">React 19 + TypeScript + MediaSession</span>
+                </div>
+              </div>
+              <div class="music-card-body">
+                <span class="music-card-role">// HIGH-FIDELITY WEB PLAYER</span>
+                <h3 class="music-card-title">Instantune Music Player</h3>
+                <p class="music-card-desc">
+                  Player moderno de áudio na web projetado para audição crítica de stems e masterizações. Integração com a MediaSession API para controle pelo teclado do sistema operacional, visualizador dinâmico de espectro de áudio e persistência de playlists.
+                </p>
+                <div class="music-card-tags">
+                  <span class="music-tag">React 19</span>
+                  <span class="music-tag">MediaSession API</span>
+                  <span class="music-tag">Audio Visualizer</span>
+                  <span class="music-tag">Tailwind v4</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Live Rig & Stage Engineering ── -->
+      <section id="music-rig" class="section" aria-label="Setup de Palco e Rider Técnico">
+        <div class="container reveal-on-scroll">
+          <div class="section-header">
+            <span class="section-tag">// RIDER TÉCNICO &amp; ENGENHARIA DE PALCO</span>
+            <h2 class="section-title">Setup de Palco Silencioso &amp; Sem Amplificadores</h2>
+            <p class="section-description">
+              Estrutura profissional desenhada para dispensar caixas valvuladas pesadas de 30kg, garantindo som de estúdio diretamente no PA da casa e retorno in-ear estéreo sem ruídos.
+            </p>
+          </div>
+
+          <div class="music-rig-diagram-box">
+            <h3 style="font-size: var(--fs-lg); color: var(--text-primary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: 8px;">
+              <span>🎛️</span>
+              <span>Arquitetura de Sinal ao Vivo (Live Rig Flow)</span>
+            </h3>
+
+            <div class="music-rig-grid">
+              <!-- Item 1 -->
+              <div class="music-rig-item">
+                <span class="music-rig-icon">💻</span>
+                <h4>DAW Reaper no Linux Mint</h4>
+                <span class="rig-tag">// PipeWire Pro Audio · Sub-5ms</span>
+                <p>
+                  Notebook dedicado rodando Reaper com kernel de baixa latência. Processa o plugin <strong>MidwestAmp</strong> para guitarra valvulada e <strong>CryTune</strong> para afinação e saturação de voz em tempo real sem qualquer travamento.
+                </p>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="music-rig-item">
+                <span class="music-rig-icon">🎚️</span>
+                <h4>PreSonus AudioBox 22VSL</h4>
+                <span class="rig-tag">// Entradas Hi-Z &amp; Saídas Main Balanceadas</span>
+                <p>
+                  Entrada 1 recebe microfone dinâmico de voz (XLR). Entrada 2 recebe sinal direto da Fender Stratocaster (P10 Hi-Z). As saídas traseiras L/R entregam a mix final estéreo limpa diretamente à mesa de som do show (F.O.H.).
+                </p>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="music-rig-item">
+                <span class="music-rig-icon">🦶</span>
+                <h4>Line 6 POD HD 500</h4>
+                <span class="rig-tag">// Controlador de Chão via MIDI Nativo</span>
+                <p>
+                  Conectada via USB direto ao Linux, atua como controladora MIDI sem latência no chão para troca instantânea de timbres (Clean, Crunch, Solo com Boost, Shimmer Reverb) durante a apresentação.
+                </p>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="music-rig-item">
+                <span class="music-rig-icon">📱</span>
+                <h4>Galaxy S9+ Touch Remote</h4>
+                <span class="rig-tag">// Reaper Web Interface no Pedestal</span>
+                <p>
+                  Fixado no pedestal do microfone e conectado via Wi-Fi dedicado. Oferece controle touchscreen de Play/Stop de pistas de playback (VS), visualização de nomes de músicas e metrônomo para a banda.
+                </p>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="music-rig-item">
+                <span class="music-rig-icon">🎧</span>
+                <h4>Transmissor Sem Fio M-Vave</h4>
+                <span class="rig-tag">// Retorno In-Ear Estéreo</span>
+                <p>
+                  Ligado na saída de fones auxiliar. Transmite para o fone de ouvido uma mix customizada contendo Voz em destaque, trilhas VS e clique do metrônomo — e estritamente <strong>zero guitarra</strong> para evitar fadiga auditiva.
+                </p>
+              </div>
+            </div>
+
+            <!-- Input List Table -->
+            <div style="margin-top: var(--space-2xl);">
+              <h4 style="font-size: var(--fs-md); color: var(--text-primary); margin-bottom: var(--space-sm);">
+                📋 Input List &amp; Patch de Canais (Para Técnicos de PA / F.O.H.)
+              </h4>
+              <div class="music-table-wrapper">
+                <table class="music-table">
+                  <thead>
+                    <tr>
+                      <th>Canal Mesa</th>
+                      <th>Instrumento / Sinal</th>
+                      <th>Conexão / Cabo</th>
+                      <th>Phantom Power</th>
+                      <th>Observação para Operador</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>CH 01</strong></td>
+                      <td>Voz Principal (Felipe)</td>
+                      <td>XLR Balanceado</td>
+                      <td>DESLIGADO (Off)</td>
+                      <td>Sinal processado e afinado direto da AudioBox</td>
+                    </tr>
+                    <tr>
+                      <td><strong>CH 02</strong></td>
+                      <td>Guitarra Principal (Left)</td>
+                      <td>P10 / XLR Balanceado</td>
+                      <td>DESLIGADO (Off)</td>
+                      <td>Simulador valvulado estéreo (MidwestAmp)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>CH 03</strong></td>
+                      <td>Guitarra Principal (Right)</td>
+                      <td>P10 / XLR Balanceado</td>
+                      <td>DESLIGADO (Off)</td>
+                      <td>Pan 100% R para abertura estéreo no PA</td>
+                    </tr>
+                    <tr>
+                      <td><strong>CH 04</strong></td>
+                      <td>VS Playback / Teclados</td>
+                      <td>P10 / XLR Balanceado</td>
+                      <td>DESLIGADO (Off)</td>
+                      <td>Trilhas pré-mixadas (Sem click no PA)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>AUX 01</strong></td>
+                      <td>Retorno In-Ear (M-Vave)</td>
+                      <td>P2 / Sem Fio</td>
+                      <td>--</td>
+                      <td>Mix individual interna comandada pelo palco</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Music Contact & Booking ── -->
+      <section id="music-contact" class="contact section" aria-label="Contato e Contratação Musical">
+        <div class="container reveal-on-scroll">
+          <div class="section-header">
+            <span class="section-tag">// BOOKING &amp; CONTRATAÇÃO</span>
+            <h2 class="section-title">Leve a Banda Revanche para o Seu Evento</h2>
+            <p class="section-description">
+              Disponível para shows, festivais de rock/anos 2000, eventos corporativos e produções musicais em todo o estado de SP.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3>Fale Diretamente com Felipe</h3>
+              <p>
+                Para contratação de apresentações da <strong>Banda Revanche</strong>, parcerias de palco, sessões de gravação de guitarra/baixo ou desenvolvimento de ferramentas de áudio:
+              </p>
+
+              <div class="contact-methods">
+                <div class="contact-method-item">
+                  <span class="method-icon">📍</span>
+                  <div>
+                    <strong>Localização Base</strong>
+                    <span>Sertãozinho / Ribeirão Preto - SP (Disponibilidade para viagens)</span>
+                  </div>
+                </div>
+                <div class="contact-method-item">
+                  <span class="method-icon">💬</span>
+                  <div>
+                    <strong>WhatsApp Direto</strong>
+                    <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20conversar%20sobre%20shows%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer">
+                      (16) 99395-0293
+                    </a>
+                  </div>
+                </div>
+                <div class="contact-method-item">
+                  <span class="method-icon">✉️</span>
+                  <div>
+                    <strong>E-mail</strong>
+                    <a href="mailto:felipegg.dev@gmail.com">felipegg.dev@gmail.com</a>
+                  </div>
+                </div>
+                <div class="contact-method-item">
+                  <span class="method-icon">🌐</span>
+                  <div>
+                    <strong>Site Oficial da Banda</strong>
+                    <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer">bandarevanche.com.br</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+              <div class="contact-quick-box" style="background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); padding: var(--space-2xl);">
+                <h4 style="font-size: var(--fs-lg); color: var(--text-primary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: 8px;">
+                  <span>🎸</span>
+                  <span>Mensagem Rápida para Contratação</span>
+                </h4>
+                <p style="color: var(--text-secondary); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--space-lg);">
+                  Clique no botão abaixo para abrir uma conversa direta no WhatsApp com dados pré-formatados sobre datas, local do evento e estrutura de som.
+                </p>
+
+                <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20a%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center; background: #f59e0b; border-color: #f59e0b; color: #18181b; font-weight: var(--fw-bold); padding: 14px 24px; font-size: var(--fs-md);">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+                  </svg>
+                  <span>Chamar no WhatsApp de Shows</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.persona-content--music -->
 
   </main>
 
