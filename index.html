@@ -102,61 +102,26 @@
   <!-- ════════════════════════════════════════
        HEADER / NAVBAR
        ════════════════════════════════════════ -->
-  <header id="navbar" class="navbar" role="banner">
-    <div class="container navbar-container">
-      <a href="./" class="nav-brand" data-persona-btn="split" aria-label="Felipe Gardenghi">
-        <span class="brand-code">&lt;FG /&gt;</span>
-      </a>
-
-      <!-- Menu de Navegação para sub-páginas ativas -->
-      <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
-        <ul class="nav-list nav-list--tech">
-          <li><a href="./" class="nav-link" data-persona-btn="split" data-i18n-pt="Início" data-i18n-en="Home" data-i18n-es="Inicio" data-i18n-de="Startseite">Início</a></li>
-          <li><a href="#tech-lab" class="nav-link" data-i18n-pt="Laboratório" data-i18n-en="Code Lab" data-i18n-es="Laboratorio" data-i18n-de="Labor">Laboratório</a></li>
-          <li><a href="#tech-projetos" class="nav-link" data-i18n-pt="Projetos" data-i18n-en="Projects" data-i18n-es="Proyectos" data-i18n-de="Projekte">Projetos</a></li>
-          <li><a href="#tech-stack" class="nav-link" data-i18n-pt="Stack" data-i18n-en="Stack" data-i18n-es="Stack" data-i18n-de="Stack">Stack</a></li>
-          <li><a href="#tech-servicos" class="nav-link" data-i18n-pt="Serviços" data-i18n-en="Services" data-i18n-es="Servicios" data-i18n-de="Leistungen">Serviços</a></li>
-          <li><a href="#tech-contato" class="nav-link" data-i18n-pt="Contato" data-i18n-en="Contact" data-i18n-es="Contacto" data-i18n-de="Kontakt">Contato</a></li>
-        </ul>
-        <ul class="nav-list nav-list--music">
-          <li><a href="./" class="nav-link" data-persona-btn="split" data-i18n-pt="Início" data-i18n-en="Home" data-i18n-es="Inicio" data-i18n-de="Startseite">Início</a></li>
-          <li><a href="#music-escena" class="nav-link" data-i18n-pt="No Palco" data-i18n-en="On Stage" data-i18n-es="En Escenario" data-i18n-de="Auf der Bühne">No Palco</a></li>
-          <li><a href="#music-videos" class="nav-link" data-i18n-pt="Músicas" data-i18n-en="Tracks" data-i18n-es="Música" data-i18n-de="Tracks">Músicas</a></li>
-          <li><a href="#music-gear" class="nav-link" data-i18n-pt="Live Rig" data-i18n-en="Live Rig" data-i18n-es="Live Rig" data-i18n-de="Live-Rig">Live Rig</a></li>
-          <li><a href="#music-servicos" class="nav-link" data-i18n-pt="Serviços" data-i18n-en="Services" data-i18n-es="Servicios" data-i18n-de="Leistungen">Serviços</a></li>
-          <li><a href="#music-contato" class="nav-link" data-i18n-pt="Booking" data-i18n-en="Booking" data-i18n-es="Booking" data-i18n-de="Booking">Booking</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-controls">
-        <!-- 4-Language Selector: PT(BR), EN, ES, DE -->
-        <div class="lang-selector-group" role="group" aria-label="Selecionar idioma / Select language">
-          <button type="button" class="lang-btn active" data-lang-btn="pt" aria-label="Português do Brasil">PT</button>
-          <span class="lang-btn-sep">/</span>
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
-          <span class="lang-btn-sep">/</span>
-          <button type="button" class="lang-btn" data-lang-btn="es" aria-label="Español">ES</button>
-          <span class="lang-btn-sep">/</span>
-          <button type="button" class="lang-btn" data-lang-btn="de" aria-label="Deutsch">DE</button>
-        </div>
-
-        <!-- Seletor de Tema (Dark / Light) -->
-        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Alternar tema">
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
-          </svg>
-        </button>
-
-        <!-- Menu Mobile Drawer Toggle -->
-        <button id="nav-toggle" class="nav-toggle-btn" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+    <!-- ════════════════════════════════════════
+       FLOATING CONTROLS (SELETOR DE IDIOMAS & RETORNO AO SPLIT)
+       ════════════════════════════════════════ -->
+  <aside class="figma-floating-nav" aria-label="Seletor de idioma">
+    <div class="lang-selector-group" role="group" aria-label="Selecionar idioma / Select language">
+      <button type="button" class="lang-btn active" data-lang-btn="pt" aria-label="Português do Brasil">PT</button>
+      <span class="lang-btn-sep">/</span>
+      <button type="button" class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
+      <span class="lang-btn-sep">/</span>
+      <button type="button" class="lang-btn" data-lang-btn="es" aria-label="Español">ES</button>
+      <span class="lang-btn-sep">/</span>
+      <button type="button" class="lang-btn" data-lang-btn="de" aria-label="Deutsch">DE</button>
     </div>
-  </header>
+  </aside>
+
+  <!-- Botão Flutuante Voltar ao Início (ativo apenas dentro de Tech e Música) -->
+  <a href="./" class="figma-floating-back" data-persona-btn="split" aria-label="Voltar para a tela inicial dividida">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    <span data-i18n-pt="Voltar ao Início" data-i18n-en="Back to Home" data-i18n-es="Volver al Inicio" data-i18n-de="Zurück zur Startseite">Voltar ao Início</span>
+  </a>
 
   <!-- ════════════════════════════════════════
        MAIN CONTENT

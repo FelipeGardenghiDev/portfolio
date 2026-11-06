@@ -25,10 +25,10 @@
   --figma-music-card: #150d0f;
   --figma-music-card-hover: #1f1216;
   --figma-music-border: #33171f;
-  --figma-music-accent: #f43f5e;
-  --figma-music-accent-solid: #e11d48;
-  --figma-music-accent-hover: #be123c;
-  --figma-music-glow: rgba(225, 29, 72, 0.35);
+  --figma-music-accent: #E42E2E;
+  --figma-music-accent-solid: #E42E2E;
+  --figma-music-accent-hover: #ff4747;
+  --figma-music-glow: rgba(228, 46, 46, 0.4);
   --figma-music-text: #ffffff;
   --figma-music-text-muted: #e2e8f0;
 }
@@ -65,7 +65,7 @@
   --bg-tertiary: #1f1216;
   --border-primary: var(--figma-music-border);
   --accent: var(--figma-music-accent);
-  --accent-hover: #fb7185;
+  --accent-hover: #ff4747;
   --accent-solid: var(--figma-music-accent-solid);
   --text-primary: var(--figma-music-text);
   --text-secondary: var(--figma-music-text-muted);
@@ -73,7 +73,7 @@
 
 [data-persona="music"] body {
   background-color: var(--figma-music-bg);
-  background-image: radial-gradient(circle at 50% -5%, rgba(225, 29, 72, 0.16) 0%, rgba(159, 18, 57, 0.06) 35%, transparent 600px);
+  background-image: radial-gradient(circle at 50% -5%, rgba(228, 46, 46, 0.22) 0%, rgba(180, 20, 20, 0.08) 35%, transparent 600px);
 }
 
 [data-persona="split"] body {
@@ -147,7 +147,7 @@
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-split-wrapper {
   display: flex;
-  min-height: calc(100vh - 4.25rem);
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -185,7 +185,7 @@
 
 /* Musician Half (Right) */
 .figma-split-music {
-  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.35) 0%, rgba(159, 18, 57, 0.2) 40%, rgba(9, 5, 6, 0.96) 80%), #090506;
+  background: radial-gradient(circle at 70% 50%, rgba(228, 46, 46, 0.4) 0%, rgba(180, 20, 20, 0.22) 40%, rgba(9, 5, 6, 0.96) 80%), #090506;
 }
 
 .figma-split-music::before {
@@ -223,7 +223,7 @@
 }
 
 .figma-split-subtitle-music {
-  color: #f43f5e;
+  color: #E42E2E;
   display: block;
 }
 
@@ -256,7 +256,7 @@
 }
 
 .figma-split-music .figma-split-bullet-item::before {
-  color: #f43f5e;
+  color: #E42E2E;
 }
 
 .figma-split-social-row {
@@ -313,12 +313,13 @@
 }
 
 .figma-split-btn-music {
-  background: #e11d48;
+  background: #E42E2E;
   color: #ffffff;
+  box-shadow: 0 4px 18px rgba(228, 46, 46, 0.38);
 }
 .figma-split-btn-music:hover {
-  background: #be123c;
-  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
+  background: #ff3b3b;
+  box-shadow: 0 6px 26px rgba(228, 46, 46, 0.6);
   transform: translateY(-2px);
 }
 
@@ -326,7 +327,7 @@
    2. HERO PROFILE SECTION (Tech vs Musician)
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-hero-section {
-  padding: 44px 0 32px;
+  padding: 80px 0 32px;
 }
 
 .figma-hero-card {
@@ -917,4 +918,128 @@
   opacity: 0.35;
   font-size: 10px;
   user-select: none;
+}
+
+/* ── Floating Navigation & 4-Language Controls (Replaces Static Navbar) ── */
+.figma-floating-nav {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.figma-floating-nav > * {
+  pointer-events: auto;
+}
+
+.figma-floating-back {
+  position: fixed;
+  top: 24px;
+  left: 28px;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-family: var(--figma-font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.figma-floating-back:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+[data-persona="tech"] .figma-floating-back {
+  display: inline-flex;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+[data-persona="tech"] .figma-floating-back:hover {
+  border-color: var(--figma-dev-accent);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+}
+
+[data-persona="music"] .figma-floating-back {
+  display: inline-flex;
+  border-color: rgba(228, 46, 46, 0.35);
+}
+
+[data-persona="music"] .figma-floating-back:hover {
+  border-color: #E42E2E;
+  box-shadow: 0 4px 20px rgba(228, 46, 46, 0.35);
+}
+
+[data-persona="split"] .figma-floating-back {
+  display: none !important;
+}
+
+.figma-floating-nav .lang-selector-group {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  padding: 5px 12px;
+  gap: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.figma-floating-nav .lang-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--figma-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  padding: 3px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.figma-floating-nav .lang-btn:hover {
+  color: #ffffff;
+}
+
+.figma-floating-nav .lang-btn.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: 700;
+}
+
+.figma-floating-nav .lang-btn-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .figma-floating-nav {
+    top: 14px;
+    right: 14px;
+  }
+  .figma-floating-back {
+    top: 14px;
+    left: 14px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
 }
