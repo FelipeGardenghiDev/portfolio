@@ -903,22 +903,15 @@ export function setLanguage(lang) {
   const secCont = document.getElementById('contato');
   if (secCont) secCont.setAttribute('aria-label', t.a11y.secContato);
 
-  // 13. Switch active button style
-  const ptSpan = document.getElementById('lang-pt');
-  const enSpan = document.getElementById('lang-en');
-  if (ptSpan && enSpan) {
-    if (lang === 'pt') {
-      ptSpan.classList.add('active');
-      enSpan.classList.remove('active');
-    } else {
-      enSpan.classList.add('active');
-      ptSpan.classList.remove('active');
-    }
-  }
+  // 13. Switch active button style for 4 languages (PT, EN, ES, DE)
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    const btnLang = btn.getAttribute('data-lang-btn');
+    btn.classList.toggle('active', btnLang === lang);
+  });
 
-  // 13.5 Dual Persona bilingual translations
+  // 13.5 Dual Persona 4-language translations
   document.querySelectorAll('[data-i18n-pt]').forEach(el => {
-    const val = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
+    const val = el.getAttribute('data-i18n-' + lang) || el.getAttribute('data-i18n-pt');
     if (val) el.innerHTML = val;
   });
 
@@ -930,29 +923,38 @@ export function setLanguage(lang) {
 }
 
 export function toggleLanguage() {
-  setLanguage(currentLang === 'pt' ? 'en' : 'pt');
+  const supported = ['pt', 'en', 'es', 'de'];
+  const nextIdx = (supported.indexOf(currentLang) + 1) % supported.length;
+  setLanguage(supported[nextIdx]);
 }
 
 export function initI18n() {
-  currentLang = 'pt'; // Default is always PT-BR for native market
+  currentLang = 'pt'; // Default is always PT-BR
+  const supported = ['pt', 'en', 'es', 'de'];
   try {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get('lang')?.toLowerCase();
-    if (urlLang === 'en' || urlLang === 'pt') {
+    if (supported.includes(urlLang)) {
       currentLang = urlLang;
       localStorage.setItem('portfolio-lang', urlLang);
     } else {
       const saved = localStorage.getItem('portfolio-lang');
-      if (saved === 'en' || saved === 'pt') {
+      if (supported.includes(saved)) {
         currentLang = saved;
       }
     }
   } catch {}
 
-  const toggleBtn = document.getElementById('lang-toggle');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', toggleLanguage);
-  }
+  // Language button clicks
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-lang-btn]');
+    if (!btn) return;
+    e.preventDefault();
+    const targetLang = btn.getAttribute('data-lang-btn');
+    if (targetLang && supported.includes(targetLang)) {
+      setLanguage(targetLang);
+    }
+  });
 
   setLanguage(currentLang);
 }

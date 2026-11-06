@@ -20,17 +20,17 @@
   --figma-dev-text: #ffffff;
   --figma-dev-text-muted: #94a3b8;
 
-  /* Musician Mode (Warm Concert Amber & Deep Charcoal) */
-  --figma-music-bg: #090605;
-  --figma-music-card: #150f0c;
-  --figma-music-card-hover: #1e1511;
-  --figma-music-border: #2c1c14;
-  --figma-music-accent: #f59e0b;
-  --figma-music-accent-solid: #f59e0b;
-  --figma-music-accent-hover: #d97706;
-  --figma-music-glow: rgba(245, 158, 11, 0.25);
+  /* Musician Mode (Vibrant Crimson Red & Deep Stage Charcoal) */
+  --figma-music-bg: #090506;
+  --figma-music-card: #150d0f;
+  --figma-music-card-hover: #1f1216;
+  --figma-music-border: #33171f;
+  --figma-music-accent: #f43f5e;
+  --figma-music-accent-solid: #e11d48;
+  --figma-music-accent-hover: #be123c;
+  --figma-music-glow: rgba(225, 29, 72, 0.35);
   --figma-music-text: #ffffff;
-  --figma-music-text-muted: #d4d4d8;
+  --figma-music-text-muted: #e2e8f0;
 }
 
 /* ── Container Layout ── */
@@ -62,10 +62,10 @@
 [data-persona="music"] {
   --bg-primary: var(--figma-music-bg);
   --bg-secondary: var(--figma-music-card);
-  --bg-tertiary: #1e1511;
+  --bg-tertiary: #1f1216;
   --border-primary: var(--figma-music-border);
   --accent: var(--figma-music-accent);
-  --accent-hover: #fbbf24;
+  --accent-hover: #fb7185;
   --accent-solid: var(--figma-music-accent-solid);
   --text-primary: var(--figma-music-text);
   --text-secondary: var(--figma-music-text-muted);
@@ -73,7 +73,7 @@
 
 [data-persona="music"] body {
   background-color: var(--figma-music-bg);
-  background-image: radial-gradient(circle at 50% -5%, rgba(245, 158, 11, 0.12) 0%, rgba(225, 29, 72, 0.05) 35%, transparent 600px);
+  background-image: radial-gradient(circle at 50% -5%, rgba(225, 29, 72, 0.16) 0%, rgba(159, 18, 57, 0.06) 35%, transparent 600px);
 }
 
 [data-persona="split"] body {
@@ -185,7 +185,7 @@
 
 /* Musician Half (Right) */
 .figma-split-music {
-  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.25) 0%, rgba(245, 158, 11, 0.16) 35%, rgba(9, 6, 5, 0.96) 80%), #090605;
+  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.35) 0%, rgba(159, 18, 57, 0.2) 40%, rgba(9, 5, 6, 0.96) 80%), #090506;
 }
 
 .figma-split-music::before {
@@ -195,8 +195,8 @@
   background-image: url('/images/music/revanche-band.webp');
   background-size: cover;
   background-position: center;
-  opacity: 0.16;
-  filter: blur(2px) grayscale(20%);
+  opacity: 0.18;
+  filter: blur(2px) grayscale(15%);
   pointer-events: none;
 }
 
@@ -223,7 +223,7 @@
 }
 
 .figma-split-subtitle-music {
-  color: #f59e0b;
+  color: #f43f5e;
   display: block;
 }
 
@@ -256,7 +256,7 @@
 }
 
 .figma-split-music .figma-split-bullet-item::before {
-  color: #f59e0b;
+  color: #f43f5e;
 }
 
 .figma-split-social-row {
@@ -313,12 +313,12 @@
 }
 
 .figma-split-btn-music {
-  background: #f59e0b;
-  color: #000000;
+  background: #e11d48;
+  color: #ffffff;
 }
 .figma-split-btn-music:hover {
-  background: #d97706;
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+  background: #be123c;
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
   transform: translateY(-2px);
 }
 
@@ -875,4 +875,46 @@
   .figma-services-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ── 4-Language Selector (PT / EN / ES / DE) ── */
+.lang-selector-group {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  padding: 3px 8px;
+  gap: 3px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 3px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  font-weight: 700;
+}
+
+.lang-btn-sep {
+  color: var(--text-muted);
+  opacity: 0.35;
+  font-size: 10px;
+  user-select: none;
 }
