@@ -916,6 +916,12 @@ export function setLanguage(lang) {
     }
   }
 
+  // 13.5 Dual Persona bilingual translations
+  document.querySelectorAll('[data-i18n-pt]').forEach(el => {
+    const val = lang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-pt');
+    if (val) el.innerHTML = val;
+  });
+
   // 14. Sync components
   updateProjectsLang();
   updateLabLang();

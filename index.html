@@ -67,7 +67,7 @@
     }
   </script>
 
-  <!-- Inline theme & dual persona init to prevent layout flash -->
+  <!-- Inline theme & dual persona init (default: 'split' on root) -->
   <script>
     (function () {
       try {
@@ -77,11 +77,11 @@
 
         var params = new URLSearchParams(window.location.search);
         var hash = window.location.hash.toLowerCase();
-        var mode = 'tech';
-        if (params.get('mode') === 'music' || hash.startsWith('#music')) {
+        var mode = 'split'; // Default landing page on felipegardenghi.com.br is the Split Gateway!
+        if (params.get('mode') === 'tech' || hash === '#tech') {
+          mode = 'tech';
+        } else if (params.get('mode') === 'music' || hash.startsWith('#music')) {
           mode = 'music';
-        } else if (params.get('mode') === 'split' || hash === '#split') {
-          mode = 'split';
         }
         document.documentElement.setAttribute('data-persona', mode);
       } catch (e) {}
@@ -104,46 +104,46 @@
        ════════════════════════════════════════ -->
   <header id="navbar" class="navbar" role="banner">
     <div class="container navbar-container">
-      <a href="#hero" class="nav-brand" aria-label="Felipe Gardenghi">
+      <a href="./" class="nav-brand" aria-label="Felipe Gardenghi">
         <span class="brand-code brand-code--tech">&lt;FG /&gt;</span>
         <span class="brand-code brand-code--music">&lt;FG /&gt; 🎸</span>
         <span class="brand-code brand-code--split">&lt;FG /&gt; ⚡</span>
       </a>
 
-      <!-- Figma 3-Mode Persona Switcher -->
-      <div class="figma-nav-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
-        <button type="button" class="figma-nav-btn active" data-persona-btn="tech" role="radio" aria-checked="true" title="Perfil Engenharia de Software &amp; TI">
-          <span>💻 Developer</span>
+      <!-- Persona Switcher (Split / Tech / Music) -->
+      <div class="figma-nav-switcher" role="radiogroup" aria-label="Alternar modo do portfólio">
+        <button type="button" class="figma-nav-btn" data-persona-btn="split" role="radio" aria-checked="false" title="Voltar para a tela dividida inicial" data-i18n-pt="<span>⚡ Início (Split)</span>" data-i18n-en="<span>⚡ Home (Split)</span>">
+          <span>⚡ Início (Split)</span>
         </button>
-        <button type="button" class="figma-nav-btn" data-persona-btn="music" role="radio" aria-checked="false" title="Perfil Música &amp; Produção">
-          <span>🎸 Músico</span>
+        <button type="button" class="figma-nav-btn active" data-persona-btn="tech" role="radio" aria-checked="true" title="Perfil Engenharia de Software &amp; TI" data-i18n-pt="<span>💻 Tecnologia</span>" data-i18n-en="<span>💻 Developer</span>">
+          <span>💻 Tecnologia</span>
         </button>
-        <button type="button" class="figma-nav-btn" data-persona-btn="split" role="radio" aria-checked="false" title="Visualização Dividida 50/50">
-          <span>⚡ Split Dual</span>
+        <button type="button" class="figma-nav-btn" data-persona-btn="music" role="radio" aria-checked="false" title="Perfil Música, Produção &amp; Áudio" data-i18n-pt="<span>🎸 Música</span>" data-i18n-en="<span>🎸 Musician</span>">
+          <span>🎸 Música</span>
         </button>
       </div>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
         <ul class="nav-list nav-list--tech">
-          <li><a href="#tech-taller" class="nav-link">Taller</a></li>
-          <li><a href="#tech-proyectos" class="nav-link">Proyectos</a></li>
-          <li><a href="#tech-stack" class="nav-link">Stack</a></li>
-          <li><a href="#tech-servicios" class="nav-link">Servicios</a></li>
-          <li><a href="#tech-contacto" class="nav-link">Contacto</a></li>
+          <li><a href="#tech-lab" class="nav-link" data-i18n-pt="Laboratório" data-i18n-en="Code Lab">Laboratório</a></li>
+          <li><a href="#tech-projetos" class="nav-link" data-i18n-pt="Projetos" data-i18n-en="Projects">Projetos</a></li>
+          <li><a href="#tech-stack" class="nav-link" data-i18n-pt="Stack" data-i18n-en="Stack">Stack</a></li>
+          <li><a href="#tech-servicos" class="nav-link" data-i18n-pt="Serviços" data-i18n-en="Services">Serviços</a></li>
+          <li><a href="#tech-contato" class="nav-link" data-i18n-pt="Contato" data-i18n-en="Contact">Contato</a></li>
         </ul>
         <ul class="nav-list nav-list--music">
-          <li><a href="#music-escena" class="nav-link">En Escena</a></li>
-          <li><a href="#music-videos" class="nav-link">Vídeos &amp; Audio</a></li>
-          <li><a href="#music-gear" class="nav-link">Equipamiento</a></li>
-          <li><a href="#music-servicios" class="nav-link">Servicios</a></li>
-          <li><a href="#music-contacto" class="nav-link">Contacto</a></li>
+          <li><a href="#music-escena" class="nav-link" data-i18n-pt="No Palco" data-i18n-en="On Stage">No Palco</a></li>
+          <li><a href="#music-videos" class="nav-link" data-i18n-pt="Músicas" data-i18n-en="Tracks">Músicas</a></li>
+          <li><a href="#music-gear" class="nav-link" data-i18n-pt="Live Rig" data-i18n-en="Live Rig">Live Rig</a></li>
+          <li><a href="#music-servicos" class="nav-link" data-i18n-pt="Serviços" data-i18n-en="Services">Serviços</a></li>
+          <li><a href="#music-contato" class="nav-link" data-i18n-pt="Booking" data-i18n-en="Booking">Booking</a></li>
         </ul>
       </nav>
 
       <div class="nav-controls">
         <button id="palette-open-btn" class="palette-trigger-btn" type="button" aria-label="Abrir busca rápida (Ctrl+K)" title="Busca rápida (Ctrl+K)">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/>
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
           </svg>
           <span class="palette-kbd-badge font-mono" aria-hidden="true">Ctrl K</span>
         </button>
@@ -170,27 +170,27 @@
   <!-- ════════════════════════════════════════
        MAIN CONTENT
        ════════════════════════════════════════ -->
-    <main id="main-content">
+      <main id="main-content">
 
     <!-- ══════════════════════════════════════════════════════════════════════════
-         SCREEN 1: FIGMA DUAL SPLIT-SCREEN GATEWAY (PANTALLA DE SELECCIÓN)
+         SCREEN 1: FIGMA DUAL SPLIT-SCREEN GATEWAY (PÁGINA INICIAL DIVIDIDA 50/50)
          ══════════════════════════════════════════════════════════════════════════ -->
     <div class="persona-view--split">
       <div class="figma-split-wrapper">
 
-        <!-- Developer Half (Left) -->
-        <div class="figma-split-side figma-split-dev" data-persona-btn="tech" role="button" tabindex="0" aria-label="Acessar Perfil de Desenvolvedor">
+        <!-- Lado Tecnologia / Developer (Esquerda) -->
+        <div class="figma-split-side figma-split-dev" data-persona-btn="tech" role="button" tabindex="0" aria-label="Acessar Perfil de Tecnologia">
           <div class="figma-split-content">
-            <h1 class="figma-split-title">
-              Desarrollador
-              <span class="figma-split-subtitle-dev">Front-end &amp; Backend</span>
+            <h1 class="figma-split-title" data-i18n-pt="Desenvolvedor<span class='figma-split-subtitle-dev'>Backend &amp; Full-Stack</span>" data-i18n-en="Developer<span class='figma-split-subtitle-dev'>Backend &amp; Full-Stack</span>">
+              Desenvolvedor
+              <span class="figma-split-subtitle-dev">Backend &amp; Full-Stack</span>
             </h1>
             <ul class="figma-split-bullets">
-              <li class="figma-split-bullet-item">C# .NET 8, Java 21, Spring Boot &amp; Oracle PL/SQL</li>
-              <li class="figma-split-bullet-item">Microsserviços distribuídos &amp; Arquitetura Hexagonal</li>
-              <li class="figma-split-bullet-item">2 anos de atuação corporativa (Nova Smar S/A)</li>
-              <li class="figma-split-bullet-item">Ciência de Dados (UNIVESP) &amp; Machine Learning</li>
-              <li class="figma-split-bullet-item">React 19, Next.js 16, TypeScript &amp; Angular</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="C# .NET 8, Java 21, Spring Boot 3 &amp; Oracle PL/SQL" data-i18n-en="C# .NET 8, Java 21, Spring Boot 3 &amp; Oracle PL/SQL">C# .NET 8, Java 21, Spring Boot 3 &amp; Oracle PL/SQL</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="Microsserviços distribuídos &amp; Arquitetura Hexagonal" data-i18n-en="Distributed microservices &amp; Hexagonal Architecture">Microsserviços distribuídos &amp; Arquitetura Hexagonal</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="2 anos de atuação corporativa (Nova Smar S/A)" data-i18n-en="2 years corporate experience (Nova Smar S/A)">2 anos de atuação corporativa (Nova Smar S/A)</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="Ciência de Dados (UNIVESP) &amp; Machine Learning" data-i18n-en="Data Science (UNIVESP) &amp; Machine Learning">Ciência de Dados (UNIVESP) &amp; Machine Learning</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="React 19, Next.js 16, TypeScript &amp; Angular" data-i18n-en="React 19, Next.js 16, TypeScript &amp; Angular">React 19, Next.js 16, TypeScript &amp; Angular</li>
             </ul>
             <div class="figma-split-social-row">
               <a href="https://github.com/felipegardenghidev" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()">
@@ -203,26 +203,26 @@
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </a>
             </div>
-            <button type="button" class="figma-split-btn figma-split-btn-dev" data-persona-btn="tech">
-              <span>Ver Perfil Developer</span>
+            <button type="button" class="figma-split-btn figma-split-btn-dev" data-persona-btn="tech" data-i18n-pt="<span>Entrar no Perfil de Tecnologia</span>" data-i18n-en="<span>Enter Developer Profile</span>">
+              <span>Entrar no Perfil de Tecnologia</span>
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
           </div>
         </div>
 
-        <!-- Musician Half (Right) -->
-        <div class="figma-split-side figma-split-music" data-persona-btn="music" role="button" tabindex="0" aria-label="Acessar Perfil de Músico">
+        <!-- Lado Música / Áudio (Direita) -->
+        <div class="figma-split-side figma-split-music" data-persona-btn="music" role="button" tabindex="0" aria-label="Acessar Perfil Musical">
           <div class="figma-split-content">
-            <h1 class="figma-split-title">
+            <h1 class="figma-split-title" data-i18n-pt="Guitarrista &amp; Vocal<span class='figma-split-subtitle-music'>Músico de Palco &amp; Áudio DSP</span>" data-i18n-en="Guitarist &amp; Vocals<span class='figma-split-subtitle-music'>Stage Musician &amp; Audio DSP</span>">
               Guitarrista &amp; Vocal
-              <span class="figma-split-subtitle-music">Músico de Sesión / Palco</span>
+              <span class="figma-split-subtitle-music">Músico de Palco &amp; Áudio DSP</span>
             </h1>
             <ul class="figma-split-bullets">
-              <li class="figma-split-bullet-item">Fundador, Guitarra &amp; Voz da Banda Revanche (Tributo Fresno)</li>
-              <li class="figma-split-bullet-item">Live Rig no Linux Mint + DAW Reaper (Sem amplificadores)</li>
-              <li class="figma-split-bullet-item">Plugins de áudio DSP em C++17 (MidwestAmp / Underground Tools)</li>
-              <li class="figma-split-bullet-item">Abertura de shows nacionais (Fresno, McFly) &amp; 14+ anos de estrada</li>
-              <li class="figma-split-bullet-item">VisuChord: Instrumento por Visão Computacional &amp; Web MIDI</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="Fundador, Guitarra &amp; Voz na Banda Revanche (Tributo Fresno)" data-i18n-en="Founder, Lead Guitar &amp; Vocals in Banda Revanche (Fresno Tribute)">Fundador, Guitarra &amp; Voz na Banda Revanche (Tributo Fresno)</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="Live Rig no Linux Mint + DAW Reaper (Sem amplificadores)" data-i18n-en="Modern Live Rig on Linux Mint + DAW Reaper (Amp-less stage)">Live Rig no Linux Mint + DAW Reaper (Sem amplificadores)</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="Plugins de áudio DSP em C++17 (MidwestAmp &amp; CryTune)" data-i18n-en="C++17 DSP Audio Plugins (MidwestAmp &amp; CryTune CLAP/VST3)">Plugins de áudio DSP em C++17 (MidwestAmp &amp; CryTune)</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="14+ anos de estrada, álbum autoral e abertura para bandas nacionais" data-i18n-en="14+ years on stage, studio album &amp; opening for national bands">14+ anos de estrada, álbum autoral e abertura para bandas nacionais</li>
+              <li class="figma-split-bullet-item" data-i18n-pt="VisuChord: Instrumento por Visão Computacional &amp; Web MIDI" data-i18n-en="VisuChord: Computer Vision Musical Instrument &amp; Web MIDI">VisuChord: Instrumento por Visão Computacional &amp; Web MIDI</li>
             </ul>
             <div class="figma-split-social-row">
               <a href="https://instagram.com/felipegardenghi" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram" onclick="event.stopPropagation()">
@@ -235,8 +235,8 @@
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
               </a>
             </div>
-            <button type="button" class="figma-split-btn figma-split-btn-music" data-persona-btn="music">
-              <span>Ver Perfil Músico</span>
+            <button type="button" class="figma-split-btn figma-split-btn-music" data-persona-btn="music" data-i18n-pt="<span>Entrar no Perfil Musical</span>" data-i18n-en="<span>Enter Musician Profile</span>">
+              <span>Entrar no Perfil Musical</span>
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
           </div>
@@ -246,7 +246,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════════════════
-         SCREEN 3: FIGMA DEVELOPER PORTFOLIO (PÁGINA DESARROLLADOR FRONT-END)
+         SCREEN 2: TECH PROFILE (EXPERIÊNCIA CYBER BLUE / HIGH TECH WORKSTATION)
          ══════════════════════════════════════════════════════════════════════════ -->
     <div class="persona-view--tech">
       <div class="figma-container">
@@ -261,38 +261,38 @@
               </picture>
             </div>
             <div>
-              <span class="figma-hero-eyebrow">// HOLA, SOY FELIPE GARDENGHI</span>
+              <span class="figma-hero-eyebrow" data-i18n-pt="// ENGENHARIA DE SOFTWARE &amp; ARQUITETURA" data-i18n-en="// SOFTWARE ENGINEERING &amp; ARCHITECTURE">// ENGENHARIA DE SOFTWARE &amp; ARQUITETURA</span>
               <h1 class="figma-hero-name">FELIPE GARDENGHI</h1>
-              <div class="figma-hero-subtitle">FRONT-END &amp; BACKEND DEVELOPER</div>
-              <p class="figma-hero-bio">
+              <div class="figma-hero-subtitle" data-i18n-pt="DESENVOLVEDOR BACKEND &amp; FULL-STACK" data-i18n-en="BACKEND &amp; FULL-STACK DEVELOPER">DESENVOLVEDOR BACKEND &amp; FULL-STACK</div>
+              <p class="figma-hero-bio" data-i18n-pt="Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces modernas (React 19, Next.js 16, TypeScript)." data-i18n-en="Backend / Full-Stack Developer with <strong>2 years corporate experience</strong> at multinational <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, transactional triggers and record 2025 corporate inventory) and Data Science undergraduate at <strong>UNIVESP</strong>. Experience building distributed high-throughput microservices (<strong>C# .NET 8</strong> and <strong>Java 21 / Spring Boot 3</strong> with Virtual Threads, Hexagonal Architecture, CQRS and Resilience), Machine Learning pipelines (Python, LightGBM, SHAP) and modern web applications (React 19, Next.js 16, TypeScript).">
                 Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces modernas (React 19, Next.js 16, TypeScript).
               </p>
               <div class="figma-metrics-grid">
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">2+</div>
-                  <div class="figma-metric-label">Años de Exp. Corporativa</div>
+                  <div class="figma-metric-label" data-i18n-pt="Anos de Exp. Corporativa" data-i18n-en="Years Corporate Experience">Anos de Exp. Corporativa</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">24+</div>
-                  <div class="figma-metric-label">Repositorios Públicos</div>
+                  <div class="figma-metric-label" data-i18n-pt="Repositórios Públicos" data-i18n-en="Public Repositories">Repositórios Públicos</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">12</div>
-                  <div class="figma-metric-label">Proyectos Destacados</div>
+                  <div class="figma-metric-label" data-i18n-pt="Projetos de Engenharia" data-i18n-en="Engineering Projects">Projetos de Engenharia</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">100%</div>
-                  <div class="figma-metric-label">Test Coverage &amp; CI/CD</div>
+                  <div class="figma-metric-label" data-i18n-pt="Testes Unitários &amp; CI/CD" data-i18n-en="Unit Tests &amp; CI/CD">Testes Unitários &amp; CI/CD</div>
                 </div>
               </div>
             </div>
           </div>
         </header>
 
-        <!-- Section 1: EN EL TALLER (IDE Window Mockup) -->
-        <section id="tech-taller" class="figma-section">
+        <!-- Section 1: NO LABORATÓRIO (Code Lab Window) -->
+        <section id="tech-lab" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">EN EL TALLER</span>
+            <span class="figma-section-tag" data-i18n-pt="NO LABORATÓRIO (CODE LAB)" data-i18n-en="IN THE CODE LAB">NO LABORATÓRIO (CODE LAB)</span>
             <span class="figma-section-link">Clean Architecture &amp; C# .NET 8</span>
           </div>
           <div class="figma-code-window">
@@ -306,7 +306,7 @@
               <div style="width: 48px;"></div>
             </div>
             <div class="figma-code-body">
-              <pre><code><span style="color: #60a5fa;">// Microserviço Distribuído com C# .NET 8, CQRS e Resiliência Polly</span>
+              <pre><code><span style="color: #60a5fa;">// Microsserviço Distribuído com C# .NET 8, CQRS e Resiliência Polly</span>
 <span style="color: #f43f5e;">public sealed class</span> <span style="color: #38bdf8;">ProcessFinancialRiskCommandHandler</span> 
     : IRequestHandler&lt;ProcessFinancialRiskCommand, Result&lt;RiskAssessmentResponse&gt;&gt;
 {
@@ -330,11 +330,11 @@
           </div>
         </section>
 
-        <!-- Section 2: PROYECTOS (3-Column Grid) -->
-        <section id="tech-proyectos" class="figma-section">
+        <!-- Section 2: PROJETOS (3-Column Grid) -->
+        <section id="tech-projetos" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">PROYECTOS</span>
-            <a href="https://github.com/felipegardenghidev" target="_blank" rel="noopener noreferrer" class="figma-section-link">Ver repositorios en GitHub &rarr;</a>
+            <span class="figma-section-tag" data-i18n-pt="PROJETOS EM DESTAQUE" data-i18n-en="FEATURED PROJECTS">PROJETOS EM DESTAQUE</span>
+            <a href="https://github.com/felipegardenghidev" target="_blank" rel="noopener noreferrer" class="figma-section-link" data-i18n-pt="Ver todos no GitHub &rarr;" data-i18n-en="View all on GitHub &rarr;">Ver todos no GitHub &rarr;</a>
           </div>
           <div class="figma-cards-grid-3">
             <!-- Project 1 -->
@@ -346,8 +346,8 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">FinRisk Operations Hub</h3>
-                <p class="figma-card-desc">Plataforma corporativa de gestão de risco financeiro em C# .NET 8 com CQRS, RabbitMQ, Dapper e PostgreSQL.</p>
-                <span class="figma-card-action">Ver caso de estudo &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Plataforma corporativa de gestão de risco financeiro em C# .NET 8 com CQRS, RabbitMQ, Dapper e PostgreSQL." data-i18n-en="Corporate financial risk platform in C# .NET 8 with CQRS, RabbitMQ, Dapper and PostgreSQL.">Plataforma corporativa de gestão de risco financeiro em C# .NET 8 com CQRS, RabbitMQ, Dapper e PostgreSQL.</p>
+                <span class="figma-card-action" data-i18n-pt="Ver estudo de caso &rarr;" data-i18n-en="View case study &rarr;">Ver estudo de caso &rarr;</span>
               </div>
             </article>
 
@@ -360,8 +360,8 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">Fraud Detection ML API</h3>
-                <p class="figma-card-desc">Esteira de Machine Learning em Python, FastAPI e LightGBM para detecção preditiva de fraudes em pagamentos com SHAP.</p>
-                <span class="figma-card-action">Ver arquitetura &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Esteira de Machine Learning em Python, FastAPI e LightGBM para detecção preditiva de fraudes em pagamentos com SHAP." data-i18n-en="Machine Learning pipeline in Python, FastAPI and LightGBM for predictive payment fraud detection with SHAP.">Esteira de Machine Learning em Python, FastAPI e LightGBM para detecção preditiva de fraudes em pagamentos com SHAP.</p>
+                <span class="figma-card-action" data-i18n-pt="Ver arquitetura &rarr;" data-i18n-en="View architecture &rarr;">Ver arquitetura &rarr;</span>
               </div>
             </article>
 
@@ -374,23 +374,23 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">Order Processing Engine</h3>
-                <p class="figma-card-desc">Microsserviço de alto rendimento em Java 21 e Spring Boot 3 utilizando Virtual Threads (Project Loom) e resiliência.</p>
-                <span class="figma-card-action">Ver métricas &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Microsserviço de alto rendimento em Java 21 e Spring Boot 3 utilizando Virtual Threads (Project Loom) e resiliência." data-i18n-en="High-throughput microservice in Java 21 and Spring Boot 3 using Virtual Threads (Project Loom) and resilience.">Microsserviço de alto rendimento em Java 21 e Spring Boot 3 utilizando Virtual Threads (Project Loom) e resiliência.</p>
+                <span class="figma-card-action" data-i18n-pt="Ver métricas &rarr;" data-i18n-en="View benchmarks &rarr;">Ver métricas &rarr;</span>
               </div>
             </article>
           </div>
         </section>
 
-        <!-- Section 3: STACK TECNOLÓGICO (3 Panels) -->
+        <!-- Section 3: STACK & TECNOLOGIAS (3 Panels) -->
         <section id="tech-stack" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">STACK TECNOLÓGICO</span>
+            <span class="figma-section-tag" data-i18n-pt="STACK &amp; TECNOLOGIAS" data-i18n-en="STACK &amp; TECHNOLOGIES">STACK &amp; TECNOLOGIAS</span>
           </div>
           <div class="figma-stack-grid">
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">⚙️</span>
-                <h4>Backend &amp; Arquitetura</h4>
+                <h4 data-i18n-pt="Backend &amp; Arquitetura" data-i18n-en="Backend &amp; Architecture">Backend &amp; Arquitetura</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">C# .NET 8</span>
@@ -406,7 +406,7 @@
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">🗄️</span>
-                <h4>Bases de Dados &amp; Infra</h4>
+                <h4 data-i18n-pt="Bancos de Dados &amp; Cloud" data-i18n-en="Databases &amp; Cloud">Bancos de Dados &amp; Cloud</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">Oracle PL/SQL</span>
@@ -423,7 +423,7 @@
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">🌐</span>
-                <h4>Frontend &amp; Ciência de Dados</h4>
+                <h4 data-i18n-pt="Frontend &amp; Ciência de Dados" data-i18n-en="Frontend &amp; Data Science">Frontend &amp; Ciência de Dados</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">React 19</span>
@@ -438,35 +438,35 @@
           </div>
         </section>
 
-        <!-- Section 4: SERVICIOS (2x2 Grid) -->
-        <section id="tech-servicios" class="figma-section">
+        <!-- Section 4: SERVIÇOS (2x2 Grid) -->
+        <section id="tech-servicos" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">SERVICIOS</span>
+            <span class="figma-section-tag" data-i18n-pt="SERVIÇOS TÉCNICOS &amp; CONSULTORIA" data-i18n-en="TECHNICAL SERVICES &amp; CONSULTING">SERVIÇOS TÉCNICOS &amp; CONSULTORIA</span>
           </div>
           <div class="figma-services-grid">
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Desarrollo de Microservicios &amp; APIs REST</h4>
-              <p class="figma-service-desc">Construção de APIs robustas em C# .NET 8 e Java 21 com CQRS, mensageria via RabbitMQ e concorrência escalável.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Desenvolvimento de Microsserviços &amp; APIs REST" data-i18n-en="Microservices &amp; REST APIs Development">Desenvolvimento de Microsserviços &amp; APIs REST</h4>
+              <p class="figma-service-desc" data-i18n-pt="Construção de APIs robustas em C# .NET 8 e Java 21 com CQRS, mensageria via RabbitMQ e concorrência escalável." data-i18n-en="Robust API development in C# .NET 8 and Java 21 with CQRS, RabbitMQ messaging and scalable concurrency.">Construção de APIs robustas em C# .NET 8 e Java 21 com CQRS, mensageria via RabbitMQ e concorrência escalável.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Ingeniería de Bases de Datos &amp; PL/SQL</h4>
-              <p class="figma-service-desc">Modelagem relacional corporativa, procedures transacionais, views materializadas e sustentação do ERP TOTVS Protheus.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Engenharia de Bancos de Dados &amp; PL/SQL Corporativo" data-i18n-en="Database Engineering &amp; Corporate PL/SQL">Engenharia de Bancos de Dados &amp; PL/SQL Corporativo</h4>
+              <p class="figma-service-desc" data-i18n-pt="Modelagem relacional corporativa, procedures transacionais, views materializadas e sustentação do ERP TOTVS Protheus." data-i18n-en="Relational modeling, transactional procedures, materialized views and ERP TOTVS Protheus support.">Modelagem relacional corporativa, procedures transacionais, views materializadas e sustentação do ERP TOTVS Protheus.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Aplicaciones Web Modernas (React / Next.js)</h4>
-              <p class="figma-service-desc">Interfaces reativas com Server Components, TypeScript estrito, animações fluidas e otimização Core Web Vitals.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Aplicações Web Modernas &amp; Frontend Reativo" data-i18n-en="Modern Web Applications &amp; Reactive Frontend">Aplicações Web Modernas &amp; Frontend Reativo</h4>
+              <p class="figma-service-desc" data-i18n-pt="Interfaces reativas com Server Components, TypeScript estrito, animações fluidas e otimização Core Web Vitals." data-i18n-en="Reactive interfaces with Server Components, strict TypeScript, fluid interactions and Core Web Vitals optimization.">Interfaces reativas com Server Components, TypeScript estrito, animações fluidas e otimização Core Web Vitals.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Ciencia de Dados &amp; Machine Learning</h4>
-              <p class="figma-service-desc">Esteiras preditivas com Python, validação cruzada, modelos LightGBM/XGBoost e explicabilidade de inferências com SHAP.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Ciência de Dados &amp; Machine Learning Preditivo" data-i18n-en="Data Science &amp; Predictive Machine Learning">Ciência de Dados &amp; Machine Learning Preditivo</h4>
+              <p class="figma-service-desc" data-i18n-pt="Esteiras preditivas com Python, validação cruzada, modelos LightGBM/XGBoost e explicabilidade de inferências com SHAP." data-i18n-en="Predictive pipelines with Python, cross-validation, LightGBM/XGBoost models and inference explainability via SHAP.">Esteiras preditivas com Python, validação cruzada, modelos LightGBM/XGBoost e explicabilidade de inferências com SHAP.</p>
             </div>
           </div>
         </section>
 
-        <!-- Section 5: ENCUÉNTRAME & CTA -->
-        <section id="tech-contacto" class="figma-section">
+        <!-- Section 5: ONDE ME ENCONTRAR & CONTATO -->
+        <section id="tech-contato" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">ENCUÉNTRAME</span>
+            <span class="figma-section-tag" data-i18n-pt="ONDE ME ENCONTRAR &amp; CONTATO" data-i18n-en="FIND ME &amp; CONTACT">ONDE ME ENCONTRAR &amp; CONTATO</span>
           </div>
           <div class="figma-social-pills-row">
             <a href="https://github.com/felipegardenghidev" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
@@ -482,14 +482,14 @@
               <span>WhatsApp</span> &rarr;
             </a>
             <a href="./resume/felipe-gardenghi-cv.pdf" download="felipe-gardenghi-cv.pdf" class="figma-social-pill">
-              <span>Baixar CV (PDF)</span> &darr;
+              <span data-i18n-pt="Baixar CV (PDF)" data-i18n-en="Download Resume (PDF)">Baixar CV (PDF)</span> &darr;
             </a>
           </div>
 
           <div class="figma-cta-center">
-            <button type="button" class="figma-btn-primary" data-open-cv>
+            <button type="button" class="figma-btn-primary" data-open-cv data-i18n-pt="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/></svg><span>Visualizar Currículo Completo em Tela</span>" data-i18n-en="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/></svg><span>View Full Resume On-Screen</span>">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-              <span>Visualizar Currículo Completo</span>
+              <span>Visualizar Currículo Completo em Tela</span>
             </button>
           </div>
         </section>
@@ -498,7 +498,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════════════════
-         SCREEN 2: FIGMA MUSICIAN PORTFOLIO (PÁGINA BATERISTA / MÚSICO DE SESIÓN)
+         SCREEN 3: MUSIC PROFILE (EXPERIÊNCIA ROCK STAGE / CONCERT ATMOSPHERE)
          ══════════════════════════════════════════════════════════════════════════ -->
     <div class="persona-view--music">
       <div class="figma-container">
@@ -513,38 +513,38 @@
               </picture>
             </div>
             <div>
-              <span class="figma-hero-eyebrow">// HOLA, SOY FELIPE GARDENGHI</span>
+              <span class="figma-hero-eyebrow" data-i18n-pt="// ROCK, PALCO &amp; ENGENHARIA DE ÁUDIO" data-i18n-en="// ROCK, LIVE STAGE &amp; AUDIO ENGINEERING">// ROCK, PALCO &amp; ENGENHARIA DE ÁUDIO</span>
               <h1 class="figma-hero-name">FELIPE GARDENGHI</h1>
-              <div class="figma-hero-subtitle">GUITARRISTA / VOCALISTA &amp; PRODUTOR</div>
-              <p class="figma-hero-bio">
-                Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum lançado em estúdio, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
+              <div class="figma-hero-subtitle" data-i18n-pt="GUITARRISTA, VOCALISTA &amp; PRODUTOR MUSICAL" data-i18n-en="GUITARIST, VOCALIST &amp; MUSIC PRODUCER">GUITARRISTA, VOCALISTA &amp; PRODUTOR MUSICAL</div>
+              <p class="figma-hero-bio" data-i18n-pt="Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum de estúdio gravado, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>." data-i18n-en="Musician with over <strong>14 years on stage</strong>, founder, lead guitarist and vocalist of <strong>Banda Revanche</strong> (visceral tribute to Fresno and 2000s Emo anthems across São Paulo stages), bassist in original projects (<strong>Patrulha 7</strong> with studio album, and <strong>Hellboys</strong>). Pioneering technical background combining art and software: creator of <strong>Underground Tools</strong> (C++17 CLAP/VST3 DSP audio plugins and stage gear), <strong>VisuChord</strong> (computer vision instrument &amp; Web MIDI) and official website architect for Revanche in <strong>Next.js 16</strong>.">
+                Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum de estúdio gravado, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
               </p>
               <div class="figma-metrics-grid">
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">14+</div>
-                  <div class="figma-metric-label">Años de Trayectoria</div>
+                  <div class="figma-metric-label" data-i18n-pt="Anos de Estrada" data-i18n-en="Years on Stage">Anos de Estrada</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">2</div>
-                  <div class="figma-metric-label">Bandas Principales</div>
+                  <div class="figma-metric-label" data-i18n-pt="Bandas Principais" data-i18n-en="Main Bands">Bandas Principais</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">50+</div>
-                  <div class="figma-metric-label">Conciertos en Vivo</div>
+                  <div class="figma-metric-label" data-i18n-pt="Shows ao Vivo Realizados" data-i18n-en="Live Concerts Played">Shows ao Vivo Realizados</div>
                 </div>
                 <div class="figma-metric-box">
                   <div class="figma-metric-number">100%</div>
-                  <div class="figma-metric-label">Live Rig &amp; Audio DSP</div>
+                  <div class="figma-metric-label" data-i18n-pt="Live Rig Digital &amp; DSP" data-i18n-en="Digital Live Rig &amp; DSP">Live Rig Digital &amp; DSP</div>
                 </div>
               </div>
             </div>
           </div>
         </header>
 
-        <!-- Section 1: EN ESCENA (Concert Stage Wide Banner) -->
+        <!-- Section 1: NO PALCO (Concert Stage Wide Banner) -->
         <section id="music-escena" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">EN ESCENA</span>
+            <span class="figma-section-tag" data-i18n-pt="NO PALCO (AO VIVO)" data-i18n-en="ON STAGE (LIVE)">NO PALCO (AO VIVO)</span>
             <span class="figma-section-link">Banda Revanche &bull; Shows no Interior Paulista</span>
           </div>
           <div class="figma-stage-window">
@@ -556,11 +556,11 @@
           </div>
         </section>
 
-        <!-- Section 2: VÍDEOS & AUDIO (3-Column Grid + Interactive Player) -->
+        <!-- Section 2: MÚSICAS & GRAVAÇÕES (3-Column Grid + Interactive Player) -->
         <section id="music-videos" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">VÍDEOS &amp; AUDIO</span>
-            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="figma-section-link">Ver web oficial de la banda &rarr;</a>
+            <span class="figma-section-tag" data-i18n-pt="MÚSICAS &amp; GRAVAÇÕES" data-i18n-en="TRACKS &amp; RECORDINGS">MÚSICAS &amp; GRAVAÇÕES</span>
+            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="figma-section-link" data-i18n-pt="Ver site oficial da banda &rarr;" data-i18n-en="View official band website &rarr;">Ver site oficial da banda &rarr;</a>
           </div>
           <div class="figma-cards-grid-3">
             <!-- Media 1 -->
@@ -575,8 +575,8 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">Quebre As Correntes (Ao Vivo)</h3>
-                <p class="figma-card-desc">Gravação ao vivo do show da Banda Revanche com guitarra e voz principal.</p>
-                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Gravação ao vivo da apresentação da Banda Revanche com voz e guitarra principal." data-i18n-en="Live performance recording of Banda Revanche with lead vocals and guitar.">Gravação ao vivo da apresentação da Banda Revanche com voz e guitarra principal.</p>
+                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
               </div>
             </article>
 
@@ -592,8 +592,8 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">Revanche (Ao Vivo)</h3>
-                <p class="figma-card-desc">Performance ao vivo em festival com dinâmicas de voz rasgada e solos melódicos.</p>
-                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Apresentação visceral em festival de rock com dinâmicas de voz rasgada e solos de Stratocaster." data-i18n-en="Visceral rock festival performance featuring dynamic screamed vocals and melodic guitar solos.">Apresentação visceral em festival de rock com dinâmicas de voz rasgada e solos de Stratocaster.</p>
+                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
               </div>
             </article>
 
@@ -611,23 +611,23 @@
               </div>
               <div class="figma-card-content">
                 <h3 class="figma-card-title">MidwestAmp DSP Audio Demo</h3>
-                <p class="figma-card-desc">Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch.</p>
-                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+                <p class="figma-card-desc" data-i18n-pt="Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch." data-i18n-en="Audio showcase of the C++17 plugin simulating tube amp channels Kinsella Clean &amp; 90s Crunch.">Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch.</p>
+                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
               </div>
             </article>
           </div>
 
-          <!-- Integrated Interactive Audio Player & Canvas Visualizer -->
+          <!-- Reprodutor de Áudio Interativo com Visualizador Canvas -->
           <div class="music-player-widget" style="margin-top: 24px;">
             <div class="music-player-header">
               <div class="music-player-title-group">
                 <h3>
                   <span style="color: #f59e0b;">▶</span>
-                  <span>Audio Showcase &amp; Web Audio Engine</span>
+                  <span data-i18n-pt="Reprodutor Interativo &amp; Web Audio DSP" data-i18n-en="Interactive Player &amp; Web Audio DSP">Reprodutor Interativo &amp; Web Audio DSP</span>
                 </h3>
               </div>
-              <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent);">
-                ● REPRODUTOR EM TEMPO REAL
+              <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent);" data-i18n-pt="● MOTOR WEB AUDIO ATIVO" data-i18n-en="● WEB AUDIO ENGINE ACTIVE">
+                ● MOTOR WEB AUDIO ATIVO
               </div>
             </div>
 
@@ -697,16 +697,16 @@
           </div>
         </section>
 
-        <!-- Section 3: EQUIPAMIENTO & RIG (3 Panels) -->
+        <!-- Section 3: EQUIPAMENTOS & LIVE RIG (3 Panels) -->
         <section id="music-gear" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">EQUIPAMIENTO &amp; SETUP</span>
+            <span class="figma-section-tag" data-i18n-pt="EQUIPAMENTOS &amp; LIVE RIG" data-i18n-en="GEAR &amp; LIVE RIG">EQUIPAMENTOS &amp; LIVE RIG</span>
           </div>
           <div class="figma-stack-grid">
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">🎸</span>
-                <h4>Guitarras &amp; Baixo</h4>
+                <h4 data-i18n-pt="Guitarras &amp; Baixo" data-i18n-en="Guitars &amp; Bass">Guitarras &amp; Baixo</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">Fender Stratocaster</span>
@@ -719,11 +719,11 @@
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">🎛️</span>
-                <h4>Live Rig Digital (Sem Amp)</h4>
+                <h4 data-i18n-pt="Live Rig Digital (Sem Amp)" data-i18n-en="Digital Amp-less Live Rig">Live Rig Digital (Sem Amp)</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">Notebook Linux Mint</span>
-                <span class="figma-tech-badge">DAW Reaper (PipeWire)</span>
+                <span class="figma-tech-badge">DAW Reaper (PipeWire Pro Audio)</span>
                 <span class="figma-tech-badge">PreSonus AudioBox 22VSL</span>
                 <span class="figma-tech-badge">Galaxy S9+ Touch Remote</span>
               </div>
@@ -732,47 +732,47 @@
             <div class="figma-stack-panel">
               <div class="figma-stack-panel-header">
                 <span style="font-size: 18px;">🎧</span>
-                <h4>Áudio DSP &amp; Monitor</h4>
+                <h4 data-i18n-pt="Áudio DSP &amp; Retorno In-Ear" data-i18n-en="DSP Audio &amp; In-Ear Monitor">Áudio DSP &amp; Retorno In-Ear</h4>
               </div>
               <div class="figma-badges-wrap">
                 <span class="figma-tech-badge">Line 6 POD HD 500 (MIDI)</span>
-                <span class="figma-tech-badge">Transmissor M-Vave In-Ear</span>
-                <span class="figma-tech-badge">MidwestAmp C++17</span>
+                <span class="figma-tech-badge">Transmissor M-Vave In-Ear Sem Fio</span>
+                <span class="figma-tech-badge">MidwestAmp C++17 CLAP</span>
                 <span class="figma-tech-badge">CryTune Pitch Correction</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Section 4: SERVICIOS (2x2 Grid) -->
-        <section id="music-servicios" class="figma-section">
+        <!-- Section 4: SERVIÇOS MUSICAIS (2x2 Grid) -->
+        <section id="music-servicos" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">SERVICIOS</span>
+            <span class="figma-section-tag" data-i18n-pt="SERVIÇOS MUSICAIS &amp; ATUAÇÃO" data-i18n-en="MUSICAL SERVICES &amp; BOOKING">SERVIÇOS MUSICAIS &amp; ATUAÇÃO</span>
           </div>
           <div class="figma-services-grid">
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Conciertos en Vivo &amp; Festivales</h4>
-              <p class="figma-service-desc">Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Shows ao Vivo &amp; Festivais (Banda Revanche)" data-i18n-en="Live Concerts &amp; Festivals (Banda Revanche)">Shows ao Vivo &amp; Festivais (Banda Revanche)</h4>
+              <p class="figma-service-desc" data-i18n-pt="Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000." data-i18n-en="Full live concerts with Banda Revanche delivering an intense set of 2000s rock and emo classics.">Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Grabación de Guitarra, Bajo &amp; Voz</h4>
-              <p class="figma-service-desc">Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Gravação de Guitarra, Baixo &amp; Voz em Estúdio" data-i18n-en="Studio Guitar, Bass &amp; Vocal Tracking">Gravação de Guitarra, Baixo &amp; Voz em Estúdio</h4>
+              <p class="figma-service-desc" data-i18n-pt="Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio." data-i18n-en="High-resolution audio tracking for singles, arrangements and productions combining analog and digital tones.">Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Ingeniería de Live Rig &amp; Playback (VS)</h4>
-              <p class="figma-service-desc">Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Engenharia de Live Rig &amp; Playback (VS)" data-i18n-en="Live Rig Engineering &amp; Stems Playback (VS)">Engenharia de Live Rig &amp; Playback (VS)</h4>
+              <p class="figma-service-desc" data-i18n-pt="Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas." data-i18n-en="Consulting and building silent amp-less stage setups, metronome click automation and stereo routing for bands.">Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas.</p>
             </div>
             <div class="figma-service-card">
-              <h4 class="figma-service-title">Desarrollo de Plugins de Audio (C++ DSP)</h4>
-              <p class="figma-service-desc">Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco.</p>
+              <h4 class="figma-service-title" data-i18n-pt="Desenvolvimento de Plugins de Áudio (C++ DSP)" data-i18n-en="Audio Plugin Development (C++ DSP)">Desenvolvimento de Plugins de Áudio (C++ DSP)</h4>
+              <p class="figma-service-desc" data-i18n-pt="Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco." data-i18n-en="Audio DSP software engineering in VST3 and CLAP formats, cabinet simulators and open-source stage tools.">Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco.</p>
             </div>
           </div>
         </section>
 
-        <!-- Section 5: ENCUÉNTRAME & CTA -->
-        <section id="music-contacto" class="figma-section">
+        <!-- Section 5: REDES & BOOKING -->
+        <section id="music-contato" class="figma-section">
           <div class="figma-section-header">
-            <span class="figma-section-tag">ENCUÉNTRAME</span>
+            <span class="figma-section-tag" data-i18n-pt="REDES &amp; BOOKING" data-i18n-en="NETWORKS &amp; BOOKING">REDES &amp; BOOKING</span>
           </div>
           <div class="figma-social-pills-row">
             <a href="https://instagram.com/felipegardenghi" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
@@ -782,15 +782,15 @@
               <span>@bandarevanche</span> &rarr;
             </a>
             <a href="https://bandarevanche.com.br" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span>Web Oficial Revanche</span> &rarr;
+              <span data-i18n-pt="Site Oficial da Revanche" data-i18n-en="Official Revanche Website">Site Oficial da Revanche</span> &rarr;
             </a>
             <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20conversar%20sobre%20shows%20da%20Banda%20Revanche." class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span>WhatsApp de Booking</span> &rarr;
+              <span data-i18n-pt="WhatsApp de Booking" data-i18n-en="Booking WhatsApp">WhatsApp de Booking</span> &rarr;
             </a>
           </div>
 
           <div class="figma-cta-center">
-            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="figma-btn-primary">
+            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="figma-btn-primary" data-i18n-pt="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z'/></svg><span>Contratar Show da Banda Revanche</span>" data-i18n-en="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z'/></svg><span>Book Banda Revanche Live Show</span>">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
               <span>Contratar Show da Banda Revanche</span>
             </a>

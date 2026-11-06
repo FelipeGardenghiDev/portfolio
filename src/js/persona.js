@@ -1,15 +1,18 @@
 /**
- * Dual Persona Controller (Tech / Musician / Split Gateway)
- * Faithful recreation of the Dual Portfolio Figma Design.
- * Defaults strictly to 'tech' for root visits and CV/GitHub links.
+ * Dual Persona Controller (Split Gateway / Tech / Musician)
+ * Defaults to 'split' for root visits (felipegardenghi.com.br).
+ * Supports deep linking (?mode=tech, ?mode=music, ?mode=split).
  */
 
 export function initPersona() {
   const params = new URLSearchParams(window.location.search);
   const hash = window.location.hash.toLowerCase();
   
-  let initialPersona = 'tech';
-  if (params.get('mode') === 'music' || hash.startsWith('#music')) {
+  // Default to 'split' when visiting felipegardenghi.com.br directly
+  let initialPersona = 'split';
+  if (params.get('mode') === 'tech' || hash === '#tech') {
+    initialPersona = 'tech';
+  } else if (params.get('mode') === 'music' || hash.startsWith('#music')) {
     initialPersona = 'music';
   } else if (params.get('mode') === 'split' || hash === '#split') {
     initialPersona = 'split';
@@ -17,7 +20,7 @@ export function initPersona() {
 
   setPersona(initialPersona, false);
 
-  // Click handler for switcher tabs (navbar, buttons, split screen)
+  // Click handler for all persona triggers (navbar, split sides, buttons)
   document.addEventListener('click', (e) => {
     const tab = e.target.closest('[data-persona-btn]');
     if (!tab) return;
@@ -32,8 +35,10 @@ export function initPersona() {
   window.addEventListener('popstate', () => {
     const currentParams = new URLSearchParams(window.location.search);
     const currentHash = window.location.hash.toLowerCase();
-    let mode = 'tech';
-    if (currentParams.get('mode') === 'music' || currentHash.startsWith('#music')) {
+    let mode = 'split';
+    if (currentParams.get('mode') === 'tech' || currentHash === '#tech') {
+      mode = 'tech';
+    } else if (currentParams.get('mode') === 'music' || currentHash.startsWith('#music')) {
       mode = 'music';
     } else if (currentParams.get('mode') === 'split' || currentHash === '#split') {
       mode = 'split';
@@ -43,7 +48,7 @@ export function initPersona() {
 }
 
 export function setPersona(persona, updateUrl = true) {
-  const validPersona = ['tech', 'music', 'split'].includes(persona) ? persona : 'tech';
+  const validPersona = ['tech', 'music', 'split'].includes(persona) ? persona : 'split';
   document.documentElement.setAttribute('data-persona', validPersona);
 
   // Update switcher buttons state
@@ -57,15 +62,15 @@ export function setPersona(persona, updateUrl = true) {
   // URL synchronization
   if (updateUrl) {
     const url = new URL(window.location.href);
-    if (validPersona === 'music') {
+    if (validPersona === 'tech') {
+      url.searchParams.set('mode', 'tech');
+    } else if (validPersona === 'music') {
       url.searchParams.set('mode', 'music');
-    } else if (validPersona === 'split') {
-      url.searchParams.set('mode', 'split');
     } else {
-      url.searchParams.delete('mode');
+      url.searchParams.delete('mode'); // Clean URL on root for split mode
     }
     url.hash = '';
-    window.history.replaceState({}, '', url.toString());
+    window.history.replaceState({}, '', url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : ''));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 

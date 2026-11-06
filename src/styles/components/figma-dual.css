@@ -1,17 +1,18 @@
 /* ==========================================================================
    FIGMA DUAL PORTFOLIO UI — Front-End Developer / Professional Musician
-   Faithful recreation of Stiven Londoño's Dual Portfolio Figma Design
+   Bilingual PT-BR / EN (Zero Spanish terms)
+   Modes: 'split' (Default landing at /), 'tech', 'music'
    ========================================================================== */
 
 /* ── Global Dual Tokens ── */
 :root {
   --figma-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  /* Developer / TI Mode (Electric Dodger Blue & Deep Navy) */
-  --figma-dev-bg: #060a16;
-  --figma-dev-card: #0c1427;
+  /* Developer / TI Mode (Electric Dodger Blue & Deep Cyber Navy) */
+  --figma-dev-bg: #040711;
+  --figma-dev-card: #0b1222;
   --figma-dev-card-hover: #101c36;
-  --figma-dev-border: #172544;
+  --figma-dev-border: #162443;
   --figma-dev-accent: #38bdf8;
   --figma-dev-accent-solid: #2563eb;
   --figma-dev-accent-hover: #1d4ed8;
@@ -20,11 +21,11 @@
   --figma-dev-text-muted: #94a3b8;
 
   /* Musician Mode (Warm Concert Amber & Deep Charcoal) */
-  --figma-music-bg: #080605;
-  --figma-music-card: #140e0b;
-  --figma-music-card-hover: #1c1410;
-  --figma-music-border: #291c14;
-  --figma-music-accent: #fbbf24;
+  --figma-music-bg: #090605;
+  --figma-music-card: #150f0c;
+  --figma-music-card-hover: #1e1511;
+  --figma-music-border: #2c1c14;
+  --figma-music-accent: #f59e0b;
   --figma-music-accent-solid: #f59e0b;
   --figma-music-accent-hover: #d97706;
   --figma-music-glow: rgba(245, 158, 11, 0.25);
@@ -53,23 +54,37 @@
   --text-secondary: var(--figma-dev-text-muted);
 }
 
+[data-persona="tech"] body {
+  background-color: var(--figma-dev-bg);
+  background-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12), transparent 500px);
+}
+
 [data-persona="music"] {
   --bg-primary: var(--figma-music-bg);
   --bg-secondary: var(--figma-music-card);
-  --bg-tertiary: #1c1410;
+  --bg-tertiary: #1e1511;
   --border-primary: var(--figma-music-border);
   --accent: var(--figma-music-accent);
-  --accent-hover: #fde68a;
+  --accent-hover: #fbbf24;
   --accent-solid: var(--figma-music-accent-solid);
   --text-primary: var(--figma-music-text);
   --text-secondary: var(--figma-music-text-muted);
+}
+
+[data-persona="music"] body {
+  background-color: var(--figma-music-bg);
+  background-image: radial-gradient(circle at 50% -5%, rgba(245, 158, 11, 0.12) 0%, rgba(225, 29, 72, 0.05) 35%, transparent 600px);
+}
+
+[data-persona="split"] body {
+  overflow-x: hidden;
 }
 
 /* ── Navbar Persona Pill & Switcher ── */
 .figma-nav-switcher {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
   padding: 3px;
@@ -97,16 +112,38 @@
   color: #ffffff;
 }
 
-[data-persona="tech"] .figma-nav-btn[data-persona-btn="tech"],
-[data-persona="music"] .figma-nav-btn[data-persona-btn="music"],
-[data-persona="split"] .figma-nav-btn[data-persona-btn="split"] {
-  background: var(--accent-solid);
+[data-persona="tech"] .figma-nav-btn[data-persona-btn="tech"] {
+  background: var(--figma-dev-accent-solid);
   color: #ffffff;
-  box-shadow: 0 2px 10px var(--accent-glow);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.4);
 }
 
+[data-persona="music"] .figma-nav-btn[data-persona-btn="music"] {
+  background: var(--figma-music-accent-solid);
+  color: #000000;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.4);
+}
+
+[data-persona="split"] .figma-nav-btn[data-persona-btn="split"] {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Brand indicators */
+[data-persona="tech"] .brand-code--music,
+[data-persona="tech"] .brand-code--split { display: none !important; }
+
+[data-persona="music"] .brand-code--tech,
+[data-persona="music"] .brand-code--split { display: none !important; }
+
+[data-persona="split"] .brand-code--tech,
+[data-persona="split"] .brand-code--music { display: none !important; }
+
+[data-persona="split"] .nav-list--tech,
+[data-persona="split"] .nav-list--music { display: none !important; }
+
 /* ══════════════════════════════════════════════════════════════════════════
-   1. SCREEN 1: SPLIT SCREEN GATEWAY (Pantalla de Selección)
+   1. SCREEN 1: SPLIT SCREEN GATEWAY (Pantalla de Selección 50/50)
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-split-wrapper {
   display: flex;
@@ -123,18 +160,18 @@
   flex-direction: column;
   justify-content: center;
   padding: 60px 48px;
-  transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
   overflow: hidden;
   cursor: pointer;
 }
 
 .figma-split-side:hover {
-  flex: 1.15;
+  flex: 1.18;
 }
 
-/* Developer Half */
+/* Developer Half (Left) */
 .figma-split-dev {
-  background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.25) 0%, rgba(6, 10, 22, 0.95) 75%), #060a16;
+  background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.28) 0%, rgba(5, 8, 20, 0.95) 75%), #050814;
   border-right: 1px solid rgba(56, 189, 248, 0.2);
 }
 
@@ -142,13 +179,13 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2338bdf8' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2338bdf8' fill-opacity='0.035' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 
-/* Musician Half */
+/* Musician Half (Right) */
 .figma-split-music {
-  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.25) 0%, rgba(245, 158, 11, 0.15) 35%, rgba(8, 6, 5, 0.96) 80%), #080605;
+  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.25) 0%, rgba(245, 158, 11, 0.16) 35%, rgba(9, 6, 5, 0.96) 80%), #090605;
 }
 
 .figma-split-music::before {
@@ -158,7 +195,7 @@
   background-image: url('/images/music/revanche-band.webp');
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.16;
   filter: blur(2px) grayscale(20%);
   pointer-events: none;
 }
@@ -186,7 +223,7 @@
 }
 
 .figma-split-subtitle-music {
-  color: #fbbf24;
+  color: #f59e0b;
   display: block;
 }
 
@@ -219,7 +256,7 @@
 }
 
 .figma-split-music .figma-split-bullet-item::before {
-  color: #fbbf24;
+  color: #f59e0b;
 }
 
 .figma-split-social-row {
@@ -286,10 +323,10 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   2. HERO PROFILE SECTION (Exact Figma Layout for Dev & Musician)
+   2. HERO PROFILE SECTION (Tech vs Musician)
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-hero-section {
-  padding: 40px 0 32px;
+  padding: 44px 0 32px;
 }
 
 .figma-hero-card {
@@ -318,7 +355,7 @@
 }
 
 .figma-hero-eyebrow {
-  font-family: var(--figma-font);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -395,7 +432,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   3. SECTION HEADERS & LABELS (● EN EL TALLER / ● PROYECTOS / ● SERVICIOS)
+   3. SECTION HEADERS & LABELS
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-section {
   padding: 36px 0;
@@ -444,7 +481,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   4. FEATURED BANNER / WINDOW (EN EL TALLER vs EN ESCENA)
+   4. FEATURED BANNER / WINDOW (NO LABORATÓRIO vs NO PALCO)
    ══════════════════════════════════════════════════════════════════════════ */
 /* Dev IDE Mockup */
 .figma-code-window {
@@ -516,7 +553,7 @@
 .figma-stage-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(8, 6, 5, 0.9) 0%, rgba(8, 6, 5, 0.2) 60%, transparent 100%);
+  background: linear-gradient(0deg, rgba(9, 6, 5, 0.92) 0%, rgba(9, 6, 5, 0.2) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -524,10 +561,11 @@
 }
 
 .figma-stage-caption {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 800;
   color: #ffffff;
   margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .figma-stage-subcaption {
@@ -537,7 +575,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   5. 3-COLUMN CARDS GRID (PROYECTOS / VÍDEOS)
+   5. 3-COLUMN CARDS GRID (PROJETOS & MÚSICAS)
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-cards-grid-3 {
   display: grid;
@@ -566,7 +604,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
-  background: #111d38;
+  background: var(--bg-tertiary);
   overflow: hidden;
 }
 
@@ -637,7 +675,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   6. STACK TECNOLÓGICO / EQUIPAMIENTO GRID
+   6. STACK TECNOLÓGICO / EQUIPAMENTOS & LIVE RIG
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-stack-grid {
   display: grid;
@@ -687,7 +725,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   7. 2X2 SERVICIOS GRID (With Colored Left Border)
+   7. 2X2 SERVIÇOS GRID (With Colored Left Border)
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-services-grid {
   display: grid;
@@ -725,7 +763,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   8. ENCUÉNTRAME / SOCIAL PILLS & BOTTOM CTA
+   8. ENCONTRE-ME / SOCIAL PILLS & BOTTOM CTA
    ══════════════════════════════════════════════════════════════════════════ */
 .figma-social-pills-row {
   display: flex;
@@ -779,6 +817,10 @@
   transition: all 0.2s ease;
 }
 
+[data-persona="music"] .figma-btn-primary {
+  color: #000000;
+}
+
 .figma-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--accent-glow);
@@ -788,22 +830,26 @@
    9. VISIBILITY TOGGLING FOR 3 MODES
    ══════════════════════════════════════════════════════════════════════════ */
 [data-persona="tech"] .persona-view--music,
-[data-persona="tech"] .persona-view--split {
+[data-persona="tech"] .persona-view--split,
+[data-persona="tech"] .nav-list--music {
   display: none !important;
 }
 
 [data-persona="music"] .persona-view--tech,
-[data-persona="music"] .persona-view--split {
+[data-persona="music"] .persona-view--split,
+[data-persona="music"] .nav-list--tech {
   display: none !important;
 }
 
 [data-persona="split"] .persona-view--tech,
-[data-persona="split"] .persona-view--music {
+[data-persona="split"] .persona-view--music,
+[data-persona="split"] .nav-list--tech,
+[data-persona="split"] .nav-list--music {
   display: none !important;
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   10. RESPONSIVE BREAKPOINTS (< 768px)
+   10. RESPONSIVE BREAKPOINTS (< 860px)
    ══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 860px) {
   .figma-split-wrapper {
