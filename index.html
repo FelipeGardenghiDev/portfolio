@@ -71,15 +71,19 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('portfolio-theme');
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
 
         var params = new URLSearchParams(window.location.search);
         var hash = window.location.hash.toLowerCase();
-        var mode = params.get('mode') || (hash.startsWith('#music') ? 'music' : 'tech');
-        var persona = (mode === 'music') ? 'music' : 'tech';
-        document.documentElement.setAttribute('data-persona', persona);
+        var mode = 'tech';
+        if (params.get('mode') === 'music' || hash.startsWith('#music')) {
+          mode = 'music';
+        } else if (params.get('mode') === 'split' || hash === '#split') {
+          mode = 'split';
+        }
+        document.documentElement.setAttribute('data-persona', mode);
       } catch (e) {}
     })();
   </script>
@@ -100,45 +104,46 @@
        ════════════════════════════════════════ -->
   <header id="navbar" class="navbar" role="banner">
     <div class="container navbar-container">
-      <a href="#hero" class="nav-brand" aria-label="Felipe Gardenghi - Início">
+      <a href="#hero" class="nav-brand" aria-label="Felipe Gardenghi">
         <span class="brand-code brand-code--tech">&lt;FG /&gt;</span>
         <span class="brand-code brand-code--music">&lt;FG /&gt; 🎸</span>
+        <span class="brand-code brand-code--split">&lt;FG /&gt; ⚡</span>
       </a>
 
-      <!-- Persona Switcher (Tech vs Music) -->
-      <div class="persona-switcher nav-persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
-        <button type="button" class="persona-tab active" data-persona-btn="tech" role="radio" aria-checked="true" title="Perfil Engenharia de Software &amp; TI">
-          <span class="persona-tab-icon">💻</span>
-          <span class="persona-tab-label">Engenharia &amp; TI</span>
+      <!-- Figma 3-Mode Persona Switcher -->
+      <div class="figma-nav-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
+        <button type="button" class="figma-nav-btn active" data-persona-btn="tech" role="radio" aria-checked="true" title="Perfil Engenharia de Software &amp; TI">
+          <span>💻 Developer</span>
         </button>
-        <button type="button" class="persona-tab" data-persona-btn="music" role="radio" aria-checked="false" title="Perfil Música, Produção &amp; Áudio">
-          <span class="persona-tab-icon">🎸</span>
-          <span class="persona-tab-label">Música &amp; Áudio</span>
+        <button type="button" class="figma-nav-btn" data-persona-btn="music" role="radio" aria-checked="false" title="Perfil Música &amp; Produção">
+          <span>🎸 Músico</span>
+        </button>
+        <button type="button" class="figma-nav-btn" data-persona-btn="split" role="radio" aria-checked="false" title="Visualização Dividida 50/50">
+          <span>⚡ Split Dual</span>
         </button>
       </div>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Navegação principal">
         <ul class="nav-list nav-list--tech">
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#projetos" class="nav-link">Projetos</a></li>
-          <li><a href="#stack" class="nav-link">Stack</a></li>
-          <li><a href="#experiencia" class="nav-link">Experiência</a></li>
-          <li><a href="#formacao" class="nav-link">Formação</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
+          <li><a href="#tech-taller" class="nav-link">Taller</a></li>
+          <li><a href="#tech-proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#tech-stack" class="nav-link">Stack</a></li>
+          <li><a href="#tech-servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#tech-contacto" class="nav-link">Contacto</a></li>
         </ul>
         <ul class="nav-list nav-list--music">
-          <li><a href="#music-bio" class="nav-link">Trajetória</a></li>
-          <li><a href="#music-player-section" class="nav-link">Músicas</a></li>
-          <li><a href="#music-projects" class="nav-link">Bandas &amp; Projetos</a></li>
-          <li><a href="#music-rig" class="nav-link">Setup &amp; Rider</a></li>
-          <li><a href="#music-contact" class="nav-link">Contato &amp; Booking</a></li>
+          <li><a href="#music-escena" class="nav-link">En Escena</a></li>
+          <li><a href="#music-videos" class="nav-link">Vídeos &amp; Audio</a></li>
+          <li><a href="#music-gear" class="nav-link">Equipamiento</a></li>
+          <li><a href="#music-servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#music-contacto" class="nav-link">Contacto</a></li>
         </ul>
       </nav>
 
       <div class="nav-controls">
         <button id="palette-open-btn" class="palette-trigger-btn" type="button" aria-label="Abrir busca rápida (Ctrl+K)" title="Busca rápida (Ctrl+K)">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/>
           </svg>
           <span class="palette-kbd-badge font-mono" aria-hidden="true">Ctrl K</span>
         </button>
@@ -148,20 +153,15 @@
           <span class="lang-code" id="lang-en">EN</span>
         </button>
         <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Alternar tema">
-          <!-- Sun Icon (Dark Mode) -->
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
           </svg>
-          <!-- Moon Icon (Light Mode) -->
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
           </svg>
         </button>
-
         <button id="nav-toggle" class="nav-toggle-btn" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -170,1703 +170,476 @@
   <!-- ════════════════════════════════════════
        MAIN CONTENT
        ════════════════════════════════════════ -->
-  <main id="main-content">
+    <main id="main-content">
 
-    <!-- ════════════════════════════════════════
-         PERSONA: ENGENHARIA DE SOFTWARE & TI
-         ════════════════════════════════════════ -->
-    <div class="persona-content persona-content--tech">
+    <!-- ══════════════════════════════════════════════════════════════════════════
+         SCREEN 1: FIGMA DUAL SPLIT-SCREEN GATEWAY (PANTALLA DE SELECCIÓN)
+         ══════════════════════════════════════════════════════════════════════════ -->
+    <div class="persona-view--split">
+      <div class="figma-split-wrapper">
 
-    <!-- ── Hero ── -->
-    <section id="hero" class="hero" aria-label="Apresentação">
-      <div class="container hero-container reveal-on-scroll">
-        <!-- Persona Switcher Hero Banner -->
-        <div class="hero-persona-switch-bar">
-          <div class="persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
-            <button type="button" class="persona-tab active" data-persona-btn="tech" role="radio" aria-checked="true">
-              <span class="persona-tab-icon">💻</span>
-              <span class="persona-tab-label">Engenharia de Software &amp; TI</span>
+        <!-- Developer Half (Left) -->
+        <div class="figma-split-side figma-split-dev" data-persona-btn="tech" role="button" tabindex="0" aria-label="Acessar Perfil de Desenvolvedor">
+          <div class="figma-split-content">
+            <h1 class="figma-split-title">
+              Desarrollador
+              <span class="figma-split-subtitle-dev">Front-end &amp; Backend</span>
+            </h1>
+            <ul class="figma-split-bullets">
+              <li class="figma-split-bullet-item">C# .NET 8, Java 21, Spring Boot &amp; Oracle PL/SQL</li>
+              <li class="figma-split-bullet-item">Microsserviços distribuídos &amp; Arquitetura Hexagonal</li>
+              <li class="figma-split-bullet-item">2 anos de atuação corporativa (Nova Smar S/A)</li>
+              <li class="figma-split-bullet-item">Ciência de Dados (UNIVESP) &amp; Machine Learning</li>
+              <li class="figma-split-bullet-item">React 19, Next.js 16, TypeScript &amp; Angular</li>
+            </ul>
+            <div class="figma-split-social-row">
+              <a href="https://github.com/felipegardenghidev" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/felipegardenghi" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="mailto:felipegg.dev@gmail.com" class="figma-split-social-icon" aria-label="E-mail" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </div>
+            <button type="button" class="figma-split-btn figma-split-btn-dev" data-persona-btn="tech">
+              <span>Ver Perfil Developer</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
-            <button type="button" class="persona-tab" data-persona-btn="music" role="radio" aria-checked="false">
-              <span class="persona-tab-icon">🎸</span>
-              <span class="persona-tab-label">Música &amp; Engenharia de Áudio</span>
+          </div>
+        </div>
+
+        <!-- Musician Half (Right) -->
+        <div class="figma-split-side figma-split-music" data-persona-btn="music" role="button" tabindex="0" aria-label="Acessar Perfil de Músico">
+          <div class="figma-split-content">
+            <h1 class="figma-split-title">
+              Guitarrista &amp; Vocal
+              <span class="figma-split-subtitle-music">Músico de Sesión / Palco</span>
+            </h1>
+            <ul class="figma-split-bullets">
+              <li class="figma-split-bullet-item">Fundador, Guitarra &amp; Voz da Banda Revanche (Tributo Fresno)</li>
+              <li class="figma-split-bullet-item">Live Rig no Linux Mint + DAW Reaper (Sem amplificadores)</li>
+              <li class="figma-split-bullet-item">Plugins de áudio DSP em C++17 (MidwestAmp / Underground Tools)</li>
+              <li class="figma-split-bullet-item">Abertura de shows nacionais (Fresno, McFly) &amp; 14+ anos de estrada</li>
+              <li class="figma-split-bullet-item">VisuChord: Instrumento por Visão Computacional &amp; Web MIDI</li>
+            </ul>
+            <div class="figma-split-social-row">
+              <a href="https://instagram.com/felipegardenghi" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://bandarevanche.com.br" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="Website da Banda" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              </a>
+              <a href="https://wa.me/5516993950293" class="figma-split-social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+              </a>
+            </div>
+            <button type="button" class="figma-split-btn figma-split-btn-music" data-persona-btn="music">
+              <span>Ver Perfil Músico</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
             </button>
           </div>
-          <span class="persona-hint-text">// Portfólio Duplo: Alterne o perfil a qualquer momento</span>
         </div>
 
-        <!-- Status Badge -->
-        <div class="hero-status-badge">
-          <span class="status-dot"></span>
-          <span>Disponível para oportunidades</span>
-        </div>
-
-        <!-- Main Title & Dynamic Typewriter Subtitle -->
-        <h1 class="hero-title">Felipe Gardenghi</h1>
-        <div class="hero-typewriter-container" aria-label="Especialidades profissionais">
-          <span class="typewriter-prefix" aria-hidden="true">//</span>
-          <span class="sr-only">Desenvolvedor Backend / Full-Stack | Engenharia de Software &amp; Arquitetura</span>
-          <span class="typewriter-text" id="typewriter-text" aria-hidden="true">Desenvolvedor Full-Stack</span>
-          <span class="typewriter-cursor" aria-hidden="true">|</span>
-        </div>
-
-        <!-- Positioning Statement -->
-        <p class="hero-description">
-          Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário corporativo recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces reativas modernas (React 19, Next.js 16, Angular 19).
-        </p>
-
-        <!-- Action CTAs -->
-        <div class="hero-actions">
-          <a href="#projetos" class="btn btn-primary">
-            <span>Ver Projetos</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-            </svg>
-          </a>
-          <button type="button" class="btn btn-secondary" data-open-cv aria-label="Visualizar currículo na tela">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width: 18px; height: 18px; fill: currentColor;">
-              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-            </svg>
-            <span>Visualizar CV</span>
-          </button>
-          <a href="./resume/felipe-gardenghi-cv.pdf" download="felipe-gardenghi-cv.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-download-cv aria-label="Baixar currículo em formato PDF">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width: 18px; height: 18px; fill: currentColor;">
-              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-            </svg>
-            <span>Baixar CV (PDF)</span>
-          </a>
-          <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
-        </div>
-
-        <!-- Social & Contact Links with Instant Copy -->
-        <div class="hero-social">
-          <a href="https://github.com/felipegardenghidev" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Felipe Gardenghi">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            <span>GitHub</span>
-          </a>
-
-          <a href="https://linkedin.com/in/felipegardenghi" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Felipe Gardenghi">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-
-          <a href="mailto:felipegg.dev@gmail.com" class="social-link" data-copy="felipegg.dev@gmail.com" aria-label="Enviar e-mail para Felipe Gardenghi (clique para copiar)">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            <span>felipegg.dev@gmail.com</span>
-          </a>
-        </div>
-
-        <!-- Interactive Developer Terminal CLI -->
-        <div class="terminal-section">
-          <div class="terminal-window spotlight-card" id="interactive-terminal">
-            <div class="terminal-header">
-              <div class="terminal-controls">
-                <span class="term-dot term-dot-red"></span>
-                <span class="term-dot term-dot-yellow"></span>
-                <span class="term-dot term-dot-green"></span>
-              </div>
-              <div class="terminal-title">
-                <span>felipe@fedora: ~ (zsh)</span>
-                <span class="terminal-status-tag" id="terminal-status-tag">ONLINE</span>
-              </div>
-              <div style="width: 40px;"></div>
-            </div>
-
-            <!-- Quick Pill Buttons -->
-            <div class="terminal-pills-bar">
-              <span class="terminal-pills-label" id="terminal-pills-label">Atalhos rápidos:</span>
-              <button type="button" class="terminal-pill" data-cmd="help">help</button>
-              <button type="button" class="terminal-pill" data-cmd="skills">skills</button>
-              <button type="button" class="terminal-pill" data-cmd="projects">projects</button>
-              <button type="button" class="terminal-pill" data-cmd="experience">experience</button>
-              <button type="button" class="terminal-pill" data-cmd="education">education</button>
-              <button type="button" class="terminal-pill" data-cmd="cv">cv</button>
-              <button type="button" class="terminal-pill" data-cmd="contact">contact</button>
-              <button type="button" class="terminal-pill" data-cmd="clear">clear</button>
-            </div>
-
-            <!-- Terminal Output and Interactive Prompt -->
-            <div class="terminal-body" id="terminal-body">
-              <div class="terminal-welcome" id="terminal-welcome-text">
-                Felipe Gardenghi Shell [v2.4.0 - x86_64]. Digite um comando ou use os atalhos rápidos acima:
-              </div>
-              <div id="terminal-output"></div>
-              <div class="terminal-input-row">
-                <span class="terminal-prompt">felipe@fedora:~$</span>
-                <input
-                  type="text"
-                  id="terminal-input"
-                  class="terminal-input"
-                  placeholder="type 'help' or click a command..."
-                  autocomplete="off"
-                  autocapitalize="none"
-                  spellcheck="false"
-                  aria-label="Comando do terminal interativo"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- ── Tech Marquee Ribbon (Infinite Horizontal Ticker) ── -->
-    <section class="tech-marquee-section" aria-label="Tecnologias principais">
-      <div class="marquee-track-wrapper">
-        <div class="marquee-content" id="tech-marquee">
-          <!-- Track 1 -->
-          <div class="marquee-track" aria-hidden="false">
-            <!-- 01. Java -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 19h16v1H4v-1zm14-7v-1c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v5c0 2.21 1.79 4 4 4h4c2.21 0 4-1.79 4-4v-1h2c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2zm0 2h2v1h-2v-1zM9 3c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4H9zm4 0c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4h-2z"/></svg>
-              </span>
-              <span class="marquee-label">Java 21</span>
-            </div>
-            <!-- 02. Spring Boot -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M21.84 10.42c-.5-5.88-5.32-10.42-11.23-10.42a11.3 11.3 0 0 0-8.08 3.42c-.44.45-.44 1.18 0 1.63.44.44 1.16.44 1.6 0A9.07 9.07 0 0 1 10.6 2.25c4.72 0 8.58 3.63 8.98 8.33.04.49.45.86.94.86.03 0 .07 0 .1-.01.52-.04.9-.5.86-1.02l-.64.01zM11.97 4.14c-4.4 0-7.97 3.57-7.97 7.97 0 2.21.9 4.21 2.34 5.65.44.44 1.16.44 1.6 0 .44-.44.44-1.16 0-1.6a5.71 5.71 0 0 1-1.69-4.05c0-3.16 2.56-5.72 5.72-5.72 3.16 0 5.72 2.56 5.72 5.72 0 1.57-.63 3-1.69 4.05-.44.44-.44 1.16 0 1.6.44.44 1.16.44 1.6 0 1.44-1.44 2.34-3.44 2.34-5.65 0-4.4-3.57-7.97-7.96-7.97zM11.97 9.77c-1.28 0-2.33 1.05-2.33 2.34 0 .91.53 1.7 1.29 2.08v4.83a1.03 1.03 0 0 0 2.07 0v-4.83c.76-.38 1.29-1.17 1.29-2.08 0-1.29-1.04-2.34-2.32-2.34z"/></svg>
-              </span>
-              <span class="marquee-label">Spring Boot 3</span>
-            </div>
-            <!-- 03. AWS Terraform -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M14.67 8.35v6.52l-5.65-3.26V5.09l5.65 3.26zm1.33 0l5.65-3.26v6.52l-5.65 3.26V8.35zm0 7.82l5.65-3.26v6.52l-5.65 3.26v-6.52zM2.35 6.48l5.65 3.26v6.52L2.35 13V6.48z"/></svg>
-              </span>
-              <span class="marquee-label">Terraform IaC</span>
-            </div>
-            <!-- Angular -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2.5L2.3 5.9l1.5 12.8L12 23.5l8.2-4.8 1.5-12.8L12 2.5zm0 2.8l6.1 13.9h-2.3l-1.3-3.2H9.5l-1.3 3.2H5.9L12 5.3zm1.6 8.5L12 8.7l-1.6 5.1h3.2z"/></svg>
-              </span>
-              <span class="marquee-label">Angular</span>
-            </div>
-            <!-- 04. TypeScript -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm10.5 7.5h5V9h-12v1.5h5v9h2v-9zm3 2.25c-.75-.45-1.5-.75-2.25-.75-1.5 0-2.25.75-2.25 1.8 0 1.2 1.05 1.65 2.55 2.1 1.8.6 2.7 1.35 2.7 2.85 0 1.8-1.5 2.85-3.45 2.85-1.2 0-2.4-.45-3.3-1.2l.9-1.35c.75.6 1.65 1.05 2.4 1.05 1.05 0 1.65-.6 1.65-1.35 0-.9-1.05-1.35-2.4-1.8-1.8-.6-2.85-1.35-2.85-3 0-1.65 1.35-2.7 3.15-2.7 1.05 0 2.1.45 2.85 1.05l-.75 1.2z"/></svg>
-              </span>
-              <span class="marquee-label">TypeScript</span>
-            </div>
-            <!-- 05. Next.js -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.32 14.28L9.5 8.7v7.58H8V6.8h1.8l6.1 8.04V6.8h1.5v9.48h-2.08z"/></svg>
-              </span>
-              <span class="marquee-label">Next.js 16</span>
-            </div>
-            <!-- 06. React -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-7c-5.5 0-10 2.24-10 5 0 1.77 1.88 3.32 4.79 4.18C6.3 10.4 6 9.68 6 9c0-3.31 2.69-6 6-6s6 2.69 6 6c0 .68-.3 1.4-.79 2.18C20.12 10.32 22 8.77 22 7c0-2.76-4.5-5-10-5zm0 14c-3.31 0-6-2.69-6-6 0-.68.3-1.4.79-2.18C3.88 13.68 2 15.23 2 17c0 2.76 4.5 5 10 5s10-2.24 10-5c0-1.77-1.88-3.32-4.79-4.18.49.78.79 1.5.79 2.18 0 3.31-2.69 6-6 6z"/></svg>
-              </span>
-              <span class="marquee-label">React 19</span>
-            </div>
-            <!-- 07. RabbitMQ -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12.5 3c-.8 0-1.5.7-1.5 1.5v3.2c-1.3.5-2.4 1.3-3.2 2.4-.8-1.5-2.2-2.6-3.8-2.9v-.2c0-.8-.7-1.5-1.5-1.5S1 6.2 1 7v5c0 4.4 3.6 8 8 8h6c4.4 0 8-3.6 8-8 0-3.3-2-6.1-4.9-7.3V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v.7c-.5-.1-1.1-.2-1.6-.2h-1V4.5c0-.8-.7-1.5-1.5-1.5zM7 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
-              </span>
-              <span class="marquee-label">RabbitMQ</span>
-            </div>
-            <!-- 08. Redis -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9.25L4.5 7.5 12 3.75l7.5 3.75L12 11.25zM2 12l10 5 10-5-2.25-1.13L12 14.75 4.25 10.87 2 12zm0 5l10 5 10-5-2.25-1.13L12 19.75 4.25 15.87 2 17z"/></svg>
-              </span>
-              <span class="marquee-label">Redis</span>
-            </div>
-            <!-- 09. Docker -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M13.98 11.08h1.85v1.85h-1.85zm-2.77 0h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm-2.77 0h1.85v1.85H5.67zm5.54-2.77h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm5.54 0h1.85v1.85h-1.85zm-2.77-2.77h1.85v1.85h-1.85zm12.38 6.45c-.47-.36-1.53-.44-2.37-.15-.17-.79-.62-1.46-1.22-1.92l-.58-.39-.36.6c-.39.66-.46 1.48-.27 2.22-.57.34-1.32.44-2.18.36H1.54c-.23.95-.27 2.05.02 3.12.83 3.03 3.73 5.4 7.64 5.4 5.86 0 10.34-3.57 11.51-8.52.92.05 2.14-.14 2.87-1.12l.34-.47-.4-.33z"/></svg>
-              </span>
-              <span class="marquee-label">Docker</span>
-            </div>
-            <!-- 10. PostgreSQL -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19.9 8.6c-.4-1.5-1.5-2.8-3-3.5-1.5-.7-3.3-.8-4.9-.3-1.6.5-2.9 1.6-3.7 3.1-.8 1.5-.9 3.3-.4 4.9.4 1.2 1.2 2.3 2.2 3.1v4.1h2v-3.3c.6.2 1.3.3 2 .3 1.7 0 3.3-.6 4.6-1.7 1.3-1.1 2.1-2.6 2.3-4.3.1-.8 0-1.6-.3-2.4h-1.8c.2.5.2 1.1.2 1.6 0 1.2-.5 2.3-1.4 3.1-.9.8-2 1.2-3.2 1.2-.6 0-1.1-.1-1.7-.3v-4.9c0-.6-.4-1-1-1s-1 .4-1 1v4.2c-.7-.7-1.2-1.6-1.4-2.5-.3-1.3-.1-2.6.5-3.8.6-1.2 1.7-2 3-2.4 1.3-.4 2.7-.3 3.9.3 1.2.6 2 1.6 2.3 2.9h1.9z"/></svg>
-              </span>
-              <span class="marquee-label">PostgreSQL</span>
-            </div>
-            <!-- 11. Oracle DB -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm8 14c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V18zm0-4.5c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V13.5z"/></svg>
-              </span>
-              <span class="marquee-label">Oracle PL/SQL</span>
-            </div>
-            <!-- 12. Python -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M11.91 2c-5.26 0-4.93 2.28-4.93 2.28l.01 2.36h5.02v.71H4.97S2 7.02 2 12.28c0 5.25 2.59 5.09 2.59 5.09h1.54v-2.17s-.08-2.59 2.55-2.59h5.01s2.47.04 2.47-2.43V4.43S16.63 2 11.91 2zm-1.39 1.53a.93.93 0 1 1 0 1.86.93.93 0 0 1 0-1.86zm1.57 18.47c5.26 0 4.93-2.28 4.93-2.28l-.01-2.36h-5.02v-.71h7.04s2.97.33 2.97-4.93c0-5.25-2.59-5.09-2.59-5.09h-1.54v2.17s.08 2.59-2.55 2.59h-5.01s-2.47-.04-2.47 2.43v5.75s-.45 2.43 4.27 2.43zm1.39-1.53a.93.93 0 1 1 0-1.86.93.93 0 0 1 0 1.86z"/></svg>
-              </span>
-              <span class="marquee-label">Python & ML</span>
-            </div>
-            <!-- 13. Tailwind CSS -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
-              </span>
-              <span class="marquee-label">Tailwind CSS v4</span>
-            </div>
-            <!-- 14. Vitest -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19.64 3.12l-6.88 11.95L10.3 9.4l1.9-3.28a.75.75 0 0 0-.65-1.12H5.45a.75.75 0 0 0-.65.37L.1 13.5a.75.75 0 0 0 .65 1.13h4.63l-2.4 4.16a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.37l7.85-13.63 2.94 5.1-4.85 8.4a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.38l6.05-10.49a.75.75 0 0 0-.65-1.12h-4.63l2.4-4.16a.75.75 0 0 0-.65-1.12h-3.34z"/></svg>
-              </span>
-              <span class="marquee-label">Vitest</span>
-            </div>
-            <!-- 15. Playwright -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M17.05 4.54a6.76 6.76 0 0 0-4.87-2.04c-3.76 0-6.8 3.07-6.8 6.86 0 1.24.33 2.4.92 3.4L4.1 16.4a2.26 2.26 0 0 0 0 3.2 2.26 2.26 0 0 0 3.2 0l3.65-3.65a6.8 6.8 0 0 0 8.04-1.07 6.8 6.8 0 0 0 1.95-4.83c0-2.12-.9-4.04-2.39-5.51h-.5zm-4.87 8.16a2.86 2.86 0 1 1 0-5.72 2.86 2.86 0 0 1 0 5.72z"/></svg>
-              </span>
-              <span class="marquee-label">Playwright</span>
-            </div>
-            <!-- 16. Git -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M21.62 10.66l-8.28-8.28a1.86 1.86 0 0 0-2.63 0L8.76 4.33l3.29 3.29a2.21 2.21 0 0 1 2.78 2.78l3.17 3.17a2.21 2.21 0 1 1-1.32 1.32l-2.93-2.93v4.29a2.21 2.21 0 1 1-1.86 0v-4.66a2.21 2.21 0 0 1-1.19-2.9l-3.23-3.23L2.38 10.66a1.86 1.86 0 0 0 0 2.63l8.28 8.28a1.86 1.86 0 0 0 2.63 0l8.33-8.28a1.86 1.86 0 0 0 0-2.63z"/></svg>
-              </span>
-              <span class="marquee-label">Git & CI/CD</span>
-            </div>
-          </div>
+    <!-- ══════════════════════════════════════════════════════════════════════════
+         SCREEN 3: FIGMA DEVELOPER PORTFOLIO (PÁGINA DESARROLLADOR FRONT-END)
+         ══════════════════════════════════════════════════════════════════════════ -->
+    <div class="persona-view--tech">
+      <div class="figma-container">
 
-          <!-- Track 2 (Clone for infinite seamless loop) -->
-          <div class="marquee-track" aria-hidden="true">
-            <!-- 01. Java -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 19h16v1H4v-1zm14-7v-1c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v5c0 2.21 1.79 4 4 4h4c2.21 0 4-1.79 4-4v-1h2c1.1 0 2-.9 2-2v-1c0-1.1-.9-2-2-2h-2zm0 2h2v1h-2v-1zM9 3c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4H9zm4 0c0 1.5-1 2.5-1 4h2c0-1.5 1-2.5 1-4h-2z"/></svg>
-              </span>
-              <span class="marquee-label">Java 21</span>
+        <!-- Hero Profile Card -->
+        <header class="figma-hero-section">
+          <div class="figma-hero-card">
+            <div class="figma-avatar-wrapper">
+              <picture>
+                <source srcset="./images/felipe-dev.webp" type="image/webp" />
+                <img src="./images/felipe-dev.png" alt="Felipe Gardenghi - Desenvolvedor" class="figma-avatar-img" />
+              </picture>
             </div>
-            <!-- 02. Spring Boot -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M21.84 10.42c-.5-5.88-5.32-10.42-11.23-10.42a11.3 11.3 0 0 0-8.08 3.42c-.44.45-.44 1.18 0 1.63.44.44 1.16.44 1.6 0A9.07 9.07 0 0 1 10.6 2.25c4.72 0 8.58 3.63 8.98 8.33.04.49.45.86.94.86.03 0 .07 0 .1-.01.52-.04.9-.5.86-1.02l-.64.01zM11.97 4.14c-4.4 0-7.97 3.57-7.97 7.97 0 2.21.9 4.21 2.34 5.65.44.44 1.16.44 1.6 0 .44-.44.44-1.16 0-1.6a5.71 5.71 0 0 1-1.69-4.05c0-3.16 2.56-5.72 5.72-5.72 3.16 0 5.72 2.56 5.72 5.72 0 1.57-.63 3-1.69 4.05-.44.44-.44 1.16 0 1.6.44.44 1.16.44 1.6 0 1.44-1.44 2.34-3.44 2.34-5.65 0-4.4-3.57-7.97-7.96-7.97zM11.97 9.77c-1.28 0-2.33 1.05-2.33 2.34 0 .91.53 1.7 1.29 2.08v4.83a1.03 1.03 0 0 0 2.07 0v-4.83c.76-.38 1.29-1.17 1.29-2.08 0-1.29-1.04-2.34-2.32-2.34z"/></svg>
-              </span>
-              <span class="marquee-label">Spring Boot 3</span>
-            </div>
-            <!-- 03. AWS Terraform -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M14.67 8.35v6.52l-5.65-3.26V5.09l5.65 3.26zm1.33 0l5.65-3.26v6.52l-5.65 3.26V8.35zm0 7.82l5.65-3.26v6.52l-5.65 3.26v-6.52zM2.35 6.48l5.65 3.26v6.52L2.35 13V6.48z"/></svg>
-              </span>
-              <span class="marquee-label">Terraform IaC</span>
-            </div>
-            <!-- Angular -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2.5L2.3 5.9l1.5 12.8L12 23.5l8.2-4.8 1.5-12.8L12 2.5zm0 2.8l6.1 13.9h-2.3l-1.3-3.2H9.5l-1.3 3.2H5.9L12 5.3zm1.6 8.5L12 8.7l-1.6 5.1h3.2z"/></svg>
-              </span>
-              <span class="marquee-label">Angular</span>
-            </div>
-            <!-- 04. TypeScript -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm10.5 7.5h5V9h-12v1.5h5v9h2v-9zm3 2.25c-.75-.45-1.5-.75-2.25-.75-1.5 0-2.25.75-2.25 1.8 0 1.2 1.05 1.65 2.55 2.1 1.8.6 2.7 1.35 2.7 2.85 0 1.8-1.5 2.85-3.45 2.85-1.2 0-2.4-.45-3.3-1.2l.9-1.35c.75.6 1.65 1.05 2.4 1.05 1.05 0 1.65-.6 1.65-1.35 0-.9-1.05-1.35-2.4-1.8-1.8-.6-2.85-1.35-2.85-3 0-1.65 1.35-2.7 3.15-2.7 1.05 0 2.1.45 2.85 1.05l-.75 1.2z"/></svg>
-              </span>
-              <span class="marquee-label">TypeScript</span>
-            </div>
-            <!-- 05. Next.js -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.32 14.28L9.5 8.7v7.58H8V6.8h1.8l6.1 8.04V6.8h1.5v9.48h-2.08z"/></svg>
-              </span>
-              <span class="marquee-label">Next.js 16</span>
-            </div>
-            <!-- 06. React -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-7c-5.5 0-10 2.24-10 5 0 1.77 1.88 3.32 4.79 4.18C6.3 10.4 6 9.68 6 9c0-3.31 2.69-6 6-6s6 2.69 6 6c0 .68-.3 1.4-.79 2.18C20.12 10.32 22 8.77 22 7c0-2.76-4.5-5-10-5zm0 14c-3.31 0-6-2.69-6-6 0-.68.3-1.4.79-2.18C3.88 13.68 2 15.23 2 17c0 2.76 4.5 5 10 5s10-2.24 10-5c0-1.77-1.88-3.32-4.79-4.18.49.78.79 1.5.79 2.18 0 3.31-2.69 6-6 6z"/></svg>
-              </span>
-              <span class="marquee-label">React 19</span>
-            </div>
-            <!-- 07. RabbitMQ -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12.5 3c-.8 0-1.5.7-1.5 1.5v3.2c-1.3.5-2.4 1.3-3.2 2.4-.8-1.5-2.2-2.6-3.8-2.9v-.2c0-.8-.7-1.5-1.5-1.5S1 6.2 1 7v5c0 4.4 3.6 8 8 8h6c4.4 0 8-3.6 8-8 0-3.3-2-6.1-4.9-7.3V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v.7c-.5-.1-1.1-.2-1.6-.2h-1V4.5c0-.8-.7-1.5-1.5-1.5zM7 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm10 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
-              </span>
-              <span class="marquee-label">RabbitMQ</span>
-            </div>
-            <!-- 08. Redis -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9.25L4.5 7.5 12 3.75l7.5 3.75L12 11.25zM2 12l10 5 10-5-2.25-1.13L12 14.75 4.25 10.87 2 12zm0 5l10 5 10-5-2.25-1.13L12 19.75 4.25 15.87 2 17z"/></svg>
-              </span>
-              <span class="marquee-label">Redis</span>
-            </div>
-            <!-- 09. Docker -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M13.98 11.08h1.85v1.85h-1.85zm-2.77 0h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm-2.77 0h1.85v1.85H5.67zm5.54-2.77h1.85v1.85h-1.85zm-2.77 0h1.85v1.85H8.44zm5.54 0h1.85v1.85h-1.85zm-2.77-2.77h1.85v1.85h-1.85zm12.38 6.45c-.47-.36-1.53-.44-2.37-.15-.17-.79-.62-1.46-1.22-1.92l-.58-.39-.36.6c-.39.66-.46 1.48-.27 2.22-.57.34-1.32.44-2.18.36H1.54c-.23.95-.27 2.05.02 3.12.83 3.03 3.73 5.4 7.64 5.4 5.86 0 10.34-3.57 11.51-8.52.92.05 2.14-.14 2.87-1.12l.34-.47-.4-.33z"/></svg>
-              </span>
-              <span class="marquee-label">Docker</span>
-            </div>
-            <!-- 10. PostgreSQL -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19.9 8.6c-.4-1.5-1.5-2.8-3-3.5-1.5-.7-3.3-.8-4.9-.3-1.6.5-2.9 1.6-3.7 3.1-.8 1.5-.9 3.3-.4 4.9.4 1.2 1.2 2.3 2.2 3.1v4.1h2v-3.3c.6.2 1.3.3 2 .3 1.7 0 3.3-.6 4.6-1.7 1.3-1.1 2.1-2.6 2.3-4.3.1-.8 0-1.6-.3-2.4h-1.8c.2.5.2 1.1.2 1.6 0 1.2-.5 2.3-1.4 3.1-.9.8-2 1.2-3.2 1.2-.6 0-1.1-.1-1.7-.3v-4.9c0-.6-.4-1-1-1s-1 .4-1 1v4.2c-.7-.7-1.2-1.6-1.4-2.5-.3-1.3-.1-2.6.5-3.8.6-1.2 1.7-2 3-2.4 1.3-.4 2.7-.3 3.9.3 1.2.6 2 1.6 2.3 2.9h1.9z"/></svg>
-              </span>
-              <span class="marquee-label">PostgreSQL</span>
-            </div>
-            <!-- 11. Oracle DB -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 2s-3.58 2-8 2-8-1.34-8-2 3.58-2 8-2zm8 14c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V18zm0-4.5c0 .66-3.58 2-8 2s-8-1.34-8-2v-2.35c1.97 1.44 5.02 2.35 8 2.35s6.03-.91 8-2.35V13.5z"/></svg>
-              </span>
-              <span class="marquee-label">Oracle PL/SQL</span>
-            </div>
-            <!-- 12. Python -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M11.91 2c-5.26 0-4.93 2.28-4.93 2.28l.01 2.36h5.02v.71H4.97S2 7.02 2 12.28c0 5.25 2.59 5.09 2.59 5.09h1.54v-2.17s-.08-2.59 2.55-2.59h5.01s2.47.04 2.47-2.43V4.43S16.63 2 11.91 2zm-1.39 1.53a.93.93 0 1 1 0 1.86.93.93 0 0 1 0-1.86zm1.57 18.47c5.26 0 4.93-2.28 4.93-2.28l-.01-2.36h-5.02v-.71h7.04s2.97.33 2.97-4.93c0-5.25-2.59-5.09-2.59-5.09h-1.54v2.17s.08 2.59-2.55 2.59h-5.01s-2.47-.04-2.47 2.43v5.75s-.45 2.43 4.27 2.43zm1.39-1.53a.93.93 0 1 1 0-1.86.93.93 0 0 1 0 1.86z"/></svg>
-              </span>
-              <span class="marquee-label">Python & ML</span>
-            </div>
-            <!-- 13. Tailwind CSS -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/></svg>
-              </span>
-              <span class="marquee-label">Tailwind CSS v4</span>
-            </div>
-            <!-- 14. Vitest -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19.64 3.12l-6.88 11.95L10.3 9.4l1.9-3.28a.75.75 0 0 0-.65-1.12H5.45a.75.75 0 0 0-.65.37L.1 13.5a.75.75 0 0 0 .65 1.13h4.63l-2.4 4.16a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.37l7.85-13.63 2.94 5.1-4.85 8.4a.75.75 0 0 0 .65 1.12h4.52a.75.75 0 0 0 .65-.38l6.05-10.49a.75.75 0 0 0-.65-1.12h-4.63l2.4-4.16a.75.75 0 0 0-.65-1.12h-3.34z"/></svg>
-              </span>
-              <span class="marquee-label">Vitest</span>
-            </div>
-            <!-- 15. Playwright -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M17.05 4.54a6.76 6.76 0 0 0-4.87-2.04c-3.76 0-6.8 3.07-6.8 6.86 0 1.24.33 2.4.92 3.4L4.1 16.4a2.26 2.26 0 0 0 0 3.2 2.26 2.26 0 0 0 3.2 0l3.65-3.65a6.8 6.8 0 0 0 8.04-1.07 6.8 6.8 0 0 0 1.95-4.83c0-2.12-.9-4.04-2.39-5.51h-.5zm-4.87 8.16a2.86 2.86 0 1 1 0-5.72 2.86 2.86 0 0 1 0 5.72z"/></svg>
-              </span>
-              <span class="marquee-label">Playwright</span>
-            </div>
-            <!-- 16. Git -->
-            <div class="marquee-item">
-              <span class="marquee-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M21.62 10.66l-8.28-8.28a1.86 1.86 0 0 0-2.63 0L8.76 4.33l3.29 3.29a2.21 2.21 0 0 1 2.78 2.78l3.17 3.17a2.21 2.21 0 1 1-1.32 1.32l-2.93-2.93v4.29a2.21 2.21 0 1 1-1.86 0v-4.66a2.21 2.21 0 0 1-1.19-2.9l-3.23-3.23L2.38 10.66a1.86 1.86 0 0 0 0 2.63l8.28 8.28a1.86 1.86 0 0 0 2.63 0l8.33-8.28a1.86 1.86 0 0 0 0-2.63z"/></svg>
-              </span>
-              <span class="marquee-label">Git & CI/CD</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Sobre Mim ── -->
-    <section id="sobre" class="section" aria-label="Sobre mim">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// sobre mim</span>
-          <h2 class="section-title">Trajetória e visão de negócio</h2>
-        </div>
-
-        <div class="about-grid">
-          <!-- Main Narrative Column -->
-          <div class="about-content reveal-on-scroll">
-            <p>
-              Sou desenvolvedor backend / full-stack e graduando em <strong>Bacharelado em Ciência de Dados</strong> pela UNIVESP (com previsão de formatura em <strong>Junho/2027</strong>). Possuo <strong>2 anos de atuação diária em tecnologia corporativa</strong> na multinacional <strong>Nova Smar S/A</strong>, onde atuo no desenvolvimento de software, automação de dados e sustentação em produção de sistemas críticos de gestão.
-            </p>
-            <p>
-              Na Nova Smar, desenvolvi e mantenho em produção um dashboard financeiro em intranet integrado diretamente ao banco de dados do ERP TOTVS Protheus e Oracle PL/SQL, além de triggers transacionais e relatórios analíticos de estoque que viabilizaram a conclusão do <strong>inventário corporativo em tempo recorde em 2025</strong>. Minha atuação combina microsserviços modernos em <strong>Java 21 e C# .NET 8</strong> com sólidos conhecimentos em bancos relacionais e Ciência de Dados.
-            </p>
-            <p>
-              Antes da transição definitiva para a tecnologia, liderei por 5 anos uma operação própria de e-commerce, conquistando a qualificação de <strong>Mercadolíder em menos de 1 ano</strong>. Essa experiência prática de negócio me confere sensibilidade apurada para custos de infraestrutura, integridade de transações financeiras e resolução de problemas reais de produto.
-            </p>
-          </div>
-
-          <!-- Quick Facts Sidebar Card -->
-          <aside class="about-sidebar reveal-on-scroll reveal-delay-1" aria-label="Informações técnicas e localização">
-            <div class="fact-card spotlight-card">
-              <h3 class="fact-card-title">// informações chave</h3>
-
-              <ul class="fact-list">
-                <li class="fact-item">
-                  <span class="fact-icon" aria-hidden="true">📍</span>
-                  <div class="fact-details">
-                    <span class="fact-label">Localização</span>
-                    <span class="fact-value">Sertãozinho, SP (Híbrido / Remoto)</span>
-                  </div>
-                </li>
-
-                <li class="fact-item">
-                  <span class="fact-icon" aria-hidden="true">🎓</span>
-                  <div class="fact-details">
-                    <span class="fact-label">Formação Principal</span>
-                    <span class="fact-value">Ciência de Dados (UNIVESP · 06/2027)</span>
-                  </div>
-                </li>
-
-                <li class="fact-item">
-                  <span class="fact-icon" aria-hidden="true">💼</span>
-                  <div class="fact-details">
-                    <span class="fact-label">Atuação Atual</span>
-                    <span class="fact-value">Desenvolvedor de Software (Estágio) — Nova Smar S/A (2 anos)</span>
-                  </div>
-                </li>
-
-                <li class="fact-item">
-                  <span class="fact-icon" aria-hidden="true">🌐</span>
-                  <div class="fact-details">
-                    <span class="fact-label">Idiomas</span>
-                    <span class="fact-value">Português (Nativo) · Inglês (B2) · Alemão (A1)</span>
-                  </div>
-                </li>
-
-                <li class="fact-item">
-                  <span class="fact-icon" aria-hidden="true">⚙️</span>
-                  <div class="fact-details">
-                    <span class="fact-label">Diferenciais Técnicos</span>
-                    <span class="fact-value">Microsserviços .NET 8 & Java 21, Oracle PL/SQL & ERP, Machine Learning, Angular & React/Next.js</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Projetos ── -->
-    <section id="projetos" class="section" aria-label="Projetos em destaque">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// projetos</span>
-          <h2 class="section-title">Projetos em destaque</h2>
-          <p class="section-description">
-            Casos de uso corporativos em produção, microsserviços distribuídos, machine learning e aplicações web de alta performance.
-          </p>
-        </div>
-
-        <!-- Filter Bar -->
-        <div class="projects-filter-bar reveal-on-scroll" role="group" aria-label="Filtrar projetos por categoria">
-          <button type="button" class="filter-btn filter-btn--active" data-filter="all" aria-selected="true">Todos (12)</button>
-          <button type="button" class="filter-btn" data-filter="fullstack" aria-selected="false">Full-Stack & Web</button>
-          <button type="button" class="filter-btn" data-filter="backend" aria-selected="false">Backend & Fintech</button>
-          <button type="button" class="filter-btn" data-filter="data-ai" aria-selected="false">Dados & IA</button>
-          <button type="button" class="filter-btn" data-filter="mobile" aria-selected="false">Mobile</button>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- 01. Star Featured Project: Nova Smar Financial Dashboard -->
-          <article class="project-card project-card--featured project-card--full reveal-on-scroll" data-category="backend fullstack" aria-labelledby="proj-title-1">
-            <span class="project-badge">PROJETO EM PRODUÇÃO / CASE DE SUCESSO</span>
-            <h3 id="proj-title-1" class="project-title">Dashboard Financeiro & Automação ERP</h3>
-            <span class="project-type">Sistema Corporativo em Produção · Nova Smar S/A</span>
-            <p class="project-description">
-              Sistema web multiusuário auditável desenvolvido para substituir controles manuais na gestão financeira, integrado diretamente ao banco de dados do ERP TOTVS Protheus com fluxo de caixa e conciliação contábil.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">PHP</span>
-              <span class="project-tag">Oracle PL/SQL</span>
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">TOTVS Protheus</span>
-              <span class="project-tag">MySQL</span>
-              <span class="project-tag">Triggers & Procedures</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="nova-smar-dashboard">
-                <span>Ver Case Completo</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <span class="text-muted font-mono" style="font-size: 0.75rem;">🔒 Proprietário</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02. Fraud Detection & Risk Engine API -->
-          <article class="project-card project-card--featured reveal-on-scroll reveal-delay-1" data-category="backend" aria-labelledby="proj-title-2">
-            <span class="project-badge">FINTECH / ARQUITETURA HEXAGONAL & IaC</span>
-            <h3 id="proj-title-2" class="project-title">Fraud Detection & Risk Engine API</h3>
-            <span class="project-type">Java 21 · Spring Boot 3 · Arquitetura Hexagonal · Virtual Threads (Loom) · Resilience4j · Flyway · Testcontainers · AWS Terraform · Redis Lua · Outbox · Prometheus · JaCoCo</span>
-            <p class="project-description">
-              Plataforma corporativa de alta performance para análise preditiva de risco em tempo real (&lt;10ms) sob Arquitetura Hexagonal e 9 ADRs formais. Java 21 Virtual Threads, esteira com 7 regras de produção (Impossible Travel Haversine, Z-Score comportamental, Smurfing), Redis ZSET com Lua atômico e Resilience4j Circuit Breaker, Flyway SQL Migrations, Transactional Outbox (ACID), Testcontainers (PostgreSQL), telemetria Micrometer/Prometheus e 46+ testes automatizados (100% passing).
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Java 21</span>
-              <span class="project-tag">Spring Boot 3</span>
-              <span class="project-tag">Arquitetura Hexagonal</span>
-              <span class="project-tag">Virtual Threads</span>
-              <span class="project-tag">Resilience4j</span>
-              <span class="project-tag">Flyway</span>
-              <span class="project-tag">Testcontainers</span>
-              <span class="project-tag">Terraform AWS</span>
-              <span class="project-tag">Redis Lua</span>
-              <span class="project-tag">Outbox Pattern</span>
-              <span class="project-tag">RabbitMQ</span>
-              <span class="project-tag">Prometheus</span>
-              <span class="project-tag">JaCoCo (46+ testes)</span>
-              <span class="project-tag">Docker</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="fraud-detection-api">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/fraud-detection-api" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Fraud Detection API">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02.5. Order Processing API (.NET 8 & CQRS) -->
-          <article class="project-card project-card--featured reveal-on-scroll reveal-delay-2" data-category="backend fullstack" aria-labelledby="proj-title-dotnet">
-            <span class="project-badge">.NET 8 / CLEAN ARCHITECTURE & CQRS</span>
-            <h3 id="proj-title-dotnet" class="project-title">Order Processing API (.NET 8 & CQRS)</h3>
-            <span class="project-type">C# 12 · .NET 8 · Clean Arch · CQRS (EF Core + Dapper) · Channels · Fraud Engine · 5 ADRs · CI/CD GitHub Actions · xUnit (28 tests)</span>
-            <p class="project-description">
-              API corporativa em .NET 8 (C# 12) sob Clean Architecture, CQRS híbrido (EF Core + Dapper) e 5 ADRs formais. Enfileiramento assíncrono via System.Threading.Channels, Background Worker com integração distribuída ao motor antifraude em Java 21 (fraud-detection-api) com degradação graciosa e 28 testes automatizados no xUnit.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">C# 12</span>
-              <span class="project-tag">.NET 8</span>
-              <span class="project-tag">EF Core</span>
-              <span class="project-tag">Dapper</span>
-              <span class="project-tag">Clean Arch</span>
-              <span class="project-tag">CQRS</span>
-              <span class="project-tag">BackgroundService</span>
-              <span class="project-tag">Fraud Engine</span>
-              <span class="project-tag">5 ADRs</span>
-              <span class="project-tag">CI/CD GitHub Actions</span>
-              <span class="project-tag">xUnit (28 tests)</span>
-              <span class="project-tag">NSubstitute</span>
-              <span class="project-tag">Docker</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="order-processing-api">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/order-processing-api" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Order Processing API">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02.6. FinRisk Operations Hub (Angular 19 & Web Workers) -->
-          <article class="project-card project-card--featured reveal-on-scroll reveal-delay-2" data-category="fullstack backend" aria-labelledby="proj-title-finrisk">
-            <span class="project-badge">ANGULAR 19 / SIGNALS & WEB WORKERS</span>
-            <h3 id="proj-title-finrisk" class="project-title">FinRisk Operations Hub</h3>
-            <span class="project-type">Angular 19 · TypeScript · Signals · Web Workers (60 FPS) · Vitest (24 tests) · Docker Nginx · 5 ADRs</span>
-            <p class="project-description">
-              Cockpit corporativo e portal unificado de gestão e operações integrando os microsserviços Order Processing API (.NET 8) e Fraud Detection Engine (Java 21). Arquitetura reativa baseada em Signals, simulação paralela de risco Monte Carlo via Web Worker a 60 FPS, 5 ADRs formais, Docker multi-stage com Nginx Alpine e suíte de 24 testes automatizados no Vitest.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Angular 19</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Signals</span>
-              <span class="project-tag">Web Workers (60 FPS)</span>
-              <span class="project-tag">Vitest (24 tests)</span>
-              <span class="project-tag">Docker Nginx</span>
-              <span class="project-tag">5 ADRs</span>
-              <span class="project-tag">Tailwind CSS v4</span>
-              <span class="project-tag">REST APIs</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="finrisk-operations-hub">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/finrisk-operations-hub" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do FinRisk Operations Hub">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03. AgroFinance RWA Dashboard -->
-          <article class="project-card project-card--featured reveal-on-scroll reveal-delay-2" data-category="fullstack backend" aria-labelledby="proj-title-3">
-            <span class="project-badge">DESTAQUE / QUANT RWA · 130 TESTES + 8 E2E</span>
-            <h3 id="proj-title-3" class="project-title">AgroFinance RWA Dashboard</h3>
-            <span class="project-type">Next.js 16 · React 19 · TypeScript · Decimal.js · TradingView · Monte Carlo · Playwright (8 E2E)</span>
-            <p class="project-description">
-              Plataforma bancária corporativa, tesouraria de Real World Assets (RWA) e CPR Digital para o agronegócio. Aritmética de precisão arbitrária (Decimal.js), gráficos TradingView em Canvas GPU a 60 FPS, simulação estocástica Monte Carlo (1.000 iterações) via Web Worker, simulador What-If, exportação contábil para ERPs agrícolas (TOTVS Agro/Siagri), Dossiê Bancário com SHA-256 e suíte de 130 testes Vitest + 8 suítes Playwright E2E.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Next.js 16</span>
-              <span class="project-tag">React 19</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Decimal.js</span>
-              <span class="project-tag">TradingView Canvas</span>
-              <span class="project-tag">Monte Carlo (Web Worker)</span>
-              <span class="project-tag">Vitest (130 tests)</span>
-              <span class="project-tag">Playwright (8 E2E)</span>
-              <span class="project-tag">SSE Streaming</span>
-              <span class="project-tag">Zustand</span>
-              <span class="project-tag">TOTVS Agro ERP</span>
-              <span class="project-tag">ADRs</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="agrofinance-dashboard">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/agrofinance-dashboard" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do AgroFinance Dashboard">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-                <a href="https://agrofinance-dashboard-dev.vercel.app/dashboard" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="Demo do AgroFinance Dashboard">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 04. Imóveis Pricing ML -->
-          <article class="project-card reveal-on-scroll reveal-delay-3" data-category="data-ai" aria-labelledby="proj-title-4">
-            <span class="project-badge">MACHINE LEARNING & MLOps PIPELINE</span>
-            <h3 id="proj-title-4" class="project-title">Imóveis Pricing ML — Inteligência Imobiliária</h3>
-            <span class="project-type">Python 3.11 · FastAPI · LightGBM · SHAP · Docker · Terraform AWS · Streamlit · Pytest</span>
-            <p class="project-description">
-              Pipeline End-to-End de MLOps para precificação e arbitragem imobiliária na Grande Ribeirão Preto. Modelo LightGBM (R² = 0.835), explicabilidade com SHAP, serving via API REST (FastAPI + Pydantic v2), conteinerização Docker, IaC em Terraform AWS e Radar de Oportunidades em Streamlit.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Python 3.11</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">LightGBM</span>
-              <span class="project-tag">SHAP (XAI)</span>
-              <span class="project-tag">Docker</span>
-              <span class="project-tag">Terraform AWS</span>
-              <span class="project-tag">Streamlit</span>
-              <span class="project-tag">Pytest</span>
-              <span class="project-tag">MLOps</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="imoveis-pricing-ml">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/imoveis-pricing-ml" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Imóveis Pricing ML">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 05. VisuChord -->
-          <article class="project-card reveal-on-scroll" data-category="data-ai fullstack" aria-labelledby="proj-title-5">
-            <span class="project-badge">VISÃO COMPUTACIONAL & IA</span>
-            <h3 id="proj-title-5" class="project-title">VisuChord</h3>
-            <span class="project-type">React 19 · Vite 8 · Google MediaPipe · Tone.js</span>
-            <p class="project-description">
-              Aplicação web inovadora que transforma a webcam em um instrumento musical polifônico em tempo real, rastreando 21 pontos anatômicos das mãos para modular e tocar acordes cromáticos.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">React 19</span>
-              <span class="project-tag">Google MediaPipe</span>
-              <span class="project-tag">Tone.js</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">WebGL</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="visuchord">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/visuchord" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do VisuChord">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 06. Website Banda Revanche -->
-          <article class="project-card reveal-on-scroll reveal-delay-1" data-category="fullstack" aria-labelledby="proj-title-6">
-            <span class="project-badge">CLIENTE REAL / PRODUÇÃO</span>
-            <h3 id="proj-title-6" class="project-title">Website Banda Revanche</h3>
-            <span class="project-type">Next.js 16 · React 19 · TypeScript · Tailwind v4 · SEO</span>
-            <p class="project-description">
-              Aplicação web oficial de alta performance desenvolvida para a banda Revanche, com agenda de shows, integração com Spotify, mídia kit e otimização para SEO.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Next.js 16</span>
-              <span class="project-tag">React 19</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Tailwind CSS v4</span>
-              <span class="project-tag">SEO Schema.org</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="revanche-website">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/revanche-website" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub da Banda Revanche">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-                <a href="https://bandarevanche.com.br" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="Demo da Banda Revanche">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 07. Sertãozinho Digital -->
-          <article class="project-card reveal-on-scroll reveal-delay-1" data-category="mobile fullstack" aria-labelledby="proj-title-sertaozinho">
-            <span class="project-badge">CIVIC TECH / REACT 19 & CAPACITOR 8</span>
-            <h3 id="proj-title-sertaozinho" class="project-title">Sertãozinho Digital</h3>
-            <span class="project-type">React 19 · TypeScript · Capacitor 8 (Android Nativo) · Leaflet GPS · Web Scraping · CI/CD</span>
-            <p class="project-description">
-              Portal cívico municipal e aplicativo PWA/Android nativo para centralização de serviços de Sertãozinho/SP. Web scraping dinâmico para vagas do PAT, mapa interativo com rotas GPS para UPAs e Ecopontos e pipeline de CI/CD automatizado no GitHub Actions para build de APK Android.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">React 19</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">Capacitor 8</span>
-              <span class="project-tag">Android Nativo</span>
-              <span class="project-tag">Leaflet GPS</span>
-              <span class="project-tag">Web Scraping</span>
-              <span class="project-tag">CI/CD GitHub Actions</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="sertaozinho-digital">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/sertaozinho-digital" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Sertãozinho Digital">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 08. Underground Tools (C++17 Audio DSP Plugins) -->
-          <article class="project-card reveal-on-scroll reveal-delay-2" data-category="backend" aria-labelledby="proj-title-7">
-            <span class="project-badge">C++17 / REAL-TIME DSP AUDIO</span>
-            <h3 id="proj-title-7" class="project-title">Underground Tools (C++17 Audio DSP Plugins)</h3>
-            <span class="project-type">C++17 · JUCE Framework · VST3 / AU · Real-Time Audio DSP · Bi-Quad Filters · SIMD · Zero-Allocation Audio Thread</span>
-            <p class="project-description">
-              Ecossistema profissional de plugins de áudio VST3/AU em C++17 e JUCE Framework para produção musical e palcos. Processamento de sinal em tempo real (DSP) com zero alocação dinâmica no audio thread crítico, filtros bi-quad passa-baixa/alta, saturação analógica não-linear e renderização vetorial a 60 FPS.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">C++17</span>
-              <span class="project-tag">JUCE Framework</span>
-              <span class="project-tag">Audio DSP</span>
-              <span class="project-tag">VST3 / AU</span>
-              <span class="project-tag">Real-Time Audio</span>
-              <span class="project-tag">Zero-Allocation</span>
-              <span class="project-tag">Bi-Quad Filters</span>
-              <span class="project-tag">Saturação Analógica</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="underground-tools">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/underground-tools" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do Underground Tools">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 07.5. Garden Creative Suite -->
-          <article class="project-card reveal-on-scroll reveal-delay-2" data-category="fullstack" aria-labelledby="proj-title-garden">
-            <span class="project-badge">WEBMEDIA / MULTIPLATFORM (WEB, DESKTOP, ANDROID)</span>
-            <h3 id="proj-title-garden" class="project-title">Garden Creative Suite (Multiplatform Media Tools)</h3>
-            <span class="project-type">React 19 · TypeScript · Vite · Capacitor · Tauri (Rust) · WebCodecs · Web Audio API · Whisper Wasm · IndexedDB</span>
-            <p class="project-description">
-              Tríade de ferramentas profissionais de criação multimídia 100% client-side: GardenCut (editor de vídeo não-linear multitrack com detecção de silêncio por RMS), GardenPixel (editor pixel-art com blend modes e autotiling Wang-47 para Godot 4/Tiled) e GardenSubtitle (gerador de legendas cinéticas com Whisper AI e exportadores para W3C TTML, DaVinci FCPXML e After Effects JSX). Disponíveis na Web, Desktop (Tauri/Rust) e APKs Android (Capacitor).
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">React 19</span>
-              <span class="project-tag">TypeScript</span>
-              <span class="project-tag">WebCodecs</span>
-              <span class="project-tag">Capacitor Android</span>
-              <span class="project-tag">Tauri (Rust)</span>
-              <span class="project-tag">Whisper AI</span>
-              <span class="project-tag">Web Audio API</span>
-              <span class="project-tag">IndexedDB</span>
-              <span class="project-tag">W3C TTML</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="garden-creative-suite">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <a href="https://github.com/FelipeGardenghiDev/garden-cut" class="project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub do GardenCut">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 08. Segundo Cérebro (Life OS) -->
-          <article class="project-card reveal-on-scroll reveal-delay-3" data-category="data-ai backend" aria-labelledby="proj-title-8">
-            <span class="project-badge">IA GENERATIVA / FASTAPI</span>
-            <h3 id="proj-title-8" class="project-title">Segundo Cérebro (Life OS)</h3>
-            <span class="project-type">Python · FastAPI · Google Gemini 2.0 · Supabase · FullCalendar</span>
-            <p class="project-description">
-              Assistente inteligente integrado com WhatsApp e Painel Web para rotinas, finanças e estúdio musical, unindo IA generativa com Google Gemini 2.0 e Supabase PostgreSQL.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">Google Gemini 2.0</span>
-              <span class="project-tag">Supabase</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">FullCalendar</span>
-              <span class="project-tag">Docker</span>
-            </div>
-            <div class="project-actions">
-              <button type="button" class="btn-details" data-project-target="second-brain">
-                <span>Ver Detalhes</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </button>
-              <div class="project-external-links">
-                <span class="text-muted font-mono" style="font-size: 0.75rem;">🔒 Privado (Uso Pessoal)</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Laboratório de Engenharia & Sandbox Interativo ── -->
-    <section id="engineering-lab" class="lab-section reveal-on-scroll" aria-label="Laboratório Interativo de Engenharia">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label section-tag">// LIVE SYSTEM ARCHITECTURE &amp; DSP PLAYGROUND</span>
-          <h2 class="section-title">Laboratório de Engenharia &amp; Simulação Interativa</h2>
-          <p class="section-description">
-            Explore a topologia arquitetural, métricas de vazão (throughput) e execute simulações em tempo real de DSP de áudio e consistência transacional diretamente no navegador.
-          </p>
-        </div>
-
-        <div class="lab-card">
-          <div class="lab-tabs" role="tablist">
-            <button class="lab-tab active" data-tab="dotnet-order">.NET 8 Order Engine (CQRS + Channels)</button>
-            <button class="lab-tab" data-tab="java-fraud">Java 21 Fraud Engine (Sliding Window)</button>
-            <button class="lab-tab" data-tab="audio-dsp">C++17 Audio DSP (Interactive Synth)</button>
-            <button class="lab-tab" data-tab="garden-media">Garden Suite (WebCodecs &amp; Tri-Platform)</button>
-          </div>
-
-          <div class="lab-viewport" id="lab-viewport">
-            <!-- Renderizado dinamicamente por src/js/engineering-lab.js -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Stack ── -->
-    <section id="stack" class="section" aria-label="Stack técnica">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// stack técnica</span>
-          <h2 class="section-title">Pilares de Engenharia &amp; Tecnologias Centrais</h2>
-          <p class="section-description">
-            Conjunto de tecnologias estruturado por prioridade técnica: ecossistemas robustos de backend, bancos relacionais corporativos, esteiras de dados/IA, interfaces modernas e infraestrutura.
-          </p>
-        </div>
-
-        <!-- Top 5 Core Engineering Technologies Bar -->
-        <div class="stack-top-bar reveal-on-scroll">
-          <span class="stack-top-label">Top 5 Tecnologias Centrais:</span>
-          <span class="stack-core-pill"><span class="stack-core-dot"></span> Java 21 / Spring Boot 3</span>
-          <span class="stack-core-pill"><span class="stack-core-dot"></span> C# 12 / .NET 8</span>
-          <span class="stack-core-pill"><span class="stack-core-dot"></span> Oracle PL/SQL &amp; TOTVS Protheus</span>
-          <span class="stack-core-pill"><span class="stack-core-dot"></span> Python / Machine Learning</span>
-          <span class="stack-core-pill"><span class="stack-core-dot"></span> TypeScript / React 19 &amp; Angular 19</span>
-        </div>
-
-        <div class="stack-grid">
-          <!-- 01. Backend & Microsserviços Corporativos (CORE HIGHLIGHT) -->
-          <div class="stack-card stack-card--core spotlight-card reveal-on-scroll">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 01</span>
-                <h3 class="stack-card-title">Backend &amp; Microsserviços Corporativos</h3>
-              </div>
-              <span class="stack-core-badge">CORE</span>
-            </div>
-            <p class="stack-card-desc">Arquiteturas resilientes para alto throughput, desacoplamento transacional e microsserviços orientados a eventos.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Java 21</span>
-              <span class="tech-tag tech-tag--featured">Spring Boot 3</span>
-              <span class="tech-tag tech-tag--featured">C# 12 / .NET 8</span>
-              <span class="tech-tag tech-tag--featured">ASP.NET Core</span>
-              <span class="tech-tag tech-tag--featured">RabbitMQ (Event-Driven)</span>
-              <span class="tech-tag">Transactional Outbox</span>
-              <span class="tech-tag">Clean Architecture &amp; DDD</span>
-              <span class="tech-tag">Hexagonal Architecture</span>
-              <span class="tech-tag">Entity Framework Core &amp; Dapper</span>
-              <span class="tech-tag">PHP (Legado &amp; Intranet)</span>
-              <span class="tech-tag">Python (FastAPI)</span>
-              <span class="tech-tag">REST APIs &amp; Spring Security</span>
-              <span class="tech-tag">OpenAPI 3 / Swagger</span>
-            </div>
-          </div>
-
-          <!-- 02. Bancos de Dados Corporativos & Caching (CORE HIGHLIGHT) -->
-          <div class="stack-card stack-card--core spotlight-card reveal-on-scroll reveal-delay-1">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 02</span>
-                <h3 class="stack-card-title">Bancos de Dados Corporativos &amp; Caching</h3>
-              </div>
-              <span class="stack-core-badge">CORE</span>
-            </div>
-            <p class="stack-card-desc">Integridade referencial estrita, procedures e triggers de alta performance e cache de baixa latência.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
-              <span class="tech-tag tech-tag--featured">ERP TOTVS Protheus</span>
-              <span class="tech-tag tech-tag--featured">Triggers &amp; Stored Procedures</span>
-              <span class="tech-tag tech-tag--featured">PostgreSQL</span>
-              <span class="tech-tag tech-tag--featured">MySQL</span>
-              <span class="tech-tag">Redis (Sliding Window &amp; ZSET)</span>
-              <span class="tech-tag">Otimização de Índices &amp; Queries</span>
-              <span class="tech-tag">Supabase</span>
-              <span class="tech-tag">Transações ACID</span>
-              <span class="tech-tag">Modelagem Relacional</span>
-            </div>
-          </div>
-
-          <!-- 03. Ciência de Dados & Machine Learning -->
-          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-2">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 03</span>
-                <h3 class="stack-card-title">Ciência de Dados &amp; Machine Learning</h3>
-              </div>
-            </div>
-            <p class="stack-card-desc">Pipelines preditivos end-to-end, explicabilidade de modelos (XAI) e esteiras analíticas em produção.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Python 3.11</span>
-              <span class="tech-tag tech-tag--featured">Machine Learning</span>
-              <span class="tech-tag tech-tag--featured">LightGBM</span>
-              <span class="tech-tag tech-tag--featured">SHAP (Explainable AI)</span>
-              <span class="tech-tag">Scikit-Learn</span>
-              <span class="tech-tag">Pandas &amp; NumPy</span>
-              <span class="tech-tag">Streamlit</span>
-              <span class="tech-tag">FastAPI</span>
-              <span class="tech-tag">Google MediaPipe</span>
-              <span class="tech-tag">Google Gemini API</span>
-            </div>
-          </div>
-
-          <!-- 04. Frontend Moderno & Interfaces Reativas -->
-          <div class="stack-card spotlight-card reveal-on-scroll">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 04</span>
-                <h3 class="stack-card-title">Frontend Moderno &amp; Interfaces Reativas</h3>
-              </div>
-            </div>
-            <p class="stack-card-desc">Aplicações web ultra-rápidas com renderização a 60 FPS, Web Workers e arquitetura reativa por Signals.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">TypeScript</span>
-              <span class="tech-tag tech-tag--featured">React 19</span>
-              <span class="tech-tag tech-tag--featured">Next.js 16</span>
-              <span class="tech-tag tech-tag--featured">Angular 19 (Signals)</span>
-              <span class="tech-tag">JavaScript (ES6+)</span>
-              <span class="tech-tag">Tailwind CSS v4</span>
-              <span class="tech-tag">Vite &amp; Web Workers</span>
-              <span class="tech-tag">HTML5 Canvas &amp; AudioContext</span>
-              <span class="tech-tag">Zod &amp; Zustand</span>
-            </div>
-          </div>
-
-          <!-- 05. DevOps, Cloud & Automação de Testes -->
-          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-1">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 05</span>
-                <h3 class="stack-card-title">DevOps, Cloud &amp; Automação de Testes</h3>
-              </div>
-            </div>
-            <p class="stack-card-desc">Containers imutáveis, infraestrutura como código (IaC), esteiras de CI/CD e pirâmide de testes completa.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Docker &amp; Compose</span>
-              <span class="tech-tag tech-tag--featured">Terraform (IaC AWS)</span>
-              <span class="tech-tag tech-tag--featured">GitHub Actions (CI/CD)</span>
-              <span class="tech-tag tech-tag--featured">Vitest</span>
-              <span class="tech-tag tech-tag--featured">Playwright (E2E)</span>
-              <span class="tech-tag">JUnit 5 &amp; Mockito</span>
-              <span class="tech-tag">JaCoCo Cobertura</span>
-              <span class="tech-tag">xUnit &amp; FluentAssertions</span>
-              <span class="tech-tag">Linux (Ubuntu/Debian)</span>
-              <span class="tech-tag">Vercel &amp; Render</span>
-            </div>
-          </div>
-
-          <!-- 06. Arquitetura de Software & ERP -->
-          <div class="stack-card spotlight-card reveal-on-scroll reveal-delay-2">
-            <div class="stack-card-header">
-              <div class="stack-header-left">
-                <span class="stack-num font-mono">// 06</span>
-                <h3 class="stack-card-title">Arquitetura de Software &amp; ERP</h3>
-              </div>
-            </div>
-            <p class="stack-card-desc">Domínio de regras de negócio industriais, conciliação contábil, modelagem DDD e governança por ADRs.</p>
-            <div class="stack-tags">
-              <span class="tech-tag tech-tag--featured">Domain-Driven Design (DDD)</span>
-              <span class="tech-tag tech-tag--featured">19 ADRs Formais</span>
-              <span class="tech-tag tech-tag--featured">ERP TOTVS Protheus</span>
-              <span class="tech-tag tech-tag--featured">Resiliência &amp; Circuit Breaker</span>
-              <span class="tech-tag">Kotlin 2.0 &amp; Jetpack Compose</span>
-              <span class="tech-tag">C++17 (JUCE / Audio DSP)</span>
-              <span class="tech-tag">Governança &amp; Auditoria</span>
-              <span class="tech-tag">Fluxo de Caixa &amp; Conciliação</span>
-              <span class="tech-tag">Unit Economics &amp; E-commerce</span>
-              <span class="tech-tag">JIRA / Confluence / SLA</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Experiência ── -->
-    <section id="experiencia" class="section" aria-label="Experiência profissional">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// experiência</span>
-          <h2 class="section-title">Experiência profissional</h2>
-        </div>
-
-        <div class="timeline">
-          <!-- 01. Desenvolvedor de Software (Estágio) — Nova Smar S/A -->
-          <div class="timeline-item timeline-item--current reveal-on-scroll">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content spotlight-card">
-              <div class="experience-header">
-                <div class="experience-title-group">
-                  <h3 class="experience-role">Desenvolvedor de Software (Estágio)</h3>
-                  <span class="experience-company">@ Nova Smar S/A</span>
+            <div>
+              <span class="figma-hero-eyebrow">// HOLA, SOY FELIPE GARDENGHI</span>
+              <h1 class="figma-hero-name">FELIPE GARDENGHI</h1>
+              <div class="figma-hero-subtitle">FRONT-END &amp; BACKEND DEVELOPER</div>
+              <p class="figma-hero-bio">
+                Desenvolvedor Backend / Full-Stack com <strong>2 anos de atuação corporativa</strong> na multinacional <strong>Nova Smar S/A</strong> (Oracle PL/SQL, TOTVS Protheus, PHP, triggers transacionais e inventário recorde em 2025) e graduando em <strong>Ciência de Dados (UNIVESP)</strong>. Experiência na construção de microsserviços distribuídos de alto rendimento (<strong>C# .NET 8</strong> e <strong>Java 21 / Spring Boot 3</strong> com Virtual Threads, Arquitetura Hexagonal, CQRS e Resiliência), esteiras analíticas de Machine Learning (Python, LightGBM, SHAP) e interfaces modernas (React 19, Next.js 16, TypeScript).
+              </p>
+              <div class="figma-metrics-grid">
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">2+</div>
+                  <div class="figma-metric-label">Años de Exp. Corporativa</div>
                 </div>
-                <div class="experience-meta">
-                  <span class="experience-period">12/2024 – Presente (2 anos corporativos)</span>
-                  <span class="experience-location">· Sertãozinho, SP</span>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">24+</div>
+                  <div class="figma-metric-label">Repositorios Públicos</div>
+                </div>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">12</div>
+                  <div class="figma-metric-label">Proyectos Destacados</div>
+                </div>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">100%</div>
+                  <div class="figma-metric-label">Test Coverage &amp; CI/CD</div>
                 </div>
               </div>
-              <ul class="experience-bullets">
-                <li class="experience-bullet">
-                  Desenvolveu e mantém em produção <strong>dashboard financeiro em intranet (PHP, JavaScript, Oracle PL/SQL)</strong> integrado diretamente ao banco de dados do ERP TOTVS Protheus, substituindo controles manuais por sistema multiusuário auditável com fluxo de caixa diário/mensal e conciliação contábil em tempo real.
-                </li>
-                <li class="experience-bullet">
-                  Implementou <strong>triggers, procedures e funções PL/SQL em Oracle e MySQL</strong> para automação de rotinas corporativas de banco de dados, eliminando o retrabalho operacional e garantindo integridade transacional ACID.
-                </li>
-                <li class="experience-bullet">
-                  Desenvolveu relatórios analíticos de contabilidade e controle de estoque integrados ao ERP que viabilizaram a conclusão do <strong>inventário corporativo em tempo recorde em 2025</strong>.
-                </li>
-                <li class="experience-bullet">
-                  Prestou suporte técnico N2 especializado a usuários de forma local e remota, com diagnóstico de falhas sistêmicas e documentação de processos corporativos.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="tech-tag tech-tag--featured">PHP</span>
-                <span class="tech-tag tech-tag--featured">Oracle PL/SQL</span>
-                <span class="tech-tag tech-tag--featured">JavaScript</span>
-                <span class="tech-tag tech-tag--featured">TOTVS Protheus</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Suporte Técnico N2</span>
-              </div>
             </div>
           </div>
+        </header>
 
-          <!-- 02. Assistente de E-commerce / Operações — Limiar Games Store -->
-          <div class="timeline-item reveal-on-scroll reveal-delay-1">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content spotlight-card">
-              <div class="experience-header">
-                <div class="experience-title-group">
-                  <h3 class="experience-role">Assistente de E-commerce / Operações</h3>
-                  <span class="experience-company">@ Limiar Games Store</span>
-                </div>
-                <div class="experience-meta">
-                  <span class="experience-period">09/2024 – 11/2024</span>
-                  <span class="experience-location">· Sertãozinho, SP</span>
-                </div>
+        <!-- Section 1: EN EL TALLER (IDE Window Mockup) -->
+        <section id="tech-taller" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">EN EL TALLER</span>
+            <span class="figma-section-link">Clean Architecture &amp; C# .NET 8</span>
+          </div>
+          <div class="figma-code-window">
+            <div class="figma-code-titlebar">
+              <div class="figma-window-dots">
+                <span class="figma-dot figma-dot-red"></span>
+                <span class="figma-dot figma-dot-yellow"></span>
+                <span class="figma-dot figma-dot-green"></span>
               </div>
-              <ul class="experience-bullets">
-                <li class="experience-bullet">
-                  Criou e otimizou anúncios em múltiplos marketplaces (Mercado Livre, Shopee, Magalu, Americanas, LigaMagic, LigaPokémon), aumentando a conversão de vendas.
-                </li>
-                <li class="experience-bullet">
-                  Gerenciou separação, conferência de pedidos, atendimento presencial e controle de estoque físico.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="tech-tag">E-commerce</span>
-                <span class="tech-tag">Marketplaces</span>
-                <span class="tech-tag">Gestão de Estoque</span>
-                <span class="tech-tag">Atendimento</span>
-              </div>
+              <span class="figma-code-tab">FinRiskOperations.Core/OrderEngine.cs</span>
+              <div style="width: 48px;"></div>
+            </div>
+            <div class="figma-code-body">
+              <pre><code><span style="color: #60a5fa;">// Microserviço Distribuído com C# .NET 8, CQRS e Resiliência Polly</span>
+<span style="color: #f43f5e;">public sealed class</span> <span style="color: #38bdf8;">ProcessFinancialRiskCommandHandler</span> 
+    : IRequestHandler&lt;ProcessFinancialRiskCommand, Result&lt;RiskAssessmentResponse&gt;&gt;
+{
+    <span style="color: #f43f5e;">private readonly</span> IRiskEngineRepository _repository;
+    <span style="color: #f43f5e;">private readonly</span> IMessageBrokerPublisher _eventBus;
+    <span style="color: #f43f5e;">private readonly</span> IAsyncPolicy _resiliencePipeline;
+
+    <span style="color: #f43f5e;">public async</span> Task&lt;Result&lt;RiskAssessmentResponse&gt;&gt; Handle(
+        ProcessFinancialRiskCommand cmd, CancellationToken ct)
+    {
+        <span style="color: #f43f5e;">return await</span> _resiliencePipeline.ExecuteAsync(<span style="color: #f43f5e;">async</span> () => 
+        {
+            <span style="color: #60a5fa;">// Executa validação de crédito e regras corporativas com concorrência otimista</span>
+            <span style="color: #f43f5e;">var</span> score = <span style="color: #f43f5e;">await</span> _repository.CalculateExposureAsync(cmd.AccountId, ct);
+            <span style="color: #f43f5e;">await</span> _eventBus.PublishAsync(<span style="color: #f43f5e;">new</span> RiskEvaluatedEvent(cmd.AccountId, score), ct);
+            <span style="color: #f43f5e;">return</span> Result.Success(<span style="color: #f43f5e;">new</span> RiskAssessmentResponse(score));
+        });
+    }
+}</code></pre>
             </div>
           </div>
+        </section>
 
-          <!-- 03. Empreendedor em E-commerce — Canivete da Roça -->
-          <div class="timeline-item reveal-on-scroll reveal-delay-2">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content spotlight-card">
-              <div class="experience-header">
-                <div class="experience-title-group">
-                  <h3 class="experience-role">Empreendedor em E-commerce (MercadoLíder)</h3>
-                  <span class="experience-company">@ Canivete da Roça</span>
-                </div>
-                <div class="experience-meta">
-                  <span class="experience-period">09/2019 – 08/2024</span>
-                  <span class="experience-location">· Sertãozinho, SP</span>
-                </div>
-              </div>
-              <ul class="experience-bullets">
-                <li class="experience-bullet">
-                  Gerenciou operação própria em múltiplos marketplaces, liderando campanhas de tráfego pago, mídias sociais, atendimento e pós-venda por 5 anos.
-                </li>
-                <li class="experience-bullet">
-                  Conquistou a qualificação de <strong>Mercadolíder em menos de 1 ano de operação</strong>, demonstrando forte visão de negócio, gestão financeira e foco na satisfação do cliente.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="tech-tag">Visão de Negócio</span>
-                <span class="tech-tag">Gestão Operacional</span>
-                <span class="tech-tag">Tráfego Pago</span>
-                <span class="tech-tag">Análise de Vendas</span>
-              </div>
-            </div>
+        <!-- Section 2: PROYECTOS (3-Column Grid) -->
+        <section id="tech-proyectos" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">PROYECTOS</span>
+            <a href="https://github.com/felipegardenghidev" target="_blank" rel="noopener noreferrer" class="figma-section-link">Ver repositorios en GitHub &rarr;</a>
           </div>
-
-          <!-- 04. Experiências Complementares & Voluntariado -->
-          <div class="timeline-item reveal-on-scroll reveal-delay-3">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content spotlight-card">
-              <div class="experience-header">
-                <div class="experience-title-group">
-                  <h3 class="experience-role" id="volunteering-title">Experiências Complementares &amp; Voluntariado</h3>
-                  <span class="experience-company">Comunidade &amp; Universidade</span>
+          <div class="figma-cards-grid-3">
+            <!-- Project 1 -->
+            <article class="figma-card" data-open-project="finrisk-operations-hub" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <div style="height: 100%; background: linear-gradient(135deg, #0a1738, #162a56); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 28px; color: #38bdf8;">
+                  &lt;FinRisk /&gt;
                 </div>
               </div>
-              <ul class="experience-bullets">
-                <li class="experience-bullet">
-                  <strong>IFSP Sertãozinho</strong> (<span id="ifsp-role">Professor Voluntário de História da Arte</span> · 03/2016 – 08/2016): <span id="ifsp-desc">Ministrou aulas voluntárias de História da Arte e manifestações estéticas para turmas e comunidade escolar.</span>
-                </li>
-                <li class="experience-bullet">
-                  <strong>Iniciativa PICOVID</strong> (<span id="picovid-role">Analista de Dados Voluntário</span> · 03/2020 – 07/2020): <span id="picovid-desc">Modelagem estatística, consolidação de dados epidemiológicos públicos e elaboração de visualizações analíticas de impacto durante a pandemia.</span>
-                </li>
-                <li class="experience-bullet">
-                  <strong>Cati Jr. (UFSCar)</strong> (<span id="cati-role">Trainee em Marketing Digital &amp; Gestão</span> · 01/2015 – 07/2015): <span id="cati-desc">Participação ativa na empresa júnior de computação da UFSCar, atuando no planejamento estratégico de marketing e estruturação de processos.</span>
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="tech-tag">Voluntariado</span>
-                <span class="tech-tag">Educação</span>
-                <span class="tech-tag">Análise de Dados</span>
-                <span class="tech-tag">Empresa Júnior</span>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">FinRisk Operations Hub</h3>
+                <p class="figma-card-desc">Plataforma corporativa de gestão de risco financeiro em C# .NET 8 com CQRS, RabbitMQ, Dapper e PostgreSQL.</p>
+                <span class="figma-card-action">Ver caso de estudo &rarr;</span>
               </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Formação ── -->
-    <section id="formacao" class="section" aria-label="Formação e certificações">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// formação</span>
-          <h2 class="section-title">Formação e certificações</h2>
-        </div>
-
-        <div class="education-grid">
-
-          <!-- Academic Degree -->
-          <div class="academic-card spotlight-card reveal-on-scroll">
-            <div class="academic-header">
-              <div>
-                <h3 class="academic-degree">Bacharelado em Ciência de Dados</h3>
-                <span class="academic-institution">UNIVESP — Universidade Virtual do Estado de São Paulo</span>
-              </div>
-              <div class="academic-meta">
-                <span class="experience-period">07/2024 – 06/2027 (Previsão 1º Semestre)</span>
-                <span>· Sertãozinho, SP</span>
-              </div>
-            </div>
-            <p class="academic-description">
-              Formação de nível superior com foco em algoritmos, estrutura de dados, modelagem preditiva, banco de dados relacionais e não-relacionais, análise de dados e aprendizado de máquina.
-            </p>
-
-            <!-- Projetos Integradores (UNIVESP) -->
-            <div class="academic-pi-box">
-              <h4 id="pi-container-title" class="pi-title">
-                Projetos Integradores em Destaque (UNIVESP):
-              </h4>
-              <ul class="pi-list">
-                <li class="pi-item" id="pi-1-desc"><strong>PI I:</strong> Plataforma Web de Vendas com front-end Lovable, backend em Python e banco PostgreSQL.</li>
-                <li class="pi-item" id="pi-2-desc"><strong>PI II:</strong> Pipeline de Dados e análise estatística para visualização corporativa.</li>
-                <li class="pi-item" id="pi-3-desc"><strong>PI III:</strong> Plataforma Web de Vendas Acessível, focada em padrões WCAG 2.1 AA e inclusão digital.</li>
-                <li class="pi-item" id="pi-4-desc"><strong>PI IV:</strong> Plataforma Web com Machine Learning integrado para previsão de demanda e recomendação.</li>
-              </ul>
-            </div>
-
-            <!-- Histórico Acadêmico Anterior -->
-            <div class="prior-degrees-grid">
-              <h4 id="prior-degrees-title" class="pi-title" style="grid-column: 1 / -1; margin-bottom: 0;">
-                Histórico Acadêmico Anterior
-              </h4>
-              <div class="prior-degree-card">
-                <span class="prior-degree-meta" id="unaerp-period">01/2017 – 09/2019 (Graduação interrompida em Set/2019)</span>
-                <strong class="prior-degree-name" id="unaerp-degree">Licenciatura Plena em Música</strong>
-                <span class="prior-degree-inst" id="unaerp-inst">UNAERP — Universidade de Ribeirão Preto</span>
-                <p class="prior-degree-desc" id="unaerp-desc">Domínio de harmonia, acústica física e percepção rítmica — base para os projetos de DSP de áudio em tempo real (C++17/JUCE) e visão computacional (VisuChord).</p>
-              </div>
-              <div class="prior-degree-card">
-                <span class="prior-degree-meta" id="ufscar-period">01/2015 – 07/2015 (Graduação interrompida em Jul/2015)</span>
-                <strong class="prior-degree-name" id="ufscar-degree">Bacharelado em Ciência da Computação (Início)</strong>
-                <span class="prior-degree-inst" id="ufscar-inst">UFSCar — Universidade Federal de São Carlos</span>
-                <p class="prior-degree-desc" id="ufscar-desc">Formação de base sólida em lógica matemática, algoritmos em C e participação como Trainee na Empresa Júnior Cati Jr.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Grouped Certifications Section -->
-          <div>
-            <div class="cert-title-group reveal-on-scroll">
-              <h3 class="section-title" style="font-size: var(--fs-xl);">Certificações & Cursos Técnicos</h3>
-            </div>
-
-            <div class="cert-grid">
-
-              <!-- 01. Front-End -->
-              <div class="cert-card reveal-on-scroll">
-                <div class="cert-card-header">
-                  <h4 class="cert-category-title">Front-End & UI/UX</h4>
-                  <span class="cert-hours-badge">~188h+</span>
-                </div>
-                <ul class="cert-list">
-                  <li class="cert-item"><strong>UI Design para Devs</strong> (Alura · 24h)</li>
-                  <li class="cert-item"><strong>React: JSX e Hooks</strong> (Alura · 57h)</li>
-                  <li class="cert-item"><strong>Acessibilidade & Web Inclusiva</strong> (Alura · 28h)</li>
-                  <li class="cert-item"><strong>Desenvolvimento Front-End</strong> (Alura · 60h)</li>
-                  <li class="cert-item"><strong>Front-End Trilha Digital</strong> (Santander / Ada · 19h)</li>
-                </ul>
-              </div>
-
-              <!-- 02. Back-End -->
-              <div class="cert-card reveal-on-scroll reveal-delay-1">
-                <div class="cert-card-header">
-                  <h4 class="cert-category-title">Back-End & APIs</h4>
-                  <span class="cert-hours-badge">~82h+</span>
-                </div>
-                <ul class="cert-list">
-                  <li class="cert-item"><strong>PHP Web Completo</strong> (Alura · 52h)</li>
-                  <li class="cert-item"><strong>Laravel MVC</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>Swagger: Documentando APIs</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>Quality Assurance & Testes</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>JavaScript & APIs REST</strong> (Alura · 6h)</li>
-                </ul>
-              </div>
-
-              <!-- 03. Banco de Dados -->
-              <div class="cert-card reveal-on-scroll reveal-delay-2">
-                <div class="cert-card-header">
-                  <h4 class="cert-category-title">Banco de Dados & BI</h4>
-                  <span class="cert-hours-badge">~128h+</span>
-                </div>
-                <ul class="cert-list">
-                  <li class="cert-item"><strong>Consultas Oracle Database</strong> (Alura · 82h)</li>
-                  <li class="cert-item"><strong>Power BI Avançado</strong> (SENAI · 32h)</li>
-                  <li class="cert-item"><strong>Admin Oracle DB & Otimização</strong> (Alura · 14h)</li>
-                </ul>
-              </div>
-
-              <!-- 04. DevOps, Gestão & IA -->
-              <div class="cert-card reveal-on-scroll reveal-delay-3">
-                <div class="cert-card-header">
-                  <h4 class="cert-category-title">DevOps, Gestão & IA</h4>
-                  <span class="cert-hours-badge">~36h+</span>
-                </div>
-                <ul class="cert-list">
-                  <li class="cert-item"><strong>Git & GitHub Otimizado</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>Entrega Contínua CI/CD</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>Microsserviços & Padrões</strong> (Alura · 6h)</li>
-                  <li class="cert-item"><strong>Equipes Ágeis & Scrum</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>Copilot & ChatGPT para Devs</strong> (Alura · 8h)</li>
-                  <li class="cert-item"><strong>White Belt Six Sigma</strong> (RL / UNIVESP · 2h)</li>
-                </ul>
-              </div>
-
-            </div>
-
-            <div class="cert-total-summary reveal-on-scroll">
-              <span aria-hidden="true">📜</span>
-              <span>Total de <strong>+400 horas</strong> em cursos técnicos certificados.</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Contato ── -->
-    <section id="contato" class="section" aria-label="Contato">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-label">// contato</span>
-          <h2 class="section-title">Vamos conversar</h2>
-        </div>
-
-        <div class="contact-wrapper">
-          <p class="contact-lead reveal-on-scroll">
-            Estou disponível para oportunidades como <strong>Desenvolvedor Full-Stack / Backend / Engenheiro de Software</strong>, projetos de integração corporativa, microsserviços e soluções em Ciência de Dados & IA. Vamos conectar!
-          </p>
-
-          <div class="contact-grid">
-
-            <!-- Direct Email Card -->
-            <article class="contact-card reveal-on-scroll">
-              <div class="contact-card-header">
-                <div class="contact-icon-box">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </div>
-                <div>
-                  <span class="contact-card-label">E-mail Direto</span>
-                  <h3 class="contact-card-title">Enviar Mensagem</h3>
-                </div>
-              </div>
-              <div class="contact-card-body">
-                <p class="contact-card-value font-mono">felipegg.dev@gmail.com</p>
-              </div>
-              <a href="mailto:felipegg.dev@gmail.com" class="contact-card-action" aria-label="Enviar e-mail para felipegg.dev@gmail.com">
-                <span>Enviar e-mail</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </a>
             </article>
 
-            <!-- LinkedIn Direct Card -->
-            <article class="contact-card reveal-on-scroll reveal-delay-1">
-              <div class="contact-card-header">
-                <div class="contact-icon-box">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                </div>
-                <div>
-                  <span class="contact-card-label">Rede Profissional</span>
-                  <h3 class="contact-card-title">LinkedIn</h3>
+            <!-- Project 2 -->
+            <article class="figma-card" data-open-project="fraud-detection-api" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <div style="height: 100%; background: linear-gradient(135deg, #12213d, #1c3258); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 28px; color: #60a5fa;">
+                  🧠 ML.Fraud
                 </div>
               </div>
-              <div class="contact-card-body">
-                <p class="contact-card-value font-mono">in/felipegardenghi</p>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">Fraud Detection ML API</h3>
+                <p class="figma-card-desc">Esteira de Machine Learning em Python, FastAPI e LightGBM para detecção preditiva de fraudes em pagamentos com SHAP.</p>
+                <span class="figma-card-action">Ver arquitetura &rarr;</span>
               </div>
-              <a href="https://linkedin.com/in/felipegardenghi" class="contact-card-action" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do LinkedIn de Felipe Gardenghi">
-                <span>Conectar no LinkedIn</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </a>
             </article>
 
-            <!-- GitHub Direct Card -->
-            <article class="contact-card reveal-on-scroll reveal-delay-2">
-              <div class="contact-card-header">
-                <div class="contact-icon-box">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </div>
-                <div>
-                  <span class="contact-card-label">Código & Projetos</span>
-                  <h3 class="contact-card-title">GitHub</h3>
+            <!-- Project 3 -->
+            <article class="figma-card" data-open-project="order-processing-api" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <div style="height: 100%; background: linear-gradient(135deg, #0f1c30, #142848); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 28px; color: #38bdf8;">
+                  ⚡ Order.Java
                 </div>
               </div>
-              <div class="contact-card-body">
-                <p class="contact-card-value font-mono">github.com/felipegardenghidev</p>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">Order Processing Engine</h3>
+                <p class="figma-card-desc">Microsserviço de alto rendimento em Java 21 e Spring Boot 3 utilizando Virtual Threads (Project Loom) e resiliência.</p>
+                <span class="figma-card-action">Ver métricas &rarr;</span>
               </div>
-              <a href="https://github.com/felipegardenghidev" class="contact-card-action" target="_blank" rel="noopener noreferrer" aria-label="Acessar perfil do GitHub de Felipe Gardenghi">
-                <span>Ver Repositórios</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-              </a>
             </article>
-
           </div>
+        </section>
 
-          <!-- Recruiter Quick Outreach Card -->
-          <div class="recruiter-quick-card reveal-on-scroll">
-            <div class="recruiter-card-content">
-              <div class="recruiter-badge font-mono">
-                <span class="status-dot"></span>
-                <span>Recrutadores & Gestores de TI</span>
+        <!-- Section 3: STACK TECNOLÓGICO (3 Panels) -->
+        <section id="tech-stack" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">STACK TECNOLÓGICO</span>
+          </div>
+          <div class="figma-stack-grid">
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">⚙️</span>
+                <h4>Backend &amp; Arquitetura</h4>
               </div>
-              <h3 class="recruiter-heading">Mensagem Rápida de Apresentação</h3>
-              <p class="recruiter-desc">Copie um template pré-formatado com um clique para abrir contato por e-mail ou LinkedIn:</p>
-              <div class="recruiter-template-box">
-                <code id="recruiter-template-text" class="font-mono">"Olá Felipe, vi seu portfólio em felipegardenghi.com.br e gostaria de conversar sobre uma oportunidade para Desenvolvedor Backend / Full-Stack."</code>
-                <button type="button" class="btn btn-secondary recruiter-copy-btn" id="btn-copy-recruiter" data-copy="Olá Felipe, vi seu portfólio em felipegardenghi.com.br e gostaria de conversar sobre uma oportunidade para Desenvolvedor Backend / Full-Stack." aria-label="Copiar mensagem pré-formatada">
-                  <svg viewBox="0 0 24 24" class="btn-icon" aria-hidden="true" focusable="false">
-                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                  </svg>
-                  <span>Copiar Mensagem</span>
-                </button>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">C# .NET 8</span>
+                <span class="figma-tech-badge">ASP.NET Core</span>
+                <span class="figma-tech-badge">Java 21</span>
+                <span class="figma-tech-badge">Spring Boot 3</span>
+                <span class="figma-tech-badge">CQRS &amp; Event Sourcing</span>
+                <span class="figma-tech-badge">Hexagonal Architecture</span>
+                <span class="figma-tech-badge">Python 3.12</span>
+              </div>
+            </div>
+
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">🗄️</span>
+                <h4>Bases de Dados &amp; Infra</h4>
+              </div>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">Oracle PL/SQL</span>
+                <span class="figma-tech-badge">TOTVS Protheus (ADVPL)</span>
+                <span class="figma-tech-badge">PostgreSQL</span>
+                <span class="figma-tech-badge">MySQL</span>
+                <span class="figma-tech-badge">RabbitMQ</span>
+                <span class="figma-tech-badge">Redis</span>
+                <span class="figma-tech-badge">Docker</span>
+                <span class="figma-tech-badge">Terraform (IaC / AWS)</span>
+              </div>
+            </div>
+
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">🌐</span>
+                <h4>Frontend &amp; Ciência de Dados</h4>
+              </div>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">React 19</span>
+                <span class="figma-tech-badge">Next.js 16</span>
+                <span class="figma-tech-badge">TypeScript 5.8</span>
+                <span class="figma-tech-badge">Angular 19</span>
+                <span class="figma-tech-badge">Tailwind CSS v4</span>
+                <span class="figma-tech-badge">LightGBM &amp; SHAP</span>
+                <span class="figma-tech-badge">Pandas / NumPy</span>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <!-- Section 4: SERVICIOS (2x2 Grid) -->
+        <section id="tech-servicios" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">SERVICIOS</span>
+          </div>
+          <div class="figma-services-grid">
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Desarrollo de Microservicios &amp; APIs REST</h4>
+              <p class="figma-service-desc">Construção de APIs robustas em C# .NET 8 e Java 21 com CQRS, mensageria via RabbitMQ e concorrência escalável.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Ingeniería de Bases de Datos &amp; PL/SQL</h4>
+              <p class="figma-service-desc">Modelagem relacional corporativa, procedures transacionais, views materializadas e sustentação do ERP TOTVS Protheus.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Aplicaciones Web Modernas (React / Next.js)</h4>
+              <p class="figma-service-desc">Interfaces reativas com Server Components, TypeScript estrito, animações fluidas e otimização Core Web Vitals.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Ciencia de Dados &amp; Machine Learning</h4>
+              <p class="figma-service-desc">Esteiras preditivas com Python, validação cruzada, modelos LightGBM/XGBoost e explicabilidade de inferências com SHAP.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: ENCUÉNTRAME & CTA -->
+        <section id="tech-contacto" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">ENCUÉNTRAME</span>
+          </div>
+          <div class="figma-social-pills-row">
+            <a href="https://github.com/felipegardenghidev" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span> &rarr;
+            </a>
+            <a href="https://linkedin.com/in/felipegardenghi" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span> &rarr;
+            </a>
+            <a href="mailto:felipegg.dev@gmail.com" class="figma-social-pill">
+              <span>felipegg.dev@gmail.com</span> &rarr;
+            </a>
+            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>WhatsApp</span> &rarr;
+            </a>
+            <a href="./resume/felipe-gardenghi-cv.pdf" download="felipe-gardenghi-cv.pdf" class="figma-social-pill">
+              <span>Baixar CV (PDF)</span> &darr;
+            </a>
+          </div>
+
+          <div class="figma-cta-center">
+            <button type="button" class="figma-btn-primary" data-open-cv>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              <span>Visualizar Currículo Completo</span>
+            </button>
+          </div>
+        </section>
+
       </div>
-    </section>
+    </div>
 
-    </div><!-- /.persona-content--tech -->
+    <!-- ══════════════════════════════════════════════════════════════════════════
+         SCREEN 2: FIGMA MUSICIAN PORTFOLIO (PÁGINA BATERISTA / MÚSICO DE SESIÓN)
+         ══════════════════════════════════════════════════════════════════════════ -->
+    <div class="persona-view--music">
+      <div class="figma-container">
 
-    <!-- ════════════════════════════════════════
-         PERSONA: MÚSICA & ENGENHARIA DE ÁUDIO
-         ════════════════════════════════════════ -->
-    <div class="persona-content persona-content--music">
-
-      <!-- ── Music Hero ── -->
-      <section id="music-hero" class="music-hero" aria-label="Apresentação Musical">
-        <div class="container hero-container reveal-on-scroll">
-
-          <!-- Persona Switcher Hero Banner -->
-          <div class="hero-persona-switch-bar">
-            <div class="persona-switcher" role="radiogroup" aria-label="Alternar perfil profissional">
-              <button type="button" class="persona-tab" data-persona-btn="tech" role="radio" aria-checked="false">
-                <span class="persona-tab-icon">💻</span>
-                <span class="persona-tab-label">Engenharia de Software &amp; TI</span>
-              </button>
-              <button type="button" class="persona-tab active" data-persona-btn="music" role="radio" aria-checked="true">
-                <span class="persona-tab-icon">🎸</span>
-                <span class="persona-tab-label">Música &amp; Engenharia de Áudio</span>
-              </button>
-            </div>
-            <span class="persona-hint-text">// Portfólio Duplo: Alterne o perfil a qualquer momento</span>
-          </div>
-
-          <!-- Status Badge -->
-          <div class="music-badge-amber">
-            <span class="status-dot"></span>
-            <span>Disponível para Shows, Produção Musical &amp; Gravações</span>
-          </div>
-
-          <!-- Title & Subtitle -->
-          <h1 class="hero-title music-title-gradient">Felipe Gardenghi</h1>
-          <div class="hero-typewriter-container" aria-label="Especialidades Musicais">
-            <span class="typewriter-prefix" aria-hidden="true">//</span>
-            <span class="typewriter-text" style="color: #fbbf24;">Guitarrista, Vocalista &amp; Engenheiro de Áudio / DSP</span>
-          </div>
-
-          <!-- Positioning Statement -->
-          <p class="hero-description">
-            Músico com <strong>14+ anos de estrada</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e aos hinos do emo dos anos 2000 em casas de show e festivais do estado de SP), baixista em projetos autorais (<strong>Patrulha 7</strong> — álbum lançado em estúdio, e <strong>Hellboys</strong>). Atuação de ponta na intersecção entre arte e engenharia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura open-source de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
-          </p>
-
-          <!-- Skills & Gear Pills -->
-          <div class="music-pills-row">
-            <span class="music-pill">🎸 Guitarra &amp; Voz Principal</span>
-            <span class="music-pill">🎛️ DAW Reaper + Linux Mint (Live Rig)</span>
-            <span class="music-pill">🎧 Retorno In-Ear Sem Fio (M-Vave)</span>
-            <span class="music-pill">⚡ C++17 DSP Audio Plugins (MidwestAmp)</span>
-            <span class="music-pill">🎹 Tone.js &amp; Web MIDI API</span>
-            <span class="music-pill">🌐 Next.js 16 &amp; Schema.org MusicGroup</span>
-          </div>
-
-          <!-- Action CTAs -->
-          <div class="hero-actions">
-            <a href="#music-player-section" class="btn btn-primary" style="background: #f59e0b; color: #18181b; border-color: #f59e0b;">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              <span>Ouvir Faixas &amp; Player</span>
-            </a>
-            <a href="#music-rig" class="btn btn-secondary">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-              </svg>
-              <span>Setup de Palco &amp; Rider</span>
-            </a>
-            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Vi%20seu%20portf%C3%B3lio%20musical%20e%20gostaria%20de%20conversar%20sobre%20shows%20e%20projetos." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>Contratar Show (WhatsApp)</span>
-            </a>
-            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <span>Site da Revanche ↗</span>
-            </a>
-          </div>
-
-          <!-- Socials -->
-          <div class="hero-social">
-            <a href="https://instagram.com/felipegardenghi" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Felipe Gardenghi">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>@felipegardenghi</span>
-            </a>
-            <a href="https://instagram.com/bandarevanche" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Banda Revanche">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>@bandarevanche</span>
-            </a>
-            <a href="https://open.spotify.com/artist/fresno" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Repertório Fresno no Spotify">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-              </svg>
-              <span>Repertório &amp; Streaming</span>
-            </a>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ── Music Marquee ── -->
-      <section class="marquee-section" aria-hidden="true">
-        <div class="marquee-track">
-          <div class="marquee-content">
-            <span class="marquee-item">🎸 BANDA REVANCHE</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">FENDER STRATOCASTER</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">UNDERGROUND TOOLS</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">MIDWESTAMP (C++17 DSP)</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">DAW REAPER ON LINUX MINT</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">CRYTUNE CLAP PLUGIN</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">PRESONUS AUDIOBOX 22VSL</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">LINE 6 POD HD 500</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">M-VAVE IN-EAR WIRELESS</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">VISUCHORD (WEB MIDI &amp; AI)</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">TRIBUTO FRESNO &amp; EMO 2000S</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">PATRULHA 7 (ÁLBUM GRAVADO)</span>
-            <span class="marquee-separator">✦</span>
-          </div>
-          <div class="marquee-content" aria-hidden="true">
-            <span class="marquee-item">🎸 BANDA REVANCHE</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">FENDER STRATOCASTER</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">UNDERGROUND TOOLS</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">MIDWESTAMP (C++17 DSP)</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">DAW REAPER ON LINUX MINT</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">CRYTUNE CLAP PLUGIN</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">PRESONUS AUDIOBOX 22VSL</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">LINE 6 POD HD 500</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">M-VAVE IN-EAR WIRELESS</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">VISUCHORD (WEB MIDI &amp; AI)</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">TRIBUTO FRESNO &amp; EMO 2000S</span>
-            <span class="marquee-separator">✦</span>
-            <span class="marquee-item">PATRULHA 7 (ÁLBUM GRAVADO)</span>
-            <span class="marquee-separator">✦</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Music Bio / Trajetória ── -->
-      <section id="music-bio" class="about section" aria-label="Trajetória Musical">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-tag">// TRAJETÓRIA &amp; IDENTIDADE</span>
-            <h2 class="section-title">14+ Anos de Estrada, Palcos e Engenharia de Áudio</h2>
-            <p class="section-description">
-              Da energia visceral das casas de show de rock ao rigor técnico do processamento digital de sinais (DSP em C++17).
-            </p>
-          </div>
-
-          <div class="music-bio-grid">
-            <div class="music-portrait-card">
+        <!-- Hero Profile Card -->
+        <header class="figma-hero-section">
+          <div class="figma-hero-card">
+            <div class="figma-avatar-wrapper">
               <picture>
                 <source srcset="./images/music/felipe-stage.webp" type="image/webp" />
-                <img src="./images/music/felipe-stage.jpg" alt="Felipe Gardenghi ao vivo cantando e tocando guitarra" class="music-portrait-img" loading="lazy" />
+                <img src="./images/music/felipe-stage.jpg" alt="Felipe Gardenghi - Músico" class="figma-avatar-img" />
               </picture>
-              <div class="music-portrait-badge">
-                <div>
-                  <strong>Felipe Gardenghi</strong>
-                  <span style="display: block;">Vocalista, Guitarrista &amp; Engenheiro DSP</span>
+            </div>
+            <div>
+              <span class="figma-hero-eyebrow">// HOLA, SOY FELIPE GARDENGHI</span>
+              <h1 class="figma-hero-name">FELIPE GARDENGHI</h1>
+              <div class="figma-hero-subtitle">GUITARRISTA / VOCALISTA &amp; PRODUTOR</div>
+              <p class="figma-hero-bio">
+                Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum lançado em estúdio, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
+              </p>
+              <div class="figma-metrics-grid">
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">14+</div>
+                  <div class="figma-metric-label">Años de Trayectoria</div>
                 </div>
-                <span>Fender Stratocaster</span>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">2</div>
+                  <div class="figma-metric-label">Bandas Principales</div>
+                </div>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">50+</div>
+                  <div class="figma-metric-label">Conciertos en Vivo</div>
+                </div>
+                <div class="figma-metric-box">
+                  <div class="figma-metric-number">100%</div>
+                  <div class="figma-metric-label">Live Rig &amp; Audio DSP</div>
+                </div>
               </div>
             </div>
+          </div>
+        </header>
 
-            <div class="music-bio-text">
-              <h3>Da Paixão pelo Emo 2000s à Alta Tecnologia de Palco</h3>
-              <p>
-                Músico desde os 13 anos, iniciei minha caminhada musical fascinado pela intensidade expressiva do rock alternativo, emo e pós-hardcore. Ao longo de mais de uma década, atuei como baixista, violonista, guitarrista e vocalista em diversas formações, gravando em estúdio e circulando pelo circuito autoral e de tributos do estado de São Paulo.
-              </p>
-              <p>
-                Integrei projetos como a <strong>Patrulha 7</strong> (lançando álbum de estúdio autoral no baixo elétrico), <strong>Hellboys</strong> (com lançamentos de singles), <strong>Blue Drive</strong>, <strong>Emopala</strong> e <strong>Rafael Puga Trio</strong>. Nesses anos, tive a honra de abrir shows para ícones nacionais e internacionais como <strong>Fresno</strong> e <strong>McFly</strong>, além de conexões e participações com <strong>Linkin Park Cover Ribeirão</strong>, <strong>Kilotones</strong>, <strong>Ciça Moreira</strong>, <strong>Soberba</strong> e <strong>Green Day Cover Ribeirão</strong>.
-              </p>
-              <p>
-                Em 2023, fundei a <strong>Banda Revanche</strong>, trazendo para os palcos uma homenagem profunda e potente à história da Fresno e aos clássicos do emo dos anos 2000, com apresentações memoráveis para centenas de fãs.
-              </p>
-              <p>
-                Hoje, minha vivência artística caminha de mãos dadas com a Ciência de Dados e Engenharia de Software: opero um rig de palco moderno baseado em <strong>Reaper no Linux Mint</strong> com processamento de guitarra e voz em tempo real, desenvolvo meus próprios simuladores de amplificador e afinação em C++17 (<strong>MidwestAmp</strong> e <strong>CryTune</strong>), e construo instrumentos musicais inovadores por visão computacional (<strong>VisuChord</strong>).
-              </p>
+        <!-- Section 1: EN ESCENA (Concert Stage Wide Banner) -->
+        <section id="music-escena" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">EN ESCENA</span>
+            <span class="figma-section-link">Banda Revanche &bull; Shows no Interior Paulista</span>
+          </div>
+          <div class="figma-stage-window">
+            <img src="./images/music/revanche-band.webp" alt="Banda Revanche ao vivo no palco" class="figma-stage-img" />
+            <div class="figma-stage-overlay">
+              <div class="figma-stage-caption">Banda Revanche &mdash; Tributo Fresno &amp; Emo Anos 2000</div>
+              <div class="figma-stage-subcaption">// Turnê de Shows Ao Vivo &bull; Energia Visceral &bull; Live Rig Digital</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ── Music Player & Web Audio Demo ── -->
-      <section id="music-player-section" class="section" aria-label="Player de Música Interativo">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-tag">// OUÇA AGORA</span>
-            <h2 class="section-title">Player Interativo &amp; Mostruário Sonoro</h2>
-            <p class="section-description">
-              Experimente as gravações ao vivo da Banda Revanche, stems autorais e demos dos plugins de áudio com visualizador de espectro em tempo real.
-            </p>
+        <!-- Section 2: VÍDEOS & AUDIO (3-Column Grid + Interactive Player) -->
+        <section id="music-videos" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">VÍDEOS &amp; AUDIO</span>
+            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="figma-section-link">Ver web oficial de la banda &rarr;</a>
+          </div>
+          <div class="figma-cards-grid-3">
+            <!-- Media 1 -->
+            <article class="figma-card" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <img src="./images/music/revanche-band.webp" alt="Quebre As Correntes" />
+                <div class="figma-play-overlay">
+                  <div class="figma-play-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">Quebre As Correntes (Ao Vivo)</h3>
+                <p class="figma-card-desc">Gravação ao vivo do show da Banda Revanche com guitarra e voz principal.</p>
+                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+              </div>
+            </article>
+
+            <!-- Media 2 -->
+            <article class="figma-card" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <img src="./images/music/felipe-stage.jpg" alt="Revanche Ao Vivo" />
+                <div class="figma-play-overlay">
+                  <div class="figma-play-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">Revanche (Ao Vivo)</h3>
+                <p class="figma-card-desc">Performance ao vivo em festival com dinâmicas de voz rasgada e solos melódicos.</p>
+                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+              </div>
+            </article>
+
+            <!-- Media 3 -->
+            <article class="figma-card" role="button" tabindex="0">
+              <div class="figma-card-media">
+                <div style="height: 100%; background: linear-gradient(135deg, #1c1410, #342217); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 26px; color: #fbbf24;">
+                  ⚡ MidwestAmp
+                </div>
+                <div class="figma-play-overlay">
+                  <div class="figma-play-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="figma-card-content">
+                <h3 class="figma-card-title">MidwestAmp DSP Audio Demo</h3>
+                <p class="figma-card-desc">Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch.</p>
+                <span class="figma-card-action">Reproducir en el player &rarr;</span>
+              </div>
+            </article>
           </div>
 
-          <div class="music-player-widget">
+          <!-- Integrated Interactive Audio Player & Canvas Visualizer -->
+          <div class="music-player-widget" style="margin-top: 24px;">
             <div class="music-player-header">
               <div class="music-player-title-group">
                 <h3>
                   <span style="color: #f59e0b;">▶</span>
-                  <span>Audio Showcase &amp; DSP Engine</span>
+                  <span>Audio Showcase &amp; Web Audio Engine</span>
                 </h3>
               </div>
               <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent);">
-                ● MOTOR WEB AUDIO ATIVO
+                ● REPRODUTOR EM TEMPO REAL
               </div>
             </div>
 
-            <!-- Waveform Canvas -->
             <div class="music-player-visualizer-box">
               <canvas id="music-visualizer-canvas"></canvas>
             </div>
 
-            <!-- Track Metadata -->
             <div class="music-player-track-info">
               <span class="music-current-title" id="music-current-title">Quebre As Correntes (Ao Vivo)</span>
-              <span class="music-current-artist" id="music-current-artist">Banda Revanche (Tributo Fresno) · Emo Rock / Live</span>
+              <span class="music-current-artist" id="music-current-artist">Banda Revanche (Tributo Fresno) &bull; Emo Rock / Live</span>
             </div>
 
-            <!-- Scrub Bar -->
             <div class="music-progress-wrapper">
               <div class="music-progress-bar" id="music-progress-bar" role="progressbar" aria-label="Progresso da música">
                 <div class="music-progress-fill" id="music-progress-fill"></div>
@@ -1877,33 +650,25 @@
               </div>
             </div>
 
-            <!-- Controls -->
             <div class="music-controls-row">
               <button type="button" class="music-ctrl-btn" id="music-prev-btn" aria-label="Faixa anterior">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
               </button>
               <button type="button" class="music-ctrl-btn music-play-btn" id="music-play-btn" aria-label="Reproduzir áudio">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </button>
               <button type="button" class="music-ctrl-btn" id="music-next-btn" aria-label="Próxima faixa">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
               </button>
             </div>
 
-            <!-- Playlist -->
             <ul class="music-playlist" role="list">
               <li class="music-track-item active" data-track="0">
                 <div class="music-track-left">
                   <span class="music-track-num">01</span>
                   <div>
                     <div class="music-track-name">Quebre As Correntes (Ao Vivo)</div>
-                    <div class="music-track-genre">Banda Revanche · Tributo Fresno &amp; Emo 2000s</div>
+                    <div class="music-track-genre">Banda Revanche &bull; Tributo Fresno &amp; Emo 2000s</div>
                   </div>
                 </div>
                 <span class="music-track-duration">3:42</span>
@@ -1913,7 +678,7 @@
                   <span class="music-track-num">02</span>
                   <div>
                     <div class="music-track-name">Revanche (Ao Vivo)</div>
-                    <div class="music-track-genre">Banda Revanche · Voz &amp; Guitarra ao Vivo</div>
+                    <div class="music-track-genre">Banda Revanche &bull; Voz &amp; Guitarra ao Vivo</div>
                   </div>
                 </div>
                 <span class="music-track-duration">4:15</span>
@@ -1922,388 +687,118 @@
                 <div class="music-track-left">
                   <span class="music-track-num">03</span>
                   <div>
-                    <div class="music-track-name">Linha de Frente</div>
-                    <div class="music-track-genre">Patrulha 7 · Álbum Autoral Gravado em Estúdio (Baixo)</div>
-                  </div>
-                </div>
-                <span class="music-track-duration">3:18</span>
-              </li>
-              <li class="music-track-item" data-track="3">
-                <div class="music-track-left">
-                  <span class="music-track-num">04</span>
-                  <div>
-                    <div class="music-track-name">MidwestAmp DSP Demo</div>
-                    <div class="music-track-genre">Felipe Gardenghi · C++17 Tube Amp Simulator (Clean &amp; Crunch)</div>
+                    <div class="music-track-name">MidwestAmp DSP Audio Demo</div>
+                    <div class="music-track-genre">Felipe Gardenghi &bull; C++17 Tube Amp Simulator</div>
                   </div>
                 </div>
                 <span class="music-track-duration">2:50</span>
               </li>
-              <li class="music-track-item" data-track="4">
-                <div class="music-track-left">
-                  <span class="music-track-num">05</span>
-                  <div>
-                    <div class="music-track-name">VisuChord Vision Synth Jam</div>
-                    <div class="music-track-genre">Felipe Gardenghi · Tone.js + Web MIDI + MediaPipe Vision</div>
-                  </div>
-                </div>
-                <span class="music-track-duration">2:14</span>
-              </li>
             </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ── Music Projects & Bands ── -->
-      <section id="music-projects" class="projects section" aria-label="Bandas e Projetos Musicais">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-tag">// PROJETOS &amp; ATUAÇÃO</span>
-            <h2 class="section-title">Bandas, Produções &amp; Engenharia Sonora</h2>
-            <p class="section-description">
-              Iniciativas onde a performance no palco se funde com a arquitetura de software e tecnologia de áudio.
-            </p>
+        <!-- Section 3: EQUIPAMIENTO & RIG (3 Panels) -->
+        <section id="music-gear" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">EQUIPAMIENTO &amp; SETUP</span>
           </div>
-
-          <div class="music-projects-grid">
-            <!-- Card 1: Banda Revanche -->
-            <article class="music-card">
-              <img src="./images/music/revanche-band.webp" alt="Banda Revanche reunida" class="music-card-banner" loading="lazy" />
-              <div class="music-card-body">
-                <span class="music-card-role">// BANDA EM ATIVIDADE · PALCOS SP</span>
-                <h3 class="music-card-title">Banda Revanche</h3>
-                <p class="music-card-desc">
-                  Homenagem visceral e potente à trajetória da Fresno e aos maiores clássicos do emo dos anos 2000. Liderando voz e guitarra, com agenda ativa de shows em casas de espetáculo do interior paulista, abertura de grandes eventos e site oficial construído em <strong>Next.js 16 + ISR</strong> com SEO Schema.org MusicGroup.
-                </p>
-                <div class="music-card-tags">
-                  <span class="music-tag">Vocal &amp; Guitarra</span>
-                  <span class="music-tag">Shows ao Vivo</span>
-                  <span class="music-tag">Emo 2000s</span>
-                  <span class="music-tag">Next.js 16</span>
-                </div>
-                <div class="music-card-actions">
-                  <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: var(--fs-xs); padding: 8px 16px;">
-                    Site Oficial ↗
-                  </a>
-                  <a href="https://instagram.com/bandarevanche" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
-                    Instagram ↗
-                  </a>
-                </div>
+          <div class="figma-stack-grid">
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">🎸</span>
+                <h4>Guitarras &amp; Baixo</h4>
               </div>
-            </article>
-
-            <!-- Card 2: Underground Tools & MidwestAmp -->
-            <article class="music-card">
-              <div style="height: 200px; background: linear-gradient(135deg, #181412, #2c1e14); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
-                <div style="text-align: center; padding: 20px;">
-                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">⚡</span>
-                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #fbbf24; letter-spacing: 0.05em;">UNDERGROUND TOOLS</strong>
-                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">MidwestAmp C++17 CLAP/VST3</span>
-                </div>
-              </div>
-              <div class="music-card-body">
-                <span class="music-card-role">// C++17 DSP · AUDIO ENGINEERING</span>
-                <h3 class="music-card-title">Underground Tools &amp; MidwestAmp</h3>
-                <p class="music-card-desc">
-                  Plataforma comunitária open-source para bandas independentes. Inclui o <strong>MidwestAmp</strong>, plugin de simulação de amplificador valvulado e resposta de impulso (IR) em C++17 para timbres Kinsella Clean e 90s Crunch, além de gerador de Mapa de Palco (Stage Plot) e Input List exportáveis para PDF A4 de prancheta de técnico de som.
-                </p>
-                <div class="music-card-tags">
-                  <span class="music-tag">C++17 DSP</span>
-                  <span class="music-tag">CLAP / VST3</span>
-                  <span class="music-tag">Stage Plot A4</span>
-                  <span class="music-tag">Open-Source</span>
-                </div>
-                <div class="music-card-actions">
-                  <a href="https://github.com/felipegardenghidev" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
-                    Ver no GitHub ↗
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 3: VisuChord -->
-            <article class="music-card">
-              <div style="height: 200px; background: linear-gradient(135deg, #121820, #142232); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
-                <div style="text-align: center; padding: 20px;">
-                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">🎹</span>
-                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #60a5fa; letter-spacing: 0.05em;">VisuChord</strong>
-                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">MediaPipe Vision + Tone.js + Web MIDI</span>
-                </div>
-              </div>
-              <div class="music-card-body">
-                <span class="music-card-role">// COMPUTER VISION &amp; WEB MIDI</span>
-                <h3 class="music-card-title">VisuChord</h3>
-                <p class="music-card-desc">
-                  Instrumento musical polifônico e controlador MIDI sem fio para DAWs operado pela webcam por rastreamento gestual bimanual em tempo real (Google MediaPipe Tasks-Vision acelerado por WebGL/Wasm). Mão esquerda comanda tônicas cromáticas e mão direita controla qualidades harmônicas com estabilização temporal anti-jitter.
-                </p>
-                <div class="music-card-tags">
-                  <span class="music-tag">Tone.js</span>
-                  <span class="music-tag">Web MIDI API</span>
-                  <span class="music-tag">MediaPipe Vision</span>
-                  <span class="music-tag">React 19</span>
-                </div>
-                <div class="music-card-actions">
-                  <a href="https://github.com/felipegardenghidev/visuchord" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: var(--fs-xs); padding: 8px 16px;">
-                    Repositório ↗
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 4: Patrulha 7 -->
-            <article class="music-card">
-              <div style="height: 200px; background: linear-gradient(135deg, #1b1612, #291c10); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
-                <div style="text-align: center; padding: 20px;">
-                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">📻</span>
-                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #fbbf24; letter-spacing: 0.05em;">PATRULHA 7</strong>
-                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">Álbum Autoral de Estúdio</span>
-                </div>
-              </div>
-              <div class="music-card-body">
-                <span class="music-card-role">// BAIXO ELÉTRICO &amp; COMPOSIÇÃO</span>
-                <h3 class="music-card-title">Patrulha 7 (Álbum Autoral)</h3>
-                <p class="music-card-desc">
-                  Atuação como baixista na gravação completa de álbum de estúdio autoral. Linhas de baixo melódicas e enérgicas, arranjos de rock nacional e apresentações ao vivo que consolidaram minha experiência com monitoração, dinâmica de estúdio e estridência de palco.
-                </p>
-                <div class="music-card-tags">
-                  <span class="music-tag">Baixo Elétrico</span>
-                  <span class="music-tag">Álbum de Estúdio</span>
-                  <span class="music-tag">Rock Autoral</span>
-                  <span class="music-tag">Arranjos</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 5: Instantune Web Player -->
-            <article class="music-card">
-              <div style="height: 200px; background: linear-gradient(135deg, #101824, #18283c); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-primary);">
-                <div style="text-align: center; padding: 20px;">
-                  <span style="font-size: 40px; display: block; margin-bottom: 6px;">🎧</span>
-                  <strong style="font-family: var(--font-mono); font-size: var(--fs-md); color: #38bdf8; letter-spacing: 0.05em;">Instantune</strong>
-                  <span style="display: block; font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono);">React 19 + TypeScript + MediaSession</span>
-                </div>
-              </div>
-              <div class="music-card-body">
-                <span class="music-card-role">// HIGH-FIDELITY WEB PLAYER</span>
-                <h3 class="music-card-title">Instantune Music Player</h3>
-                <p class="music-card-desc">
-                  Player moderno de áudio na web projetado para audição crítica de stems e masterizações. Integração com a MediaSession API para controle pelo teclado do sistema operacional, visualizador dinâmico de espectro de áudio e persistência de playlists.
-                </p>
-                <div class="music-card-tags">
-                  <span class="music-tag">React 19</span>
-                  <span class="music-tag">MediaSession API</span>
-                  <span class="music-tag">Audio Visualizer</span>
-                  <span class="music-tag">Tailwind v4</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Live Rig & Stage Engineering ── -->
-      <section id="music-rig" class="section" aria-label="Setup de Palco e Rider Técnico">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-tag">// RIDER TÉCNICO &amp; ENGENHARIA DE PALCO</span>
-            <h2 class="section-title">Setup de Palco Silencioso &amp; Sem Amplificadores</h2>
-            <p class="section-description">
-              Estrutura profissional desenhada para dispensar caixas valvuladas pesadas de 30kg, garantindo som de estúdio diretamente no PA da casa e retorno in-ear estéreo sem ruídos.
-            </p>
-          </div>
-
-          <div class="music-rig-diagram-box">
-            <h3 style="font-size: var(--fs-lg); color: var(--text-primary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: 8px;">
-              <span>🎛️</span>
-              <span>Arquitetura de Sinal ao Vivo (Live Rig Flow)</span>
-            </h3>
-
-            <div class="music-rig-grid">
-              <!-- Item 1 -->
-              <div class="music-rig-item">
-                <span class="music-rig-icon">💻</span>
-                <h4>DAW Reaper no Linux Mint</h4>
-                <span class="rig-tag">// PipeWire Pro Audio · Sub-5ms</span>
-                <p>
-                  Notebook dedicado rodando Reaper com kernel de baixa latência. Processa o plugin <strong>MidwestAmp</strong> para guitarra valvulada e <strong>CryTune</strong> para afinação e saturação de voz em tempo real sem qualquer travamento.
-                </p>
-              </div>
-
-              <!-- Item 2 -->
-              <div class="music-rig-item">
-                <span class="music-rig-icon">🎚️</span>
-                <h4>PreSonus AudioBox 22VSL</h4>
-                <span class="rig-tag">// Entradas Hi-Z &amp; Saídas Main Balanceadas</span>
-                <p>
-                  Entrada 1 recebe microfone dinâmico de voz (XLR). Entrada 2 recebe sinal direto da Fender Stratocaster (P10 Hi-Z). As saídas traseiras L/R entregam a mix final estéreo limpa diretamente à mesa de som do show (F.O.H.).
-                </p>
-              </div>
-
-              <!-- Item 3 -->
-              <div class="music-rig-item">
-                <span class="music-rig-icon">🦶</span>
-                <h4>Line 6 POD HD 500</h4>
-                <span class="rig-tag">// Controlador de Chão via MIDI Nativo</span>
-                <p>
-                  Conectada via USB direto ao Linux, atua como controladora MIDI sem latência no chão para troca instantânea de timbres (Clean, Crunch, Solo com Boost, Shimmer Reverb) durante a apresentação.
-                </p>
-              </div>
-
-              <!-- Item 4 -->
-              <div class="music-rig-item">
-                <span class="music-rig-icon">📱</span>
-                <h4>Galaxy S9+ Touch Remote</h4>
-                <span class="rig-tag">// Reaper Web Interface no Pedestal</span>
-                <p>
-                  Fixado no pedestal do microfone e conectado via Wi-Fi dedicado. Oferece controle touchscreen de Play/Stop de pistas de playback (VS), visualização de nomes de músicas e metrônomo para a banda.
-                </p>
-              </div>
-
-              <!-- Item 5 -->
-              <div class="music-rig-item">
-                <span class="music-rig-icon">🎧</span>
-                <h4>Transmissor Sem Fio M-Vave</h4>
-                <span class="rig-tag">// Retorno In-Ear Estéreo</span>
-                <p>
-                  Ligado na saída de fones auxiliar. Transmite para o fone de ouvido uma mix customizada contendo Voz em destaque, trilhas VS e clique do metrônomo — e estritamente <strong>zero guitarra</strong> para evitar fadiga auditiva.
-                </p>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">Fender Stratocaster</span>
+                <span class="figma-tech-badge">Baixo Precision</span>
+                <span class="figma-tech-badge">Microfone Shure Beta 58A</span>
+                <span class="figma-tech-badge">Encordoamento Ernie Ball 0.10</span>
               </div>
             </div>
 
-            <!-- Input List Table -->
-            <div style="margin-top: var(--space-2xl);">
-              <h4 style="font-size: var(--fs-md); color: var(--text-primary); margin-bottom: var(--space-sm);">
-                📋 Input List &amp; Patch de Canais (Para Técnicos de PA / F.O.H.)
-              </h4>
-              <div class="music-table-wrapper">
-                <table class="music-table">
-                  <thead>
-                    <tr>
-                      <th>Canal Mesa</th>
-                      <th>Instrumento / Sinal</th>
-                      <th>Conexão / Cabo</th>
-                      <th>Phantom Power</th>
-                      <th>Observação para Operador</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>CH 01</strong></td>
-                      <td>Voz Principal (Felipe)</td>
-                      <td>XLR Balanceado</td>
-                      <td>DESLIGADO (Off)</td>
-                      <td>Sinal processado e afinado direto da AudioBox</td>
-                    </tr>
-                    <tr>
-                      <td><strong>CH 02</strong></td>
-                      <td>Guitarra Principal (Left)</td>
-                      <td>P10 / XLR Balanceado</td>
-                      <td>DESLIGADO (Off)</td>
-                      <td>Simulador valvulado estéreo (MidwestAmp)</td>
-                    </tr>
-                    <tr>
-                      <td><strong>CH 03</strong></td>
-                      <td>Guitarra Principal (Right)</td>
-                      <td>P10 / XLR Balanceado</td>
-                      <td>DESLIGADO (Off)</td>
-                      <td>Pan 100% R para abertura estéreo no PA</td>
-                    </tr>
-                    <tr>
-                      <td><strong>CH 04</strong></td>
-                      <td>VS Playback / Teclados</td>
-                      <td>P10 / XLR Balanceado</td>
-                      <td>DESLIGADO (Off)</td>
-                      <td>Trilhas pré-mixadas (Sem click no PA)</td>
-                    </tr>
-                    <tr>
-                      <td><strong>AUX 01</strong></td>
-                      <td>Retorno In-Ear (M-Vave)</td>
-                      <td>P2 / Sem Fio</td>
-                      <td>--</td>
-                      <td>Mix individual interna comandada pelo palco</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">🎛️</span>
+                <h4>Live Rig Digital (Sem Amp)</h4>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Music Contact & Booking ── -->
-      <section id="music-contact" class="contact section" aria-label="Contato e Contratação Musical">
-        <div class="container reveal-on-scroll">
-          <div class="section-header">
-            <span class="section-tag">// BOOKING &amp; CONTRATAÇÃO</span>
-            <h2 class="section-title">Leve a Banda Revanche para o Seu Evento</h2>
-            <p class="section-description">
-              Disponível para shows, festivais de rock/anos 2000, eventos corporativos e produções musicais em todo o estado de SP.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <div class="contact-info">
-              <h3>Fale Diretamente com Felipe</h3>
-              <p>
-                Para contratação de apresentações da <strong>Banda Revanche</strong>, parcerias de palco, sessões de gravação de guitarra/baixo ou desenvolvimento de ferramentas de áudio:
-              </p>
-
-              <div class="contact-methods">
-                <div class="contact-method-item">
-                  <span class="method-icon">📍</span>
-                  <div>
-                    <strong>Localização Base</strong>
-                    <span>Sertãozinho / Ribeirão Preto - SP (Disponibilidade para viagens)</span>
-                  </div>
-                </div>
-                <div class="contact-method-item">
-                  <span class="method-icon">💬</span>
-                  <div>
-                    <strong>WhatsApp Direto</strong>
-                    <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20conversar%20sobre%20shows%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer">
-                      (16) 99395-0293
-                    </a>
-                  </div>
-                </div>
-                <div class="contact-method-item">
-                  <span class="method-icon">✉️</span>
-                  <div>
-                    <strong>E-mail</strong>
-                    <a href="mailto:felipegg.dev@gmail.com">felipegg.dev@gmail.com</a>
-                  </div>
-                </div>
-                <div class="contact-method-item">
-                  <span class="method-icon">🌐</span>
-                  <div>
-                    <strong>Site Oficial da Banda</strong>
-                    <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer">bandarevanche.com.br</a>
-                  </div>
-                </div>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">Notebook Linux Mint</span>
+                <span class="figma-tech-badge">DAW Reaper (PipeWire)</span>
+                <span class="figma-tech-badge">PreSonus AudioBox 22VSL</span>
+                <span class="figma-tech-badge">Galaxy S9+ Touch Remote</span>
               </div>
             </div>
 
-            <div class="contact-form-wrapper">
-              <div class="contact-quick-box" style="background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); padding: var(--space-2xl);">
-                <h4 style="font-size: var(--fs-lg); color: var(--text-primary); margin-bottom: var(--space-md); display: flex; align-items: center; gap: 8px;">
-                  <span>🎸</span>
-                  <span>Mensagem Rápida para Contratação</span>
-                </h4>
-                <p style="color: var(--text-secondary); font-size: var(--fs-sm); line-height: var(--lh-relaxed); margin-bottom: var(--space-lg);">
-                  Clique no botão abaixo para abrir uma conversa direta no WhatsApp com dados pré-formatados sobre datas, local do evento e estrutura de som.
-                </p>
-
-                <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20a%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center; background: #f59e0b; border-color: #f59e0b; color: #18181b; font-weight: var(--fw-bold); padding: 14px 24px; font-size: var(--fs-md);">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
-                  </svg>
-                  <span>Chamar no WhatsApp de Shows</span>
-                </a>
+            <div class="figma-stack-panel">
+              <div class="figma-stack-panel-header">
+                <span style="font-size: 18px;">🎧</span>
+                <h4>Áudio DSP &amp; Monitor</h4>
+              </div>
+              <div class="figma-badges-wrap">
+                <span class="figma-tech-badge">Line 6 POD HD 500 (MIDI)</span>
+                <span class="figma-tech-badge">Transmissor M-Vave In-Ear</span>
+                <span class="figma-tech-badge">MidwestAmp C++17</span>
+                <span class="figma-tech-badge">CryTune Pitch Correction</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-    </div><!-- /.persona-content--music -->
+        <!-- Section 4: SERVICIOS (2x2 Grid) -->
+        <section id="music-servicios" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">SERVICIOS</span>
+          </div>
+          <div class="figma-services-grid">
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Conciertos en Vivo &amp; Festivales</h4>
+              <p class="figma-service-desc">Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Grabación de Guitarra, Bajo &amp; Voz</h4>
+              <p class="figma-service-desc">Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Ingeniería de Live Rig &amp; Playback (VS)</h4>
+              <p class="figma-service-desc">Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas.</p>
+            </div>
+            <div class="figma-service-card">
+              <h4 class="figma-service-title">Desarrollo de Plugins de Audio (C++ DSP)</h4>
+              <p class="figma-service-desc">Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: ENCUÉNTRAME & CTA -->
+        <section id="music-contacto" class="figma-section">
+          <div class="figma-section-header">
+            <span class="figma-section-tag">ENCUÉNTRAME</span>
+          </div>
+          <div class="figma-social-pills-row">
+            <a href="https://instagram.com/felipegardenghi" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>Instagram @felipegardenghi</span> &rarr;
+            </a>
+            <a href="https://instagram.com/bandarevanche" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>@bandarevanche</span> &rarr;
+            </a>
+            <a href="https://bandarevanche.com.br" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>Web Oficial Revanche</span> &rarr;
+            </a>
+            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20conversar%20sobre%20shows%20da%20Banda%20Revanche." class="figma-social-pill" target="_blank" rel="noopener noreferrer">
+              <span>WhatsApp de Booking</span> &rarr;
+            </a>
+          </div>
+
+          <div class="figma-cta-center">
+            <a href="https://wa.me/5516993950293?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="figma-btn-primary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+              <span>Contratar Show da Banda Revanche</span>
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </div>
 
   </main>
 

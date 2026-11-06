@@ -10,6 +10,9 @@
 @import './layout.css';
 @import './utilities.css';
 
+/* ── Figma Dual Portfolio System ── */
+@import './components/figma-dual.css';
+
 /* ── Components ── */
 @import './components/persona.css';
 @import './components/navbar.css';

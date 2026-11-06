@@ -1,20 +1,23 @@
 /**
- * Dual Persona Controller (Tech / Musician)
- * Manages mode switching between Software Engineering and Music personas.
- * Defaults strictly to 'tech' for root visits and direct links.
+ * Dual Persona Controller (Tech / Musician / Split Gateway)
+ * Faithful recreation of the Dual Portfolio Figma Design.
+ * Defaults strictly to 'tech' for root visits and CV/GitHub links.
  */
 
 export function initPersona() {
   const params = new URLSearchParams(window.location.search);
   const hash = window.location.hash.toLowerCase();
   
-  // Explicit request for music via query param (?mode=music) or hash (#music)
-  const isMusicRequested = params.get('mode') === 'music' || hash === '#music' || hash.startsWith('#music-');
-  const initialPersona = isMusicRequested ? 'music' : 'tech';
+  let initialPersona = 'tech';
+  if (params.get('mode') === 'music' || hash.startsWith('#music')) {
+    initialPersona = 'music';
+  } else if (params.get('mode') === 'split' || hash === '#split') {
+    initialPersona = 'split';
+  }
 
   setPersona(initialPersona, false);
 
-  // Click handler for switcher tabs (navbar and hero)
+  // Click handler for switcher tabs (navbar, buttons, split screen)
   document.addEventListener('click', (e) => {
     const tab = e.target.closest('[data-persona-btn]');
     if (!tab) return;
@@ -29,17 +32,22 @@ export function initPersona() {
   window.addEventListener('popstate', () => {
     const currentParams = new URLSearchParams(window.location.search);
     const currentHash = window.location.hash.toLowerCase();
-    const mode = currentParams.get('mode') === 'music' || currentHash.startsWith('#music') ? 'music' : 'tech';
+    let mode = 'tech';
+    if (currentParams.get('mode') === 'music' || currentHash.startsWith('#music')) {
+      mode = 'music';
+    } else if (currentParams.get('mode') === 'split' || currentHash === '#split') {
+      mode = 'split';
+    }
     setPersona(mode, false);
   });
 }
 
 export function setPersona(persona, updateUrl = true) {
-  const validPersona = persona === 'music' ? 'music' : 'tech';
+  const validPersona = ['tech', 'music', 'split'].includes(persona) ? persona : 'tech';
   document.documentElement.setAttribute('data-persona', validPersona);
 
-  // Update switcher button states
-  document.querySelectorAll('.persona-tab').forEach((btn) => {
+  // Update switcher buttons state
+  document.querySelectorAll('[data-persona-btn]').forEach((btn) => {
     const btnPersona = btn.getAttribute('data-persona-btn');
     const isActive = btnPersona === validPersona;
     btn.classList.toggle('active', isActive);
@@ -51,16 +59,12 @@ export function setPersona(persona, updateUrl = true) {
     const url = new URL(window.location.href);
     if (validPersona === 'music') {
       url.searchParams.set('mode', 'music');
-      // If previous hash was a tech section, clear it or point to music hero
-      if (url.hash && !url.hash.startsWith('#music')) {
-        url.hash = '';
-      }
+    } else if (validPersona === 'split') {
+      url.searchParams.set('mode', 'split');
     } else {
       url.searchParams.delete('mode');
-      if (url.hash.startsWith('#music')) {
-        url.hash = '';
-      }
     }
+    url.hash = '';
     window.history.replaceState({}, '', url.toString());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

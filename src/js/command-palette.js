@@ -102,6 +102,15 @@ function getItems() {
   const actions = [
     {
       group: isEn ? 'Dual Persona' : 'Portfólio Duplo',
+      title: isEn ? 'Dual Split Gateway (Choice Screen)' : 'Ver Tela Dividida (Gateway Dual Figma)',
+      subtitle: isEn ? 'Choose between Developer and Musician' : 'Tela inicial com divisão 50/50 entre Dev e Músico',
+      badge: 'Split',
+      icon: '⚡',
+      keywords: 'dual split gateway figma escolha dividir tela ambos',
+      run: () => setPersona('split', true)
+    },
+    {
+      group: isEn ? 'Dual Persona' : 'Portfólio Duplo',
       title: isEn ? 'Switch to Music & Audio Persona' : 'Alternar para Música & Áudio (Guitarrista / Produtor)',
       subtitle: isEn ? 'Banda Revanche, DSP Plugins, Live Stage Rig' : 'Banda Revanche, C++ DSP, Rig de Palco',
       badge: 'Music',

@@ -1,0 +1,832 @@
+/* ==========================================================================
+   FIGMA DUAL PORTFOLIO UI — Front-End Developer / Professional Musician
+   Faithful recreation of Stiven Londoño's Dual Portfolio Figma Design
+   ========================================================================== */
+
+/* ── Global Dual Tokens ── */
+:root {
+  --figma-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Developer / TI Mode (Electric Dodger Blue & Deep Navy) */
+  --figma-dev-bg: #060a16;
+  --figma-dev-card: #0c1427;
+  --figma-dev-card-hover: #101c36;
+  --figma-dev-border: #172544;
+  --figma-dev-accent: #38bdf8;
+  --figma-dev-accent-solid: #2563eb;
+  --figma-dev-accent-hover: #1d4ed8;
+  --figma-dev-glow: rgba(56, 189, 248, 0.25);
+  --figma-dev-text: #ffffff;
+  --figma-dev-text-muted: #94a3b8;
+
+  /* Musician Mode (Warm Concert Amber & Deep Charcoal) */
+  --figma-music-bg: #080605;
+  --figma-music-card: #140e0b;
+  --figma-music-card-hover: #1c1410;
+  --figma-music-border: #291c14;
+  --figma-music-accent: #fbbf24;
+  --figma-music-accent-solid: #f59e0b;
+  --figma-music-accent-hover: #d97706;
+  --figma-music-glow: rgba(245, 158, 11, 0.25);
+  --figma-music-text: #ffffff;
+  --figma-music-text-muted: #d4d4d8;
+}
+
+/* ── Container Layout ── */
+.figma-container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Persona Theme Application ── */
+[data-persona="tech"] {
+  --bg-primary: var(--figma-dev-bg);
+  --bg-secondary: var(--figma-dev-card);
+  --bg-tertiary: #101c36;
+  --border-primary: var(--figma-dev-border);
+  --accent: var(--figma-dev-accent);
+  --accent-hover: #60a5fa;
+  --accent-solid: var(--figma-dev-accent-solid);
+  --text-primary: var(--figma-dev-text);
+  --text-secondary: var(--figma-dev-text-muted);
+}
+
+[data-persona="music"] {
+  --bg-primary: var(--figma-music-bg);
+  --bg-secondary: var(--figma-music-card);
+  --bg-tertiary: #1c1410;
+  --border-primary: var(--figma-music-border);
+  --accent: var(--figma-music-accent);
+  --accent-hover: #fde68a;
+  --accent-solid: var(--figma-music-accent-solid);
+  --text-primary: var(--figma-music-text);
+  --text-secondary: var(--figma-music-text-muted);
+}
+
+/* ── Navbar Persona Pill & Switcher ── */
+.figma-nav-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.figma-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--figma-font);
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.figma-nav-btn:hover {
+  color: #ffffff;
+}
+
+[data-persona="tech"] .figma-nav-btn[data-persona-btn="tech"],
+[data-persona="music"] .figma-nav-btn[data-persona-btn="music"],
+[data-persona="split"] .figma-nav-btn[data-persona-btn="split"] {
+  background: var(--accent-solid);
+  color: #ffffff;
+  box-shadow: 0 2px 10px var(--accent-glow);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   1. SCREEN 1: SPLIT SCREEN GATEWAY (Pantalla de Selección)
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-split-wrapper {
+  display: flex;
+  min-height: calc(100vh - 4.25rem);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.figma-split-side {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 48px;
+  transition: flex 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.figma-split-side:hover {
+  flex: 1.15;
+}
+
+/* Developer Half */
+.figma-split-dev {
+  background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.25) 0%, rgba(6, 10, 22, 0.95) 75%), #060a16;
+  border-right: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.figma-split-dev::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2338bdf8' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Musician Half */
+.figma-split-music {
+  background: radial-gradient(circle at 70% 50%, rgba(225, 29, 72, 0.25) 0%, rgba(245, 158, 11, 0.15) 35%, rgba(8, 6, 5, 0.96) 80%), #080605;
+}
+
+.figma-split-music::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/music/revanche-band.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  filter: blur(2px) grayscale(20%);
+  pointer-events: none;
+}
+
+.figma-split-content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+.figma-split-title {
+  font-family: var(--figma-font);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.figma-split-subtitle-dev {
+  color: #38bdf8;
+  display: block;
+}
+
+.figma-split-subtitle-music {
+  color: #fbbf24;
+  display: block;
+}
+
+.figma-split-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.figma-split-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.figma-split-bullet-item::before {
+  content: '•';
+  font-size: 22px;
+  line-height: 0;
+}
+
+.figma-split-dev .figma-split-bullet-item::before {
+  color: #38bdf8;
+}
+
+.figma-split-music .figma-split-bullet-item::before {
+  color: #fbbf24;
+}
+
+.figma-split-social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.figma-split-social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+}
+
+.figma-split-social-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.figma-split-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-family: var(--figma-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.figma-split-btn-dev {
+  background: #2563eb;
+}
+.figma-split-btn-dev:hover {
+  background: #1d4ed8;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  transform: translateY(-2px);
+}
+
+.figma-split-btn-music {
+  background: #f59e0b;
+  color: #000000;
+}
+.figma-split-btn-music:hover {
+  background: #d97706;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   2. HERO PROFILE SECTION (Exact Figma Layout for Dev & Musician)
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-hero-section {
+  padding: 40px 0 32px;
+}
+
+.figma-hero-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.figma-avatar-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+  background: var(--bg-secondary);
+}
+
+.figma-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.figma-hero-eyebrow {
+  font-family: var(--figma-font);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.figma-hero-name {
+  font-family: var(--figma-font);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.figma-hero-subtitle {
+  font-family: var(--figma-font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 16px 0;
+}
+
+.figma-hero-bio {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 720px;
+}
+
+/* 4-Column Stat Counters */
+.figma-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.figma-metric-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
+}
+
+.figma-metric-box:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.figma-metric-number {
+  font-family: var(--figma-font);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.figma-metric-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3. SECTION HEADERS & LABELS (● EN EL TALLER / ● PROYECTOS / ● SERVICIOS)
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-section {
+  padding: 36px 0;
+}
+
+.figma-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.figma-section-tag {
+  font-family: var(--figma-font);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.figma-section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.figma-section-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.figma-section-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   4. FEATURED BANNER / WINDOW (EN EL TALLER vs EN ESCENA)
+   ══════════════════════════════════════════════════════════════════════════ */
+/* Dev IDE Mockup */
+.figma-code-window {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.figma-code-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.figma-window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.figma-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.figma-dot-red { background: #ef4444; }
+.figma-dot-yellow { background: #eab308; }
+.figma-dot-green { background: #22c55e; }
+
+.figma-code-tab {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.figma-code-body {
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  color: #cbd5e1;
+  overflow-x: auto;
+}
+
+/* Music Stage Banner */
+.figma-stage-window {
+  position: relative;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.figma-stage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.figma-stage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(8, 6, 5, 0.9) 0%, rgba(8, 6, 5, 0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 32px;
+}
+
+.figma-stage-caption {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.figma-stage-subcaption {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   5. 3-COLUMN CARDS GRID (PROYECTOS / VÍDEOS)
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.figma-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.figma-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.figma-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #111d38;
+  overflow: hidden;
+}
+
+.figma-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.figma-card:hover .figma-card-media img {
+  transform: scale(1.05);
+}
+
+.figma-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.figma-play-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-solid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.figma-card-content {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.figma-card-title {
+  font-family: var(--figma-font);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.figma-card-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 14px 0;
+  flex: 1;
+}
+
+.figma-card-action {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   6. STACK TECNOLÓGICO / EQUIPAMIENTO GRID
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.figma-stack-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.figma-stack-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 10px;
+}
+
+.figma-stack-panel-header h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.figma-badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.figma-tech-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   7. 2X2 SERVICIOS GRID (With Colored Left Border)
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.figma-service-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px 22px;
+  transition: all 0.2s ease;
+}
+
+.figma-service-card:hover {
+  background: var(--bg-tertiary);
+  transform: translateX(3px);
+}
+
+.figma-service-title {
+  font-family: var(--figma-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.figma-service-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. ENCUÉNTRAME / SOCIAL PILLS & BOTTOM CTA
+   ══════════════════════════════════════════════════════════════════════════ */
+.figma-social-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.figma-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.figma-social-pill:hover {
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.figma-cta-center {
+  text-align: center;
+  padding: 24px 0 40px;
+}
+
+.figma-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  font-family: var(--figma-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--accent-solid);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--accent-glow);
+  transition: all 0.2s ease;
+}
+
+.figma-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   9. VISIBILITY TOGGLING FOR 3 MODES
+   ══════════════════════════════════════════════════════════════════════════ */
+[data-persona="tech"] .persona-view--music,
+[data-persona="tech"] .persona-view--split {
+  display: none !important;
+}
+
+[data-persona="music"] .persona-view--tech,
+[data-persona="music"] .persona-view--split {
+  display: none !important;
+}
+
+[data-persona="split"] .persona-view--tech,
+[data-persona="split"] .persona-view--music {
+  display: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   10. RESPONSIVE BREAKPOINTS (< 768px)
+   ══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .figma-split-wrapper {
+    flex-direction: column;
+  }
+  .figma-split-side {
+    padding: 40px 24px;
+  }
+  .figma-hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+  .figma-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .figma-cards-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .figma-stack-grid {
+    grid-template-columns: 1fr;
+  }
+  .figma-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
