@@ -498,9 +498,9 @@ export function setLanguage(lang) {
     }
   } catch {}
 
-  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
 
-  const t = I18N_DATA[lang];
+  const t = I18N_DATA[lang] || I18N_DATA.en;
 
   // 1. Nav Links & Accessibility
   const navLinks = document.querySelectorAll('.nav-link');
@@ -950,6 +950,7 @@ export function initI18n() {
     const btn = e.target.closest('[data-lang-btn]');
     if (!btn) return;
     e.preventDefault();
+    e.stopPropagation();
     const targetLang = btn.getAttribute('data-lang-btn');
     if (targetLang && supported.includes(targetLang)) {
       setLanguage(targetLang);

@@ -22,6 +22,10 @@ export function initPersona() {
 
   // Click handler for all persona triggers (navbar, split sides, buttons)
   document.addEventListener('click', (e) => {
+    // Shield: Ignore clicks originating from or around the floating language selector
+    if (e.target.closest('.figma-floating-nav, .lang-selector-group, [data-lang-btn]')) {
+      return;
+    }
     const tab = e.target.closest('[data-persona-btn]');
     if (!tab) return;
     e.preventDefault();

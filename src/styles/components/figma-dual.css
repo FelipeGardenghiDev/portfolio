@@ -1045,15 +1045,15 @@
 /* ── Floating Navigation & 4-Language Controls (Replaces Static Navbar) ── */
 .figma-floating-nav {
   position: fixed;
-  top: 24px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  pointer-events: none;
+  padding: 8px;
+  pointer-events: auto;
 }
 
 .figma-floating-nav > * {
@@ -1116,43 +1116,53 @@
 }
 
 .figma-floating-nav .lang-selector-group {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 9999px;
-  padding: 5px 12px;
-  gap: 4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  pointer-events: auto;
 }
 
 .figma-floating-nav .lang-btn {
   background: transparent;
   border: none;
   font-family: var(--figma-font);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: #94a3b8;
-  padding: 3px 6px;
-  border-radius: 6px;
+  min-width: 44px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 9999px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .figma-floating-nav .lang-btn:hover {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .figma-floating-nav .lang-btn.active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.18);
-  font-weight: 700;
+  color: #0a0f1d;
+  background: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.35);
 }
 
 .figma-floating-nav .lang-btn-sep {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 0.75rem;
-  user-select: none;
+  display: none !important;
 }
 
 @media (max-width: 600px) {
@@ -1161,19 +1171,22 @@
     left: 50%;
     transform: translateX(-50%);
     right: auto;
+    padding: 6px;
   }
   .figma-floating-nav .lang-selector-group {
-    padding: 3px 8px;
+    padding: 3px;
     gap: 2px;
   }
   .figma-floating-nav .lang-btn {
-    font-size: 0.72rem;
-    padding: 2px 4px;
+    min-width: 42px;
+    min-height: 34px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
   .figma-floating-back {
     top: 8px;
     left: 10px;
-    padding: 5px 10px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    font-size: 0.78rem;
   }
 }
