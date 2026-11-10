@@ -983,7 +983,7 @@
 }
 
 @media (max-width: 860px) and (max-height: 680px) {
-  .figma-split-bullets .figma-split-bullet-item:nth-child(n+4) {
+  .figma-split-bullets .figma-split-bullet-item:nth-child(n+5) {
     display: none;
   }
   .figma-split-dev {
