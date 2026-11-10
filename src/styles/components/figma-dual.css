@@ -78,6 +78,33 @@
 
 [data-persona="split"] body {
   overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+[data-persona="split"] .figma-split-wrapper {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.footer,
+[data-persona="split"] .footer,
+[data-persona="split"] footer {
+  display: none !important;
+}
+
+@media (max-width: 860px) {
+  [data-persona="split"] body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  [data-persona="split"] .figma-split-wrapper {
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 /* ── Navbar Persona Pill & Switcher ── */
@@ -924,10 +951,12 @@
 .figma-floating-nav {
   position: fixed;
   top: 24px;
-  right: 28px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   pointer-events: none;
 }
@@ -1034,7 +1063,9 @@
 @media (max-width: 600px) {
   .figma-floating-nav {
     top: 14px;
-    right: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
   }
   .figma-floating-back {
     top: 14px;
