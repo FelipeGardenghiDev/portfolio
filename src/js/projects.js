@@ -830,11 +830,23 @@ export function initProjects() {
 
   activeOpenModalFn = openModal;
 
-  // Bind click to detail buttons
-  detailButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-project-target');
+  // Bind click & keyboard activation to detail buttons and interactive cards
+  const projectTriggers = document.querySelectorAll('[data-project-target], [data-open-project]');
+  projectTriggers.forEach((trigger) => {
+    const targetId = trigger.getAttribute('data-project-target') || trigger.getAttribute('data-open-project');
+    if (!targetId) return;
+
+    trigger.addEventListener('click', (e) => {
+      const isNestedLink = e.target.closest('a') && e.target.closest('a') !== trigger;
+      if (isNestedLink) return;
       openModal(targetId);
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(targetId);
+      }
     });
   });
 
