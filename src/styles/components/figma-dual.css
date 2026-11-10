@@ -96,14 +96,17 @@
 
 @media (max-width: 860px) {
   [data-persona="split"] body {
-    overflow-y: auto;
-    height: auto;
-    min-height: 100vh;
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
   }
 
   [data-persona="split"] .figma-split-wrapper {
-    height: auto;
-    min-height: 100vh;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -882,9 +885,83 @@
 @media (max-width: 860px) {
   .figma-split-wrapper {
     flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
   }
   .figma-split-side {
-    padding: 40px 24px;
+    flex: 1;
+    min-height: 0;
+    max-height: 50dvh;
+    height: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .figma-split-side:hover {
+    flex: 1;
+  }
+  .figma-split-dev {
+    border-right: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 38px 20px 10px;
+  }
+  .figma-split-music {
+    border-top: none;
+    padding: 10px 20px 14px;
+  }
+  .figma-split-content {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .figma-split-title {
+    font-size: clamp(1.15rem, 4.4vw, 1.45rem);
+    line-height: 1.15;
+    margin-bottom: 2px;
+  }
+  .figma-split-subtitle-dev,
+  .figma-split-subtitle-music {
+    font-size: clamp(0.72rem, 2.7vw, 0.85rem);
+  }
+  .figma-split-bullets {
+    margin: 6px 0 8px;
+    gap: 3px;
+  }
+  .figma-split-bullet-item {
+    font-size: clamp(10.5px, 2.7vw, 12px);
+    gap: 6px;
+    line-height: 1.25;
+  }
+  .figma-split-bullet-item::before {
+    font-size: 16px;
+  }
+  .figma-split-social-row {
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  .figma-split-social-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+  .figma-split-social-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+  .figma-split-btn {
+    padding: 7px 18px;
+    font-size: 0.78rem;
+    gap: 6px;
+    align-self: flex-start;
+  }
+  .figma-split-btn svg {
+    width: 14px;
+    height: 14px;
   }
   .figma-hero-card {
     grid-template-columns: 1fr;
@@ -902,6 +979,24 @@
   }
   .figma-services-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) and (max-height: 680px) {
+  .figma-split-bullets .figma-split-bullet-item:nth-child(n+4) {
+    display: none;
+  }
+  .figma-split-dev {
+    padding-top: 34px;
+  }
+  .figma-split-bullets {
+    margin: 4px 0 6px;
+  }
+  .figma-split-social-row {
+    margin-bottom: 6px;
+  }
+  .figma-split-btn {
+    padding: 6px 14px;
   }
 }
 
@@ -1062,15 +1157,23 @@
 
 @media (max-width: 600px) {
   .figma-floating-nav {
-    top: 14px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
     right: auto;
   }
+  .figma-floating-nav .lang-selector-group {
+    padding: 3px 8px;
+    gap: 2px;
+  }
+  .figma-floating-nav .lang-btn {
+    font-size: 0.72rem;
+    padding: 2px 4px;
+  }
   .figma-floating-back {
-    top: 14px;
-    left: 14px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    top: 8px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
   }
 }
