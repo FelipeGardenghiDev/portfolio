@@ -53,6 +53,32 @@ const TRACKS = [
 ];
 
 export function initMusicPlayer() {
+  // EPK Accordion interactivity
+  document.querySelectorAll('.epk-accordion-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.epk-accordion-item');
+      if (!item) return;
+      const isOpen = item.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
+  // EPK Smooth Scroll Navigation & Active Link State
+  document.querySelectorAll('[data-epk-nav]').forEach((navEl) => {
+    navEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = navEl.getAttribute('data-epk-nav');
+      if (!targetId) return;
+      const targetSec = document.getElementById(targetId);
+      if (targetSec) {
+        targetSec.scrollIntoView({ behavior: 'smooth' });
+      }
+      document.querySelectorAll('.epk-nav-link').forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('data-epk-nav') === targetId);
+      });
+    });
+  });
+
   const playBtn = document.getElementById('music-play-btn');
   const prevBtn = document.getElementById('music-prev-btn');
   const nextBtn = document.getElementById('music-next-btn');
@@ -165,12 +191,12 @@ export function initMusicPlayer() {
 
       const y = (h - barH) / 2;
       
-      // Warm amber to bright flame gradient
+      // Crimson stage red gradient matching the Musician palette (#E42E2E)
       const grad = ctx.createLinearGradient(0, y, 0, y + barH);
-      grad.addColorStop(0, '#f59e0b');
-      grad.addColorStop(1, '#ef4444');
+      grad.addColorStop(0, '#ff4747');
+      grad.addColorStop(1, '#E42E2E');
 
-      ctx.fillStyle = isPlaying ? grad : 'rgba(245, 158, 11, 0.25)';
+      ctx.fillStyle = isPlaying ? grad : 'rgba(228, 46, 46, 0.28)';
       ctx.beginPath();
       ctx.roundRect(x, y, barWidth, barH, 2);
       ctx.fill();
@@ -303,10 +329,12 @@ export function initMusicPlayer() {
     });
   }
 
-  // Stop music when switching to tech persona to not play unwanted audio
+  // Stop music when leaving music persona; resize canvas when entering music persona
   window.addEventListener('persona-change', (e) => {
-    if (e.detail && e.detail.persona === 'tech') {
+    if (e.detail && e.detail.persona !== 'music') {
       if (isPlaying) pausePlay();
+    } else if (e.detail && e.detail.persona === 'music') {
+      setTimeout(resizeCanvas, 50);
     }
   });
 

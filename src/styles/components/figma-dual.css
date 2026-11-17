@@ -1190,3 +1190,1198 @@
     font-size: 0.78rem;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   11. MUSIC PORTFOLIO — ELECTRONIC PRESS KIT (EPK DESIGN SYSTEM)
+   Strictly scoped to [data-persona="music"] and .epk-root
+   Palette: Deep Stage Charcoal (#090506 / #150d0f), Border (#33171f), Crimson (#E42E2E)
+   ══════════════════════════════════════════════════════════════════════════ */
+.epk-root {
+  --epk-font-display: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --epk-font-serif: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --epk-font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --epk-bg: #090506;
+  --epk-bg-alt: #060304;
+  --epk-surface: #150d0f;
+  --epk-surface-hover: #1d1115;
+  --epk-border: #33171f;
+  --epk-border-subtle: #220f14;
+  --epk-accent: #E42E2E;
+  --epk-accent-hover: #ff4747;
+  --epk-text: #f0ece6;
+  --epk-text-lead: #d4cec6;
+  --epk-text-muted: #9e9396;
+  --epk-text-dim: #736468;
+
+  background-color: var(--epk-bg);
+  color: var(--epk-text);
+  font-family: var(--epk-font-body);
+  min-height: 100vh;
+}
+
+/* Position floating controls cleanly alongside the EPK navbar in Music Mode */
+[data-persona="music"] .figma-floating-nav {
+  top: 74px;
+  right: 24px;
+  left: auto;
+  transform: none;
+  padding: 0;
+}
+
+[data-persona="music"] .figma-floating-back {
+  top: 76px;
+  left: 24px;
+  border-radius: 0;
+  background: rgba(9, 5, 6, 0.9);
+  border: 1px solid var(--epk-border);
+  font-family: var(--epk-font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+}
+
+[data-persona="music"] .figma-floating-back:hover {
+  border-color: var(--epk-accent);
+  background: #150d0f;
+}
+
+/* ── EPK Top Fixed Navbar ── */
+.epk-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 950;
+  height: 64px;
+  background: rgba(9, 5, 6, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--epk-border);
+}
+
+.epk-nav-inner {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.epk-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.epk-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.epk-brand-monogram {
+  font-family: var(--epk-font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--epk-accent);
+  letter-spacing: 0.04em;
+}
+
+.epk-brand-sep {
+  color: var(--epk-border);
+  font-weight: 300;
+}
+
+.epk-brand-tag {
+  font-family: var(--epk-font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+}
+
+.epk-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.epk-nav-link {
+  background: transparent;
+  border: none;
+  padding: 6px 0;
+  font-family: var(--epk-font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.epk-nav-link:hover {
+  color: var(--epk-text-muted);
+}
+
+.epk-nav-link.active {
+  color: var(--epk-accent);
+}
+
+/* ── EPK Decorative Rules & Watermarks ── */
+.epk-rule {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--epk-accent), transparent);
+}
+
+.epk-rule-left {
+  height: 1px;
+  background: linear-gradient(90deg, var(--epk-accent), transparent);
+}
+
+.epk-w-16 { width: 4rem; }
+.epk-w-20 { width: 5rem; }
+.epk-w-24 { width: 6rem; }
+.epk-mb-6 { margin-bottom: 1.5rem; }
+.epk-mb-8 { margin-bottom: 2rem; }
+.epk-mb-10 { margin-bottom: 2.5rem; }
+.epk-mt-8 { margin-top: 2rem; }
+.epk-mt-10 { margin-top: 2.5rem; }
+.epk-my-8 { margin-top: 2rem; margin-bottom: 2rem; }
+.epk-my-10 { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.epk-relative { position: relative; }
+
+.epk-section-number {
+  position: absolute;
+  top: -1.25rem;
+  right: 0;
+  font-family: var(--epk-font-display);
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(228, 46, 46, 0.08);
+  pointer-events: none;
+  user-select: none;
+}
+
+.epk-eyebrow {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--epk-accent);
+  margin: 0;
+}
+
+.epk-section-title {
+  font-family: var(--epk-font-display);
+  font-size: clamp(2.15rem, 3.6vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--epk-text);
+  margin: 0 0 1.75rem 0;
+}
+
+.epk-italic {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--epk-accent);
+}
+
+/* ── 01. CAPA — HERO SPLIT 50/50 ── */
+.epk-hero {
+  min-height: 100vh;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.epk-hero-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 64px);
+}
+
+.epk-hero-media {
+  position: relative;
+  background: linear-gradient(135deg, #150d0f 0%, #1d1014 50%, #120a0c 100%);
+  border-right: 1px solid var(--epk-border);
+  overflow: hidden;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 2.5rem;
+  gap: 1.5rem;
+}
+
+.epk-hero-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--epk-border);
+  background: var(--epk-surface);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+  z-index: 2;
+}
+
+.epk-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(15%) contrast(96%) brightness(90%);
+  display: block;
+}
+
+.epk-hero-stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(228, 46, 46, 0.04) 40px,
+    rgba(228, 46, 46, 0.04) 41px
+  );
+  pointer-events: none;
+}
+
+.epk-hero-fade-right {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 55%, rgba(9, 5, 6, 0.55) 100%);
+  pointer-events: none;
+}
+
+.epk-hero-fade-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(9, 5, 6, 0.72) 0%, rgba(9, 5, 6, 0.12) 32%, transparent 100%);
+  pointer-events: none;
+}
+
+.epk-hero-photo-caption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--epk-font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240, 236, 230, 0.65);
+  z-index: 2;
+  text-align: center;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.epk-photo-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(228, 46, 46, 0.35);
+  background: rgba(9, 5, 6, 0.65);
+  color: var(--epk-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.epk-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+}
+
+.epk-hero-inner {
+  max-width: 520px;
+}
+
+.epk-hero-title {
+  font-family: var(--epk-font-display);
+  font-size: clamp(3.25rem, 5.5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--epk-text);
+  margin: 0;
+}
+
+.epk-hero-title-italic {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--epk-accent);
+}
+
+.epk-hero-role {
+  font-family: var(--epk-font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--epk-text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.45rem 0;
+}
+
+.epk-hero-instruments {
+  font-family: var(--epk-font-body);
+  font-size: 0.73rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+  margin: 0;
+}
+
+.epk-quote-box {
+  margin-top: 2.75rem;
+  border: 1px solid var(--epk-border);
+  background: rgba(21, 13, 15, 0.45);
+  padding: 1.5rem 1.75rem;
+}
+
+.epk-quote-text {
+  font-family: var(--epk-font-body);
+  font-size: 1.05rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--epk-text-muted);
+  margin: 0;
+}
+
+.epk-hero-actions {
+  margin-top: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.epk-btn-primary {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--epk-accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.epk-btn-primary:hover {
+  background: var(--epk-accent-hover);
+  transform: translateY(-1px);
+}
+
+.epk-btn-ghost {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  color: var(--epk-text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.epk-btn-ghost:hover {
+  color: var(--epk-text);
+}
+
+/* ── EPK Sections & 12-Col Grid ── */
+.epk-section {
+  padding: 7.5rem 0;
+  border-top: 1px solid var(--epk-border);
+  background: var(--epk-bg);
+}
+
+.epk-section--alt {
+  background: var(--epk-bg-alt);
+}
+
+.epk-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.epk-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 4.5rem;
+}
+
+.epk-col-4 { grid-column: span 4 / span 4; }
+.epk-col-5 { grid-column: span 5 / span 5; }
+.epk-col-7 { grid-column: span 7 / span 7; }
+.epk-col-8 { grid-column: span 8 / span 8; }
+
+.epk-tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.epk-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.epk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(228, 46, 46, 0.65);
+  flex-shrink: 0;
+}
+
+.epk-dot--hollow {
+  background: var(--epk-border);
+  border: 1px solid rgba(158, 147, 150, 0.35);
+}
+
+.epk-tag-label {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+}
+
+.epk-lead-serif {
+  font-family: var(--epk-font-body);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--epk-text-lead);
+  margin: 0 0 1.75rem 0;
+}
+
+.epk-body-p {
+  font-family: var(--epk-font-body);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--epk-text-muted);
+  margin: 0 0 1.25rem 0;
+}
+
+.epk-body-p strong {
+  color: var(--epk-text);
+  font-weight: 500;
+}
+
+.epk-body-muted {
+  font-family: var(--epk-font-body);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--epk-text-dim);
+  margin: 0;
+}
+
+.epk-about-subgrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.epk-photo-frame {
+  overflow: hidden;
+  background: var(--epk-surface);
+  border: 1px solid var(--epk-border);
+}
+
+.epk-img-4-3 {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(15%) contrast(95%) brightness(90%);
+  display: block;
+}
+
+.epk-img-3-4 {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(15%) contrast(95%) brightness(90%);
+  display: block;
+}
+
+.epk-img-16-9 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: grayscale(15%) contrast(95%) brightness(90%);
+  display: block;
+}
+
+.epk-stats-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.epk-stat-item {
+  border-left: 1px solid rgba(228, 46, 46, 0.4);
+  padding-left: 1.35rem;
+}
+
+.epk-stat-num {
+  font-family: var(--epk-font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--epk-accent);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.epk-stat-label {
+  font-family: var(--epk-font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+}
+
+/* ── 02.5. LINHA DO TEMPO — A JORNADA MUSICAL (Ravikal Soni Journey Style) ── */
+.epk-section--journey {
+  background: var(--epk-bg-alt);
+}
+
+.epk-journey-container {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.epk-journey-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.epk-journey-title {
+  font-family: var(--epk-font-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--epk-text);
+  margin: 0 0 1rem 0;
+}
+
+.epk-journey-bar {
+  width: 4rem;
+  height: 4px;
+  background: var(--epk-accent);
+  margin: 0 auto;
+}
+
+.epk-journey-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.epk-journey-line {
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--epk-border);
+}
+
+.epk-journey-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.epk-journey-circle {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  background: var(--epk-accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 28px rgba(228, 46, 46, 0.35);
+}
+
+.epk-journey-card {
+  flex: 1;
+  padding-top: 0.35rem;
+}
+
+.epk-journey-year {
+  display: inline-block;
+  padding: 0.28rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(228, 46, 46, 0.14);
+  border: 1px solid rgba(228, 46, 46, 0.32);
+  color: var(--epk-accent);
+  font-family: var(--epk-font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.epk-journey-item-title {
+  font-family: var(--epk-font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--epk-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.epk-journey-item-desc {
+  font-family: var(--epk-font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--epk-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .epk-journey-line {
+    left: 32px;
+  }
+  .epk-journey-circle {
+    width: 64px;
+    height: 64px;
+  }
+  .epk-journey-circle svg {
+    width: 24px;
+    height: 24px;
+  }
+  .epk-journey-item {
+    gap: 1.25rem;
+  }
+}
+
+/* ── 03. REPERTÓRIO ACCORDION & AUDIO PLAYER ── */
+.epk-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--epk-border);
+  border: 1px solid var(--epk-border);
+}
+
+.epk-accordion-item {
+  background: var(--epk-bg);
+}
+
+.epk-accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.epk-accordion-trigger:hover {
+  background: var(--epk-surface);
+}
+
+.epk-accordion-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.epk-roman {
+  font-family: var(--epk-font-display);
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+  color: rgba(228, 46, 46, 0.65);
+  min-width: 1.5rem;
+}
+
+.epk-accordion-title {
+  font-family: var(--epk-font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--epk-text);
+  transition: color 0.15s ease;
+}
+
+.epk-accordion-trigger:hover .epk-accordion-title {
+  color: var(--epk-accent);
+}
+
+.epk-accordion-icon {
+  color: var(--epk-text-dim);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.epk-accordion-item.open .epk-accordion-icon {
+  transform: rotate(90deg);
+  color: var(--epk-accent);
+}
+
+.epk-accordion-body {
+  display: none;
+  padding: 0 1.85rem 1.5rem;
+  border-top: 1px solid var(--epk-border-subtle);
+}
+
+.epk-accordion-item.open .epk-accordion-body {
+  display: block;
+}
+
+.epk-pill-wrap {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.epk-pill {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--epk-text-muted);
+  border: 1px solid var(--epk-border);
+  padding: 0.4rem 0.85rem;
+  background: rgba(21, 13, 15, 0.55);
+}
+
+.epk-player-box {
+  margin-top: 1.75rem;
+  border-radius: 0 !important;
+  border: 1px solid var(--epk-border) !important;
+  background: var(--epk-bg) !important;
+  box-shadow: none !important;
+}
+
+.epk-player-status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--epk-accent);
+}
+
+/* ── 04. EXPERIÊNCIA & BAGAGEM PROFISSIONAL ── */
+.epk-exp-header {
+  margin-bottom: 3.5rem;
+}
+
+.epk-exp-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+
+.epk-wide-banner {
+  margin-bottom: 3rem;
+  height: 320px;
+  overflow: hidden;
+  background: var(--epk-surface);
+  border: 1px solid var(--epk-border);
+}
+
+.epk-wide-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(20%) contrast(92%) brightness(86%);
+  display: block;
+}
+
+.epk-exp-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--epk-border);
+  border: 1px solid var(--epk-border);
+}
+
+.epk-exp-col {
+  background: var(--epk-bg);
+  padding: 2.25rem;
+}
+
+.epk-col-eyebrow {
+  font-family: var(--epk-font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--epk-accent);
+  margin: 0 0 1.5rem 0;
+}
+
+.epk-exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.epk-exp-item {
+  border-bottom: 1px solid var(--epk-border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.epk-exp-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.epk-exp-main {
+  font-family: var(--epk-font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--epk-text);
+  margin-bottom: 0.25rem;
+}
+
+.epk-exp-sub {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--epk-text-dim);
+}
+
+/* ── 05. ESTRUTURA TÉCNICA & LIVE RIG ── */
+.epk-tech-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.epk-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.epk-tech-box {
+  border: 1px solid var(--epk-border);
+  background: var(--epk-bg);
+  padding: 2rem;
+}
+
+.epk-tech-box--accent {
+  border-left: 2px solid var(--epk-accent);
+}
+
+.epk-box-eyebrow {
+  font-family: var(--epk-font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--epk-accent);
+  margin: 0 0 1.35rem 0;
+}
+
+.epk-box-eyebrow--muted {
+  color: var(--epk-text-dim);
+}
+
+.epk-box-location {
+  font-family: var(--epk-font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--epk-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.epk-tech-subgrid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.epk-big-metric {
+  font-family: var(--epk-font-display);
+  font-size: 2.35rem;
+  font-weight: 500;
+  color: var(--epk-text);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.epk-metric-sub {
+  font-family: var(--epk-font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+  margin-bottom: 0.65rem;
+}
+
+.epk-Check-text {
+  font-family: var(--epk-font-body);
+  font-size: 0.78rem;
+  color: var(--epk-text-muted);
+}
+
+.epk-Check-text--muted {
+  color: var(--epk-text-dim);
+}
+
+/* ── 05. OUTRAS MÍDIAS — STREAMER & CRIADOR DE CONTEÚDO ── */
+.epk-media-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.epk-media-card:hover {
+  border-color: rgba(228, 46, 46, 0.55);
+  background: var(--epk-surface);
+  transform: translateY(-2px);
+}
+
+.epk-media-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.epk-media-handle {
+  font-family: var(--epk-font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--epk-text-dim);
+}
+
+.epk-media-title {
+  font-family: var(--epk-font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--epk-text);
+  margin: 0 0 0.65rem 0;
+  transition: color 0.2s ease;
+}
+
+.epk-media-card:hover .epk-media-title {
+  color: var(--epk-accent);
+}
+
+/* ── 06. CONTATO & CONTRATAÇÃO ── */
+.epk-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.epk-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--epk-border);
+  border: 1px solid var(--epk-border);
+}
+
+.epk-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--epk-bg);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.epk-contact-card:hover {
+  background: var(--epk-surface);
+}
+
+.epk-contact-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--epk-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+}
+
+.epk-contact-card:hover .epk-contact-icon {
+  border-color: rgba(228, 46, 46, 0.5);
+}
+
+.epk-contact-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.epk-contact-type {
+  font-family: var(--epk-font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--epk-text-dim);
+  margin-bottom: 0.2rem;
+}
+
+.epk-contact-value {
+  font-family: var(--epk-font-display);
+  font-size: 1.05rem;
+  color: var(--epk-text);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.epk-contact-card:hover .epk-contact-value {
+  color: var(--epk-accent);
+}
+
+.epk-contact-arrow {
+  color: var(--epk-border);
+  flex-shrink: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.epk-contact-card:hover .epk-contact-arrow {
+  color: var(--epk-accent);
+  transform: translateX(3px);
+}
+
+.epk-footer {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--epk-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.epk-footer-copy {
+  font-family: var(--epk-font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--epk-text-dim);
+  margin: 0;
+}
+
+/* ── EPK Responsive Breakpoints ── */
+@media (max-width: 1024px) {
+  .epk-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .epk-hero-media {
+    min-height: auto;
+    padding: 3rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--epk-border);
+  }
+  .epk-hero-portrait-frame {
+    max-width: 280px;
+  }
+  .epk-hero-content {
+    padding: 3.5rem 2rem;
+  }
+  .epk-grid-12 {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .epk-col-4,
+  .epk-col-5,
+  .epk-col-7,
+  .epk-col-8 {
+    grid-column: span 1 / span 1;
+  }
+  .epk-exp-header-grid,
+  .epk-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .epk-exp-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .epk-nav-links {
+    gap: 14px;
+    overflow-x: auto;
+    padding-left: 12px;
+  }
+  .epk-nav-link {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+  .epk-section {
+    padding: 4.5rem 0;
+  }
+  .epk-container {
+    padding: 0 1.25rem;
+  }
+  .epk-about-subgrid,
+  .epk-tech-grid-2,
+  .epk-tech-subgrid-2 {
+    grid-template-columns: 1fr;
+  }
+  .epk-span-2 {
+    grid-column: span 1 / span 1;
+  }
+  [data-persona="music"] .figma-floating-nav {
+    top: 68px;
+    right: 12px;
+  }
+  [data-persona="music"] .figma-floating-back {
+    top: 72px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+}

@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
 
@@ -451,306 +451,705 @@
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════════════════
-         SCREEN 3: MUSIC PROFILE (EXPERIÊNCIA ROCK STAGE / CONCERT ATMOSPHERE)
+         SCREEN 3: MUSIC PROFILE — DIGITAL PRESS KIT (DPK DESIGN SYSTEM)
          ══════════════════════════════════════════════════════════════════════════ -->
-    <div class="persona-view--music">
-      <div class="figma-container">
+    <div class="persona-view--music epk-root">
 
-        <!-- Hero Profile Card -->
-        <header class="figma-hero-section">
-          <div class="figma-hero-card">
-            <div class="figma-avatar-wrapper">
+      <!-- DPK Fixed Top Navigation Bar -->
+      <nav class="epk-navbar" aria-label="Navegação do Portfólio Musical (DPK)">
+        <div class="epk-nav-inner">
+          <div class="epk-brand-group">
+            <a href="#epk-capa" class="epk-brand" data-epk-nav="epk-capa">
+              <span class="epk-brand-monogram">FG</span>
+              <span class="epk-brand-sep">|</span>
+              <span class="epk-brand-tag">DPK</span>
+            </a>
+          </div>
+
+          <div class="epk-nav-links" id="epk-nav-links">
+            <button type="button" class="epk-nav-link active" data-epk-nav="epk-capa" data-i18n-pt="Início" data-i18n-en="Home" data-i18n-es="Inicio" data-i18n-de="Start">Início</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-sobre" data-i18n-pt="Sobre" data-i18n-en="About" data-i18n-es="Sobre Mí" data-i18n-de="Über Mich">Sobre</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-jornada" data-i18n-pt="Jornada" data-i18n-en="Journey" data-i18n-es="Trayectoria" data-i18n-de="Werdegang">Jornada</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-experiencia" data-i18n-pt="Experiência" data-i18n-en="Experience" data-i18n-es="Experiencia" data-i18n-de="Erfahrung">Experiência</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-estrutura" data-i18n-pt="Estrutura" data-i18n-en="Technical Rig" data-i18n-es="Estructura" data-i18n-de="Technik">Estrutura</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-midias" data-i18n-pt="Outras Mídias" data-i18n-en="Other Media" data-i18n-es="Otros Medios" data-i18n-de="Weitere Medien">Outras Mídias</button>
+            <button type="button" class="epk-nav-link" data-epk-nav="epk-contato" data-i18n-pt="Contato" data-i18n-en="Contact" data-i18n-es="Contacto" data-i18n-de="Kontakt">Contato</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ════════════════════════════════════════
+           01. CAPA — HERO EDITORIAL SPLIT 50/50
+           ════════════════════════════════════════ -->
+      <section id="epk-capa" class="epk-hero">
+        <div class="epk-hero-grid">
+          <!-- Coluna Esquerda: Retrato Proporcional com Legenda -->
+          <div class="epk-hero-media">
+            <div class="epk-hero-stripes" aria-hidden="true"></div>
+            <div class="epk-hero-portrait-frame">
               <picture>
                 <source srcset="./images/music/felipe-stage.webp" type="image/webp" />
-                <img src="./images/music/felipe-stage.jpg" alt="Felipe Gardenghi - Músico" class="figma-avatar-img" />
+                <img src="./images/music/felipe-stage.jpg" alt="Felipe Gardenghi — Músico, Produtor, Professor e Streamer" class="epk-hero-img" />
               </picture>
+              <div class="epk-hero-fade-bottom" aria-hidden="true"></div>
             </div>
-            <div>
-              <span class="figma-hero-eyebrow" data-i18n-pt="// ROCK, PALCO &amp; ENGENHARIA DE ÁUDIO" data-i18n-en="// ROCK, LIVE STAGE &amp; AUDIO ENGINEERING">// ROCK, PALCO &amp; ENGENHARIA DE ÁUDIO</span>
-              <h1 class="figma-hero-name">FELIPE GARDENGHI</h1>
-              <div class="figma-hero-subtitle" data-i18n-pt="GUITARRISTA, VOCALISTA &amp; PRODUTOR MUSICAL" data-i18n-en="RHYTHM GUITARIST, SINGER &amp; MUSIC PRODUCER">GUITARRISTA, VOCALISTA &amp; PRODUTOR MUSICAL</div>
-              <p class="figma-hero-bio" data-i18n-pt="Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum de estúdio gravado, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>." data-i18n-en="Musician with over <strong>14 years on stage</strong>, founder, rhythm guitarist and singer of <strong>Banda Revanche</strong> (visceral tribute to Fresno and 2000s Emo anthems across São Paulo stages), bassist in original projects (<strong>Patrulha 7</strong> with studio album, and <strong>Hellboys</strong>). Pioneering technical background combining art and software: creator of <strong>Underground Tools</strong> (C++17 CLAP/VST3 DSP audio plugins and stage gear), <strong>VisuChord</strong> (computer vision instrument &amp; Web MIDI) and official website architect for Revanche in <strong>Next.js 16</strong>.">
-                Músico com mais de <strong>14 anos de trajetória</strong>, vocalista e guitarrista fundador da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo dos anos 2000 em palcos paulistas), baixista em projetos autorais (<strong>Patrulha 7</strong> com álbum de estúdio gravado, e <strong>Hellboys</strong>). Atuação técnica de ponta integrando arte e tecnologia: criador do ecossistema <strong>Underground Tools</strong> (plugins VST3/CLAP em C++17 e infraestrutura de palco), <strong>VisuChord</strong> (instrumento por visão computacional e Web MIDI) e desenvolvedor do site oficial e arquitetura de dados da Revanche em <strong>Next.js 16</strong>.
+            <div class="epk-hero-photo-caption">
+              <span class="epk-photo-badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <path d="M21 15l-5-5L5 21"/>
+                </svg>
+              </span>
+              <span data-i18n-pt="FELIPE GARDENGHI — MÚSICO, PRODUTOR, PROFESSOR E STREAMER" data-i18n-en="FELIPE GARDENGHI — MUSICIAN, PRODUCER, TEACHER &amp; STREAMER" data-i18n-es="FELIPE GARDENGHI — MÚSICO, PRODUCTOR, PROFESOR Y STREAMER" data-i18n-de="FELIPE GARDENGHI — MUSIKER, PRODUZENT, LEHRER &amp; STREAMER">FELIPE GARDENGHI — MÚSICO, PRODUTOR, PROFESSOR E STREAMER</span>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Tipografia DPK -->
+          <div class="epk-hero-content">
+            <div class="epk-hero-inner">
+              <p class="epk-eyebrow" data-i18n-pt="Digital Press Kit &middot; 2026" data-i18n-en="Digital Press Kit &middot; 2026" data-i18n-es="Digital Press Kit &middot; 2026" data-i18n-de="Digital Press Kit &middot; 2026">Digital Press Kit &middot; 2026</p>
+
+              <div class="epk-rule-left epk-w-24 epk-mb-10"></div>
+
+              <h1 class="epk-hero-title">
+                Felipe<br />
+                <span class="epk-hero-title-italic">Gardenghi</span>
+              </h1>
+
+              <div class="epk-rule-left epk-w-16 epk-my-8"></div>
+
+              <p class="epk-hero-role" data-i18n-pt="Vocalista e Multi-Instrumentista &middot; Compositor, Professor &amp; Produtor Musical" data-i18n-en="Singer &amp; Multi-Instrumentalist &middot; Songwriter, Teacher &amp; Music Producer" data-i18n-es="Vocalista y Multiinstrumentista &middot; Compositor, Profesor y Productor Musical" data-i18n-de="Sänger &amp; Multiinstrumentalist &middot; Komponist, Musiklehrer &amp; Produzent">
+                Vocalista e Multi-Instrumentista &middot; Compositor, Professor &amp; Produtor Musical
               </p>
-              <div class="figma-metrics-grid">
-                <div class="figma-metric-box">
-                  <div class="figma-metric-number">14+</div>
-                  <div class="figma-metric-label" data-i18n-pt="Anos de Estrada" data-i18n-en="Years on Stage">Anos de Estrada</div>
-                </div>
-                <div class="figma-metric-box">
-                  <div class="figma-metric-number">2</div>
-                  <div class="figma-metric-label" data-i18n-pt="Bandas Principais" data-i18n-en="Main Bands">Bandas Principais</div>
-                </div>
-                <div class="figma-metric-box">
-                  <div class="figma-metric-number">50+</div>
-                  <div class="figma-metric-label" data-i18n-pt="Shows ao Vivo Realizados" data-i18n-en="Live Concerts Played">Shows ao Vivo Realizados</div>
-                </div>
-                <div class="figma-metric-box">
-                  <div class="figma-metric-number">100%</div>
-                  <div class="figma-metric-label" data-i18n-pt="Live Rig Digital &amp; DSP" data-i18n-en="Digital Live Rig &amp; DSP">Live Rig Digital &amp; DSP</div>
-                </div>
+              <p class="epk-hero-instruments" data-i18n-pt="Voz &middot; Guitarra &middot; Contrabaixo &middot; Piano &middot; Educação Musical &middot; Engenharia de Áudio" data-i18n-en="Vocals &middot; Guitar &middot; Bass &middot; Piano &middot; Music Education &middot; Audio Engineering" data-i18n-es="Voz &middot; Guitarra &middot; Bajo &middot; Piano &middot; Educación Musical &middot; Ingeniería de Audio" data-i18n-de="Gesang &middot; Gitarre &middot; Bass &middot; Klavier &middot; Musikpädagogik &middot; Audio-Engineering">
+                Voz &middot; Guitarra &middot; Contrabaixo &middot; Piano &middot; Educação Musical &middot; Engenharia de Áudio
+              </p>
+
+              <div class="epk-quote-box">
+                <p class="epk-quote-text" data-i18n-pt="&ldquo;Músico emo, amante de café e de gatos, professor de música e streamer nas horas vagas.&rdquo;" data-i18n-en="&ldquo;Emo musician, coffee and cat lover, music teacher, and part-time streamer.&rdquo;" data-i18n-es="&ldquo;Músico emo, amante del café y de los gatos, profesor de música y streamer en sus ratos libres.&rdquo;" data-i18n-de="&ldquo;Emo-Musiker, Kaffee- und Katzenliebhaber, Musiklehrer und Streamer in der Freizeit.&rdquo;">
+                  &ldquo;Músico emo, amante de café e de gatos, professor de música e streamer nas horas vagas.&rdquo;
+                </p>
+              </div>
+
+              <div class="epk-hero-actions">
+                <button type="button" class="epk-btn-primary" data-epk-nav="epk-contato" data-i18n-pt="Solicitar Proposta" data-i18n-en="Request Booking" data-i18n-es="Solicitar Propuesta" data-i18n-de="Anfrage Senden">
+                  Solicitar Proposta
+                </button>
+                <button type="button" class="epk-btn-ghost" data-epk-nav="epk-sobre">
+                  <span data-i18n-pt="Saiba Mais" data-i18n-en="Learn More" data-i18n-es="Conocer Más" data-i18n-de="Mehr Erfahren">Saiba Mais</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
-        </header>
+        </div>
+      </section>
 
-        <!-- Section 1: NO PALCO (Concert Stage Wide Banner) -->
-        <section id="music-escena" class="figma-section">
-          <div class="figma-section-header">
-            <span class="figma-section-tag" data-i18n-pt="NO PALCO (AO VIVO)" data-i18n-en="ON STAGE (LIVE)">NO PALCO (AO VIVO)</span>
-            <span class="figma-section-link">Banda Revanche &bull; Shows no Interior Paulista</span>
-          </div>
-          <div class="figma-stage-window">
-            <img src="./images/music/revanche-band.webp" alt="Banda Revanche ao vivo no palco" class="figma-stage-img" />
-            <div class="figma-stage-overlay">
-              <div class="figma-stage-caption">Banda Revanche &mdash; Tributo Fresno &amp; Emo Anos 2000</div>
-              <div class="figma-stage-subcaption">// Turnê de Shows Ao Vivo &bull; Energia Visceral &bull; Live Rig Digital</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Section 2: MÚSICAS & GRAVAÇÕES (3-Column Grid + Interactive Player) -->
-        <section id="music-videos" class="figma-section">
-          <div class="figma-section-header">
-            <span class="figma-section-tag" data-i18n-pt="MÚSICAS &amp; GRAVAÇÕES" data-i18n-en="TRACKS &amp; RECORDINGS">MÚSICAS &amp; GRAVAÇÕES</span>
-            <a href="https://bandarevanche.com.br" target="_blank" rel="noopener noreferrer" class="figma-section-link" data-i18n-pt="Ver site oficial da banda &rarr;" data-i18n-en="View official band website &rarr;">Ver site oficial da banda &rarr;</a>
-          </div>
-          <div class="figma-cards-grid-3">
-            <!-- Media 1 -->
-            <article class="figma-card" role="button" tabindex="0">
-              <div class="figma-card-media">
-                <img src="./images/music/revanche-band.webp" alt="Quebre As Correntes" />
-                <div class="figma-play-overlay">
-                  <div class="figma-play-circle">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <!-- ════════════════════════════════════════
+           02. SOBRE O ARTISTA — TRAJETÓRIA & IDENTIDADE
+           ════════════════════════════════════════ -->
+      <section id="epk-sobre" class="epk-section">
+        <div class="epk-container">
+          <div class="epk-grid-12">
+            <!-- Coluna Esquerda (4 cols) -->
+            <div class="epk-col-4">
+              <div class="epk-relative">
+                <span class="epk-section-number" aria-hidden="true">02</span>
+                <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Sobre o Artista" data-i18n-en="About the Artist" data-i18n-es="Sobre el Artista" data-i18n-de="Über den Künstler">Sobre o Artista</p>
+                <h2 class="epk-section-title" data-i18n-pt="14+ Anos de<br/><span class='epk-italic'>Trajetória</span><br/>em Palco &amp; Estúdio" data-i18n-en="14+ Years of<br/><span class='epk-italic'>Musical</span><br/>Stage &amp; Studio Craft" data-i18n-es="14+ Años de<br/><span class='epk-italic'>Trayectoria</span><br/>en Escenario y Estudio" data-i18n-de="14+ Jahre<br/><span class='epk-italic'>Erfahrung</span><br/>auf Bühne &amp; im Studio">
+                  14+ Anos de<br/><span class="epk-italic">Trajetória</span><br/>em Palco &amp; Estúdio
+                </h2>
+                <div class="epk-rule-left epk-w-20 epk-mb-8"></div>
+                <div class="epk-tag-list">
+                  <div class="epk-tag-row">
+                    <span class="epk-dot"></span>
+                    <span class="epk-tag-label" data-i18n-pt="Banda Revanche (Voz &amp; Guitarra)" data-i18n-en="Banda Revanche (Vocals &amp; Guitar)" data-i18n-es="Banda Revanche (Voz y Guitarra)" data-i18n-de="Banda Revanche (Gesang &amp; Gitarre)">Banda Revanche (Voz &amp; Guitarra)</span>
+                  </div>
+                  <div class="epk-tag-row">
+                    <span class="epk-dot"></span>
+                    <span class="epk-tag-label" data-i18n-pt="Professor de Música &amp; Produtor" data-i18n-en="Music Teacher &amp; Studio Producer" data-i18n-es="Profesor de Música y Productor" data-i18n-de="Musiklehrer &amp; Produzent">Professor de Música &amp; Produtor</span>
+                  </div>
+                  <div class="epk-tag-row">
+                    <span class="epk-dot"></span>
+                    <span class="epk-tag-label" data-i18n-pt="Projetos Autorais (Patrulha 7 / Hellboys)" data-i18n-en="Original Projects (Patrulha 7 / Hellboys)" data-i18n-es="Proyectos Autorales (Patrulha 7 / Hellboys)" data-i18n-de="Eigene Projekte (Patrulha 7 / Hellboys)">Projetos Autorais (Patrulha 7 / Hellboys)</span>
+                  </div>
+                  <div class="epk-tag-row">
+                    <span class="epk-dot"></span>
+                    <span class="epk-tag-label" data-i18n-pt="Garden Creative Studio &amp; Audio DSP" data-i18n-en="Garden Creative Studio &amp; Audio DSP" data-i18n-es="Garden Creative Studio y Audio DSP" data-i18n-de="Garden Creative Studio &amp; Audio DSP">Garden Creative Studio &amp; Audio DSP</span>
                   </div>
                 </div>
               </div>
-              <div class="figma-card-content">
-                <h3 class="figma-card-title">Quebre As Correntes (Ao Vivo)</h3>
-                <p class="figma-card-desc" data-i18n-pt="Gravação ao vivo da apresentação da Banda Revanche com voz e guitarra principal." data-i18n-en="Live performance recording of Banda Revanche with singer and rhythm guitar.">Gravação ao vivo da apresentação da Banda Revanche com voz e guitarra principal.</p>
-                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
-              </div>
-            </article>
+            </div>
 
-            <!-- Media 2 -->
-            <article class="figma-card" role="button" tabindex="0">
-              <div class="figma-card-media">
-                <img src="./images/music/felipe-stage.jpg" alt="Revanche Ao Vivo" />
-                <div class="figma-play-overlay">
-                  <div class="figma-play-circle">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <!-- Coluna Direita (8 cols) -->
+            <div class="epk-col-8">
+              <div class="epk-about-body">
+                <p class="epk-lead-serif" data-i18n-pt="Com mais de 14 anos dedicados à música ao vivo, produção fonográfica e ensino musical, Felipe Gardenghi une presença de palco marcante a uma visão técnica apurada de estúdio." data-i18n-en="With over 14 years dedicated to live music, studio recording, and music education, Felipe Gardenghi blends commanding stage presence with deep studio engineering precision." data-i18n-es="Con más de 14 años dedicados a la música en vivo, la producción discográfica y la enseñanza, Felipe Gardenghi une presencia escénica con precisión técnica de estudio." data-i18n-de="Mit über 14 Jahren Erfahrung auf der Bühne, im Tonstudio und im Musikunterricht verbindet Felipe Gardenghi ausdrucksstarke Bühnenpräsenz mit technischer Studiopräzision.">
+                  Com mais de 14 anos dedicados à música ao vivo, produção fonográfica e ensino musical, Felipe Gardenghi une presença de palco marcante a uma visão técnica apurada de estúdio.
+                </p>
+                <p class="epk-body-p" data-i18n-pt="Fundador, vocalista e guitarrista da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo/Rock dos anos 2000 nos palcos do interior paulista), também construiu sólida trajetória como contrabaixista em bandas autorais e de rock alternativo como <strong>Patrulha 7</strong> (com álbum de estúdio gravado), <strong>Hellboys</strong>, <strong>Blue Drive</strong>, <strong>Emopala</strong> e <strong>Rafael Puga Trio</strong>." data-i18n-en="Founder, lead vocalist, and rhythm guitarist of <strong>Banda Revanche</strong> (visceral tribute to Fresno and 2000s Emo/Rock across São Paulo stages), he has also built a solid career as a bassist in original and rock bands including <strong>Patrulha 7</strong> (with a recorded studio album), <strong>Hellboys</strong>, <strong>Blue Drive</strong>, <strong>Emopala</strong>, and <strong>Rafael Puga Trio</strong>." data-i18n-es="Fundador, vocalista y guitarrista de <strong>Banda Revanche</strong> (tributo visceral a Fresno y al Emo/Rock de los años 2000), también consolidó su carrera como bajista en proyectos autorales como <strong>Patrulha 7</strong> (con álbum de estudio grabado), <strong>Hellboys</strong>, <strong>Blue Drive</strong>, <strong>Emopala</strong> y <strong>Rafael Puga Trio</strong>." data-i18n-de="Als Gründer, Sänger und Gitarrist der <strong>Banda Revanche</strong> (Tribute an Fresno &amp; 2000er Emo/Rock) sowie als Bassist in Projekten wie <strong>Patrulha 7</strong> (mit Studioalbum), <strong>Hellboys</strong>, <strong>Blue Drive</strong>, <strong>Emopala</strong> und <strong>Rafael Puga Trio</strong> verfügt er über vielseitige Live- und Studioerfahrung.">
+                  Fundador, vocalista e guitarrista da <strong>Banda Revanche</strong> (tributo visceral à Fresno e ao Emo/Rock dos anos 2000 nos palcos do interior paulista), também construiu sólida trajetória como contrabaixista em bandas autorais e de rock alternativo como <strong>Patrulha 7</strong> (com álbum de estúdio gravado), <strong>Hellboys</strong>, <strong>Blue Drive</strong>, <strong>Emopala</strong> e <strong>Rafael Puga Trio</strong>.
+                </p>
+                <p class="epk-body-p" data-i18n-pt="À frente do <strong>Garden Creative Studio</strong>, atua como produtor musical, engenheiro de gravação/mixagem e professor de música, além de desenvolver ferramentas próprias de áudio DSP em C++17 (<strong>Underground Tools</strong> — simulador valvulado <em>MidwestAmp</em> e afinador vocal <em>CryTune</em>) e a suíte multimídia <strong>Garden Suite</strong>." data-i18n-en="Leading <strong>Garden Creative Studio</strong>, he works as a music producer, recording/mixing engineer, and music teacher, while engineering custom C++17 DSP audio plugins (<strong>Underground Tools</strong> — <em>MidwestAmp</em> tube simulator and <em>CryTune</em> pitch processor) and the <strong>Garden Suite</strong> media tools." data-i18n-es="Al frente de <strong>Garden Creative Studio</strong>, trabaja como productor musical, ingeniero de mezcla y profesor de música, además de desarrollar plugins DSP en C++17 (<strong>Underground Tools</strong> — <em>MidwestAmp</em> y <em>CryTune</em>) y la suite creativa <strong>Garden Suite</strong>." data-i18n-de="Als Leiter des <strong>Garden Creative Studio</strong> arbeitet er als Musikproduzent, Mixing-Engineer und Musiklehrer und entwickelt eigene C++17-DSP-Audio-Plugins (<strong>Underground Tools</strong> — <em>MidwestAmp</em> &amp; <em>CryTune</em>) sowie die <strong>Garden Suite</strong>.">
+                  À frente do <strong>Garden Creative Studio</strong>, atua como produtor musical, engenheiro de gravação/mixagem e professor de música, além de desenvolver ferramentas próprias de áudio DSP em C++17 (<strong>Underground Tools</strong> — simulador valvulado <em>MidwestAmp</em> e afinador vocal <em>CryTune</em>) e a suíte multimídia <strong>Garden Suite</strong>.
+                </p>
+
+                <div class="epk-rule epk-my-10"></div>
+
+                <div class="epk-about-subgrid">
+                  <div class="epk-photo-frame">
+                    <img src="./images/music/revanche-band.webp" alt="Banda Revanche em performance ao vivo" class="epk-img-4-3" />
+                  </div>
+                  <div class="epk-stats-stack">
+                    <div class="epk-stat-item">
+                      <div class="epk-stat-num">14+</div>
+                      <div class="epk-stat-label" data-i18n-pt="Anos de Experiência Musical" data-i18n-en="Years of Musical Experience" data-i18n-es="Años de Experiencia Musical" data-i18n-de="Jahre Musikerfahrung">Anos de Experiência Musical</div>
+                    </div>
+                    <div class="epk-stat-item">
+                      <div class="epk-stat-num">50+</div>
+                      <div class="epk-stat-label" data-i18n-pt="Shows &amp; Produções Realizadas" data-i18n-en="Concerts &amp; Studio Productions" data-i18n-es="Conciertos y Producciones" data-i18n-de="Konzerte &amp; Produktionen">Shows &amp; Produções Realizadas</div>
+                    </div>
+                    <div class="epk-stat-item">
+                      <div class="epk-stat-num">100%</div>
+                      <div class="epk-stat-label" data-i18n-pt="Live Rig Digital &amp; Audio DSP" data-i18n-en="Digital Live Rig &amp; Audio DSP" data-i18n-es="Live Rig Digital y Audio DSP" data-i18n-de="Digitales Live-Rig &amp; Audio-DSP">Live Rig Digital &amp; Audio DSP</div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="figma-card-content">
-                <h3 class="figma-card-title">Revanche (Ao Vivo)</h3>
-                <p class="figma-card-desc" data-i18n-pt="Apresentação visceral em festival de rock com dinâmicas de voz rasgada e solos de Stratocaster." data-i18n-en="Visceral rock festival performance featuring dynamic screamed vocals and melodic guitar solos.">Apresentação visceral em festival de rock com dinâmicas de voz rasgada e solos de Stratocaster.</p>
-                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
-              </div>
-            </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- Media 3 -->
-            <article class="figma-card" role="button" tabindex="0">
-              <div class="figma-card-media">
-                <div style="height: 100%; background: linear-gradient(135deg, #1c1410, #342217); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 26px; color: #fbbf24;">
-                  ⚡ MidwestAmp
+      <!-- ════════════════════════════════════════
+           LINHA DO TEMPO — A JORNADA MUSICAL
+           ════════════════════════════════════════ -->
+      <section id="epk-jornada" class="epk-section epk-section--journey">
+        <div class="epk-journey-container">
+          <div class="epk-journey-header">
+            <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Linha do Tempo" data-i18n-en="Musical Timeline" data-i18n-es="Línea de Tiempo" data-i18n-de="Musikalische Zeitleiste">Linha do Tempo</p>
+            <h2 class="epk-journey-title" data-i18n-pt="A Jornada Musical" data-i18n-en="The Musical Journey" data-i18n-es="La Jornada Musical" data-i18n-de="Der Musikalische Werdegang">A Jornada Musical</h2>
+            <div class="epk-journey-bar"></div>
+          </div>
+
+          <div class="epk-journey-timeline">
+            <div class="epk-journey-line" aria-hidden="true"></div>
+
+            <!-- Marco 1: 2012 -->
+            <div class="epk-journey-item">
+              <div class="epk-journey-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m11.9 12.1 4.514-4.514"/>
+                  <path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z"/>
+                  <path d="m6 16 2 2"/>
+                  <path d="M8.2 9.9C8.7 8.8 9.8 8 11 8c2.8 0 5 2.2 5 5 0 1.2-.8 2.3-1.9 2.8l-.9.4A2 2 0 0 0 12 18a4 4 0 0 1-4 4c-3.3 0-6-2.7-6-6a4 4 0 0 1 4-4 2 2 0 0 0 1.8-1.2z"/>
+                </svg>
+              </div>
+              <div class="epk-journey-card">
+                <span class="epk-journey-year">2012</span>
+                <h3 class="epk-journey-item-title" data-i18n-pt="Primeiros Acordes &amp; Despertar Musical" data-i18n-en="First Guitar &amp; Musical Awakening" data-i18n-es="Primeros Acordes y Despertar Musical" data-i18n-de="Erste Gitarre &amp; Musikalischer Beginn">Primeiros Acordes &amp; Despertar Musical</h3>
+                <p class="epk-journey-item-desc" data-i18n-pt="Início aos 13 anos no violão, guitarra, contrabaixo e piano, mergulhando na prática diária de repertório rock, harmonia e técnica vocal que moldaram sua identidade artística." data-i18n-en="Started playing acoustic guitar, electric guitar, bass, and piano at age 13, diving into daily rock repertoire practice, harmony, and vocal technique." data-i18n-es="Inicio a los 13 años en guitarra, bajo y piano, profundizando en la práctica diaria de repertorio rock, armonía y técnica vocal." data-i18n-de="Beginn mit 13 Jahren an Gitarre, Bass und Klavier mit täglichem Training in Rock-Repertoire, Harmonielehre und Gesangstechnik.">
+                  Início aos 13 anos no violão, guitarra, contrabaixo e piano, mergulhando na prática diária de repertório rock, harmonia e técnica vocal que moldaram sua identidade artística.
+                </p>
+              </div>
+            </div>
+
+            <!-- Marco 2: 2016 -->
+            <div class="epk-journey-item">
+              <div class="epk-journey-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+              </div>
+              <div class="epk-journey-card">
+                <span class="epk-journey-year">2016</span>
+                <h3 class="epk-journey-item-title" data-i18n-pt="Circuito de Palcos &amp; Bandas Regionais" data-i18n-en="Live Stage Circuit &amp; Regional Bands" data-i18n-es="Circuito de Escenarios y Bandas Regionales" data-i18n-de="Live-Bühnen &amp; Regionale Bands">Circuito de Palcos &amp; Bandas Regionais</h3>
+                <p class="epk-journey-item-desc" data-i18n-pt="Intensa rodagem de palco como guitarrista, contrabaixista e vocalista em bandas como Hellboys, Blue Drive, Emopala e Rafael Puga Trio pelo interior de São Paulo." data-i18n-en="Extensive live stage experience as guitarist, bassist, and vocalist across bands including Hellboys, Blue Drive, Emopala, and Rafael Puga Trio." data-i18n-es="Intenso recorrido en vivo como guitarrista, bajista y vocalista en bandas como Hellboys, Blue Drive, Emopala y Rafael Puga Trio." data-i18n-de="Umfangreiche Bühnenerfahrung als Gitarrist, Bassist und Sänger in Bands wie Hellboys, Blue Drive, Emopala und Rafael Puga Trio.">
+                  Intensa rodagem de palco como guitarrista, contrabaixista e vocalista em bandas como Hellboys, Blue Drive, Emopala e Rafael Puga Trio pelo interior de São Paulo.
+                </p>
+              </div>
+            </div>
+
+            <!-- Marco 3: 2019 -->
+            <div class="epk-journey-item">
+              <div class="epk-journey-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+              </div>
+              <div class="epk-journey-card">
+                <span class="epk-journey-year">2019</span>
+                <h3 class="epk-journey-item-title" data-i18n-pt="Álbum de Estúdio (Patrulha 7) &amp; Ensino Musical" data-i18n-en="Studio Album (Patrulha 7) &amp; Music Teaching" data-i18n-es="Álbum de Estudio (Patrulha 7) y Docencia Musical" data-i18n-de="Studioalbum (Patrulha 7) &amp; Musikunterricht">Álbum de Estúdio (Patrulha 7) &amp; Ensino Musical</h3>
+                <p class="epk-journey-item-desc" data-i18n-pt="Gravação de álbum autoral de estúdio como contrabaixista da Patrulha 7 e consolidação como professor de música em guitarra, violão, baixo, piano e técnica vocal." data-i18n-en="Recorded an original studio album as bassist for Patrulha 7 and established his practice as a private music instructor in guitar, bass, piano, and vocals." data-i18n-es="Grabación de álbum autoral de estudio como bajista de Patrulha 7 y consolidación como profesor de guitarra, bajo, piano y técnica vocal." data-i18n-de="Aufnahme eines eigenen Studioalbums als Bassist von Patrulha 7 und Etablierung als Musiklehrer für Gitarre, Bass, Klavier und Gesang.">
+                  Gravação de álbum autoral de estúdio como contrabaixista da Patrulha 7 e consolidação como professor de música em guitarra, violão, baixo, piano e técnica vocal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Marco 4: 2022 -->
+            <div class="epk-journey-item">
+              <div class="epk-journey-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" x2="12" y1="19" y2="22"/>
+                </svg>
+              </div>
+              <div class="epk-journey-card">
+                <span class="epk-journey-year">2022</span>
+                <h3 class="epk-journey-item-title" data-i18n-pt="Fundação da Banda Revanche" data-i18n-en="Founding of Banda Revanche" data-i18n-es="Fundación de Banda Revanche" data-i18n-de="Gründung der Banda Revanche">Fundação da Banda Revanche</h3>
+                <p class="epk-journey-item-desc" data-i18n-pt="Criação da Banda Revanche (Tributo Fresno &amp; Emo Anos 2000), assumindo vocal principal, guitarra base e direção técnica do live rig digital da banda em festivais e casas de show." data-i18n-en="Founded Banda Revanche (Fresno &amp; 2000s Emo Tribute), leading vocals, rhythm guitar, and the band's amp-less digital live rig across festivals and venues." data-i18n-es="Creación de Banda Revanche (Tributo Fresno y Emo Años 2000), liderando voz principal, guitarra rítmica y el live rig digital en festivales." data-i18n-de="Gründung der Banda Revanche (Fresno &amp; 2000er Emo-Tribute) als Frontsänger, Rhythmusgitarrist und Leiter des digitalen Live-Rigs.">
+                  Criação da Banda Revanche (Tributo Fresno &amp; Emo Anos 2000), assumindo vocal principal, guitarra base e direção técnica do live rig digital da banda em festivais e casas de show.
+                </p>
+              </div>
+            </div>
+
+            <!-- Marco 5: 2025–2026 -->
+            <div class="epk-journey-item">
+              <div class="epk-journey-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 10v3"/>
+                  <path d="M6 6v11"/>
+                  <path d="M10 3v18"/>
+                  <path d="M14 8v7"/>
+                  <path d="M18 5v13"/>
+                  <path d="M22 10v3"/>
+                </svg>
+              </div>
+              <div class="epk-journey-card">
+                <span class="epk-journey-year">2025 &ndash; 2026</span>
+                <h3 class="epk-journey-item-title" data-i18n-pt="Garden Creative Studio, Streaming &amp; Audio DSP" data-i18n-en="Garden Creative Studio, Streaming &amp; Audio DSP" data-i18n-es="Garden Creative Studio, Streaming y Audio DSP" data-i18n-de="Garden Creative Studio, Streaming &amp; Audio-DSP">Garden Creative Studio, Streaming &amp; Audio DSP</h3>
+                <p class="epk-journey-item-desc" data-i18n-pt="Consolidação do Garden Creative Studio (produção, mixagem e aulas), lives na Twitch e engenharia de plugins de áudio em C++17 (Underground Tools), Garden Suite e VisuChord." data-i18n-en="Expansion of Garden Creative Studio (production, mixing, and teaching), Twitch live streams, and custom C++17 DSP audio plugins (Underground Tools), Garden Suite, and VisuChord." data-i18n-es="Consolidación de Garden Creative Studio (producción, mezcla y clases), streams en Twitch y desarrollo de plugins DSP en C++17 (Underground Tools), Garden Suite y VisuChord." data-i18n-de="Ausbau des Garden Creative Studio (Produktion, Mixing &amp; Unterricht), Twitch-Streams sowie Entwicklung eigener C++17-DSP-Plugins (Underground Tools), Garden Suite und VisuChord.">
+                  Consolidação do Garden Creative Studio (produção, mixagem e aulas), lives na Twitch e engenharia de plugins de áudio em C++17 (Underground Tools), Garden Suite e VisuChord.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════
+           03. EXPERIÊNCIA — BAGAGEM PROFISSIONAL & PALCOS
+           ════════════════════════════════════════ -->
+      <section id="epk-experiencia" class="epk-section">
+        <div class="epk-container">
+          <div class="epk-exp-header">
+            <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Histórico de Palco &amp; Estúdio" data-i18n-en="Stage &amp; Studio Track Record" data-i18n-es="Historial de Escenario y Estudio" data-i18n-de="Bühnen- &amp; Studio-Historie">Histórico de Palco &amp; Estúdio</p>
+            <div class="epk-exp-header-grid">
+              <div class="epk-relative">
+                <span class="epk-section-number" aria-hidden="true">03</span>
+                <h2 class="epk-section-title" data-i18n-pt="Bagagem<br/><span class='epk-italic'>Profissional</span><br/>e Projetos" data-i18n-en="Professional<br/><span class='epk-italic'>Background</span><br/>&amp; Projects" data-i18n-es="Bagaje<br/><span class='epk-italic'>Profesional</span><br/>y Proyectos" data-i18n-de="Professioneller<br/><span class='epk-italic'>Werdegang</span><br/>&amp; Projekte">
+                  Bagagem<br/><span class="epk-italic">Profissional</span><br/>e Projetos
+                </h2>
+              </div>
+              <div>
+                <div class="epk-rule epk-mb-6"></div>
+                <p class="epk-body-muted" data-i18n-pt="Uma trajetória construída entre festivais e casas de shows paulistas, gravações de estúdio, formação de alunos e criação de ferramentas tecnológicas para músicos." data-i18n-en="A career forged across São Paulo stages and rock venues, studio recordings, student mentoring, and custom audio software creation." data-i18n-es="Una carrera construida entre festivales y escenarios paulistas, grabaciones de estudio, docencia musical y creación de herramientas de audio." data-i18n-de="Eine Laufbahn auf den Bühnen von São Paulo, im Tonstudio, in der Musikausbildung und in der Entwicklung moderner Audio-Software.">
+                  Uma trajetória construída entre festivais e casas de shows paulistas, gravações de estúdio, formação de alunos e criação de ferramentas tecnológicas para músicos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="epk-wide-banner">
+            <img src="./images/music/revanche-band.webp" alt="Banda Revanche ao vivo no palco" class="epk-wide-banner-img" />
+          </div>
+
+          <div class="epk-exp-grid-3">
+            <!-- Coluna 1 -->
+            <div class="epk-exp-col">
+              <p class="epk-col-eyebrow" data-i18n-pt="Formações &amp; Bandas" data-i18n-en="Bands &amp; Lineups" data-i18n-es="Formaciones y Bandas" data-i18n-de="Bands &amp; Formationen">Formações &amp; Bandas</p>
+              <div class="epk-exp-list">
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Banda Revanche</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Fundador, Vocalista &amp; Guitarrista" data-i18n-en="Founder, Lead Singer &amp; Guitarist" data-i18n-es="Fundador, Vocalista y Guitarrista" data-i18n-de="Gründer, Sänger &amp; Gitarrist">Fundador, Vocalista &amp; Guitarrista</div>
                 </div>
-                <div class="figma-play-overlay">
-                  <div class="figma-play-circle">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Patrulha 7</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Contrabaixista &bull; Álbum Autoral de Estúdio" data-i18n-en="Bassist &bull; Original Studio Album" data-i18n-es="Bajista &bull; Álbum Autoral de Estudio" data-i18n-de="Bassist &bull; Eigenes Studioalbum">Contrabaixista &bull; Álbum Autoral de Estúdio</div>
+                </div>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Hellboys &middot; Blue Drive &middot; Emopala</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Guitarra, Contrabaixo &amp; Backing Vocals" data-i18n-en="Guitar, Bass &amp; Backing Vocals" data-i18n-es="Guitarra, Bajo y Coros" data-i18n-de="Gitarre, Bass &amp; Backing Vocals">Guitarra, Contrabaixo &amp; Backing Vocals</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="epk-exp-col">
+              <p class="epk-col-eyebrow" data-i18n-pt="Estúdio &amp; Ensino Musical" data-i18n-en="Studio &amp; Music Education" data-i18n-es="Estudio y Docencia Musical" data-i18n-de="Tonstudio &amp; Musikunterricht">Estúdio &amp; Ensino Musical</p>
+              <div class="epk-exp-list">
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Garden Creative Studio</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Produção Musical, Gravação &amp; Mixagem" data-i18n-en="Music Production, Tracking &amp; Mixing" data-i18n-es="Producción Musical, Grabación y Mezcla" data-i18n-de="Musikproduktion, Recording &amp; Mixing">Produção Musical, Gravação &amp; Mixagem</div>
+                </div>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main" data-i18n-pt="Professor de Música" data-i18n-en="Private Music Instructor" data-i18n-es="Profesor de Música" data-i18n-de="Musiklehrer">Professor de Música</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Guitarra, Violão, Contrabaixo, Piano &amp; Voz" data-i18n-en="Guitar, Bass, Piano &amp; Vocal Technique" data-i18n-es="Guitarra, Bajo, Piano y Técnica Vocal" data-i18n-de="Gitarre, Bass, Klavier &amp; Gesang">Guitarra, Violão, Contrabaixo, Piano &amp; Voz</div>
+                </div>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Rafael Puga Trio &amp; Sideman</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Músico Acompanhante em Shows &amp; Sessões" data-i18n-en="Session &amp; Touring Sideman" data-i18n-es="Músico de Sesión y Acompañante" data-i18n-de="Session- &amp; Live-Begleitmusiker">Músico Acompanhante em Shows &amp; Sessões</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 3 -->
+            <div class="epk-exp-col">
+              <p class="epk-col-eyebrow" data-i18n-pt="Engenharia de Áudio &amp; Palco" data-i18n-en="Audio Engineering &amp; Stage Tech" data-i18n-es="Ingeniería de Audio y Escenario" data-i18n-de="Audio-Engineering &amp; Bühnentechnik">Engenharia de Áudio &amp; Palco</p>
+              <div class="epk-exp-list">
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Underground Tools (C++17 DSP)</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Plugins VST3/CLAP MidwestAmp &amp; CryTune" data-i18n-en="VST3/CLAP Plugins MidwestAmp &amp; CryTune" data-i18n-es="Plugins VST3/CLAP MidwestAmp y CryTune" data-i18n-de="VST3/CLAP-Plugins MidwestAmp &amp; CryTune">Plugins VST3/CLAP MidwestAmp &amp; CryTune</div>
+                </div>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main">Garden Suite &amp; VisuChord</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Ferramentas Criativas &amp; Instrumento por IA" data-i18n-en="Creative Media Suite &amp; AI Vision Instrument" data-i18n-es="Suite Creativa e Instrumento por IA" data-i18n-de="Creative Suite &amp; KI-Musikinstrument">Ferramentas Criativas &amp; Instrumento por IA</div>
+                </div>
+                <div class="epk-exp-item">
+                  <div class="epk-exp-main" data-i18n-pt="Aberturas &amp; Festivais Regionais" data-i18n-en="Regional Festivals &amp; Main Stages" data-i18n-es="Festivales Regionales y Grandes Escenarios" data-i18n-de="Regionale Festivals &amp; Hauptbühnen">Aberturas &amp; Festivais Regionais</div>
+                  <div class="epk-exp-sub" data-i18n-pt="Circuito de Rock do Interior de São Paulo" data-i18n-en="São Paulo Interior Rock Circuit" data-i18n-es="Circuito de Rock del Interior de São Paulo" data-i18n-de="Rock-Szene im Bundesstaat São Paulo">Circuito de Rock do Interior de São Paulo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════
+           04. ESTRUTURA TÉCNICA — LOGÍSTICA, LIVE RIG & RIDER
+           ════════════════════════════════════════ -->
+      <section id="epk-estrutura" class="epk-section epk-section--alt">
+        <div class="epk-container">
+          <div class="epk-grid-12">
+            <!-- Coluna Esquerda (4 cols) -->
+            <div class="epk-col-4">
+              <div class="epk-relative">
+                <span class="epk-section-number" aria-hidden="true">04</span>
+                <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Estrutura Técnica" data-i18n-en="Technical Structure" data-i18n-es="Estructura Técnica" data-i18n-de="Technische Struktur">Estrutura Técnica</p>
+                <h2 class="epk-section-title" data-i18n-pt="Logística<br/><span class='epk-italic'>Operacional</span><br/>&amp; Live Rig" data-i18n-en="Operational<br/><span class='epk-italic'>Logistics</span><br/>&amp; Live Rig" data-i18n-es="Logística<br/><span class='epk-italic'>Operativa</span><br/>y Live Rig" data-i18n-de="Technische<br/><span class='epk-italic'>Logistik</span><br/>&amp; Live-Rig">
+                  Logística<br/><span class="epk-italic">Operacional</span><br/>&amp; Live Rig
+                </h2>
+                <div class="epk-rule-left epk-w-20 epk-mb-8"></div>
+              </div>
+
+              <div class="epk-tech-box epk-mt-8">
+                <p class="epk-box-eyebrow" data-i18n-pt="Área de Atuação" data-i18n-en="Operating Area" data-i18n-es="Área de Actuación" data-i18n-de="Einsatzgebiet">Área de Atuação</p>
+                <p class="epk-box-location">Sertãozinho &amp; Ribeirão Preto &middot; SP</p>
+                <p class="epk-body-muted" data-i18n-pt="Base na região metropolitana de Ribeirão Preto/SP, com disponibilidade para shows, festivais, gravações e produções em todo o estado." data-i18n-en="Based in the Ribeirão Preto/SP metro area, available for concerts, festivals, studio sessions, and productions statewide." data-i18n-es="Base en la región de Ribeirão Preto/SP, con disponibilidad para conciertos, festivales y grabaciones en todo el estado." data-i18n-de="Ansässig in der Region Ribeirão Preto/SP, verfügbar für Konzerte, Festivals und Studio-Sessions im gesamten Bundesstaat.">
+                  Base na região metropolitana de Ribeirão Preto/SP, com disponibilidade para shows, festivais, gravações e produções em todo o estado.
+                </p>
+              </div>
+            </div>
+
+            <!-- Coluna Direita (8 cols) -->
+            <div class="epk-col-8">
+              <div class="epk-tech-grid-2">
+                <!-- Card Largo: Formato de Show -->
+                <div class="epk-tech-box epk-span-2">
+                  <p class="epk-box-eyebrow" data-i18n-pt="Formato de Show &amp; Performance" data-i18n-en="Show Format &amp; Performance" data-i18n-es="Formato de Show y Performance" data-i18n-de="Show-Format &amp; Performance">Formato de Show &amp; Performance</p>
+                  <div class="epk-tech-subgrid-2">
+                    <div>
+                      <div class="epk-big-metric">2h&ndash;3h</div>
+                      <div class="epk-metric-sub" data-i18n-pt="Duração Padrão Ajustável" data-i18n-en="Adjustable Standard Duration" data-i18n-es="Duración Estándar Ajustable" data-i18n-de="Anpassbare Standarddauer">Duração Padrão Ajustável</div>
+                      <p class="epk-body-muted" data-i18n-pt="Setlist modular dimensionado conforme o cronograma do festival, casa noturna ou evento corporativo." data-i18n-en="Modular setlist tailored to the schedule of festivals, rock venues, or private events." data-i18n-es="Repertorio modular adaptado al cronograma del festival, sala de conciertos o evento." data-i18n-de="Modulares Setlist-Konzept, abgestimmt auf Festivals, Clubs oder Events.">
+                        Setlist modular dimensionado conforme o cronograma do festival, casa noturna ou evento corporativo.
+                      </p>
+                    </div>
+                    <div>
+                      <div class="epk-big-metric">100%</div>
+                      <div class="epk-metric-sub" data-i18n-pt="Palco Silencioso (Amp-less Digital Rig)" data-i18n-en="Silent Stage (Amp-less Digital Rig)" data-i18n-es="Escenario Silencioso (Live Rig Digital)" data-i18n-de="Silent Stage (Digitales Amp-less Rig)">Palco Silencioso (Amp-less Digital Rig)</div>
+                      <p class="epk-body-muted" data-i18n-pt="Processamento integral em linha com roteamento estéreo, automação MIDI de timbres, VS sincronizado e monitoração In-Ear sem fio." data-i18n-en="Full direct-to-FOH stereo processing with automated MIDI patch switching, synced backing tracks, and wireless In-Ear monitoring." data-i18n-es="Procesamiento directo a consola en estéreo, automatización MIDI, secuencias sincronizadas y monitoreo In-Ear inalámbrico." data-i18n-de="Vollständig digitales Direct-to-FOH-Routing in Stereo mit MIDI-Automation, synchronisierten Backing-Tracks und Wireless-In-Ear-Monitoring.">
+                        Processamento integral em linha com roteamento estéreo, automação MIDI de timbres, VS sincronizado e monitoração In-Ear sem fio.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Esquerdo: O Artista Fornece -->
+                <div class="epk-tech-box epk-tech-box--accent">
+                  <p class="epk-box-eyebrow" data-i18n-pt="Backline &amp; Rig Próprio (Artista)" data-i18n-en="Artist Backline &amp; Live Rig" data-i18n-es="Backline y Rig Propio (Artista)" data-i18n-de="Eigenes Backline &amp; Live-Rig (Künstler)">Backline &amp; Rig Próprio (Artista)</p>
+                  <div class="epk-tag-list">
+                    <div class="epk-tag-row">
+                      <span class="epk-dot"></span>
+                      <span class="epk-Check-text">Fender Stratocaster &amp; Contrabaixo Precision</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot"></span>
+                      <span class="epk-Check-text">Microfone Vocal Shure Beta 58A</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot"></span>
+                      <span class="epk-Check-text">Linux Mint + DAW Reaper (PipeWire Low-Latency)</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot"></span>
+                      <span class="epk-Check-text">PreSonus AudioBox 22VSL &amp; Line 6 POD HD 500</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot"></span>
+                      <span class="epk-Check-text">Transmissor In-Ear Sem Fio M-Vave &amp; C++17 DSP</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Direito: Responsabilidade do Local -->
+                <div class="epk-tech-box">
+                  <p class="epk-box-eyebrow epk-box-eyebrow--muted" data-i18n-pt="Estrutura do Contratante (Rider Local)" data-i18n-en="Venue Requirements (Local Rider)" data-i18n-es="Estructura del Local (Rider Técnico)" data-i18n-de="Anforderungen vor Ort (Local Rider)">Estrutura do Contratante (Rider Local)</p>
+                  <div class="epk-tag-list">
+                    <div class="epk-tag-row">
+                      <span class="epk-dot epk-dot--hollow"></span>
+                      <span class="epk-Check-text epk-Check-text--muted" data-i18n-pt="Sistema de sonorização (P.A.) compatível com o público" data-i18n-en="Front-of-House P.A. system sized for the venue" data-i18n-es="Sistema de sonido (P.A.) acorde al aforo" data-i18n-de="Beschallungsanlage (P.A.) passend zur Veranstaltungsgröße">Sistema de sonorização (P.A.) compatível com o público</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot epk-dot--hollow"></span>
+                      <span class="epk-Check-text epk-Check-text--muted" data-i18n-pt="Mesa de som com Direct Boxes (L/R Estéreo + Canal de Voz)" data-i18n-en="Mixing console with DI channels (Stereo L/R + Vocal)" data-i18n-es="Consola de mezcla con cajas directas (L/R Estéreo + Voz)" data-i18n-de="Mischpult mit DI-Kanälen (Stereo L/R + Gesang)">Mesa de som com Direct Boxes (L/R Estéreo + Canal de Voz)</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot epk-dot--hollow"></span>
+                      <span class="epk-Check-text epk-Check-text--muted" data-i18n-pt="Via auxiliar XLR para sistema de retorno In-Ear" data-i18n-en="Dedicated XLR auxiliary send for In-Ear monitor rig" data-i18n-es="Envío auxiliar XLR para monitoreo In-Ear" data-i18n-de="Dedizierter XLR-Aux-Weg für In-Ear-Monitoring">Via auxiliar XLR para sistema de retorno In-Ear</span>
+                    </div>
+                    <div class="epk-tag-row">
+                      <span class="epk-dot epk-dot--hollow"></span>
+                      <span class="epk-Check-text epk-Check-text--muted" data-i18n-pt="Pontos de energia AC estabilizados e iluminação de palco" data-i18n-en="Regulated stage AC power and stage lighting" data-i18n-es="Tomas de corriente AC estabilizadas e iluminación" data-i18n-de="Stabilisierte Bühnenstromversorgung &amp; Lichttechnik">Pontos de energia AC estabilizados e iluminação de palco</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="figma-card-content">
-                <h3 class="figma-card-title">MidwestAmp DSP Audio Demo</h3>
-                <p class="figma-card-desc" data-i18n-pt="Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch." data-i18n-en="Audio showcase of the C++17 plugin simulating tube amp channels Kinsella Clean &amp; 90s Crunch.">Demonstração sonora do plugin em C++17 com timbres Kinsella Clean e 90s Crunch.</p>
-                <span class="figma-card-action" data-i18n-pt="Ouvir no reprodutor &rarr;" data-i18n-en="Play in audio player &rarr;">Ouvir no reprodutor &rarr;</span>
-              </div>
-            </article>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Reprodutor de Áudio Interativo com Visualizador Canvas -->
-          <div class="music-player-widget" style="margin-top: 24px;">
-            <div class="music-player-header">
-              <div class="music-player-title-group">
-                <h3>
-                  <span style="color: #f59e0b;">▶</span>
-                  <span data-i18n-pt="Reprodutor Interativo &amp; Web Audio DSP" data-i18n-en="Interactive Player &amp; Web Audio DSP">Reprodutor Interativo &amp; Web Audio DSP</span>
-                </h3>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent);" data-i18n-pt="● MOTOR WEB AUDIO ATIVO" data-i18n-en="● WEB AUDIO ENGINE ACTIVE">
-                ● MOTOR WEB AUDIO ATIVO
-              </div>
-            </div>
-
-            <div class="music-player-visualizer-box">
-              <canvas id="music-visualizer-canvas"></canvas>
-            </div>
-
-            <div class="music-player-track-info">
-              <span class="music-current-title" id="music-current-title">Quebre As Correntes (Ao Vivo)</span>
-              <span class="music-current-artist" id="music-current-artist">Banda Revanche (Tributo Fresno) &bull; Emo Rock / Live</span>
-            </div>
-
-            <div class="music-progress-wrapper">
-              <div class="music-progress-bar" id="music-progress-bar" role="progressbar" aria-label="Progresso da música">
-                <div class="music-progress-fill" id="music-progress-fill"></div>
-              </div>
-              <div class="music-time-display">
-                <span id="music-current-time">0:00</span>
-                <span id="music-total-time">3:42</span>
+      <!-- ════════════════════════════════════════
+           05. OUTRAS MÍDIAS — STREAMER & CRIADOR DE CONTEÚDO
+           ════════════════════════════════════════ -->
+      <section id="epk-midias" class="epk-section">
+        <div class="epk-container">
+          <div class="epk-grid-12">
+            <!-- Coluna Esquerda (4 cols) -->
+            <div class="epk-col-4">
+              <div class="epk-relative">
+                <span class="epk-section-number" aria-hidden="true">05</span>
+                <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Outras Mídias" data-i18n-en="Other Media" data-i18n-es="Otros Medios" data-i18n-de="Weitere Medien">Outras Mídias</p>
+                <h2 class="epk-section-title" data-i18n-pt="Streamer &amp;<br/><span class='epk-italic'>Criador de</span><br/>Conteúdo" data-i18n-en="Streamer &amp;<br/><span class='epk-italic'>Content</span><br/>Creator" data-i18n-es="Streamer y<br/><span class='epk-italic'>Creador de</span><br/>Contenido" data-i18n-de="Streamer &amp;<br/><span class='epk-italic'>Content</span><br/>Creator">
+                  Streamer &amp;<br/><span class="epk-italic">Criador de</span><br/>Conteúdo
+                </h2>
+                <div class="epk-rule-left epk-w-20 epk-mb-8"></div>
+                <p class="epk-body-muted" data-i18n-pt="Além dos palcos, do estúdio e das salas de aula, compartilho lives, bastidores de produção musical, cultura emo, gameplays, café e interação com a comunidade nas redes." data-i18n-en="Beyond the stage, studio, and classroom, I share live streams, music production behind-the-scenes, emo culture, gaming, coffee, and community hangouts online." data-i18n-es="Además del escenario, el estudio y las clases, comparto transmisiones en vivo, detrás de cámaras musical, cultura emo, gameplays y café con la comunidad." data-i18n-de="Neben Bühne, Studio und Unterricht teile ich Livestreams, Einblicke in die Musikproduktion, Emo-Kultur, Gaming und Kaffee-Talks mit der Community.">
+                  Além dos palcos, do estúdio e das salas de aula, compartilho lives, bastidores de produção musical, cultura emo, gameplays, café e interação com a comunidade nas redes.
+                </p>
               </div>
             </div>
 
-            <div class="music-controls-row">
-              <button type="button" class="music-ctrl-btn" id="music-prev-btn" aria-label="Faixa anterior">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
-              </button>
-              <button type="button" class="music-ctrl-btn music-play-btn" id="music-play-btn" aria-label="Reproduzir áudio">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-              <button type="button" class="music-ctrl-btn" id="music-next-btn" aria-label="Próxima faixa">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-              </button>
-            </div>
-
-            <ul class="music-playlist" role="list">
-              <li class="music-track-item active" data-track="0">
-                <div class="music-track-left">
-                  <span class="music-track-num">01</span>
-                  <div>
-                    <div class="music-track-name">Quebre As Correntes (Ao Vivo)</div>
-                    <div class="music-track-genre">Banda Revanche &bull; Tributo Fresno &amp; Emo 2000s</div>
+            <!-- Coluna Direita (8 cols): Grid 2x2 de Canais de Conteúdo -->
+            <div class="epk-col-8">
+              <div class="epk-tech-grid-2">
+                <!-- Card 1: Twitch -->
+                <a href="https://www.twitch.tv/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-media-card">
+                  <div class="epk-media-card-top">
+                    <span class="epk-box-eyebrow" style="margin-bottom: 0;">Twitch &middot; Live Stream</span>
+                    <span class="epk-media-handle">twitch.tv/felipegardenghi &rarr;</span>
                   </div>
-                </div>
-                <span class="music-track-duration">3:42</span>
-              </li>
-              <li class="music-track-item" data-track="1">
-                <div class="music-track-left">
-                  <span class="music-track-num">02</span>
-                  <div>
-                    <div class="music-track-name">Revanche (Ao Vivo)</div>
-                    <div class="music-track-genre">Banda Revanche &bull; Voz &amp; Guitarra ao Vivo</div>
+                  <h3 class="epk-media-title" data-i18n-pt="Lives, Música, Café &amp; Gameplay" data-i18n-en="Live Streams, Music, Coffee &amp; Gaming" data-i18n-es="Streams en Vivo, Música, Café y Gameplay" data-i18n-de="Livestreams, Musik, Kaffee &amp; Gaming">Lives, Música, Café &amp; Gameplay</h3>
+                  <p class="epk-body-muted" data-i18n-pt="Transmissões ao vivo trocando ideia com o chat, fazendo som, ouvindo clássicos do emo/rock, tomando café e jogando nas horas vagas." data-i18n-en="Live streams hanging out with chat, playing instruments, reacting to emo/rock classics, drinking coffee, and gaming." data-i18n-es="Transmisiones en vivo charlando con la comunidad, tocando música, escuchando clásicos del emo/rock y jugando." data-i18n-de="Livestreams mit der Community, Live-Musik, Emo-/Rock-Klassikern, gutem Kaffee und Gaming in der Freizeit.">
+                    Transmissões ao vivo trocando ideia com o chat, fazendo som, ouvindo clássicos do emo/rock, tomando café e jogando nas horas vagas.
+                  </p>
+                </a>
+
+                <!-- Card 2: TikTok -->
+                <a href="https://www.tiktok.com/@felipe.gardenghi" target="_blank" rel="noopener noreferrer" class="epk-media-card">
+                  <div class="epk-media-card-top">
+                    <span class="epk-box-eyebrow" style="margin-bottom: 0;">TikTok &middot; Short Videos</span>
+                    <span class="epk-media-handle">@felipe.gardenghi &rarr;</span>
                   </div>
-                </div>
-                <span class="music-track-duration">4:15</span>
-              </li>
-              <li class="music-track-item" data-track="2">
-                <div class="music-track-left">
-                  <span class="music-track-num">03</span>
-                  <div>
-                    <div class="music-track-name">MidwestAmp DSP Audio Demo</div>
-                    <div class="music-track-genre">Felipe Gardenghi &bull; C++17 Tube Amp Simulator</div>
+                  <h3 class="epk-media-title" data-i18n-pt="Covers, Cortes de Lives &amp; Bastidores" data-i18n-en="Covers, Stream Clips &amp; Behind the Scenes" data-i18n-es="Covers, Clips de Streams y Bastidores" data-i18n-de="Covers, Stream-Clips &amp; Behind the Scenes">Covers, Cortes de Lives &amp; Bastidores</h3>
+                  <p class="epk-body-muted" data-i18n-pt="Vídeos curtos com performances de guitarra, baixo, piano e voz, dicas de música, rotina com os gatos e melhores momentos das lives." data-i18n-en="Short-form videos featuring guitar, bass, piano, and vocal performances, music tips, cat moments, and stream highlights." data-i18n-es="Videos cortos con performances de guitarra, bajo, piano y voz, consejos musicales y mejores momentos de los streams." data-i18n-de="Kurzvideos mit Gitarren-, Bass-, Klavier- und Gesangs-Performances, Musik-Tipps und Highlights aus den Streams.">
+                    Vídeos curtos com performances de guitarra, baixo, piano e voz, dicas de música, rotina com os gatos e melhores momentos das lives.
+                  </p>
+                </a>
+
+                <!-- Card 3: Twitter / X -->
+                <a href="https://twitter.com/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-media-card">
+                  <div class="epk-media-card-top">
+                    <span class="epk-box-eyebrow" style="margin-bottom: 0;">Twitter / X &middot; Microblog</span>
+                    <span class="epk-media-handle">@felipegardenghi &rarr;</span>
                   </div>
+                  <h3 class="epk-media-title" data-i18n-pt="Comunidade, Avisos de Live &amp; Dia a Dia" data-i18n-en="Community, Stream Alerts &amp; Daily Thoughts" data-i18n-es="Comunidad, Avisos de Stream y Día a Día" data-i18n-de="Community, Stream-Updates &amp; Alltag">Comunidade, Avisos de Live &amp; Dia a Dia</h3>
+                  <p class="epk-body-muted" data-i18n-pt="Interação diária, bastidores de ensaios e gravações, avisos de quando a live abre na Twitch e conversas sobre música e cultura pop." data-i18n-en="Daily interaction, rehearsal and studio updates, live stream announcements, and conversations on music and culture." data-i18n-es="Interacción diaria, actualizaciones de ensayos y estudio, avisos de streams en vivo y charlas sobre música." data-i18n-de="Täglicher Austausch, Updates aus Proben und Studio, Livestream-Ankündigungen und Gespräche über Musik.">
+                    Interação diária, bastidores de ensaios e gravações, avisos de quando a live abre na Twitch e conversas sobre música e cultura pop.
+                  </p>
+                </a>
+
+                <!-- Card 4: Instagram -->
+                <a href="https://instagram.com/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-media-card">
+                  <div class="epk-media-card-top">
+                    <span class="epk-box-eyebrow" style="margin-bottom: 0;">Instagram &middot; Reels &amp; Stories</span>
+                    <span class="epk-media-handle">@felipegardenghi &rarr;</span>
+                  </div>
+                  <h3 class="epk-media-title" data-i18n-pt="Reels Musicais, Palco &amp; Estúdio" data-i18n-en="Musical Reels, Stage &amp; Studio Life" data-i18n-es="Reels Musicales, Escenario y Estudio" data-i18n-de="Musik-Reels, Bühne &amp; Studio-Alltag">Reels Musicais, Palco &amp; Estúdio</h3>
+                  <p class="epk-body-muted" data-i18n-pt="Registros de shows ao vivo, produções no Garden Creative Studio, rotina de aulas de música e conteúdos visuais." data-i18n-en="Live concert photography, Garden Creative Studio productions, music teaching routine, and visual reels." data-i18n-es="Registros de conciertos en vivo, producciones en Garden Creative Studio, rutina de clases de música y reels." data-i18n-de="Eindrücke von Live-Konzerten, Produktionen im Garden Creative Studio, Musikunterricht und Reels.">
+                    Registros de shows ao vivo, produções no Garden Creative Studio, rotina de aulas de música e conteúdos visuais.
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════
+           06. CONTATO & CONTRATAÇÃO
+           ════════════════════════════════════════ -->
+      <section id="epk-contato" class="epk-section epk-section--alt">
+        <div class="epk-container">
+          <div class="epk-contact-grid">
+            <!-- Coluna Esquerda -->
+            <div>
+              <div class="epk-relative">
+                <span class="epk-section-number" aria-hidden="true">06</span>
+                <p class="epk-eyebrow epk-mb-6" data-i18n-pt="Contato &amp; Redes" data-i18n-en="Contact &amp; Socials" data-i18n-es="Contacto y Redes" data-i18n-de="Kontakt &amp; Social Media">Contato &amp; Redes</p>
+                <h2 class="epk-section-title" data-i18n-pt="Leve essa<br/><span class='epk-italic'>Experiência</span><br/>para o Seu Evento" data-i18n-en="Bring This<br/><span class='epk-italic'>Experience</span><br/>to Your Stage" data-i18n-es="Lleva esta<br/><span class='epk-italic'>Experiencia</span><br/>a tu Evento" data-i18n-de="Bringe dieses<br/><span class='epk-italic'>Erlebnis</span><br/>auf Deine Bühne">
+                  Leve essa<br/><span class="epk-italic">Experiência</span><br/>para o Seu Evento
+                </h2>
+              </div>
+
+              <div class="epk-rule-left epk-w-20 epk-my-8"></div>
+
+              <p class="epk-body-muted epk-mb-10" data-i18n-pt="Entre em contato direto para contratação de shows, sessões de gravação e produção no Garden Creative Studio, aulas particulares de música ou parcerias criativas." data-i18n-en="Get in touch directly for live concert bookings, recording and mixing sessions at Garden Creative Studio, private music lessons, or creative collaborations." data-i18n-es="Ponte en contacto directo para contratar shows, sesiones de grabación en Garden Creative Studio, clases particulares de música o colaboraciones." data-i18n-de="Direkter Kontakt für Konzertbuchungen, Studio-Produktionen im Garden Creative Studio, privaten Musikunterricht oder kreative Kooperationen.">
+                Entre em contato direto para contratação de shows, sessões de gravação e produção no Garden Creative Studio, aulas particulares de música ou parcerias criativas.
+              </p>
+
+              <div class="epk-photo-frame">
+                <img src="./images/music/revanche-band.webp" alt="Felipe Gardenghi em performance ao vivo" class="epk-img-16-9" />
+              </div>
+            </div>
+
+            <!-- Coluna Direita: Lista Editorial de Contatos e Redes -->
+            <div class="epk-contact-list">
+              <!-- WhatsApp -->
+              <a href="https://wa.me/5516993733667?text=Ol%C3%A1%20Felipe!%20Vi%20seu%20portf%C3%B3lio%20musical%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 1.5A6.5 6.5 0 1 0 14.5 8 6.507 6.507 0 0 0 8 1.5ZM8 14a5.99 5.99 0 0 1-3.168-.9L1.5 14l.9-3.332A5.998 5.998 0 1 1 8 14Z" stroke="#E42E2E" stroke-width="0.9"/>
+                    <path d="M10.25 9.25c-.25-.25-1.5-.75-1.75-.75s-.25.25-.5.5c-.125.125-.25.25-.5.25s-.5-.25-.875-.625A4.5 4.5 0 0 1 5.5 7.25c-.125-.25 0-.5.125-.625L6 6.25c.125-.125.25-.375.125-.5L5.5 4.75c-.125-.25-.375-.25-.5-.25-.25 0-.625.125-.875.375A2.25 2.25 0 0 0 3.5 6.5c0 1.25 1 2.5 1.125 2.625S7 12 8.5 12c.75 0 1.25-.375 1.625-.625.25-.25.375-.625.375-.875 0-.125-.125-.125-.25-.25Z" stroke="#E42E2E" stroke-width="0.8"/>
+                  </svg>
                 </div>
-                <span class="music-track-duration">2:50</span>
-              </li>
-            </ul>
-          </div>
-        </section>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type" data-i18n-pt="WhatsApp &middot; Shows, Aulas &amp; Estúdio" data-i18n-en="WhatsApp &middot; Shows, Lessons &amp; Studio" data-i18n-es="WhatsApp &middot; Shows, Clases y Estudio" data-i18n-de="WhatsApp &middot; Shows, Unterricht &amp; Studio">WhatsApp &middot; Shows, Aulas &amp; Estúdio</div>
+                  <div class="epk-contact-value">(16) 99373-3667</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
 
-        <!-- Section 3: EQUIPAMENTOS & LIVE RIG (3 Panels) -->
-        <section id="music-gear" class="figma-section">
-          <div class="figma-section-header">
-            <span class="figma-section-tag" data-i18n-pt="EQUIPAMENTOS &amp; LIVE RIG" data-i18n-en="GEAR &amp; LIVE RIG">EQUIPAMENTOS &amp; LIVE RIG</span>
-          </div>
-          <div class="figma-stack-grid">
-            <div class="figma-stack-panel">
-              <div class="figma-stack-panel-header">
-                <span style="font-size: 18px;">🎸</span>
-                <h4 data-i18n-pt="Guitarras &amp; Baixo" data-i18n-en="Guitars &amp; Bass">Guitarras &amp; Baixo</h4>
-              </div>
-              <div class="figma-badges-wrap">
-                <span class="figma-tech-badge">Fender Stratocaster</span>
-                <span class="figma-tech-badge">Baixo Precision</span>
-                <span class="figma-tech-badge">Microfone Shure Beta 58A</span>
-                <span class="figma-tech-badge">Encordoamento Ernie Ball 0.10</span>
-              </div>
-            </div>
+              <!-- E-mail Profissional -->
+              <a href="mailto:felipegardenghi@outlook.com" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1.5" y="3.5" width="13" height="9" rx="1" stroke="#E42E2E" stroke-width="0.9"/>
+                    <path d="M1.5 4.5l6.5 4.5 6.5-4.5" stroke="#E42E2E" stroke-width="0.9"/>
+                  </svg>
+                </div>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type" data-i18n-pt="E-mail Profissional" data-i18n-en="Professional E-mail" data-i18n-es="Correo Profesional" data-i18n-de="E-Mail-Adresse">E-mail Profissional</div>
+                  <div class="epk-contact-value">felipegardenghi@outlook.com</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
 
-            <div class="figma-stack-panel">
-              <div class="figma-stack-panel-header">
-                <span style="font-size: 18px;">🎛️</span>
-                <h4 data-i18n-pt="Live Rig Digital (Sem Amp)" data-i18n-en="Digital Amp-less Live Rig">Live Rig Digital (Sem Amp)</h4>
-              </div>
-              <div class="figma-badges-wrap">
-                <span class="figma-tech-badge">Notebook Linux Mint</span>
-                <span class="figma-tech-badge">DAW Reaper (PipeWire Pro Audio)</span>
-                <span class="figma-tech-badge">PreSonus AudioBox 22VSL</span>
-                <span class="figma-tech-badge">Galaxy S9+ Touch Remote</span>
-              </div>
-            </div>
+              <!-- Instagram -->
+              <a href="https://instagram.com/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="2" y="2" width="12" height="12" rx="3" stroke="#E42E2E" stroke-width="0.9"/>
+                    <circle cx="8" cy="8" r="3" stroke="#E42E2E" stroke-width="0.9"/>
+                    <circle cx="11.5" cy="4.5" r="0.75" fill="#E42E2E"/>
+                  </svg>
+                </div>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type">Instagram</div>
+                  <div class="epk-contact-value">@felipegardenghi</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
 
-            <div class="figma-stack-panel">
-              <div class="figma-stack-panel-header">
-                <span style="font-size: 18px;">🎧</span>
-                <h4 data-i18n-pt="Áudio DSP &amp; Retorno In-Ear" data-i18n-en="DSP Audio &amp; In-Ear Monitor">Áudio DSP &amp; Retorno In-Ear</h4>
-              </div>
-              <div class="figma-badges-wrap">
-                <span class="figma-tech-badge">Line 6 POD HD 500 (MIDI)</span>
-                <span class="figma-tech-badge">Transmissor M-Vave In-Ear Sem Fio</span>
-                <span class="figma-tech-badge">MidwestAmp C++17 CLAP</span>
-                <span class="figma-tech-badge">CryTune Pitch Correction</span>
-              </div>
-            </div>
-          </div>
-        </section>
+              <!-- Twitch -->
+              <a href="https://www.twitch.tv/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 2L2 4.5V12.5H5V14.5L7 12.5H9.5L14 8V2H3Z" stroke="#E42E2E" stroke-width="0.9" stroke-linejoin="round"/>
+                    <path d="M10.5 4.5V8M7.5 4.5V8" stroke="#E42E2E" stroke-width="0.9" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type">Twitch</div>
+                  <div class="epk-contact-value">twitch.tv/felipegardenghi</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
 
-        <!-- Section 4: SERVIÇOS MUSICAIS (2x2 Grid) -->
-        <section id="music-servicos" class="figma-section">
-          <div class="figma-section-header">
-            <span class="figma-section-tag" data-i18n-pt="SERVIÇOS MUSICAIS &amp; ATUAÇÃO" data-i18n-en="MUSICAL SERVICES &amp; BOOKING">SERVIÇOS MUSICAIS &amp; ATUAÇÃO</span>
-          </div>
-          <div class="figma-services-grid">
-            <div class="figma-service-card">
-              <h4 class="figma-service-title" data-i18n-pt="Shows ao Vivo &amp; Festivais (Banda Revanche)" data-i18n-en="Live Concerts &amp; Festivals (Banda Revanche)">Shows ao Vivo &amp; Festivais (Banda Revanche)</h4>
-              <p class="figma-service-desc" data-i18n-pt="Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000." data-i18n-en="Full live concerts with Banda Revanche delivering an intense set of 2000s rock and emo classics.">Apresentações completas com a Banda Revanche com repertório visceral de clássicos do rock/emo dos anos 2000.</p>
-            </div>
-            <div class="figma-service-card">
-              <h4 class="figma-service-title" data-i18n-pt="Gravação de Guitarra, Baixo &amp; Voz em Estúdio" data-i18n-en="Studio Guitar, Bass &amp; Vocal Tracking">Gravação de Guitarra, Baixo &amp; Voz em Estúdio</h4>
-              <p class="figma-service-desc" data-i18n-pt="Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio." data-i18n-en="High-resolution audio tracking for singles, arrangements and productions combining analog and digital tones.">Captação em alta resolução para singles, arranjos e produções musicais com timbres analógicos e digitais de estúdio.</p>
-            </div>
-            <div class="figma-service-card">
-              <h4 class="figma-service-title" data-i18n-pt="Engenharia de Live Rig &amp; Playback (VS)" data-i18n-en="Live Rig Engineering &amp; Stems Playback (VS)">Engenharia de Live Rig &amp; Playback (VS)</h4>
-              <p class="figma-service-desc" data-i18n-pt="Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas." data-i18n-en="Consulting and building silent amp-less stage setups, metronome click automation and stereo routing for bands.">Consultoria e montagem de setups de palco silenciosos, automação de metrônomo e roteamento estéreo para bandas.</p>
-            </div>
-            <div class="figma-service-card">
-              <h4 class="figma-service-title" data-i18n-pt="Desenvolvimento de Plugins de Áudio (C++ DSP)" data-i18n-en="Audio Plugin Development (C++ DSP)">Desenvolvimento de Plugins de Áudio (C++ DSP)</h4>
-              <p class="figma-service-desc" data-i18n-pt="Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco." data-i18n-en="Audio DSP software engineering in VST3 and CLAP formats, cabinet simulators and open-source stage tools.">Engenharia de software de áudio para formatos VST3 e CLAP, simuladores de gabinetes e ferramentas de palco.</p>
-            </div>
-          </div>
-        </section>
+              <!-- Twitter / X -->
+              <a href="https://twitter.com/felipegardenghi" target="_blank" rel="noopener noreferrer" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M2.5 2.5L7.1 8.6L2.5 13.5H4L8 9.2L11.3 13.5H13.5L8.6 7.1L12.9 2.5H11.4L7.7 6.5L4.7 2.5H2.5Z" stroke="#E42E2E" stroke-width="0.85" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type">Twitter / X</div>
+                  <div class="epk-contact-value">twitter.com/felipegardenghi</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
 
-        <!-- Section 5: REDES & BOOKING -->
-        <section id="music-contato" class="figma-section">
-          <div class="figma-section-header">
-            <span class="figma-section-tag" data-i18n-pt="REDES &amp; BOOKING" data-i18n-en="NETWORKS &amp; BOOKING">REDES &amp; BOOKING</span>
-          </div>
-          <div class="figma-social-pills-row">
-            <a href="https://instagram.com/felipegardenghi" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span>Instagram @felipegardenghi</span> &rarr;
-            </a>
-            <a href="https://instagram.com/bandarevanche" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span>@bandarevanche</span> &rarr;
-            </a>
-            <a href="https://bandarevanche.com.br" class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span data-i18n-pt="Site Oficial da Revanche" data-i18n-en="Official Revanche Website">Site Oficial da Revanche</span> &rarr;
-            </a>
-            <a href="https://wa.me/5516993733667?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20conversar%20sobre%20shows%20da%20Banda%20Revanche." class="figma-social-pill" target="_blank" rel="noopener noreferrer">
-              <span data-i18n-pt="WhatsApp de Booking" data-i18n-en="Booking WhatsApp">WhatsApp de Booking</span> &rarr;
-            </a>
+              <!-- TikTok -->
+              <a href="https://www.tiktok.com/@felipe.gardenghi" target="_blank" rel="noopener noreferrer" class="epk-contact-card">
+                <div class="epk-contact-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M9.5 2V10.2C9.5 11.7 8.3 13 6.7 13C5.2 13 4 11.7 4 10.2C4 8.7 5.2 7.5 6.7 7.5C7 7.5 7.3 7.55 7.5 7.65V5.5C7.25 5.45 7 5.45 6.7 5.45C4.1 5.45 2 7.6 2 10.2C2 12.8 4.1 15 6.7 15C9.3 15 11.5 12.8 11.5 10.2V5.8C12.3 6.4 13.3 6.8 14.5 6.8V4.8C12.8 4.8 11.5 3.5 11.5 2H9.5Z" stroke="#E42E2E" stroke-width="0.85" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="epk-contact-info">
+                  <div class="epk-contact-type">TikTok</div>
+                  <div class="epk-contact-value">tiktok.com/@felipe.gardenghi</div>
+                </div>
+                <svg class="epk-contact-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="0.9"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <div class="figma-cta-center">
-            <a href="https://wa.me/5516993733667?text=Ol%C3%A1%20Felipe!%20Gostaria%20de%20consultar%20agenda%20e%20or%C3%A7amento%20para%20show%20da%20Banda%20Revanche." target="_blank" rel="noopener noreferrer" class="figma-btn-primary" data-i18n-pt="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z'/></svg><span>Contratar Show da Banda Revanche</span>" data-i18n-en="<svg viewBox='0 0 24 24' width='20' height='20' fill='currentColor'><path d='M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z'/></svg><span>Book Banda Revanche Live Show</span>">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
-              <span>Contratar Show da Banda Revanche</span>
-            </a>
+          <!-- Rodapé Editorial do DPK -->
+          <div class="epk-footer">
+            <div class="epk-brand">
+              <span class="epk-brand-monogram">FG</span>
+              <span class="epk-brand-sep">|</span>
+              <span class="epk-brand-tag">DPK</span>
+            </div>
+            <p class="epk-footer-copy" data-i18n-pt="Digital Press Kit &middot; Felipe Gardenghi &middot; Sertãozinho / Ribeirão Preto, SP &middot; 2026" data-i18n-en="Digital Press Kit &middot; Felipe Gardenghi &middot; São Paulo, Brazil &middot; 2026" data-i18n-es="Digital Press Kit &middot; Felipe Gardenghi &middot; São Paulo, Brasil &middot; 2026" data-i18n-de="Digital Press Kit &middot; Felipe Gardenghi &middot; São Paulo, Brasilien &middot; 2026">
+              Digital Press Kit &middot; Felipe Gardenghi &middot; Sertãozinho / Ribeirão Preto, SP &middot; 2026
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
     </div>
 
   </main>
