@@ -1219,13 +1219,9 @@
   min-height: 100vh;
 }
 
-/* Position floating controls cleanly alongside the EPK navbar in Music Mode */
+/* Hide floating language bar in Music Mode since flags live inside .epk-navbar */
 [data-persona="music"] .figma-floating-nav {
-  top: 74px;
-  right: 24px;
-  left: auto;
-  transform: none;
-  padding: 0;
+  display: none !important;
 }
 
 [data-persona="music"] .figma-floating-back {
@@ -1269,6 +1265,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .epk-brand-group {
@@ -1332,6 +1329,46 @@
 
 .epk-nav-link.active {
   color: var(--epk-accent);
+}
+
+.epk-lang-flags {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--epk-border);
+  background: rgba(21, 13, 15, 0.8);
+  flex-shrink: 0;
+}
+
+.epk-lang-flag-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.52;
+  transition: opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.epk-lang-flag-btn:hover {
+  opacity: 0.92;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.epk-lang-flag-btn.active {
+  opacity: 1;
+  border-color: var(--epk-accent);
+  background: rgba(228, 46, 46, 0.16);
+}
+
+.epk-lang-flag-btn svg {
+  display: block;
+  border-radius: 2px;
 }
 
 /* ── EPK Decorative Rules & Watermarks ── */
@@ -2350,15 +2387,39 @@
 }
 
 @media (max-width: 768px) {
+  .epk-nav-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .epk-brand-tag {
+    display: none;
+  }
+  .epk-brand-sep {
+    display: none;
+  }
   .epk-nav-links {
-    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
     overflow-x: auto;
-    padding-left: 12px;
+    padding: 0 4px;
   }
   .epk-nav-link {
     font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     white-space: nowrap;
+  }
+  .epk-lang-flags {
+    gap: 2px;
+    padding: 3px;
+  }
+  .epk-lang-flag-btn {
+    width: 26px;
+    height: 22px;
+  }
+  .epk-lang-flag-btn svg {
+    width: 18px;
+    height: 13px;
   }
   .epk-section {
     padding: 4.5rem 0;
@@ -2373,10 +2434,6 @@
   }
   .epk-span-2 {
     grid-column: span 1 / span 1;
-  }
-  [data-persona="music"] .figma-floating-nav {
-    top: 68px;
-    right: 12px;
   }
   [data-persona="music"] .figma-floating-back {
     top: 72px;
